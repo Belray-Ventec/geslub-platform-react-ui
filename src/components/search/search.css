@@ -1,0 +1,28 @@
+.search {
+    outline: none;
+    padding: 0 0.9rem 0 1.6rem;
+    border-radius: 5px;
+    border: 1px solid #000;
+    height: 25px;
+}
+.searchContainer {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: flex-end;
+}
+.searchInputContainer{
+    display: flex;
+    align-items: center;
+}
+.searchLabel{
+    width: 15px;
+    position: relative;
+    left: 25px;
+    top: 2px;
+    justify-content: flex-start;
+}
+
+.search:focus{
+    border: 2px solid #000;
+}

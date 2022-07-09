@@ -1,0 +1,35 @@
+.tableContainer{
+    overflow-x: auto ;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+table{
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 100%;
+}
+
+table thread tr{
+    background-color: #980000;
+    color: #ffffff;
+    text-align: left;
+}
+table th, table td{
+    padding: 12px 15px;
+}
+table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+table tbody tr:last-of-type {
+    border-bottom: 2px solid #980000;
+}
+
+@media screen and (max-width: 700px) {
+}
