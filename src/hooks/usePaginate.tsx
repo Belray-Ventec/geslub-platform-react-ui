@@ -23,7 +23,6 @@ interface PaginateReturnProps<T>{
     next: () => void;
     previous: () => void;
     goPage: (page: number) => void;
-    filterData: (text: string) => void;
 }
 
 
@@ -38,6 +37,7 @@ export default function usePaginate<T>({data, itemsPerPage=2, search}: UsePagina
         totalPages: Math.ceil(data.length / itemsPerPage),
         totalItems: data.length,
     })
+    
 
     const next = (): void => {
         if(paginator.nextPage > paginator.totalPages){
@@ -74,7 +74,6 @@ const returnPaginator: PaginateReturnProps<T> = {
     next: next,
     previous: previous,
     goPage: goPage,
-    filterData: filterData,
 
 }
   return returnPaginator

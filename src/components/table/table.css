@@ -1,34 +1,42 @@
 .tableContainer{
     overflow-x: auto ;
     padding: 20px;
-    background-color: #f2f2f2;
 }
-table{
+.gesTable{
     border-collapse: collapse;
     font-size: 0.9em;
     font-family: sans-serif;
     width: 100%;
+    border-bottom: 2px solid #34495e;
 }
 
-table thread tr{
-    background-color: #980000;
+.gesTable thead tr{
+    background-color: #34495e;
     color: #ffffff;
     text-align: left;
 }
-table th, table td{
-    padding: 12px 15px;
-}
-table tbody tr {
-    border-bottom: 1px solid #dddddd;
+
+.gesTable thead tr th{
     text-align: center;
 }
 
-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+.gesTable th, table td{
+    padding: 12px 15px;
+}
+.gesTable tbody tr {
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+    background-color: #fff;
 }
 
-table tbody tr:last-of-type {
-    border-bottom: 2px solid #980000;
+.gesTable tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+.notInfoFound{
+    display: table-cell;
+    text-align: center;
+    position: relative;
+    left: 30%;
 }
 
 @media screen and (max-width: 700px) {

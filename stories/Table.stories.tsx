@@ -7,6 +7,9 @@ import { Product, productData } from '../src/data/index';
 export default {
   title: 'Table',
   component: Table,
+  argTypes: {
+    themeColor: {control: 'color'},
+  }
 } as ComponentMeta<typeof Table>;
 
 const Template: ComponentStory<typeof Table> = (args) => <Table  {...args} />;
@@ -43,4 +46,6 @@ Default.args = {
          )
         else return String(value);
       },
+      showPages: true,
+      itemsPerPage: 3
 };

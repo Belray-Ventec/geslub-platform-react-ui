@@ -3,13 +3,14 @@
     padding: 0 0.9rem 0 1.6rem;
     border-radius: 5px;
     border: 1px solid #000;
-    height: 25px;
+    height: 30px;
 }
 .searchContainer {
     display: flex;
     gap: 5px;
     align-items: center;
     justify-content: flex-end;
+    margin-bottom: 10px;
 }
 .searchInputContainer{
     display: flex;
