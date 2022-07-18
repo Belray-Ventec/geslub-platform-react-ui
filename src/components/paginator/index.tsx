@@ -1,5 +1,6 @@
 import React from 'react';
 import {StatePaginatorProps} from '../../hooks/usePaginate';
+import AngleLeft from '../Icons/AngleLeft';
 import './paginator.css';
 
 export interface PaginatorProps<T> {
@@ -20,9 +21,6 @@ export default function Paginator<T>({paginator, next, previous, goPage, showPag
     return (
     <div className='containerPaginator'>
         <div className="contenedor-pages">
-        <div onClick={(): void => previous()} className='previous'>
-            <span className='previousText'>Anterior</span>
-        </div>
         {showPages && (
         <div className='pages'>
             {[...Array.from(Array(paginator.totalPages).keys())].map((item) => (
@@ -30,10 +28,13 @@ export default function Paginator<T>({paginator, next, previous, goPage, showPag
             ))}
         </div>   
         )}
+        <div onClick={(): void => previous()} className='previous'>
+            <span className='previousText'><AngleLeft/></span>
+        </div>
         <div onClick={(): void => {
                 next();
             }} className='next'>
-            <span className='nextText'>Siguiente</span>
+            <span className='nextText'><AngleLeft/></span>
         </div>
         </div>
         <span>Mostrando {paginator.totalPages > 0 ? firstElement: '0'} a {paginator.totalPages > 0 ? lastElement : '0'} de {paginator.totalItems} registros</span>

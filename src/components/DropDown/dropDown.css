@@ -1,0 +1,22 @@
+.belDropDown-content{
+    display: none;
+}
+
+.belDropDown{
+    position: relative;
+    color: #fff;
+}
+.belDropDown-content-hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    right: 100%;
+    top: 0;
+    gap: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgb(0 21 64 / 10%), 0 10px 20px rgb(0 21 64 / 5%);
+    padding: 5px;
+}

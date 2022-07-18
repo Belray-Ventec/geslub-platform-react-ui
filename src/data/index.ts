@@ -20,3 +20,7 @@ export const productColumns: ProductColumns[] = [
     { label: "Comprar", key: "link" },
     { label: "Etiquetas", key: "tag"}
   ]
+
+export const onEdit = (product: Product): void => {
+    console.log(product)
+}

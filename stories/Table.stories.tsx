@@ -1,8 +1,9 @@
 import Table from '../src/components/table';
 import React from 'react';
 import { ComponentMeta, ComponentStory} from '@storybook/react';
-import TagList from '../src/components/tagList/index';
-import { Product, productData } from '../src/data/index';
+import TagList from '../src/components/tagList';
+import { onEdit, Product, productData } from '../src/data';
+import Add from '../src/components/Icons/Add';
 
 export default {
   title: 'Table',
@@ -19,7 +20,7 @@ export const Default = Template.bind({});
 
 Default.args = {
     
-    data: productData,
+    initialData: productData,
     columns: [
         { label: "Id", key: "id" },
         { label: "Nombre", key: "name" },
@@ -47,5 +48,10 @@ Default.args = {
         else return String(value);
       },
       showPages: true,
-      itemsPerPage: 3
+      itemsPerPage: 3,
+      actions: [{label: 'Custom Action', callback: onEdit},  {label: <Add size={20} fill='#fff'/>, callback: onEdit}],
+      showInfo: true,
+      showDownload: true,
+      showShare: true,
+      showSee: true,
 };

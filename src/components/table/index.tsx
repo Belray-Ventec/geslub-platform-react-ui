@@ -1,55 +1,139 @@
 import React, { useEffect, useState } from 'react';
 import usePaginate from '../../hooks/usePaginate';
+import {Button} from '../Button';
+import DropDown from '../DropDown';
+import Add from '../Icons/Add';
+import Ellipsis from '../Icons/Ellipsis';
+import Eye from '../Icons/Eye';
+import FileArrowDown from '../Icons/FileArrowDown';
+import Info from '../Icons/Info';
+import ShareNodes from '../Icons/ShareNodes';
+import Xmark from '../Icons/Xmark';
 import Paginator from '../paginator';
 import Search from '../search';
 import './table.css';
 
+
 export interface TableProps<T> {
-    data: T[];
+    initialData: T[];
     columns: { label: string; key: keyof T }[];
     getRowKey: (d: T) => string | number;
     renderCell?: (key: keyof T, value: unknown) => JSX.Element;
     themeColor: string;
     showPages: boolean;
     itemsPerPage: number;
+    actions: { label: string | JSX.Element; callback: (d: T) => void }[];
+    caption?: string;
+    showInfo?: boolean;
+    showDownload?: boolean;
+    showShare?: boolean;
+    showSee?: boolean;
+    themeTextColor: string;
 }
 
-export default function Table<T>({columns, data, getRowKey, renderCell, themeColor, showPages = false, itemsPerPage}: TableProps<T>): JSX.Element {
+export default function Table<T>({columns, initialData, getRowKey, renderCell, themeColor, showPages = false, itemsPerPage, actions, caption, showInfo, showDownload, showShare, showSee}: TableProps<T>): JSX.Element {
 
 
   const [search, setSearch] = useState('')
-  const {paginator, next, previous, goPage} = usePaginate({data, itemsPerPage: itemsPerPage, search});
+  const [data, setData] = useState<T[]>(initialData)
+  const {paginator, next, previous, goPage, onDelete} = usePaginate({data, setData, itemsPerPage: itemsPerPage, search});
+  const [selected, setSelected] = useState<T[]>([]);
 
   useEffect(() => {
     goPage(1);
   }, [search])
   
+
+  
+  const isChecked = (item: T): void => {
+      if (selected.includes(item)){
+        const filter = selected.filter(t => item !== t)
+        setSelected([...filter])
+      } else {
+        setSelected([...selected, item])
+      }
+  }
   
 
   return (
+<>
+<Search search={search} setSearch={setSearch} />
+<div className='control'>
+      <Button primary backgroundColor={themeColor ? themeColor : '#fff'} variant='text' text={<Add size={20} fill={themeColor ? '#fff' : '#9a9a9a'}/>}/>
+      <Button primary backgroundColor={themeColor ? themeColor : '#fff'} variant='text' text={<ShareNodes size={20} fill={themeColor ? '#fff' : '#9a9a9a'}/>}/>
+      <Button onClick={(): void => onDelete(selected)} primary backgroundColor={themeColor ? themeColor : '#fff'} variant='text' text={<Xmark size={20} fill={themeColor ? '#fff' : '#9a9a9a'}/>}/>
+  </div>
 <div className='tableContainer'>
-  <Search search={search} setSearch={setSearch} />
   <table style={themeColor ? {borderBottom: `2px solid ${themeColor}`} : {}} className='gesTable'>
+    { caption && (<caption className='belCaption'>{caption}</caption>) }
     <thead>
-      <tr style={themeColor ? {backgroundColor: themeColor} : {}}>
+      <tr style={themeColor ? {backgroundColor: themeColor} : {backgroundColor: '#fff', color: '#000', boxShadow: '0 2px 6px rgb(0 21 64 / 10%), 0 10px 20px rgb(0 21 64 / 5%)'}}>
+      <th></th>
       {columns.map(({ label }) => (
           <th key={label}>{label}</th>
       ))}
+      { actions.length > 0 && <th>Acciones</th>}
       </tr>
     </thead>
     <tbody>
-      {paginator.data.length > 0 ? paginator.data.map((item) => (
-        <tr key={getRowKey(item)}>
+      {paginator.data.length > 0 ? paginator.data.map((item, index) => (
+        <tr onClick={(): void => isChecked(item)} key={getRowKey(item)}>
+          <td>
+            <input className='belcheckbox' readOnly id={`belCheck${index}`} checked={selected.includes(item)} type="checkbox" />
+          </td>
           {columns.map(({key}, idx) => (
               <td key={idx}>
                   {renderCell ? renderCell(key, item[key]) : String(item[key])}
               </td>
           )) }
+          <td>
+            <div className='acciones'>
+                  { showInfo && (
+                      <Button
+                      variant={'icon'}
+                      onClick={(): void => console.log('Custom Info Button')}
+                      text={<Info/>}
+                    />
+                  )}
+                  { showDownload && (
+                    <Button
+                      variant={'icon'}
+                      onClick={(): void => console.log('Custom Download Button')}
+                      text={<FileArrowDown/>}
+                    />
+                    )}
+                    { showShare && (
+                    <Button
+                      variant={'icon'}
+                      onClick={(): void => console.log('Custom Share Button')}
+                      text={<ShareNodes/>}
+                    />
+                    )}
+                    { showSee && (
+                    <Button
+                      variant={'icon'}
+                      onClick={(): void => console.log('Custom See Button')}
+                      text={<Eye/>}
+                    />
+                    )}
+                {actions.map((action, index) => (
+                  <Button
+                    backgroundColor={themeColor ? themeColor : '#34495e'}
+                    primary
+                    key={index}
+                    onClick={(): void => action.callback(item)}
+                    text={action.label}
+                  />
+                ))}
+                  <DropDown themeColor={themeColor} title={<Ellipsis />}/>
+              </div>
+            </td>
         </tr> 
-      )): <span className='notInfoFound'>No hay información disponible</span>}
+      )): <tr><td><span className='notInfoFound'>No hay información disponible</span></td></tr>}
     </tbody>
   </table>
-  <Paginator themeColor={themeColor} showPages={showPages} next={next} previous={previous} goPage={goPage} paginator={paginator} />
 </div>
+<Paginator themeColor={themeColor} showPages={showPages} next={next} previous={previous} goPage={goPage} paginator={paginator} />
+</>
   )
 }

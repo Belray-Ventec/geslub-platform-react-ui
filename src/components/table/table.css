@@ -3,17 +3,22 @@
     padding: 20px;
 }
 .gesTable{
-    border-collapse: collapse;
+    border-collapse: separate;
     font-size: 0.9em;
     font-family: sans-serif;
     width: 100%;
-    border-bottom: 2px solid #34495e;
+    border-bottom: 2px solid #9a9a9a;
+    border-spacing: 0px 15px;
+    padding: 0px 10px 10px 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgb(0 21 64 / 10%), 0 10px 20px rgb(0 21 64 / 5%);
 }
 
 .gesTable thead tr{
     background-color: #34495e;
     color: #ffffff;
     text-align: left;
+    border-bottom: 1px solid #dddddd;
 }
 
 .gesTable thead tr th{
@@ -26,11 +31,10 @@
 .gesTable tbody tr {
     border-bottom: 1px solid #dddddd;
     text-align: center;
-    background-color: #fff;
+    background-color: #f2f2f2;
 }
-
-.gesTable tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+.gesTable tbody tr:hover {
+    filter: brightness(0.95);
 }
 .notInfoFound{
     display: table-cell;
@@ -38,6 +42,36 @@
     position: relative;
     left: 30%;
 }
+.acciones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.belCaption {
+    margin-bottom: 0.8rem;
+    font-size: 2rem;
+    font-family: sans-serif;
+}
+.control {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 10px 0px 10px;
+    gap: 10px;
+}
+.belcheckbox{
+    width: 20px;
+    height: 20px;
+}
+
 
 @media screen and (max-width: 700px) {
+    .acciones {
+        flex-direction: column;
+    }
+    .control > button{
+        flex-grow: 1;
+    }
 }
+
