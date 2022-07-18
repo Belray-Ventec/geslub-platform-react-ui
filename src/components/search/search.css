@@ -27,8 +27,6 @@
     margin-left: 10px;
     margin-right: 10px;
 }
-.searchLabel{
-}
 
 .search:focus{
     border: 2px solid #000;
