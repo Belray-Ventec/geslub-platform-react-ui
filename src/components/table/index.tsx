@@ -11,6 +11,8 @@ import ShareNodes from '../Icons/ShareNodes';
 import Xmark from '../Icons/Xmark';
 import Paginator from '../paginator';
 import Search from '../search';
+import PenToSquare from '../Icons/PenToSquare';            
+
 import './table.css';
 
 
@@ -87,7 +89,9 @@ export default function Table<T>({columns, initialData, getRowKey, renderCell, t
               </td>
           )) }
           <td>
+          
             <div className='acciones'>
+            <DropDown themeColor={themeColor} onlyResponsive title={'Acciones'}>
                   { showInfo && (
                       <Button
                       variant={'icon'}
@@ -125,7 +129,12 @@ export default function Table<T>({columns, initialData, getRowKey, renderCell, t
                     text={action.label}
                   />
                 ))}
-                  <DropDown themeColor={themeColor} title={<Ellipsis />}/>
+                </DropDown>
+                  <DropDown themeColor={themeColor} title={<Ellipsis />}>
+                  
+                    <Button backgroundColor={themeColor} text={<PenToSquare fill={themeColor ? '#fff' : '#9a9a9a'} size={20}/>} />
+                    <Button backgroundColor={themeColor} text={<Xmark fill={themeColor ? '#fff' : '#9a9a9a'} size={20}/>} />
+                  </DropDown>
               </div>
             </td>
         </tr> 
