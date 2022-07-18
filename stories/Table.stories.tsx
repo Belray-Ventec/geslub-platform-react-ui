@@ -3,7 +3,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory} from '@storybook/react';
 import TagList from '../src/components/tagList';
 import { onEdit, Product, productData } from '../src/data';
-import Add from '../src/components/Icons/Add';
+import Add from '../src/components/icons/Add';
 
 export default {
   title: 'Table',
