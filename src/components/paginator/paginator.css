@@ -1,0 +1,68 @@
+.containerPaginator{
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+    align-items: flex-end;
+    font-family: sans-serif;
+}
+.contenedor-pages{
+    display: flex;
+    gap: 5px;
+}
+.previous, .next{
+    cursor: pointer;
+    border-radius: 100%;
+    background-color: #e4e4e4;
+    padding: 10px 15px;
+}
+.previous:hover{
+    background-color: #ecf0f1;
+    
+}
+
+.next:hover{
+    background-color: #ecf0f1;
+}
+.nextText, .previousText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: #000;
+    
+}
+.pages{
+    display: flex;
+    gap: 5px;
+}
+.pageLink{
+    color: #c0392b;;
+    border: 1px solid #c0392b;;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+}
+.pageLink--active{
+    color: #fff;
+    background-color: #c0392b;
+}
+.nextText > svg{
+    width: 10px;
+}
+.previousText > svg{
+    width: 10px;
+}
+.nextText > svg {
+    transform: rotateY(180deg);
+}
+
+@media screen and (max-width: 700px) {
+    .containerPaginator{
+        align-items: center;
+    }
+}
