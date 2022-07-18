@@ -9,23 +9,17 @@
     display: flex;
     gap: 5px;
 }
-.previous{
-    padding: 10px;
+.previous, .next{
     cursor: pointer;
     border-radius: 100%;
     background-color: #e4e4e4;
+    padding: 10px 15px;
 }
 .previous:hover{
     background-color: #ecf0f1;
     
 }
-.next{
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 100%;
-    background-color: #e4e4e4;
 
-}
 .next:hover{
     background-color: #ecf0f1;
 }
