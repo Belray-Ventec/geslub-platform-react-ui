@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import usePaginate from '../../hooks/usePaginate';
-import { Button } from '../button';
-import DropDown from '../dropDown';
-import Add from '../icons/Add';
-import Ellipsis from '../icons/Ellipsis';
-import Eye from '../icons/Eye';
-import FileArrowDown from '../icons/FileArrowDown';
-import Info from '../icons/Info';
-import ShareNodes from '../icons/ShareNodes';
-import Xmark from '../icons/Xmark';
+import { Button } from '../Button';
+import DropDown from '../DropDown';
+import Add from '../Icons/Add';
+import Ellipsis from '../Icons/Ellipsis';
+import Eye from '../Icons/Eye';
+import FileArrowDown from '../Icons/FileArrowDown';
+import Info from '../Icons/Info';
+import ShareNodes from '../Icons/ShareNodes';
+import Xmark from '../Icons/Xmark';
 import Paginator from '../paginator';
 import Search from '../search';
-import PenToSquare from '../icons/PenToSquare';
+import PenToSquare from '../Icons/PenToSquare';
 
 import './table.css';
 

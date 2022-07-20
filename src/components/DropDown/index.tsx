@@ -1,6 +1,6 @@
 import React, { ReactNode, useState } from 'react';
 import './dropDown.css';
-import { Button } from '../button';
+import { Button } from '../Button';
 
 interface DropDownProps {
   title: string | JSX.Element;
