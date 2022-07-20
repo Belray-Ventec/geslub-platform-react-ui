@@ -26,6 +26,8 @@ Default.args = {
     { label: 'Comprar', key: 'link' },
     { label: 'Etiquetas', key: 'tag' },
   ],
+
+  // content: [{ label: 'Nombre', getValue: (item) => item.name}, { label: 'etiquetas', getValue: (item) => item.tag}],
   getRowKey: (item: Product): string | number => item.id,
   renderCell: (key, value): string | JSX.Element => {
     if (key === 'link')

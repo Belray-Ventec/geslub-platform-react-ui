@@ -18,6 +18,7 @@ import './table.css';
 export interface TableProps<T> {
   initialData: T[];
   columns: { label: string; key: keyof T }[];
+  content?: { label: string; getValue: (item: T) => unknown }[];
   getRowKey: (d: T) => string | number;
   renderCell?: (key: keyof T, value: unknown) => JSX.Element;
   themeColor: string;
@@ -117,6 +118,10 @@ export default function Table<T>({
               {columns.map(({ label }) => (
                 <th key={label}>{label}</th>
               ))}
+
+              {/* {content.map(({ label }) => (
+          <th key={label}>{label}</th>
+      ))} */}
               {actions.length > 0 && <th>Acciones</th>}
             </tr>
           </thead>
@@ -140,6 +145,15 @@ export default function Table<T>({
                         : String(item[key])}
                     </td>
                   ))}
+
+                  {/* {
+            content.map(({label, getValue}, idx) => (
+              <td key={idx}>
+                {String(getValue(item))} 
+              </td>
+              
+            ))
+          } */}
                   <td>
                     <div className="acciones">
                       <DropDown
