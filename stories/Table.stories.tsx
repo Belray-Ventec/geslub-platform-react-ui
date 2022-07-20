@@ -26,32 +26,34 @@ Default.args = {
         { label: "Nombre", key: "name" },
         { label: "Precio", key: "price" },
         { label: "Comprar", key: "link" },
-        { label: "Etiquetas", key: "tag"}
+        { label: "Etiquetas", key: "tag"},
+        
       ],
-      getRowKey: (item: Product): string | number => item.id,
-      renderCell: (key, value): string | JSX.Element => {
-        if (key === "link")
-          return (
-            <a
-              href={String(value)}
-              rel="noopener noreferrer"
-              target="_blank"
-              download
-            >
-              Comprar
-            </a>
-          );
-        else if(key === 'tag')
-         return (
-            <TagList data={value} />
-         )
-        else return String(value);
-      },
-      showPages: true,
-      itemsPerPage: 3,
-      actions: [{label: 'Custom Action', callback: onEdit},  {label: <Add size={20} fill='#fff'/>, callback: onEdit}],
-      showInfo: true,
-      showDownload: true,
-      showShare: true,
-      showSee: true,
+    // content: [{ label: 'Nombre', getValue: (item) => item.name}, { label: 'etiquetas', getValue: (item) => item.tag}],
+    getRowKey: (item: Product): string | number => item.id,
+    renderCell: (key, value): string | JSX.Element => {
+      if (key === "link")
+        return (
+          <a
+            href={String(value)}
+            rel="noopener noreferrer"
+            target="_blank"
+            download
+          >
+            Comprar
+          </a>
+        );
+      else if(key === 'tag')
+        return (
+          <TagList data={value} />
+        )
+      else return String(value);
+    },
+    showPages: true,
+    itemsPerPage: 3,
+    actions: [{label: 'Custom Action', callback: onEdit},  {label: <Add size={20} fill='#fff'/>, callback: onEdit}],
+    showInfo: true,
+    showDownload: true,
+    showShare: true,
+    showSee: true,
 };
