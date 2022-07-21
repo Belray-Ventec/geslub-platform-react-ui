@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { paginar } from '../utils/paginate';
+import { paginate } from '../utils/paginate';
 
 export interface UsePaginateProps<T> {
   data: T[];
@@ -33,7 +33,7 @@ export default function usePaginate<T>({
   search,
 }: UsePaginateProps<T>): PaginateReturnProps<T> {
   const [paginator, setPaginator] = useState({
-    data: paginar(data, 1, itemsPerPage),
+    data: paginate(data, 1, itemsPerPage),
     itemsPerPage: itemsPerPage,
     page: 1,
     nextPage: 2,
@@ -64,7 +64,7 @@ export default function usePaginate<T>({
       nextPage: page + 1,
       page: page,
       previousPage: page - 1,
-      data: paginar(filterData(search), page, paginator.itemsPerPage),
+      data: paginate(filterData(search), page, paginator.itemsPerPage),
       totalItems: filterData(search).length,
       totalPages: Math.ceil(filterData(search).length / paginator.itemsPerPage),
     });

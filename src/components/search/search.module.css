@@ -10,14 +10,14 @@
     border: none;
 }
 
-.searchContainer {
+.search_container {
     display: flex;
     gap: 5px;
     align-items: center;
     position: relative;
     justify-content: flex-end;
 }
-.searchInputContainer{
+.search_input_container{
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -33,7 +33,7 @@
 }
 
 @media screen and (max-width: 700px) {
-    .searchInputContainer{
+    .search_input_container{
         width: 100%;
     }
 }

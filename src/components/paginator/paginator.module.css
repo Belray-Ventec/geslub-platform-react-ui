@@ -1,11 +1,11 @@
-.containerPaginator{
+.container_paginator{
     display: flex;
     flex-direction: column;
     padding-right: 20px;
     align-items: flex-end;
     font-family: sans-serif;
 }
-.contenedor-pages{
+.container_pages{
     display: flex;
     gap: 5px;
 }
@@ -23,7 +23,7 @@
 .next:hover{
     background-color: #ecf0f1;
 }
-.nextText, .previousText{
+.next_text, .previous_text{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +35,7 @@
     display: flex;
     gap: 5px;
 }
-.pageLink{
+.page_link{
     color: #c0392b;;
     border: 1px solid #c0392b;;
     padding-left: 5px;
@@ -47,22 +47,22 @@
     align-items: center;
     width: 30px;
 }
-.pageLink--active{
+.page_link_active{
     color: #fff;
     background-color: #c0392b;
 }
-.nextText > svg{
+.next_text > svg{
     width: 10px;
 }
-.previousText > svg{
+.previous_text > svg{
     width: 10px;
 }
-.nextText > svg {
+.next_text > svg {
     transform: rotateY(180deg);
 }
 
 @media screen and (max-width: 700px) {
-    .containerPaginator{
+    .container_paginator{
         align-items: center;
     }
 }

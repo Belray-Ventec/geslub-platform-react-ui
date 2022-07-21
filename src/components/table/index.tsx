@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import usePaginate from '../../hooks/usePaginate';
-import { Button } from '../Button';
-import DropDown from '../DropDown';
-import Add from '../Icons/Add';
-import Ellipsis from '../Icons/Ellipsis';
-import Eye from '../Icons/Eye';
-import FileArrowDown from '../Icons/FileArrowDown';
-import Info from '../Icons/Info';
-import ShareNodes from '../Icons/ShareNodes';
-import Xmark from '../Icons/Xmark';
+import { Button } from '../button';
+import DropDown from '../dropDown';
+import Add from '../icons/Add';
+import Ellipsis from '../icons/Ellipsis';
+import Eye from '../icons/Eye';
+import FileArrowDown from '../icons/FileArrowDown';
+import Info from '../icons/Info';
+import ShareNodes from '../icons/ShareNodes';
+import Xmark from '../icons/Xmark';
 import Paginator from '../paginator';
 import Search from '../search';
-import PenToSquare from '../Icons/PenToSquare';
+import PenToSquare from '../icons/PenToSquare';
 
-import './table.css';
+import * as styles from './table.module.css';
 
 export interface TableProps<T> {
   initialData: T[];
@@ -30,10 +30,9 @@ export interface TableProps<T> {
   showDownload?: boolean;
   showShare?: boolean;
   showSee?: boolean;
-  themeTextColor: string;
 }
 
-export default function Table<T>({
+export function Table<T>({
   columns,
   initialData,
   getRowKey,
@@ -59,6 +58,12 @@ export default function Table<T>({
   const [selected, setSelected] = useState<T[]>([]);
 
   useEffect(() => {
+    setData(initialData)
+
+  }, [initialData])
+  
+
+  useEffect(() => {
     goPage(1);
   }, [search]);
 
@@ -74,7 +79,7 @@ export default function Table<T>({
   return (
     <>
       <Search search={search} setSearch={setSearch} />
-      <div className="control">
+      <div className={styles.control}>
         <Button
           primary
           backgroundColor={themeColor ? themeColor : '#fff'}
@@ -95,12 +100,12 @@ export default function Table<T>({
           text={<Xmark size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />}
         />
       </div>
-      <div className="tableContainer">
+      <div className={styles.table_container}>
         <table
           style={themeColor ? { borderBottom: `2px solid ${themeColor}` } : {}}
-          className="gesTable"
+          className={styles.ges_table}
         >
-          {caption && <caption className="belCaption">{caption}</caption>}
+          {caption && <caption className={styles.bel_caption}>{caption}</caption>}
           <thead>
             <tr
               style={
@@ -155,12 +160,7 @@ export default function Table<T>({
             ))
           } */}
                   <td>
-                    <div className="acciones">
-                      <DropDown
-                        themeColor={themeColor}
-                        onlyResponsive
-                        title={'Acciones'}
-                      >
+                    <div className={styles.actions}>
                         {showInfo && (
                           <Button
                             variant={'icon'}
@@ -208,7 +208,6 @@ export default function Table<T>({
                             text={action.label}
                           />
                         ))}
-                      </DropDown>
                       <DropDown themeColor={themeColor} title={<Ellipsis />}>
                         <Button
                           backgroundColor={themeColor}
@@ -236,7 +235,7 @@ export default function Table<T>({
             ) : (
               <tr>
                 <td>
-                  <span className="notInfoFound">
+                  <span className={styles.not_info_found}>
                     No hay información disponible
                   </span>
                 </td>

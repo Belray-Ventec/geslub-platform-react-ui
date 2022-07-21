@@ -1,8 +1,8 @@
-import Table from '../src/components/table';
+import {Table} from '../src/components/table';
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import TagList from '../src/components/tagList';
-import { onEdit, Product, productData } from '../src/data';
+import { onEdit, Product, productData } from '../src/utils/data';
 import Add from '../src/components/Icons/Add';
 
 export default {
