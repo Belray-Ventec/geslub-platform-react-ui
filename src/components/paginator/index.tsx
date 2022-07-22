@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatePaginatorProps } from '../../hooks/usePaginate';
 import AngleLeft from '../icons/AngleLeft';
-import * as styles from './paginator.module.css';
+import styles from './paginator.module.css';
 export interface PaginatorProps<T> {
   paginator: StatePaginatorProps<T>;
   showPages?: boolean;

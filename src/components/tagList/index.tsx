@@ -1,6 +1,6 @@
 import React from 'react';
 import Tag from '../tag';
-import * as styles from './tagList.module.css';
+import styles from './tagList.module.css';
 
 interface TagListProps {
   data: string[];

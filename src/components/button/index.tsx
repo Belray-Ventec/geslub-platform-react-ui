@@ -1,5 +1,5 @@
 import React from 'react';
-import * as styles from './button.module.css';
+import styles from './button.module.css';
 
 export enum Size {
   small = 'small',

@@ -1,5 +1,5 @@
 import React from 'react';
-import * as styles from './tag.module.css';
+import styles from './tag.module.css';
 
 interface TagProps {
   text: string;

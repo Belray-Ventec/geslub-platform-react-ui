@@ -3,9 +3,9 @@ const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 module.exports = {
   rollup(config) {
-    true,
       config.plugins.push(
         postcss({
+          modules: true,
           plugins: [
             autoprefixer(),
             cssnano({

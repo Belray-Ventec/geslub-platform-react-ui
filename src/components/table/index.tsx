@@ -13,7 +13,7 @@ import Paginator from '../paginator';
 import Search from '../search';
 import PenToSquare from '../icons/PenToSquare';
 
-import * as styles from './table.module.css';
+import styles from './table.module.css';
 
 interface ActionsProps<T> {
   showInfo?: boolean;
