@@ -15,6 +15,16 @@ import PenToSquare from '../icons/PenToSquare';
 
 import * as styles from './table.module.css';
 
+interface ActionsProps<T> {
+  showInfo?: boolean;
+  showDownload?: boolean;
+  showShare?: boolean;
+  showSee?: boolean;
+  actions?: { label: string | JSX.Element; callback: (d: T) => void }[]; 
+  themeColor: string;
+  item: T;
+}
+
 export interface TableProps<T> {
   initialData: T[];
   columns: { label: string; key: keyof T; getValue: (item: T) => unknown }[];
@@ -146,71 +156,7 @@ export function Table<T>({
                     </td>
                   ))}
                   <td>
-                    <div className={styles.actions}>
-                      {showInfo && (
-                        <Button
-                          variant={'icon'}
-                          onClick={(): void =>
-                            console.log('Custom Info Button')
-                          }
-                          text={<Info />}
-                        />
-                      )}
-                      {showDownload && (
-                        <Button
-                          variant={'icon'}
-                          onClick={(): void =>
-                            console.log('Custom Download Button')
-                          }
-                          text={<FileArrowDown />}
-                        />
-                      )}
-                      {showShare && (
-                        <Button
-                          variant={'icon'}
-                          onClick={(): void =>
-                            console.log('Custom Share Button')
-                          }
-                          text={<ShareNodes />}
-                        />
-                      )}
-                      {showSee && (
-                        <Button
-                          variant={'icon'}
-                          onClick={(): void => console.log('Custom See Button')}
-                          text={<Eye />}
-                        />
-                      )}
-                      {actions.map((action, index) => (
-                        <Button
-                          backgroundColor={themeColor ? themeColor : '#34495e'}
-                          primary
-                          key={index}
-                          onClick={(): void => action.callback(item)}
-                          text={action.label}
-                        />
-                      ))}
-                      <DropDown themeColor={themeColor} title={<Ellipsis />}>
-                        <Button
-                          backgroundColor={themeColor}
-                          text={
-                            <PenToSquare
-                              fill={themeColor ? '#fff' : '#9a9a9a'}
-                              size={20}
-                            />
-                          }
-                        />
-                        <Button
-                          backgroundColor={themeColor}
-                          text={
-                            <Xmark
-                              fill={themeColor ? '#fff' : '#9a9a9a'}
-                              size={20}
-                            />
-                          }
-                        />
-                      </DropDown>
-                    </div>
+                      <Actions showInfo={showInfo} showDownload={showDownload} showShare={showShare} showSee={showSee} themeColor={themeColor} actions={actions} item={item} />
                   </td>
                 </tr>
               ))
@@ -236,4 +182,74 @@ export function Table<T>({
       />
     </>
   );
+}
+
+function Actions<T>({showInfo, showDownload, showShare, showSee, actions, themeColor, item}: ActionsProps<T>) {
+  return (
+    <div className={styles.actions}>
+    {showInfo && (
+      <Button
+        variant={'icon'}
+        onClick={(): void =>
+          console.log('Custom Info Button')
+        }
+        text={<Info />}
+      />
+    )}
+    {showDownload && (
+      <Button
+        variant={'icon'}
+        onClick={(): void =>
+          console.log('Custom Download Button')
+        }
+        text={<FileArrowDown />}
+      />
+    )}
+    {showShare && (
+      <Button
+        variant={'icon'}
+        onClick={(): void =>
+          console.log('Custom Share Button')
+        }
+        text={<ShareNodes />}
+      />
+    )}
+    {showSee && (
+      <Button
+        variant={'icon'}
+        onClick={(): void => console.log('Custom See Button')}
+        text={<Eye />}
+      />
+    )}
+    {actions && actions.map((action, index) => (
+      <Button
+        backgroundColor={themeColor ? themeColor : '#34495e'}
+        primary
+        key={index}
+        onClick={(): void => action.callback(item)}
+        text={action.label}
+      />
+    ))}
+    <DropDown themeColor={themeColor} title={<Ellipsis />}>
+      <Button
+        backgroundColor={themeColor}
+        text={
+          <PenToSquare
+            fill={themeColor ? '#fff' : '#9a9a9a'}
+            size={20}
+          />
+        }
+      />
+      <Button
+        backgroundColor={themeColor}
+        text={
+          <Xmark
+            fill={themeColor ? '#fff' : '#9a9a9a'}
+            size={20}
+          />
+        }
+      />
+    </DropDown>
+  </div>
+  )
 }

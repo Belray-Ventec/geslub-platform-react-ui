@@ -35,9 +35,9 @@ export function Button({
   const valueRounded = rounded ? '3rem' : '';
 
   const buttonSize =
-    size == Size.small
+    size === Size.small
       ? styles.button_belray_small
-      : size == Size.medium
+      : size === Size.medium
       ? styles.button_belray_medium
       : styles.button_belray_large;
 
