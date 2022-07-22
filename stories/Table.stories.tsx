@@ -1,4 +1,4 @@
-import {Table} from '../src/components/table';
+import { Table } from '../src/components/table';
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import TagList from '../src/components/tagList';
@@ -8,6 +8,13 @@ import Add from '../src/components/icons/Add';
 export default {
   title: 'Table',
   component: Table,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Tabla Responsiva con Paginación',
+      },
+    },
+  },
   argTypes: {
     themeColor: { control: 'color' },
   },
@@ -20,14 +27,14 @@ export const Default = Template.bind({});
 Default.args = {
   initialData: productData,
   columns: [
-    { label: 'Id', key: 'id' },
-    { label: 'Nombre', key: 'name' },
-    { label: 'Precio', key: 'price' },
-    { label: 'Comprar', key: 'link' },
-    { label: 'Etiquetas', key: 'tag' },
+    { label: 'Id', key: 'id', getValue: (item) => item.id },
+    { label: 'Nombre', key: 'name', getValue: (item) => item.name },
+    { label: 'Precio', key: 'price', getValue: (item) => item.price },
+    { label: 'Comprar', key: 'link', getValue: (item) => item.link },
+    { label: 'Etiquetas', key: 'tag', getValue: (item) => item.tag },
+    { label: 'Pais', key: 'address', getValue: (item) => item.address.country },
   ],
 
-  // content: [{ label: 'Nombre', getValue: (item) => item.name}, { label: 'etiquetas', getValue: (item) => item.tag}],
   getRowKey: (item: Product): string | number => item.id,
   renderCell: (key, value): string | JSX.Element => {
     if (key === 'link')

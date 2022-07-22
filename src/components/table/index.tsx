@@ -17,8 +17,7 @@ import * as styles from './table.module.css';
 
 export interface TableProps<T> {
   initialData: T[];
-  columns: { label: string; key: keyof T }[];
-  content?: { label: string; getValue: (item: T) => unknown }[];
+  columns: { label: string; key: keyof T; getValue: (item: T) => unknown }[];
   getRowKey: (d: T) => string | number;
   renderCell?: (key: keyof T, value: unknown) => JSX.Element;
   themeColor: string;
@@ -58,10 +57,8 @@ export function Table<T>({
   const [selected, setSelected] = useState<T[]>([]);
 
   useEffect(() => {
-    setData(initialData)
-
-  }, [initialData])
-  
+    setData(initialData);
+  }, [initialData]);
 
   useEffect(() => {
     goPage(1);
@@ -105,7 +102,9 @@ export function Table<T>({
           style={themeColor ? { borderBottom: `2px solid ${themeColor}` } : {}}
           className={styles.ges_table}
         >
-          {caption && <caption className={styles.bel_caption}>{caption}</caption>}
+          {caption && (
+            <caption className={styles.bel_caption}>{caption}</caption>
+          )}
           <thead>
             <tr
               style={
@@ -123,10 +122,6 @@ export function Table<T>({
               {columns.map(({ label }) => (
                 <th key={label}>{label}</th>
               ))}
-
-              {/* {content.map(({ label }) => (
-          <th key={label}>{label}</th>
-      ))} */}
               {actions.length > 0 && <th>Acciones</th>}
             </tr>
           </thead>
@@ -143,71 +138,58 @@ export function Table<T>({
                       type="checkbox"
                     />
                   </td>
-                  {columns.map(({ key }, idx) => (
+                  {columns.map(({ key, getValue }, idx) => (
                     <td key={idx}>
                       {renderCell
-                        ? renderCell(key, item[key])
-                        : String(item[key])}
+                        ? renderCell(key, getValue(item))
+                        : String(getValue(item))}
                     </td>
                   ))}
-
-                  {/* {
-            content.map(({label, getValue}, idx) => (
-              <td key={idx}>
-                {String(getValue(item))} 
-              </td>
-              
-            ))
-          } */}
                   <td>
                     <div className={styles.actions}>
-                        {showInfo && (
-                          <Button
-                            variant={'icon'}
-                            onClick={(): void =>
-                              console.log('Custom Info Button')
-                            }
-                            text={<Info />}
-                          />
-                        )}
-                        {showDownload && (
-                          <Button
-                            variant={'icon'}
-                            onClick={(): void =>
-                              console.log('Custom Download Button')
-                            }
-                            text={<FileArrowDown />}
-                          />
-                        )}
-                        {showShare && (
-                          <Button
-                            variant={'icon'}
-                            onClick={(): void =>
-                              console.log('Custom Share Button')
-                            }
-                            text={<ShareNodes />}
-                          />
-                        )}
-                        {showSee && (
-                          <Button
-                            variant={'icon'}
-                            onClick={(): void =>
-                              console.log('Custom See Button')
-                            }
-                            text={<Eye />}
-                          />
-                        )}
-                        {actions.map((action, index) => (
-                          <Button
-                            backgroundColor={
-                              themeColor ? themeColor : '#34495e'
-                            }
-                            primary
-                            key={index}
-                            onClick={(): void => action.callback(item)}
-                            text={action.label}
-                          />
-                        ))}
+                      {showInfo && (
+                        <Button
+                          variant={'icon'}
+                          onClick={(): void =>
+                            console.log('Custom Info Button')
+                          }
+                          text={<Info />}
+                        />
+                      )}
+                      {showDownload && (
+                        <Button
+                          variant={'icon'}
+                          onClick={(): void =>
+                            console.log('Custom Download Button')
+                          }
+                          text={<FileArrowDown />}
+                        />
+                      )}
+                      {showShare && (
+                        <Button
+                          variant={'icon'}
+                          onClick={(): void =>
+                            console.log('Custom Share Button')
+                          }
+                          text={<ShareNodes />}
+                        />
+                      )}
+                      {showSee && (
+                        <Button
+                          variant={'icon'}
+                          onClick={(): void => console.log('Custom See Button')}
+                          text={<Eye />}
+                        />
+                      )}
+                      {actions.map((action, index) => (
+                        <Button
+                          backgroundColor={themeColor ? themeColor : '#34495e'}
+                          primary
+                          key={index}
+                          onClick={(): void => action.callback(item)}
+                          text={action.label}
+                        />
+                      ))}
                       <DropDown themeColor={themeColor} title={<Ellipsis />}>
                         <Button
                           backgroundColor={themeColor}

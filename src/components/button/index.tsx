@@ -34,7 +34,12 @@ export function Button({
     : `${styles.button_belray_secondary}`;
   const valueRounded = rounded ? '3rem' : '';
 
-  const buttonSize = size == Size.small ? styles.button_belray_small : size == Size.medium ? styles.button_belray_medium : styles.button_belray_large
+  const buttonSize =
+    size == Size.small
+      ? styles.button_belray_small
+      : size == Size.medium
+      ? styles.button_belray_medium
+      : styles.button_belray_large;
 
   const isText = variant === 'text' ? buttonSize : '';
   return (

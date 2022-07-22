@@ -4,6 +4,7 @@ export interface Product {
   price: number;
   link: string;
   tag?: string[];
+  address: { city: string; number: number; country: string; street: string };
 }
 
 export interface ProductColumns {
@@ -18,6 +19,12 @@ export const productData: Product[] = [
     price: 500,
     link: 'https://www.google.cl',
     tag: ['Congelados', 'Panaderia 1', 'Colaciones', 'Hogar'],
+    address: {
+      city: 'santiago',
+      number: 2145,
+      country: 'chile',
+      street: 'los manzanos',
+    },
   },
   {
     id: 2,
@@ -31,6 +38,12 @@ export const productData: Product[] = [
       'Colaciones',
       'Hogar',
     ],
+    address: {
+      city: 'santiago',
+      number: 2145,
+      country: 'chile',
+      street: 'los manzanos',
+    },
   },
   {
     id: 3,
@@ -38,13 +51,26 @@ export const productData: Product[] = [
     price: 1200,
     link: 'https://www.google.cl',
     tag: ['Carnes y Pescados', 'Panaderia', 'Colaciones', 'Hogar'],
+    address: {
+      city: 'santiago',
+      number: 2145,
+      country: 'chile',
+      street: 'los manzanos',
+    },
   },
+
   {
     id: 4,
     name: 'Sal',
     price: 2500,
     link: 'https://www.google.cl',
     tag: ['Carnes y Pescados', 'Congelados', 'Panaderia 5', 'Colaciones'],
+    address: {
+      city: 'santiago',
+      number: 2145,
+      country: 'chile',
+      street: 'los manzanos',
+    },
   },
   {
     id: 5,
@@ -52,6 +78,12 @@ export const productData: Product[] = [
     price: 3450,
     link: 'https://www.google.cl',
     tag: ['Carnes y Pescados', 'Congelados', 'Panaderia', 'Colaciones'],
+    address: {
+      city: 'santiago',
+      number: 2145,
+      country: 'chile',
+      street: 'los manzanos',
+    },
   },
   {
     id: 6,
@@ -59,6 +91,12 @@ export const productData: Product[] = [
     price: 777,
     link: 'https://www.google.cl',
     tag: ['Carnes y Pescados', 'Congelados', 'Panaderia', 'Colaciones'],
+    address: {
+      city: 'santiago',
+      number: 2145,
+      country: 'chile',
+      street: 'los manzanos',
+    },
   },
   {
     id: 7,
@@ -66,6 +104,12 @@ export const productData: Product[] = [
     price: 3450,
     link: 'https://www.google.cl',
     tag: ['Carnes y Pescados', 'Congelados', 'Panaderia', 'Colaciones'],
+    address: {
+      city: 'santiago',
+      number: 2145,
+      country: 'chile',
+      street: 'los manzanos',
+    },
   },
   {
     id: 8,
@@ -73,6 +117,12 @@ export const productData: Product[] = [
     price: 3450,
     link: 'https://www.google.cl',
     tag: ['Carnes y Pescados', 'Congelados', 'Panaderia', 'Colaciones'],
+    address: {
+      city: 'santiago',
+      number: 2145,
+      country: 'chile',
+      street: 'los manzanos',
+    },
   },
   {
     id: 9,
@@ -80,6 +130,12 @@ export const productData: Product[] = [
     price: 777,
     link: 'https://www.google.cl',
     tag: ['Carnes y Pescados', 'Congelados', 'Panaderia', 'Colaciones'],
+    address: {
+      city: 'santiago',
+      number: 2145,
+      country: 'chile',
+      street: 'los manzanos',
+    },
   },
 ];
 

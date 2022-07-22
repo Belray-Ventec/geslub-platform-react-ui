@@ -33,10 +33,16 @@ export default function Paginator<T>({
           <div className={styles.pages}>
             {[...Array.from(Array(paginator.totalPages).keys())].map((item) => (
               <span
-                style={themeColor ? { backgroundColor: themeColor, color: '#fff' } : {}}
+                style={
+                  themeColor
+                    ? { backgroundColor: themeColor, color: '#fff' }
+                    : {}
+                }
                 onClick={(): void => goPage(item + 1)}
                 className={`${styles.page_link} ${
-                  paginator.page === item + 1 ? `${styles.page_link_active}` : ''
+                  paginator.page === item + 1
+                    ? `${styles.page_link_active}`
+                    : ''
                 }`}
                 key={item}
               >
