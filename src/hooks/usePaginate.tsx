@@ -6,6 +6,7 @@ export interface UsePaginateProps<T> {
   itemsPerPage?: number;
   search: string;
   setData: React.Dispatch<React.SetStateAction<T[]>>;
+  columns: { label: string; key: keyof T; getValue: (item: T) => string | JSX.Element | number | boolean }[];
 }
 
 export interface StatePaginatorProps<T> {
@@ -31,6 +32,7 @@ export default function usePaginate<T>({
   setData,
   itemsPerPage = 2,
   search,
+  columns
 }: UsePaginateProps<T>): PaginateReturnProps<T> {
   const [paginator, setPaginator] = useState({
     data: paginate(data, 1, itemsPerPage),
@@ -76,18 +78,36 @@ export default function usePaginate<T>({
   };
 
   const filterData = (searchTerm: string): T[] => {
+
     if (searchTerm !== '') {
-      const filtered = data.filter((item) => {
-        return Object.values(item)
-          .toString()
-          .toLowerCase()
-          .includes(searchTerm.toLowerCase());
-      });
+      const validColumns = getValidColumns()
+
+      const validData: T[] = []
+      data.forEach(item => {
+        validColumns.forEach((column: string) => {
+          if (String(item[column as keyof T]).toLowerCase().includes(searchTerm.toLowerCase())) {
+            validData.push(item)
+          }
+
+        })
+
+      })
+
+      const filtered = validData.filter((item, index) => {
+        return validData.indexOf(item) === index;
+      })
+
       return filtered;
     } else {
       return data;
     }
   };
+
+  const getValidColumns = (): string[] => {
+    const validColumns: string[] = []
+    columns.map(column => validColumns.push(String(column.key)))
+    return validColumns
+  }
 
   const returnPaginator: PaginateReturnProps<T> = {
     paginator: paginator,

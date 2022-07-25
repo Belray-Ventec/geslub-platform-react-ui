@@ -20,16 +20,15 @@ interface ActionsProps<T> {
   showDownload?: boolean;
   showShare?: boolean;
   showSee?: boolean;
-  actions?: { label: string | JSX.Element; callback: (d: T) => void }[]; 
+  actions?: { label: string | JSX.Element; callback: (d: T) => void }[];
   themeColor: string;
   item: T;
 }
 
 export interface TableProps<T> {
   initialData: T[];
-  columns: { label: string; key: keyof T; getValue: (item: T) => unknown }[];
+  columns: { label: string; key: keyof T; getValue: (item: T) => string | JSX.Element | number | boolean }[];
   getRowKey: (d: T) => string | number;
-  renderCell?: (key: keyof T, value: unknown) => JSX.Element;
   themeColor: string;
   showPages: boolean;
   itemsPerPage: number;
@@ -45,7 +44,6 @@ export function Table<T>({
   columns,
   initialData,
   getRowKey,
-  renderCell,
   themeColor,
   showPages = false,
   itemsPerPage,
@@ -63,6 +61,7 @@ export function Table<T>({
     setData,
     itemsPerPage: itemsPerPage,
     search,
+    columns
   });
   const [selected, setSelected] = useState<T[]>([]);
 
@@ -121,11 +120,11 @@ export function Table<T>({
                 themeColor
                   ? { backgroundColor: themeColor }
                   : {
-                      backgroundColor: '#fff',
-                      color: '#000',
-                      boxShadow:
-                        '0 2px 6px rgb(0 21 64 / 10%), 0 10px 20px rgb(0 21 64 / 5%)',
-                    }
+                    backgroundColor: '#fff',
+                    color: '#000',
+                    boxShadow:
+                      '0 2px 6px rgb(0 21 64 / 10%), 0 10px 20px rgb(0 21 64 / 5%)',
+                  }
               }
             >
               <th></th>
@@ -148,15 +147,15 @@ export function Table<T>({
                       type="checkbox"
                     />
                   </td>
-                  {columns.map(({ key, getValue }, idx) => (
+                  {columns.map(({ getValue }, idx) => (
                     <td key={idx}>
-                      {renderCell
-                        ? renderCell(key, getValue(item))
+                      {React.isValidElement(getValue(item))
+                        ? getValue(item)
                         : String(getValue(item))}
                     </td>
                   ))}
                   <td>
-                      <Actions showInfo={showInfo} showDownload={showDownload} showShare={showShare} showSee={showSee} themeColor={themeColor} actions={actions} item={item} />
+                    <Actions showInfo={showInfo} showDownload={showDownload} showShare={showShare} showSee={showSee} themeColor={themeColor} actions={actions} item={item} />
                   </td>
                 </tr>
               ))
@@ -184,72 +183,72 @@ export function Table<T>({
   );
 }
 
-function Actions<T>({showInfo, showDownload, showShare, showSee, actions, themeColor, item}: ActionsProps<T>) {
+function Actions<T>({ showInfo, showDownload, showShare, showSee, actions, themeColor, item }: ActionsProps<T>) {
   return (
     <div className={styles.actions}>
-    {showInfo && (
-      <Button
-        variant={'icon'}
-        onClick={(): void =>
-          console.log('Custom Info Button')
-        }
-        text={<Info />}
-      />
-    )}
-    {showDownload && (
-      <Button
-        variant={'icon'}
-        onClick={(): void =>
-          console.log('Custom Download Button')
-        }
-        text={<FileArrowDown />}
-      />
-    )}
-    {showShare && (
-      <Button
-        variant={'icon'}
-        onClick={(): void =>
-          console.log('Custom Share Button')
-        }
-        text={<ShareNodes />}
-      />
-    )}
-    {showSee && (
-      <Button
-        variant={'icon'}
-        onClick={(): void => console.log('Custom See Button')}
-        text={<Eye />}
-      />
-    )}
-    {actions && actions.map((action, index) => (
-      <Button
-        backgroundColor={themeColor ? themeColor : '#34495e'}
-        primary
-        key={index}
-        onClick={(): void => action.callback(item)}
-        text={action.label}
-      />
-    ))}
-    <DropDown themeColor={themeColor} title={<Ellipsis />}>
-      <Button
-        backgroundColor={themeColor}
-        text={
-          <PenToSquare
-            fill={themeColor ? '#fff' : '#9a9a9a'}
-            size={20}
-          />
-        }
-      />
-      <Button
-        backgroundColor={themeColor}
-        text={
-          <Xmark
-            fill={themeColor ? '#fff' : '#9a9a9a'}
-            size={20}
-          />
-        }
-      />
-    </DropDown>
-  </div>
+      {showInfo && (
+        <Button
+          variant={'icon'}
+          onClick={(): void =>
+            console.log('Custom Info Button')
+          }
+          text={<Info />}
+        />
+      )}
+      {showDownload && (
+        <Button
+          variant={'icon'}
+          onClick={(): void =>
+            console.log('Custom Download Button')
+          }
+          text={<FileArrowDown />}
+        />
+      )}
+      {showShare && (
+        <Button
+          variant={'icon'}
+          onClick={(): void =>
+            console.log('Custom Share Button')
+          }
+          text={<ShareNodes />}
+        />
+      )}
+      {showSee && (
+        <Button
+          variant={'icon'}
+          onClick={(): void => console.log('Custom See Button')}
+          text={<Eye />}
+        />
+      )}
+      {actions && actions.map((action, index) => (
+        <Button
+          backgroundColor={themeColor ? themeColor : '#34495e'}
+          primary
+          key={index}
+          onClick={(): void => action.callback(item)}
+          text={action.label}
+        />
+      ))}
+      <DropDown themeColor={themeColor} title={<Ellipsis />}>
+        <Button
+          backgroundColor={themeColor}
+          text={
+            <PenToSquare
+              fill={themeColor ? '#fff' : '#9a9a9a'}
+              size={20}
+            />
+          }
+        />
+        <Button
+          backgroundColor={themeColor}
+          text={
+            <Xmark
+              fill={themeColor ? '#fff' : '#9a9a9a'}
+              size={20}
+            />
+          }
+        />
+      </DropDown>
+    </div>
   )
 }

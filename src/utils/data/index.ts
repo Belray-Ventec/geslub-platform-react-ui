@@ -4,6 +4,7 @@ export interface Product {
   price: number;
   link: string;
   tag?: string[];
+  email: string;
   address: { city: string; number: number; country: string; street: string };
 }
 
@@ -19,6 +20,7 @@ export const productData: Product[] = [
     price: 500,
     link: 'https://www.google.cl',
     tag: ['Congelados', 'Panaderia 1', 'Colaciones', 'Hogar'],
+    email: 'brianc.contacto@gmail.com',
     address: {
       city: 'santiago',
       number: 2145,
@@ -31,6 +33,7 @@ export const productData: Product[] = [
     name: 'Arroz',
     price: 200,
     link: 'https://www.google.cl',
+    email: 'jose@gmail.com',
     tag: [
       'Carnes y Pescados',
       'Congelados',
@@ -42,7 +45,7 @@ export const productData: Product[] = [
       city: 'santiago',
       number: 2145,
       country: 'chile',
-      street: 'los manzanos',
+      street: 'Ayala',
     },
   },
   {
@@ -51,6 +54,7 @@ export const productData: Product[] = [
     price: 1200,
     link: 'https://www.google.cl',
     tag: ['Carnes y Pescados', 'Panaderia', 'Colaciones', 'Hogar'],
+    email: 'matias@gmail.com',
     address: {
       city: 'santiago',
       number: 2145,
@@ -65,11 +69,12 @@ export const productData: Product[] = [
     price: 2500,
     link: 'https://www.google.cl',
     tag: ['Carnes y Pescados', 'Congelados', 'Panaderia 5', 'Colaciones'],
+    email: 'nicolas@gmail.com',
     address: {
       city: 'santiago',
       number: 2145,
       country: 'chile',
-      street: 'los manzanos',
+      street: 'Camino Viejo de Leganés',
     },
   },
   {
@@ -78,11 +83,12 @@ export const productData: Product[] = [
     price: 3450,
     link: 'https://www.google.cl',
     tag: ['Carnes y Pescados', 'Congelados', 'Panaderia', 'Colaciones'],
+    email: 'jorge@gmail.com',
     address: {
       city: 'santiago',
       number: 2145,
       country: 'chile',
-      street: 'los manzanos',
+      street: 'volcan',
     },
   },
   {
@@ -91,11 +97,12 @@ export const productData: Product[] = [
     price: 777,
     link: 'https://www.google.cl',
     tag: ['Carnes y Pescados', 'Congelados', 'Panaderia', 'Colaciones'],
+    email: 'brianc.contacto@gmail.com',
     address: {
       city: 'santiago',
       number: 2145,
       country: 'chile',
-      street: 'los manzanos',
+      street: '10 de julio',
     },
   },
   {
@@ -104,11 +111,12 @@ export const productData: Product[] = [
     price: 3450,
     link: 'https://www.google.cl',
     tag: ['Carnes y Pescados', 'Congelados', 'Panaderia', 'Colaciones'],
+    email: 'matiasc.contacto@gmail.com',
     address: {
       city: 'santiago',
       number: 2145,
       country: 'chile',
-      street: 'los manzanos',
+      street: 'santa marta',
     },
   },
   {
@@ -117,6 +125,7 @@ export const productData: Product[] = [
     price: 3450,
     link: 'https://www.google.cl',
     tag: ['Carnes y Pescados', 'Congelados', 'Panaderia', 'Colaciones'],
+    email: 'jorgec.contacto@gmail.com',
     address: {
       city: 'santiago',
       number: 2145,
@@ -130,11 +139,12 @@ export const productData: Product[] = [
     price: 777,
     link: 'https://www.google.cl',
     tag: ['Carnes y Pescados', 'Congelados', 'Panaderia', 'Colaciones'],
+    email: 'carlos.contacto@gmail.com',
     address: {
       city: 'santiago',
       number: 2145,
       country: 'chile',
-      street: 'los manzanos',
+      street: 'los alamos',
     },
   },
 ];

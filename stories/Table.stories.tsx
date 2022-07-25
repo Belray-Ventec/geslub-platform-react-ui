@@ -30,27 +30,13 @@ Default.args = {
     { label: 'Id', key: 'id', getValue: (item) => item.id },
     { label: 'Nombre', key: 'name', getValue: (item) => item.name },
     { label: 'Precio', key: 'price', getValue: (item) => item.price },
-    { label: 'Comprar', key: 'link', getValue: (item) => item.link },
-    { label: 'Etiquetas', key: 'tag', getValue: (item) => item.tag },
+    { label: 'Comprar', key: 'link', getValue: (item) => <a href={item.link}>Comprar</a> },
+    { label: 'Etiquetas', key: 'tag', getValue: (item) => <TagList data={item.tag} /> },
+    { label: 'Street', key: 'address', getValue: (item) => item.address.street },
     { label: 'Pais', key: 'address', getValue: (item) => item.address.country },
   ],
 
   getRowKey: (item: Product): string | number => item.id,
-  renderCell: (key, value): string | JSX.Element => {
-    if (key === 'link')
-      return (
-        <a
-          href={String(value)}
-          rel="noopener noreferrer"
-          target="_blank"
-          download
-        >
-          Comprar
-        </a>
-      );
-    else if (key === 'tag') return <TagList data={value} />;
-    else return String(value);
-  },
   showPages: true,
   itemsPerPage: 3,
   actions: [
