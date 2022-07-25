@@ -101,7 +101,7 @@ export const productData: Product[] = [
     address: {
       city: 'santiago',
       number: 2145,
-      country: 'chile',
+      country: 'bolivia',
       street: '10 de julio',
     },
   },
@@ -129,7 +129,7 @@ export const productData: Product[] = [
     address: {
       city: 'santiago',
       number: 2145,
-      country: 'chile',
+      country: 'argentina',
       street: 'los manzanos',
     },
   },
@@ -143,7 +143,7 @@ export const productData: Product[] = [
     address: {
       city: 'santiago',
       number: 2145,
-      country: 'chile',
+      country: 'peru',
       street: 'los alamos',
     },
   },

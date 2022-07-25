@@ -80,12 +80,11 @@ export default function usePaginate<T>({
   const filterData = (searchTerm: string): T[] => {
 
     if (searchTerm !== '') {
-      const validColumns = getValidColumns()
 
       const validData: T[] = []
       data.forEach(item => {
-        validColumns.forEach((column: string) => {
-          if (String(item[column as keyof T]).toLowerCase().includes(searchTerm.toLowerCase())) {
+        columns.forEach((column) => {
+          if (String(column.getValue(item)).toLowerCase().includes(searchTerm.toLowerCase())) {
             validData.push(item)
           }
 
@@ -103,11 +102,6 @@ export default function usePaginate<T>({
     }
   };
 
-  const getValidColumns = (): string[] => {
-    const validColumns: string[] = []
-    columns.map(column => validColumns.push(String(column.key)))
-    return validColumns
-  }
 
   const returnPaginator: PaginateReturnProps<T> = {
     paginator: paginator,
