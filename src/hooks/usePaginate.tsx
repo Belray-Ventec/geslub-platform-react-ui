@@ -25,6 +25,7 @@ interface PaginateReturnProps<T> {
   next: () => void;
   previous: () => void;
   goPage: (page: number) => void;
+  goPageDebounce: (page: number) => void;
   onDelete: (items: T[]) => void;
 }
 
@@ -111,7 +112,8 @@ export default function usePaginate<T>({
     paginator: paginator,
     next: next,
     previous: previous,
-    goPage: goPageDebounce,
+    goPage: goPage,
+    goPageDebounce: goPageDebounce,
     onDelete: onDelete,
   };
   return returnPaginator;

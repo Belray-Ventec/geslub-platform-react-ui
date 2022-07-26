@@ -56,7 +56,7 @@ export function Table<T>({
 }: TableProps<T>): JSX.Element {
   const [search, setSearch] = useState('');
   const [data, setData] = useState<T[]>(initialData);
-  const { paginator, next, previous, goPage, onDelete } = usePaginate({
+  const { paginator, next, previous, goPage, goPageDebounce, onDelete } = usePaginate({
     data,
     setData,
     itemsPerPage: itemsPerPage,

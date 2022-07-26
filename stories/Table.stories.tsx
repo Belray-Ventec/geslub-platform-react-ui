@@ -28,7 +28,7 @@ Default.args = {
   initialData: productData,
   columns: [
     { label: 'Id', getValue: (item) => item.id, isFilter: true },
-    { label: 'Nombre', getValue: (item) => item.name, isFilter: false },
+    { label: 'Nombre', getValue: (item) => item.name, isFilter: true },
     { label: 'Precio', getValue: (item) => item.price, isFilter: true },
     { label: 'Comprar', getValue: (item) => <a href={item.link}>Comprar</a>, isFilter: true },
     { label: 'Etiquetas', getValue: (item) => <TagList data={item.tag} />, isFilter: true },
