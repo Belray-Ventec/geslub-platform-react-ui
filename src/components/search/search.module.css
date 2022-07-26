@@ -1,10 +1,18 @@
 .search {
-    padding: 0 1rem 0 0.5rem;
+    padding: 0 1rem 0 2.5rem;
     border-radius: 5px;
     border: none;
     height: 50px;
     width: 100%;
+    position: absolute;
 }
+.search_icon {
+    position: absolute;
+    top: 33%;
+    left: 1rem;
+    z-index: 1;
+}
+
 .search:focus {
     outline: none;
     border: none;
@@ -17,11 +25,14 @@
     position: relative;
     justify-content: flex-end;
 }
+
 .search_input_container{
+    position:relative;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     width: 30%;
+    min-height: 3rem;
     box-shadow: 0 2px 6px rgb(0 21 64 / 10%), 0 10px 20px rgb(0 21 64 / 5%);
     padding-left: 10px;
     margin-left: 10px;

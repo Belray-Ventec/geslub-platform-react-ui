@@ -53,7 +53,7 @@ export const productData: Product[] = [
     name: 'Coca Cola',
     price: 1200,
     link: 'https://www.google.cl',
-    tag: ['Carnes y Pescados', 'Panaderia', 'Colaciones', 'Hogar'],
+    tag: ['Carnes y Pescados', 'Panaderia', 'Colaciones', 'Hogar', 'Especial'],
     email: 'matias@gmail.com',
     address: {
       city: 'santiago',

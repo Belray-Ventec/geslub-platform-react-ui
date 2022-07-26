@@ -27,7 +27,7 @@ interface ActionsProps<T> {
 
 export interface TableProps<T> {
   initialData: T[];
-  columns: { label: string; key: keyof T; getValue: (item: T) => string | JSX.Element | number | boolean }[];
+  columns: { label: string; getValue: (item: T) => React.ReactNode, isFilter: boolean }[];
   getRowKey: (d: T) => string | number;
   themeColor: string;
   showPages: boolean;
@@ -61,7 +61,7 @@ export function Table<T>({
     setData,
     itemsPerPage: itemsPerPage,
     search,
-    columns
+    columns,
   });
   const [selected, setSelected] = useState<T[]>([]);
 
@@ -155,7 +155,15 @@ export function Table<T>({
                     </td>
                   ))}
                   <td>
-                    <Actions showInfo={showInfo} showDownload={showDownload} showShare={showShare} showSee={showSee} themeColor={themeColor} actions={actions} item={item} />
+                    <Actions
+                      showInfo={showInfo}
+                      showDownload={showDownload}
+                      showShare={showShare}
+                      showSee={showSee}
+                      themeColor={themeColor}
+                      actions={actions}
+                      item={item}
+                    />
                   </td>
                 </tr>
               ))
@@ -183,33 +191,35 @@ export function Table<T>({
   );
 }
 
-function Actions<T>({ showInfo, showDownload, showShare, showSee, actions, themeColor, item }: ActionsProps<T>) {
+function Actions<T>({
+  showInfo,
+  showDownload,
+  showShare,
+  showSee,
+  actions,
+  themeColor,
+  item,
+}: ActionsProps<T>) {
   return (
     <div className={styles.actions}>
       {showInfo && (
         <Button
           variant={'icon'}
-          onClick={(): void =>
-            console.log('Custom Info Button')
-          }
+          onClick={(): void => console.log('Custom Info Button')}
           text={<Info />}
         />
       )}
       {showDownload && (
         <Button
           variant={'icon'}
-          onClick={(): void =>
-            console.log('Custom Download Button')
-          }
+          onClick={(): void => console.log('Custom Download Button')}
           text={<FileArrowDown />}
         />
       )}
       {showShare && (
         <Button
           variant={'icon'}
-          onClick={(): void =>
-            console.log('Custom Share Button')
-          }
+          onClick={(): void => console.log('Custom Share Button')}
           text={<ShareNodes />}
         />
       )}
@@ -220,35 +230,28 @@ function Actions<T>({ showInfo, showDownload, showShare, showSee, actions, theme
           text={<Eye />}
         />
       )}
-      {actions && actions.map((action, index) => (
-        <Button
-          backgroundColor={themeColor ? themeColor : '#34495e'}
-          primary
-          key={index}
-          onClick={(): void => action.callback(item)}
-          text={action.label}
-        />
-      ))}
+      {actions &&
+        actions.map((action, index) => (
+          <Button
+            backgroundColor={themeColor ? themeColor : '#34495e'}
+            primary
+            key={index}
+            onClick={(): void => action.callback(item)}
+            text={action.label}
+          />
+        ))}
       <DropDown themeColor={themeColor} title={<Ellipsis />}>
         <Button
           backgroundColor={themeColor}
           text={
-            <PenToSquare
-              fill={themeColor ? '#fff' : '#9a9a9a'}
-              size={20}
-            />
+            <PenToSquare fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />
           }
         />
         <Button
           backgroundColor={themeColor}
-          text={
-            <Xmark
-              fill={themeColor ? '#fff' : '#9a9a9a'}
-              size={20}
-            />
-          }
+          text={<Xmark fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />}
         />
       </DropDown>
     </div>
-  )
+  );
 }

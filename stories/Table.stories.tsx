@@ -27,13 +27,13 @@ export const Default = Template.bind({});
 Default.args = {
   initialData: productData,
   columns: [
-    { label: 'Id', key: 'id', getValue: (item) => item.id },
-    { label: 'Nombre', key: 'name', getValue: (item) => item.name },
-    { label: 'Precio', key: 'price', getValue: (item) => item.price },
-    { label: 'Comprar', key: 'link', getValue: (item) => <a href={item.link}>Comprar</a> },
-    { label: 'Etiquetas', key: 'tag', getValue: (item) => <TagList data={item.tag} /> },
-    { label: 'Street', key: 'address', getValue: (item) => item.address.street },
-    { label: 'Pais', key: 'address', getValue: (item) => item.address.country },
+    { label: 'Id', getValue: (item) => item.id, isFilter: true },
+    { label: 'Nombre', getValue: (item) => item.name, isFilter: false },
+    { label: 'Precio', getValue: (item) => item.price, isFilter: true },
+    { label: 'Comprar', getValue: (item) => <a href={item.link}>Comprar</a>, isFilter: true },
+    { label: 'Etiquetas', getValue: (item) => <TagList data={item.tag} />, isFilter: true },
+    { label: 'Street', getValue: (item) => item.address.street, isFilter: true },
+    { label: 'Pais', getValue: (item) => item.address.country, isFilter: true },
   ],
 
   getRowKey: (item: Product): string | number => item.id,

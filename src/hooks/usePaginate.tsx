@@ -1,3 +1,4 @@
+import debounce from 'just-debounce-it';
 import { useEffect, useState } from 'react';
 import { paginate } from '../utils/paginate';
 
@@ -6,7 +7,7 @@ export interface UsePaginateProps<T> {
   itemsPerPage?: number;
   search: string;
   setData: React.Dispatch<React.SetStateAction<T[]>>;
-  columns: { label: string; key: keyof T; getValue: (item: T) => string | JSX.Element | number | boolean }[];
+  columns: { label: string; getValue: (item: T) => React.ReactNode, isFilter: boolean }[];
 }
 
 export interface StatePaginatorProps<T> {
@@ -32,7 +33,7 @@ export default function usePaginate<T>({
   setData,
   itemsPerPage = 2,
   search,
-  columns
+  columns,
 }: UsePaginateProps<T>): PaginateReturnProps<T> {
   const [paginator, setPaginator] = useState({
     data: paginate(data, 1, itemsPerPage),
@@ -72,29 +73,33 @@ export default function usePaginate<T>({
     });
   };
 
+  const goPageDebounce = debounce((page: number) => {
+    goPage(page)
+  }, 1000)
+
   const onDelete = (items: T[]): void => {
     const filter = data.filter((i) => !items.includes(i));
     setData(filter);
   };
 
   const filterData = (searchTerm: string): T[] => {
-
     if (searchTerm !== '') {
-
-      const validData: T[] = []
-      data.forEach(item => {
+      const validData: T[] = [];
+      data.forEach((item) => {
         columns.forEach((column) => {
-          if (String(column.getValue(item)).toLowerCase().includes(searchTerm.toLowerCase())) {
-            validData.push(item)
+          if (column.isFilter &&
+            String(column.getValue(item))
+              .toLowerCase()
+              .includes(searchTerm.toLowerCase())
+          ) {
+            validData.push(item);
           }
-
-        })
-
-      })
+        });
+      });
 
       const filtered = validData.filter((item, index) => {
         return validData.indexOf(item) === index;
-      })
+      });
 
       return filtered;
     } else {
@@ -102,12 +107,11 @@ export default function usePaginate<T>({
     }
   };
 
-
   const returnPaginator: PaginateReturnProps<T> = {
     paginator: paginator,
     next: next,
     previous: previous,
-    goPage: goPage,
+    goPage: goPageDebounce,
     onDelete: onDelete,
   };
   return returnPaginator;
