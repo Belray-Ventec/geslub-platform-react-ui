@@ -70,7 +70,7 @@ export function Table<T>({
   }, [initialData]);
 
   useEffect(() => {
-    goPage(1);
+    goPageDebounce(1);
   }, [search]);
 
   const isChecked = (item: T): void => {
