@@ -30,16 +30,16 @@ export function Button({
   ...props
 }: ButtonProps): JSX.Element {
   const valuePrimary = primary
-    ? `${styles.button_belray_primary}`
-    : `${styles.button_belray_secondary}`;
+    ? `${styles.button_primary}`
+    : `${styles.button_secondary}`;
   const valueRounded = rounded ? '3rem' : '';
 
   const buttonSize =
     size === Size.small
-      ? styles.button_belray_small
+      ? styles.button_small
       : size === Size.medium
-      ? styles.button_belray_medium
-      : styles.button_belray_large;
+        ? styles.button_medium
+        : styles.button_large;
 
   const isText = variant === 'text' ? buttonSize : '';
   return (
@@ -47,7 +47,7 @@ export function Button({
       disabled={disabled}
       onClick={onClick}
       type="button"
-      className={[styles.button_belray, isText, valuePrimary].join(' ')}
+      className={[styles.button, isText, valuePrimary].join(' ')}
       style={{ backgroundColor: backgroundColor, borderRadius: valueRounded }}
       {...props}
     >

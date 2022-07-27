@@ -21,14 +21,14 @@ export default function DropDown({
     return (
       <div
         onClick={(): void => setShow(!show)}
-        className={styles.bel_drop_down}
+        className={styles.drop_down}
       >
         <span>{title}</span>
         <div
           className={
             !show
-              ? styles.bel_drop_down_content
-              : styles.bel_drop_down_content_hover
+              ? styles.drop_down_content
+              : styles.drop_down_content_hover
           }
         >
           {children}
@@ -38,10 +38,10 @@ export default function DropDown({
   }
 
   return (
-    <div className={styles.bel_drop_down_container}>
+    <div className={styles.drop_down_container}>
       <div
         onClick={(): void => setShow(!show)}
-        className={styles.bel_drop_down_responsive}
+        className={styles.drop_down_responsive}
       >
         <Button
           backgroundColor={themeColor ? themeColor : '#34495e'}
@@ -52,8 +52,8 @@ export default function DropDown({
       <div
         className={
           !show
-            ? styles.bel_drop_down_content
-            : styles.bel_drop_down_content_hover
+            ? styles.drop_down_content
+            : styles.drop_down_content_hover
         }
       >
         {children}

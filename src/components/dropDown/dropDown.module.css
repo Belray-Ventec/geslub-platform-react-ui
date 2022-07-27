@@ -1,22 +1,22 @@
-.bel_drop_down_content{
+.drop_down_content{
     display: none;
 }
 
-.bel_drop_down{
+.drop_down{
     position: relative;
     color: #fff;
 }
-.bel_drop_down_container {
+.drop_down_container {
     position: relative;
 }
 
-.bel_drop_down_responsive {
+.drop_down_responsive {
     display: none;
     position: relative;
     color: #fff;
 }
 
-.bel_drop_down_responsive ~ .bel_drop_down_content {
+.drop_down_responsive ~ .drop_down_content {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,15 +24,15 @@
 }
 
 @media screen and (max-width: 700px) {
-    .bel_drop_down_responsive {
+    .drop_down_responsive {
         display: block;
     }
-    .bel_drop_down_responsive ~ .bel_drop_down_content {
+    .drop_down_responsive ~ .drop_down_content {
         display: none;
     }
 }
 
-.bel_drop_down_content_hover {
+.drop_down_content_hover {
     display: flex;
     justify-content: center;
     align-items: center;

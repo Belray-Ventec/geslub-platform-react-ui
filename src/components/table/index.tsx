@@ -10,7 +10,6 @@ import Info from '../icons/Info';
 import ShareNodes from '../icons/ShareNodes';
 import Xmark from '../icons/Xmark';
 import Paginator from '../paginator';
-import Search from '../search';
 import PenToSquare from '../icons/PenToSquare';
 
 import styles from './table.module.css';
@@ -54,24 +53,17 @@ export function Table<T>({
   showShare,
   showSee,
 }: TableProps<T>): JSX.Element {
-  const [search, setSearch] = useState('');
   const [data, setData] = useState<T[]>(initialData);
-  const { paginator, next, previous, goPage, goPageDebounce, onDelete } = usePaginate({
+  const { paginator, next, previous, goPage, onDelete } = usePaginate({
     data,
     setData,
     itemsPerPage: itemsPerPage,
-    search,
-    columns,
   });
   const [selected, setSelected] = useState<T[]>([]);
 
   useEffect(() => {
     setData(initialData);
   }, [initialData]);
-
-  useEffect(() => {
-    goPageDebounce(1);
-  }, [search]);
 
   const isChecked = (item: T): void => {
     if (selected.includes(item)) {
@@ -82,9 +74,9 @@ export function Table<T>({
     }
   };
 
+
   return (
     <>
-      <Search search={search} setSearch={setSearch} />
       <div className={styles.control}>
         <Button
           primary
@@ -109,10 +101,10 @@ export function Table<T>({
       <div className={styles.table_container}>
         <table
           style={themeColor ? { borderBottom: `2px solid ${themeColor}` } : {}}
-          className={styles.ges_table}
+          className={styles.table}
         >
           {caption && (
-            <caption className={styles.bel_caption}>{caption}</caption>
+            <caption className={styles.caption}>{caption}</caption>
           )}
           <thead>
             <tr

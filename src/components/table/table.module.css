@@ -2,7 +2,7 @@
     overflow-x: auto ;
     padding: 20px;
 }
-.ges_table{
+.table{
     border-collapse: separate;
     font-size: 0.9em;
     font-family: sans-serif;
@@ -14,26 +14,26 @@
     box-shadow: 0 2px 6px rgb(0 21 64 / 10%), 0 10px 20px rgb(0 21 64 / 5%);
 }
 
-.ges_table thead tr{
+.table thead tr{
     background-color: #34495e;
     color: #ffffff;
     text-align: left;
     border-bottom: 1px solid #dddddd;
 }
 
-.ges_table thead tr th{
+.table thead tr th{
     text-align: center;
 }
 
-.ges_table th, table td{
+.table th, table td{
     padding: 12px 15px;
 }
-.ges_table tbody tr {
+.table tbody tr {
     border-bottom: 1px solid #dddddd;
     text-align: center;
     background-color: #f2f2f2;
 }
-.ges_table tbody tr:hover {
+.table tbody tr:hover {
     filter: brightness(0.95);
 }
 .not_info_found{
@@ -48,7 +48,7 @@
     justify-content: center;
     gap: 10px;
 }
-.bel_caption {
+.caption {
     margin-bottom: 0.8rem;
     font-size: 2rem;
     font-family: sans-serif;
@@ -60,7 +60,7 @@
     padding: 20px 10px 0px 10px;
     gap: 10px;
 }
-.bel_checkbox{
+.checkbox{
     width: 20px;
     height: 20px;
 }

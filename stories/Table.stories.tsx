@@ -32,7 +32,7 @@ Default.args = {
     { label: 'Precio', getValue: (item) => item.price, isFilter: true },
     { label: 'Comprar', getValue: (item) => <a href={item.link}>Comprar</a>, isFilter: true },
     { label: 'Etiquetas', getValue: (item) => <TagList data={item.tag} />, isFilter: true },
-    { label: 'Street', getValue: (item) => item.address.street, isFilter: true },
+    { label: 'Street', getValue: (item) => item.address.street, isFilter: false },
     { label: 'Pais', getValue: (item) => item.address.country, isFilter: true },
   ],
 
