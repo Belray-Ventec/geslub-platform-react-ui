@@ -9,13 +9,13 @@ cd geslub-platform-react-ui  // si no te encuentras dentro del repositorio
 npm install
 ```
 
-##Iniciar Storybook
+## Iniciar Storybook
 
 ```
 npm run storybook
 ```
 
-##Configuración para usar libreria
+## Configuración para usar libreria
 Generar dist
 
 ```
