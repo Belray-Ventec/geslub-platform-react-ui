@@ -26,7 +26,7 @@ interface ActionsProps<T> {
 
 export interface TableProps<T> {
   initialData: T[];
-  columns: { label: string; getValue: (item: T) => React.ReactNode, isFilter: boolean }[];
+  columns: { label: string; getValue: (item: T) => React.ReactNode }[];
   getRowKey: (d: T) => string | number;
   themeColor: string;
   showPages: boolean;
