@@ -37,7 +37,7 @@ npm init
 npm install D:\Documentos\React\geslub-platform-react-ui\dist
 ```
 
-###Instalar libreria a traves de github
+### Instalar libreria a traves de github
 
 1. Subir directorio **dist** a un repositorio de github
 2. en tu proyecto ejecutar **(importante remplazar la url por la de tu repositorio)**
@@ -46,9 +46,9 @@ npm install D:\Documentos\React\geslub-platform-react-ui\dist
 npm install https://github.com/username/your-repository.git
 ```
 
-##Modo de uso
+## Modo de uso
 
-##Table
+### Table
 
 ```Javascript
 import { Table } from 'geslub-platform-react-ui';
