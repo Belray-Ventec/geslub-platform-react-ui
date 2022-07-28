@@ -65,7 +65,7 @@ export default function Component(): {
 | Propiedad    | Tipo                                                                             | Requerida |
 | ------------ | -------------------------------------------------------------------------------- | --------- |
 | initialData  | `T[]`                                                                            | si        |
-| columns      | `{ label: string; getValue: (item: T) => React.ReactNode, isFilter: boolean }[]` | si        |
+| columns      | `{ label: string; getValue: (item: T) => React.ReactNode }[]` | si        |
 | getRowKey    | Function `(d: T) => string`                                                      | si        |
 | itemsPerPage | `number`                                                                         | si        |
 | actions      | `label: string; callback: (d: T) => void }[]`                                    | si        |
