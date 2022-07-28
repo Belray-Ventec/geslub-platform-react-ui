@@ -1,8 +1,8 @@
-.tableContainer{
+.table_container{
     overflow-x: auto ;
     padding: 20px;
 }
-.gesTable{
+.table{
     border-collapse: separate;
     font-size: 0.9em;
     font-family: sans-serif;
@@ -14,41 +14,41 @@
     box-shadow: 0 2px 6px rgb(0 21 64 / 10%), 0 10px 20px rgb(0 21 64 / 5%);
 }
 
-.gesTable thead tr{
+.table thead tr{
     background-color: #34495e;
     color: #ffffff;
     text-align: left;
     border-bottom: 1px solid #dddddd;
 }
 
-.gesTable thead tr th{
+.table thead tr th{
     text-align: center;
 }
 
-.gesTable th, table td{
+.table th, table td{
     padding: 12px 15px;
 }
-.gesTable tbody tr {
+.table tbody tr {
     border-bottom: 1px solid #dddddd;
     text-align: center;
     background-color: #f2f2f2;
 }
-.gesTable tbody tr:hover {
+.table tbody tr:hover {
     filter: brightness(0.95);
 }
-.notInfoFound{
+.not_info_found{
     display: table-cell;
     text-align: center;
     position: relative;
     left: 30%;
 }
-.acciones {
+.actions {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
 }
-.belCaption {
+.caption {
     margin-bottom: 0.8rem;
     font-size: 2rem;
     font-family: sans-serif;
@@ -60,16 +60,13 @@
     padding: 20px 10px 0px 10px;
     gap: 10px;
 }
-.belcheckbox{
+.checkbox{
     width: 20px;
     height: 20px;
 }
 
 
 @media screen and (max-width: 700px) {
-    .acciones {
-        flex-direction: column;
-    }
     .control > button{
         flex-grow: 1;
     }

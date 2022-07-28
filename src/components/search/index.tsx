@@ -1,30 +1,53 @@
-import React from 'react';
-import './search.css';
+import debounce from 'just-debounce-it';
+import React, { useMemo, useState } from 'react';
+import Seeker from '../icons/Seeker';
+import styles from './search.module.css';
+import { useEffect } from 'react';
 
 interface SearchProps {
-  search: string;
-  setSearch: React.Dispatch<React.SetStateAction<string>>;
+  timeDebounce?: number;
+  handleSearch: (search: string) => void;
 }
 
-export default function Search({
-  search,
-  setSearch,
-}: SearchProps): JSX.Element {
+
+
+export function Search({ timeDebounce = 0, handleSearch }: SearchProps): JSX.Element {
+
+
+
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value)
+  }
+
+
+  const [search, setSearch] = useState('')
+
+  const handleSearchDebounce = useMemo(() => {
+    return debounce(() => {
+      handleSearch(search)
+    }, timeDebounce)
+  }, [search])
+
+  useEffect(() => {
+    handleSearchDebounce()
+
+    return () => {
+      handleSearchDebounce.cancel();
+    }
+  }, [search])
+
   return (
-    <form className="searchContainer">
-      <div className="searchInputContainer">
-        <i className="searchLabel">
-          <svg width={15} height={15} viewBox="0 0 512 512">
-            <path d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z" />
-          </svg>
-        </i>
+    <form className={styles.search_container}>
+      <div className={styles.search_input_container}>
+        <span className={styles.search_icon}>
+          <Seeker />
+        </span>
         <input
           placeholder="Buscar"
           value={search}
-          onChange={(e): void => {
-            setSearch(e.target.value);
-          }}
-          className="search"
+          onChange={handleChange}
+          className={styles.search}
           type={'search'}
         />
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Button.css';
+import styles from './button.module.css';
 
 export enum Size {
   small = 'small',
@@ -30,16 +30,24 @@ export function Button({
   ...props
 }: ButtonProps): JSX.Element {
   const valuePrimary = primary
-    ? 'button-belray--primary'
-    : 'button-belray--secondary';
+    ? `${styles.button_primary}`
+    : `${styles.button_secondary}`;
   const valueRounded = rounded ? '3rem' : '';
-  const isText = variant === 'text' ? `button-belray--${size}` : '';
+
+  const buttonSize =
+    size === Size.small
+      ? styles.button_small
+      : size === Size.medium
+        ? styles.button_medium
+        : styles.button_large;
+
+  const isText = variant === 'text' ? buttonSize : '';
   return (
     <button
       disabled={disabled}
       onClick={onClick}
       type="button"
-      className={['button-belray', isText, valuePrimary].join(' ')}
+      className={[styles.button, isText, valuePrimary].join(' ')}
       style={{ backgroundColor: backgroundColor, borderRadius: valueRounded }}
       {...props}
     >

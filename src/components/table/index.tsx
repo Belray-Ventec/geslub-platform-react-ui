@@ -1,26 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import usePaginate from '../../hooks/usePaginate';
-import { Button } from '../Button';
-import DropDown from '../DropDown';
-import Add from '../Icons/Add';
-import Ellipsis from '../Icons/Ellipsis';
-import Eye from '../Icons/Eye';
-import FileArrowDown from '../Icons/FileArrowDown';
-import Info from '../Icons/Info';
-import ShareNodes from '../Icons/ShareNodes';
-import Xmark from '../Icons/Xmark';
+import { Button } from '../button';
+import DropDown from '../dropDown';
+import Add from '../icons/Add';
+import Ellipsis from '../icons/Ellipsis';
+import Eye from '../icons/Eye';
+import FileArrowDown from '../icons/FileArrowDown';
+import Info from '../icons/Info';
+import ShareNodes from '../icons/ShareNodes';
+import Xmark from '../icons/Xmark';
 import Paginator from '../paginator';
-import Search from '../search';
-import PenToSquare from '../Icons/PenToSquare';
+import PenToSquare from '../icons/PenToSquare';
 
-import './table.css';
+import styles from './table.module.css';
+
+interface ActionsProps<T> {
+  showInfo?: boolean;
+  showDownload?: boolean;
+  showShare?: boolean;
+  showSee?: boolean;
+  actions?: { label: string | JSX.Element; callback: (d: T) => void }[];
+  themeColor: string;
+  item: T;
+}
 
 export interface TableProps<T> {
   initialData: T[];
-  columns: { label: string; key: keyof T }[];
-  content?: { label: string; getValue: (item: T) => unknown }[];
+  columns: { label: string; getValue: (item: T) => React.ReactNode, isFilter: boolean }[];
   getRowKey: (d: T) => string | number;
-  renderCell?: (key: keyof T, value: unknown) => JSX.Element;
   themeColor: string;
   showPages: boolean;
   itemsPerPage: number;
@@ -30,14 +37,12 @@ export interface TableProps<T> {
   showDownload?: boolean;
   showShare?: boolean;
   showSee?: boolean;
-  themeTextColor: string;
 }
 
-export default function Table<T>({
+export function Table<T>({
   columns,
   initialData,
   getRowKey,
-  renderCell,
   themeColor,
   showPages = false,
   itemsPerPage,
@@ -48,19 +53,17 @@ export default function Table<T>({
   showShare,
   showSee,
 }: TableProps<T>): JSX.Element {
-  const [search, setSearch] = useState('');
   const [data, setData] = useState<T[]>(initialData);
   const { paginator, next, previous, goPage, onDelete } = usePaginate({
     data,
     setData,
     itemsPerPage: itemsPerPage,
-    search,
   });
   const [selected, setSelected] = useState<T[]>([]);
 
   useEffect(() => {
-    goPage(1);
-  }, [search]);
+    setData(initialData);
+  }, [initialData]);
 
   const isChecked = (item: T): void => {
     if (selected.includes(item)) {
@@ -71,10 +74,10 @@ export default function Table<T>({
     }
   };
 
+
   return (
     <>
-      <Search search={search} setSearch={setSearch} />
-      <div className="control">
+      <div className={styles.control}>
         <Button
           primary
           backgroundColor={themeColor ? themeColor : '#fff'}
@@ -95,33 +98,31 @@ export default function Table<T>({
           text={<Xmark size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />}
         />
       </div>
-      <div className="tableContainer">
+      <div className={styles.table_container}>
         <table
           style={themeColor ? { borderBottom: `2px solid ${themeColor}` } : {}}
-          className="gesTable"
+          className={styles.table}
         >
-          {caption && <caption className="belCaption">{caption}</caption>}
+          {caption && (
+            <caption className={styles.caption}>{caption}</caption>
+          )}
           <thead>
             <tr
               style={
                 themeColor
                   ? { backgroundColor: themeColor }
                   : {
-                      backgroundColor: '#fff',
-                      color: '#000',
-                      boxShadow:
-                        '0 2px 6px rgb(0 21 64 / 10%), 0 10px 20px rgb(0 21 64 / 5%)',
-                    }
+                    backgroundColor: '#fff',
+                    color: '#000',
+                    boxShadow:
+                      '0 2px 6px rgb(0 21 64 / 10%), 0 10px 20px rgb(0 21 64 / 5%)',
+                  }
               }
             >
               <th></th>
               {columns.map(({ label }) => (
                 <th key={label}>{label}</th>
               ))}
-
-              {/* {content.map(({ label }) => (
-          <th key={label}>{label}</th>
-      ))} */}
               {actions.length > 0 && <th>Acciones</th>}
             </tr>
           </thead>
@@ -138,105 +139,30 @@ export default function Table<T>({
                       type="checkbox"
                     />
                   </td>
-                  {columns.map(({ key }, idx) => (
+                  {columns.map(({ getValue }, idx) => (
                     <td key={idx}>
-                      {renderCell
-                        ? renderCell(key, item[key])
-                        : String(item[key])}
+                      {React.isValidElement(getValue(item))
+                        ? getValue(item)
+                        : String(getValue(item))}
                     </td>
                   ))}
-
-                  {/* {
-            content.map(({label, getValue}, idx) => (
-              <td key={idx}>
-                {String(getValue(item))} 
-              </td>
-              
-            ))
-          } */}
                   <td>
-                    <div className="acciones">
-                      <DropDown
-                        themeColor={themeColor}
-                        onlyResponsive
-                        title={'Acciones'}
-                      >
-                        {showInfo && (
-                          <Button
-                            variant={'icon'}
-                            onClick={(): void =>
-                              console.log('Custom Info Button')
-                            }
-                            text={<Info />}
-                          />
-                        )}
-                        {showDownload && (
-                          <Button
-                            variant={'icon'}
-                            onClick={(): void =>
-                              console.log('Custom Download Button')
-                            }
-                            text={<FileArrowDown />}
-                          />
-                        )}
-                        {showShare && (
-                          <Button
-                            variant={'icon'}
-                            onClick={(): void =>
-                              console.log('Custom Share Button')
-                            }
-                            text={<ShareNodes />}
-                          />
-                        )}
-                        {showSee && (
-                          <Button
-                            variant={'icon'}
-                            onClick={(): void =>
-                              console.log('Custom See Button')
-                            }
-                            text={<Eye />}
-                          />
-                        )}
-                        {actions.map((action, index) => (
-                          <Button
-                            backgroundColor={
-                              themeColor ? themeColor : '#34495e'
-                            }
-                            primary
-                            key={index}
-                            onClick={(): void => action.callback(item)}
-                            text={action.label}
-                          />
-                        ))}
-                      </DropDown>
-                      <DropDown themeColor={themeColor} title={<Ellipsis />}>
-                        <Button
-                          backgroundColor={themeColor}
-                          text={
-                            <PenToSquare
-                              fill={themeColor ? '#fff' : '#9a9a9a'}
-                              size={20}
-                            />
-                          }
-                        />
-                        <Button
-                          backgroundColor={themeColor}
-                          text={
-                            <Xmark
-                              fill={themeColor ? '#fff' : '#9a9a9a'}
-                              size={20}
-                            />
-                          }
-                        />
-                      </DropDown>
-                    </div>
+                    <Actions
+                      showInfo={showInfo}
+                      showDownload={showDownload}
+                      showShare={showShare}
+                      showSee={showSee}
+                      themeColor={themeColor}
+                      actions={actions}
+                      item={item}
+                    />
                   </td>
                 </tr>
               ))
             ) : (
               <tr>
                 <td>
-                  <span className="notInfoFound">
+                  <span className={styles.not_info_found}>
                     No hay información disponible
                   </span>
                 </td>
@@ -254,5 +180,70 @@ export default function Table<T>({
         paginator={paginator}
       />
     </>
+  );
+}
+
+function Actions<T>({
+  showInfo,
+  showDownload,
+  showShare,
+  showSee,
+  actions,
+  themeColor,
+  item,
+}: ActionsProps<T>) {
+  return (
+    <div className={styles.actions}>
+      {showInfo && (
+        <Button
+          variant={'icon'}
+          onClick={(): void => console.log('Custom Info Button')}
+          text={<Info />}
+        />
+      )}
+      {showDownload && (
+        <Button
+          variant={'icon'}
+          onClick={(): void => console.log('Custom Download Button')}
+          text={<FileArrowDown />}
+        />
+      )}
+      {showShare && (
+        <Button
+          variant={'icon'}
+          onClick={(): void => console.log('Custom Share Button')}
+          text={<ShareNodes />}
+        />
+      )}
+      {showSee && (
+        <Button
+          variant={'icon'}
+          onClick={(): void => console.log('Custom See Button')}
+          text={<Eye />}
+        />
+      )}
+      {actions &&
+        actions.map((action, index) => (
+          <Button
+            backgroundColor={themeColor ? themeColor : '#34495e'}
+            primary
+            key={index}
+            onClick={(): void => action.callback(item)}
+            text={action.label}
+          />
+        ))}
+      <DropDown themeColor={themeColor} title={<Ellipsis />}>
+        <Button
+          backgroundColor={themeColor}
+          text={
+            <PenToSquare fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />
+          }
+        />
+        <Button
+          backgroundColor={themeColor}
+          text={<Xmark fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />}
+        />
+      </DropDown>
+    </div>
   );
 }

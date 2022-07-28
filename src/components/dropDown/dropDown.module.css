@@ -1,22 +1,22 @@
-.belDropDown-content{
+.drop_down_content{
     display: none;
 }
 
-.belDropDown{
+.drop_down{
     position: relative;
     color: #fff;
 }
-.belDropDownContainer {
+.drop_down_container {
     position: relative;
 }
 
-.belDropDownResponsive {
+.drop_down_responsive {
     display: none;
     position: relative;
     color: #fff;
 }
 
-.belDropDownResponsive ~ .belDropDown-content {
+.drop_down_responsive ~ .drop_down_content {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,15 +24,15 @@
 }
 
 @media screen and (max-width: 700px) {
-    .belDropDownResponsive {
+    .drop_down_responsive {
         display: block;
     }
-    .belDropDownResponsive ~ .belDropDown-content {
+    .drop_down_responsive ~ .drop_down_content {
         display: none;
     }
 }
 
-.belDropDown-content-hover {
+.drop_down_content_hover {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,13 +1,20 @@
-import Table from '../src/components/table';
+import { Table } from '../src/components/table';
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import TagList from '../src/components/tagList';
-import { onEdit, Product, productData } from '../src/data';
-import Add from '../src/components/Icons/Add';
+import { onEdit, Product, productData } from '../src/utils/data';
+import Add from '../src/components/icons/Add';
 
 export default {
   title: 'Table',
   component: Table,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Tabla Responsiva con Paginación',
+      },
+    },
+  },
   argTypes: {
     themeColor: { control: 'color' },
   },
@@ -20,30 +27,16 @@ export const Default = Template.bind({});
 Default.args = {
   initialData: productData,
   columns: [
-    { label: 'Id', key: 'id' },
-    { label: 'Nombre', key: 'name' },
-    { label: 'Precio', key: 'price' },
-    { label: 'Comprar', key: 'link' },
-    { label: 'Etiquetas', key: 'tag' },
+    { label: 'Id', getValue: (item) => item.id, isFilter: true },
+    { label: 'Nombre', getValue: (item) => item.name, isFilter: true },
+    { label: 'Precio', getValue: (item) => item.price, isFilter: true },
+    { label: 'Comprar', getValue: (item) => <a href={item.link}>Comprar</a>, isFilter: true },
+    { label: 'Etiquetas', getValue: (item) => <TagList data={item.tag} />, isFilter: true },
+    { label: 'Street', getValue: (item) => item.address.street, isFilter: false },
+    { label: 'Pais', getValue: (item) => item.address.country, isFilter: true },
   ],
 
-  // content: [{ label: 'Nombre', getValue: (item) => item.name}, { label: 'etiquetas', getValue: (item) => item.tag}],
   getRowKey: (item: Product): string | number => item.id,
-  renderCell: (key, value): string | JSX.Element => {
-    if (key === 'link')
-      return (
-        <a
-          href={String(value)}
-          rel="noopener noreferrer"
-          target="_blank"
-          download
-        >
-          Comprar
-        </a>
-      );
-    else if (key === 'tag') return <TagList data={value} />;
-    else return String(value);
-  },
   showPages: true,
   itemsPerPage: 3,
   actions: [

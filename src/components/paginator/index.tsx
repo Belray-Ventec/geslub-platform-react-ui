@@ -1,8 +1,7 @@
 import React from 'react';
-import { StatePaginatorProps } from '../hooks/usePaginate';
-import AngleLeft from '../components/Icons/AngleLeft';
-import './paginator.css';
-
+import { StatePaginatorProps } from '../../hooks/usePaginate';
+import AngleLeft from '../icons/AngleLeft';
+import styles from './paginator.module.css';
 export interface PaginatorProps<T> {
   paginator: StatePaginatorProps<T>;
   showPages?: boolean;
@@ -28,17 +27,22 @@ export default function Paginator<T>({
   );
 
   return (
-    <div className="containerPaginator">
-      <div className="contenedor-pages">
+    <div className={styles.container_paginator}>
+      <div className={styles.container_pages}>
         {showPages && (
-          <div className="pages">
-            {[...Array.from(Array(paginator.totalPages).keys())].map((item) => (
+          <div className={styles.pages}>
+            {Array.from(Array(paginator.totalPages).keys()).map((item) => (
               <span
-                style={themeColor ? { backgroundColor: themeColor } : {}}
+                style={
+                  themeColor
+                    ? { backgroundColor: themeColor, color: '#fff' }
+                    : {}
+                }
                 onClick={(): void => goPage(item + 1)}
-                className={`pageLink ${
-                  paginator.page === item + 1 ? 'pageLink--active' : ''
-                }`}
+                className={`${styles.page_link} ${paginator.page === item + 1
+                  ? `${styles.page_link_active}`
+                  : ''
+                  }`}
                 key={item}
               >
                 {item + 1}
@@ -46,8 +50,8 @@ export default function Paginator<T>({
             ))}
           </div>
         )}
-        <div onClick={(): void => previous()} className="previous">
-          <span className="previousText">
+        <div onClick={(): void => previous()} className={styles.previous}>
+          <span className={styles.previous_text}>
             <AngleLeft />
           </span>
         </div>
@@ -55,9 +59,9 @@ export default function Paginator<T>({
           onClick={(): void => {
             next();
           }}
-          className="next"
+          className={styles.next}
         >
-          <span className="nextText">
+          <span className={styles.next_text}>
             <AngleLeft />
           </span>
         </div>

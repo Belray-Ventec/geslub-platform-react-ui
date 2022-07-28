@@ -1,4 +1,4 @@
-.button-belray{
+.button{
     font-family: sans-serif;
     border: 0;
     font-weight: 700;
@@ -6,35 +6,35 @@
     display: inline-block;
     line-height: 1;
 }
-.button-belray:disabled{
+.button:disabled{
     background-color: gray;
 }
-.button-belray:disabled:hover{
+.button:disabled:hover{
     filter: brightness(1);
 }
 
-.button-belray:hover{
+.button:hover{
     filter: brightness(1.25);
 }
 
-.button-belray--primary{
+.button_primary{
     color: #fff;
     background-color: #e74c3c;
     box-shadow: 0 2px 6px rgb(0 21 64 / 10%), 0 10px 20px rgb(0 21 64 / 5%);
 }
-.button-belray--secondary{
+.button_secondary{
     color: #494949;
     background-color: transparent;
 }
-.button-belray--small{
+.button_small{
     font-size: 12px;
     padding: 10px 15px;
 }
-.button-belray--medium{
+.button_medium{
     font-size: 14px;
     padding: 11px 20px;
 }
-.button-belray--large{
+.button_large{
     font-size: 16px;
     padding: 13px 27px;
 }

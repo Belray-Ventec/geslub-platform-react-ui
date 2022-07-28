@@ -1,6 +1,6 @@
 import React, { ReactNode, useState } from 'react';
-import './dropDown.css';
-import { Button } from '../Button';
+import styles from './dropDown.module.css';
+import { Button } from '../button';
 
 interface DropDownProps {
   title: string | JSX.Element;
@@ -19,11 +19,16 @@ export default function DropDown({
 
   if (!onlyResponsive) {
     return (
-      <div onClick={(): void => setShow(!show)} className="belDropDown">
+      <div
+        onClick={(): void => setShow(!show)}
+        className={styles.drop_down}
+      >
         <span>{title}</span>
         <div
           className={
-            !show ? 'belDropDown-content' : 'belDropDown-content-hover'
+            !show
+              ? styles.drop_down_content
+              : styles.drop_down_content_hover
           }
         >
           {children}
@@ -33,10 +38,10 @@ export default function DropDown({
   }
 
   return (
-    <div className="belDropDownContainer">
+    <div className={styles.drop_down_container}>
       <div
         onClick={(): void => setShow(!show)}
-        className="belDropDownResponsive"
+        className={styles.drop_down_responsive}
       >
         <Button
           backgroundColor={themeColor ? themeColor : '#34495e'}
@@ -45,7 +50,11 @@ export default function DropDown({
         ></Button>
       </div>
       <div
-        className={!show ? 'belDropDown-content' : 'belDropDown-content-hover'}
+        className={
+          !show
+            ? styles.drop_down_content
+            : styles.drop_down_content_hover
+        }
       >
         {children}
       </div>

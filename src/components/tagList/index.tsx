@@ -1,6 +1,6 @@
 import React from 'react';
 import Tag from '../tag';
-import './tagList.css';
+import styles from './tagList.module.css';
 
 interface TagListProps {
   data: string[];
@@ -12,7 +12,7 @@ export default function TagList({ data }: TagListProps): JSX.Element {
   };
 
   return (
-    <div className="tagListContainer">
+    <div className={styles.tag_list_container}>
       {data.map(
         (item: string): JSX.Element => (
           <Tag key={item} text={item} onClick={handleOnClickTag} />

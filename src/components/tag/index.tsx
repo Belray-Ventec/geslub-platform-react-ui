@@ -1,5 +1,5 @@
 import React from 'react';
-import './tag.css';
+import styles from './tag.module.css';
 
 interface TagProps {
   text: string;
@@ -8,7 +8,7 @@ interface TagProps {
 
 export default function Tag({ text, onClick }: TagProps): JSX.Element {
   return (
-    <span className="tag" onClick={(): void => onClick(text)}>
+    <span className={styles.tag} onClick={(): void => onClick(text)}>
       {text}
     </span>
   );
