@@ -2,6 +2,7 @@ import React from 'react';
 import { StatePaginatorProps } from '../../hooks/usePaginate';
 import AngleLeft from '../icons/AngleLeft';
 import styles from './paginator.module.css';
+
 export interface PaginatorProps<T> {
   paginator: StatePaginatorProps<T>;
   showPages?: boolean;
@@ -39,10 +40,11 @@ export default function Paginator<T>({
                     : {}
                 }
                 onClick={(): void => goPage(item + 1)}
-                className={`${styles.page_link} ${paginator.page === item + 1
-                  ? `${styles.page_link_active}`
-                  : ''
-                  }`}
+                className={`${styles.page_link} ${
+                  paginator.page === item + 1
+                    ? `${styles.page_link_active}`
+                    : ''
+                }`}
                 key={item}
               >
                 {item + 1}
