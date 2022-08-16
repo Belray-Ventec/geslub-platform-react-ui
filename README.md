@@ -1,5 +1,12 @@
 # geslub-platform-react-ui
 
+### Instalar libreria
+
+```terminal
+npm i git+https://github.com/Belray-Ventec/geslub-platform-react-ui.git
+```
+
+
 ## Instalación
 
 Instalar dependencias
@@ -13,37 +20,6 @@ npm install
 
 ```
 npm run storybook
-```
-
-## Configuración para usar libreria
-Generar dist
-
-```
-npm run build
-```
-
-Crear package.json
-
-```
-cd dist
-npm init
-```
-
-### Instalar libreria de forma local
-
-1. en tu proyecto ejecutar **_(importante remplazar directorio por el de tu carpeta dist)_**
-
-```
-npm install D:\Documentos\React\geslub-platform-react-ui\dist
-```
-
-### Instalar libreria a traves de github
-
-1. Subir directorio **dist** a un repositorio de github
-2. en tu proyecto ejecutar **(importante remplazar la url por la de tu repositorio)**
-
-```terminal
-npm install https://github.com/username/your-repository.git
 ```
 
 ## Modo de uso
