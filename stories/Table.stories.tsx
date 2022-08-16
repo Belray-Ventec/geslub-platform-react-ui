@@ -25,7 +25,7 @@ const Template: ComponentStory<typeof Table> = (args) => <Table {...args} />;
 export const Default = Template.bind({});
 
 Default.args = {
-  initialData: productData,
+  data: productData,
   columns: [
     { label: 'Id', getValue: (item) => item.id },
     { label: 'Nombre', getValue: (item) => item.name },

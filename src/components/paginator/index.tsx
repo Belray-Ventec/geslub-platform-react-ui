@@ -9,7 +9,7 @@ export interface PaginatorProps<T> {
   next: () => void;
   previous: () => void;
   goPage: (page: number) => void;
-  themeColor: string;
+  themeColor: string | undefined;
 }
 
 export default function Paginator<T>({

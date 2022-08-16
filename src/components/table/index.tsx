@@ -9,10 +9,10 @@ import FileArrowDown from '../icons/FileArrowDown';
 import Info from '../icons/Info';
 import ShareNodes from '../icons/ShareNodes';
 import Xmark from '../icons/Xmark';
-import Paginator from '../../Paginator';
 import PenToSquare from '../icons/PenToSquare';
 
 import styles from './table.module.css';
+import Paginator from '../paginator';
 
 interface ActionsProps<T> {
   showInfo?: boolean;
@@ -20,22 +20,21 @@ interface ActionsProps<T> {
   showShare?: boolean;
   showSee?: boolean;
   actions?: { label: string | JSX.Element; callback: (d: T) => void }[];
-  themeColor: string;
+  themeColor?: string;
   item: T;
 }
 
 export interface TableProps<T> {
-  initialData: T[];
+  data: T[];
   columns: {
     label: string;
     getValue: (item: T) => React.ReactNode;
-    isFilter: boolean;
   }[];
   getRowKey: (d: T) => string | number;
-  themeColor: string;
-  showPages: boolean;
-  itemsPerPage: number;
-  actions: { label: string | JSX.Element; callback: (d: T) => void }[];
+  themeColor?: string;
+  showPages?: boolean;
+  itemsPerPage?: number;
+  actions?: { label: string | JSX.Element; callback: (d: T) => void }[];
   caption?: string;
   showInfo?: boolean;
   showDownload?: boolean;
@@ -45,29 +44,29 @@ export interface TableProps<T> {
 
 export function Table<T>({
   columns,
-  initialData,
+  data,
   getRowKey,
   themeColor,
   showPages = false,
-  itemsPerPage,
-  actions,
+  itemsPerPage = 5,
+  actions = [],
   caption,
   showInfo,
   showDownload,
   showShare,
   showSee,
 }: TableProps<T>): JSX.Element {
-  const [data, setData] = useState<T[]>(initialData);
+  const [stateData, setStateData] = useState<T[]>(data);
   const { paginator, next, previous, goPage, onDelete } = usePaginate({
-    data,
-    setData,
+    data: stateData,
+    setData: setStateData,
     itemsPerPage: itemsPerPage,
   });
   const [selected, setSelected] = useState<T[]>([]);
 
   useEffect(() => {
-    setData(initialData);
-  }, [initialData]);
+    setStateData(data);
+  }, [data]);
 
   const isChecked = (item: T): void => {
     if (selected.includes(item)) {
