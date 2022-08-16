@@ -10,6 +10,7 @@ export enum Size {
 interface ButtonProps {
   backgroundColor?: string;
   variant?: 'icon' | 'text';
+  color?: string;
   size?: Size;
   primary?: boolean;
   text: string | JSX.Element;
@@ -27,6 +28,7 @@ export function Button({
   disabled = false,
   onClick,
   variant = 'text',
+  color,
   ...props
 }: ButtonProps): JSX.Element {
   const valuePrimary = primary
@@ -48,7 +50,7 @@ export function Button({
       onClick={onClick}
       type="button"
       className={[styles.button, isText, valuePrimary].join(' ')}
-      style={{ backgroundColor: backgroundColor, borderRadius: valueRounded }}
+      style={{ backgroundColor: backgroundColor, borderRadius: valueRounded, color: color ? color : '' }}
       {...props}
     >
       {text}

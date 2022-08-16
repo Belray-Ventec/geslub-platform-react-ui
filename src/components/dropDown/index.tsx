@@ -5,7 +5,7 @@ import { Button } from '../button';
 interface DropDownProps {
   title: string | JSX.Element;
   children: ReactNode;
-  themeColor: string;
+  themeColor: string | undefined;
   onlyResponsive?: boolean;
 }
 

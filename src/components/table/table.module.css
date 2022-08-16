@@ -1,0 +1,74 @@
+.table_container{
+    overflow-x: auto ;
+    padding: 20px;
+}
+.table{
+    border-collapse: separate;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 100%;
+    border-bottom: 2px solid #9a9a9a;
+    border-spacing: 0px 15px;
+    padding: 0px 10px 10px 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgb(0 21 64 / 10%), 0 10px 20px rgb(0 21 64 / 5%);
+}
+
+.table thead tr{
+    background-color: #34495e;
+    color: #ffffff;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+.table thead tr th{
+    text-align: center;
+}
+
+.table th, table td{
+    padding: 12px 15px;
+}
+.table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+.table tbody tr:hover {
+    filter: brightness(0.95);
+}
+.not_info_found{
+    display: table-cell;
+    text-align: center;
+    position: relative;
+    left: 30%;
+}
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.caption {
+    margin-bottom: 0.8rem;
+    font-size: 2rem;
+    font-family: sans-serif;
+}
+.control {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 10px 0px 10px;
+    gap: 10px;
+}
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+
+@media screen and (max-width: 700px) {
+    .control > button{
+        flex-grow: 1;
+    }
+}
+
