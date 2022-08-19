@@ -53,16 +53,4 @@ describe('Testing Table', () => {
         expect(precio).toBeInTheDocument()
     })
 
-    // test('Debe mostrar los botones de acciones', async () => {
-    //     setup()
-    //     const agregar = document.querySelector('#root > div:nth-child(1) > button:nth-child(1) > svg')
-    //     expect(agregar).toBeInTheDocument()
-        
-    //     const compartir = screen.getByRole('button', { name: /compartir/i })
-    //     expect(compartir).toBeInTheDocument()
-
-    //     const eliminar = screen.getByRole('button', { name: /descargar/i })
-    //     expect(eliminar).toBeInTheDocument()
-
-    // })
 })

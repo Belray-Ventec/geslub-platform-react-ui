@@ -40,4 +40,7 @@ Default.args = {
   showPages: true,
   itemsPerPage: 3,
   actions: [],
+  onDelete: (data) => { console.log(data) },
+  add: () => { console.log('add') },
+  share: () => { console.log('share') },
 };

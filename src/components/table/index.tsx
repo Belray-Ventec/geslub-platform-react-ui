@@ -40,6 +40,10 @@ export interface TableProps<T> {
   showDownload?: boolean;
   showShare?: boolean;
   showSee?: boolean;
+  add?: () => void;
+  share?: () => void;
+  onDelete: (d: T[]) => void;
+
 }
 
 export function Table<T>({
@@ -55,9 +59,12 @@ export function Table<T>({
   showDownload,
   showShare,
   showSee,
+  onDelete,
+  add,
+  share
 }: TableProps<T>): JSX.Element {
   const [stateData, setStateData] = useState<T[]>(data);
-  const { paginator, next, previous, goPage, onDelete } = usePaginate({
+  const { paginator, next, previous, goPage } = usePaginate({
     data: stateData,
     setData: setStateData,
     itemsPerPage: itemsPerPage,
@@ -85,12 +92,14 @@ export function Table<T>({
           backgroundColor={themeColor ? themeColor : '#fff'}
           variant="text"
           text={<Add size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />}
+          onClick={() => add && add()}
         />
         <Button
           primary
           backgroundColor={themeColor ? themeColor : '#fff'}
           variant="text"
           text={<ShareNodes size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />}
+          onClick={() => share && share()}
         />
         <Button
           onClick={(): void => onDelete(selected)}
