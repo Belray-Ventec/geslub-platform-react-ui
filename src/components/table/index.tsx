@@ -123,7 +123,7 @@ export function Table<T>({
               {columns.map(({ label }) => (
                 <th key={label}>{label}</th>
               ))}
-              {actions.length > 0 && <th>Acciones</th>}
+              {paginator.data.length > 0 && <th>Acciones</th>}
             </tr>
           </thead>
           <tbody>

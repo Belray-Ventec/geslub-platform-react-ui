@@ -39,12 +39,5 @@ Default.args = {
   getRowKey: (item: Product): string | number => item.id,
   showPages: true,
   itemsPerPage: 3,
-  actions: [
-    { label: 'Custom Action', callback: onEdit },
-    { label: <Add size={20} fill="#fff" />, callback: onEdit },
-  ],
-  showInfo: true,
-  showDownload: true,
-  showShare: true,
-  showSee: true,
+  actions: [],
 };
