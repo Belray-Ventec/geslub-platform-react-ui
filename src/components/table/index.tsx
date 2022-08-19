@@ -119,7 +119,7 @@ export function Table<T>({
                     }
               }
             >
-              <th></th>
+              {paginator.data.length > 0 && <th></th>}
               {columns.map(({ label }) => (
                 <th key={label}>{label}</th>
               ))}
@@ -132,7 +132,6 @@ export function Table<T>({
                 <tr onClick={(): void => isChecked(item)} key={getRowKey(item)}>
                   <td>
                     <input
-                      className="belcheckbox"
                       readOnly
                       id={`belCheck${index}`}
                       checked={selected.includes(item)}
@@ -161,10 +160,8 @@ export function Table<T>({
               ))
             ) : (
               <tr>
-                <td>
-                  <span className={styles.not_info_found}>
+                <td className={styles.not_info_found} colSpan={actions ? columns.length + 1 : columns.length}>
                     No hay información disponible
-                  </span>
                 </td>
               </tr>
             )}

@@ -22,7 +22,7 @@
 }
 
 .table thead tr th{
-    text-align: center;
+    text-align: left;
 }
 
 .table th, table td{
@@ -30,22 +30,20 @@
 }
 .table tbody tr {
     border-bottom: 1px solid #dddddd;
-    text-align: center;
+    text-align: left;
     background-color: #f2f2f2;
 }
 .table tbody tr:hover {
     filter: brightness(0.95);
 }
 .not_info_found{
-    display: table-cell;
-    text-align: center;
-    position: relative;
-    left: 30%;
+    text-align: center
 }
+
 .actions {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     gap: 10px;
 }
 .caption {

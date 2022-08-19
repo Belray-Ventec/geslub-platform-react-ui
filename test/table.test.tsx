@@ -1,18 +1,18 @@
-import { screen, render } from '@testing-library/react'
+import { screen, render } from '@testing-library/react';
 import React from 'react'
 import { Table } from '../src/components/table'
-import { productActions, productColumns, productData } from '../src/utils/data'
+import {productColumns, productData } from '../src/utils/data'
 
 describe('Testing Table', () => {
     const setup = () => {
         render(
             <Table
-                initialData={productData}
+                data={productData}
                 columns={productColumns}
                 getRowKey={(item) => item.id}
                 showPages
                 itemsPerPage={10}
-                actions={productActions}
+                actions={[]}
                 showInfo
                 showDownload
                 showShare
