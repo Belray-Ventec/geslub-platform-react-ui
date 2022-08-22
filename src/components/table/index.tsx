@@ -22,6 +22,13 @@ interface ActionsProps<T> {
   actions?: { label: string | JSX.Element; callback: (d: T) => void }[];
   themeColor?: string;
   item: T;
+  onEdit?: (d: T) => void;
+  onDeleteItem?: (d: T) => void;
+  onSee?: (d: T) => void;
+  onDownload?: (d: T) => void;
+  onShare?: (d: T) => void;
+  onInfo?: (d: T) => void;
+
 }
 
 export interface TableProps<T> {
@@ -43,6 +50,12 @@ export interface TableProps<T> {
   add?: () => void;
   share?: () => void;
   onDelete: (d: T[]) => void;
+  onEdit?: (d: T) => void;
+  onSee?: (d: T) => void;
+  onDownload?: (d: T) => void;
+  onInfo?: (d: T) => void;
+  onShare?: (d: T) => void;
+  onDeleteItem?: (d: T) => void;
 
 }
 
@@ -61,7 +74,13 @@ export function Table<T>({
   showSee,
   onDelete,
   add,
-  share
+  share,
+  onEdit,
+  onSee,
+  onDownload,
+  onInfo,
+  onShare,
+  onDeleteItem,
 }: TableProps<T>): JSX.Element {
   const [stateData, setStateData] = useState<T[]>(data);
   const { paginator, next, previous, goPage } = usePaginate({
@@ -163,6 +182,12 @@ export function Table<T>({
                       themeColor={themeColor}
                       actions={actions}
                       item={item}
+                      onEdit={onEdit}
+                      onDeleteItem={onDeleteItem}
+                      onSee={onSee}
+                      onDownload={onDownload}
+                      onShare={onShare}
+                      onInfo={onInfo}
                     />
                   </td>
                 </tr>
@@ -197,34 +222,40 @@ function Actions<T>({
   actions,
   themeColor,
   item,
+  onEdit,
+  onDeleteItem,
+  onSee,
+  onDownload,
+  onShare,
+  onInfo,
 }: ActionsProps<T>) {
   return (
     <div className={styles.actions}>
       {showInfo && (
         <Button
           variant={'icon'}
-          onClick={(): void => console.log('Custom Info Button')}
+          onClick={(): void => onInfo && onInfo(item)}
           text={<Info />}
         />
       )}
       {showDownload && (
         <Button
           variant={'icon'}
-          onClick={(): void => console.log('Custom Download Button')}
+          onClick={(): void => onDownload && onDownload(item)}
           text={<FileArrowDown />}
         />
       )}
       {showShare && (
         <Button
           variant={'icon'}
-          onClick={(): void => console.log('Custom Share Button')}
+          onClick={(): void => onShare && onShare(item)}
           text={<ShareNodes />}
         />
       )}
       {showSee && (
         <Button
           variant={'icon'}
-          onClick={(): void => console.log('Custom See Button')}
+          onClick={(): void => onSee && onSee(item)}
           text={<Eye />}
         />
       )}
@@ -240,12 +271,14 @@ function Actions<T>({
         ))}
       <DropDown themeColor={themeColor} title={<Ellipsis />}>
         <Button
+          onClick={(): void => onEdit && onEdit(item)}
           backgroundColor={themeColor}
           text={
             <PenToSquare fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />
           }
         />
         <Button
+          onClick={(): void => onDeleteItem && onDeleteItem(item)}
           backgroundColor={themeColor}
           text={<Xmark fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />}
         />

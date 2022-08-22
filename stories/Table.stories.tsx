@@ -2,8 +2,7 @@ import { Table } from '../src/components/table';
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import TagList from '../src/components/tagList';
-import { onEdit, Product, productData } from '../src/utils/data';
-import Add from '../src/components/icons/Add';
+import { Product, productData } from '../src/utils/data';
 
 export default {
   title: 'Table',
@@ -40,7 +39,14 @@ Default.args = {
   showPages: true,
   itemsPerPage: 3,
   actions: [],
+  showSee: true,
+  showDownload: true,
   onDelete: (data) => { console.log(data) },
-  add: () => { console.log('add') },
-  share: () => { console.log('share') },
+  onEdit: (data) => { console.log(data) },
+  onDeleteItem: (data) => { console.log(data) },
+  onSee: (data) => { console.log(data) },
+  onDownload: (data) => { console.log(data) },
+  onInfo: (data) => { console.log(data) },
+  onShare: (data) => { console.log(data) },
+
 };
