@@ -1,18 +1,20 @@
-import { screen, render } from '@testing-library/react'
+import { screen, render } from '@testing-library/react';
+import '@testing-library/jest-dom'
 import React from 'react'
 import { Table } from '../src/components/table'
-import { productActions, productColumns, productData } from '../src/utils/data'
+import {productColumns, productData } from '../src/utils/data'
 
 describe('Testing Table', () => {
+    const onEdit = jest.fn()
     const setup = () => {
         render(
             <Table
-                initialData={productData}
+                data={productData}
                 columns={productColumns}
                 getRowKey={(item) => item.id}
                 showPages
-                itemsPerPage={10}
-                actions={productActions}
+                itemsPerPage={3}
+                actions={[{ label: 'Editar', callback: onEdit }]}
                 showInfo
                 showDownload
                 showShare
@@ -21,10 +23,34 @@ describe('Testing Table', () => {
         )
     }
 
-    test('Mostrar encabezados de la tabla', async () => {
+    test('Debe Mostrar los encabezados de la tabla', async () => {
         setup()
-        const columns = ['Id', 'Nombre', 'Precio', 'Comprar', 'Etiquetas', 'Street', 'Pais']
-        const id = await screen.getByText(columns[0])
+        const id = screen.getByRole('columnheader', { name: /id/i})
         expect(id).toBeInTheDocument()
+
+        const nombre = screen.getByRole('columnheader', { name: /nombre/i })
+        expect(nombre).toBeInTheDocument()
+
+        const precio = screen.getByRole('columnheader', { name: /precio/i })
+        expect(precio).toBeInTheDocument()
     })
+
+    test('Debe mostrar los datos de la tabla', async () => {
+        setup()
+        const id = screen.getByRole('cell', {
+            name: /3/i
+          })
+        expect(id).toBeInTheDocument()
+
+        const nombre = screen.getByRole('cell', {
+            name: /coca cola/i
+          })
+        expect(nombre).toBeInTheDocument()
+
+        const precio = screen.getByRole('cell', {
+            name: /1200/i
+          })
+        expect(precio).toBeInTheDocument()
+    })
+
 })
