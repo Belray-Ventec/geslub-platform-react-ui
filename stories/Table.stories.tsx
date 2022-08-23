@@ -31,7 +31,7 @@ Default.args = {
     { label: 'Nombre', getValue: (item) => item.name },
     { label: 'Precio', getValue: (item) => item.price },
     { label: 'Comprar', getValue: (item) => <a href={item.link}>Comprar</a> },
-    { label: 'Etiquetas', getValue: (item) => <TagList data={item.tag} /> },
+    { label: 'Etiquetas', getValue: (item) => <TagList rounded data={item.tag} /> },
     { label: 'Street', getValue: (item) => item.address.street },
     { label: 'Pais', getValue: (item) => item.address.country },
   ],
