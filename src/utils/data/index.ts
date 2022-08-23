@@ -154,6 +154,7 @@ export const productColumns: ProductColumns[] = [
   { label: 'Id', getValue: (item) => item.id },
   { label: 'Nombre', getValue: (item) => item.name },
   { label: 'Precio', getValue: (item) => item.price },
+  { label: 'Street', getValue: (item) => item.address.street },
 ];
 
 export const onEdit = (product: Product): void => {

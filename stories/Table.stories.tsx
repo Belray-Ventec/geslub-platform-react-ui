@@ -41,6 +41,7 @@ Default.args = {
   actions: [],
   showSee: true,
   showDownload: true,
+  showInfo: true,
   onDelete: (data) => { console.log(data) },
   onEdit: (data) => { console.log(data) },
   onDeleteItem: (data) => { console.log(data) },
