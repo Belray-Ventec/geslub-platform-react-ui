@@ -2,8 +2,7 @@ import { Table } from '../src/components/table';
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import TagList from '../src/components/tagList';
-import { onEdit, Product, productData } from '../src/utils/data';
-import Add from '../src/components/icons/Add';
+import { Product, productData } from '../src/utils/data';
 
 export default {
   title: 'Table',
@@ -39,12 +38,16 @@ Default.args = {
   getRowKey: (item: Product): string | number => item.id,
   showPages: true,
   itemsPerPage: 3,
-  actions: [
-    { label: 'Custom Action', callback: onEdit },
-    { label: <Add size={20} fill="#fff" />, callback: onEdit },
-  ],
-  showInfo: true,
-  showDownload: true,
-  showShare: true,
+  actions: [],
   showSee: true,
+  showDownload: true,
+  showInfo: true,
+  onDelete: (data) => { console.log(data) },
+  onEdit: (data) => { console.log(data) },
+  onDeleteItem: (data) => { console.log(data) },
+  onSee: (data) => { console.log(data) },
+  onDownload: (data) => { console.log(data) },
+  onInfo: (data) => { console.log(data) },
+  onShare: (data) => { console.log(data) },
+
 };

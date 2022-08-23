@@ -1,3 +1,4 @@
+import React from 'react';
 export interface Product {
   id: number;
   name: string;
@@ -10,7 +11,7 @@ export interface Product {
 
 export interface ProductColumns {
   label: string;
-  key: string;
+  getValue: (item: Product) => React.ReactNode;
 }
 
 export const productData: Product[] = [
@@ -150,11 +151,10 @@ export const productData: Product[] = [
 ];
 
 export const productColumns: ProductColumns[] = [
-  { label: 'Id', key: 'id' },
-  { label: 'Nombre', key: 'name' },
-  { label: 'Precio', key: 'price' },
-  { label: 'Comprar', key: 'link' },
-  { label: 'Etiquetas', key: 'tag' },
+  { label: 'Id', getValue: (item) => item.id },
+  { label: 'Nombre', getValue: (item) => item.name },
+  { label: 'Precio', getValue: (item) => item.price },
+  { label: 'Street', getValue: (item) => item.address.street },
 ];
 
 export const onEdit = (product: Product): void => {
