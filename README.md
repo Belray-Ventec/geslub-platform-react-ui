@@ -68,3 +68,54 @@ export default function Component(): {
 | onDownload   | Function `(d: T) => void`                                                        | no        |
 | onInfo       | Function `(d: T) => void`                                                        | no        |
 | onShare      | Function `(d: T) => void`                                                        | no        |
+
+
+### Search
+
+```Javascript
+import { Search } from 'geslub-platform-react-ui';
+
+export default function Component(): {
+
+	const onSearchFn = (search: string) => { console.log(search) }
+
+	return (
+            <Search
+                handleSearch={(search: string) => onSearchFn(search)}
+                timeDebounce={500}
+            />
+	)
+
+}
+```
+
+| Propiedad    | Tipo                                                                             | Requerida |
+| ------------ | -------------------------------------------------------------------------------- | --------- |
+| handleSearch | Function `(search: string) => void`                                              | si        |
+| timeDebounce | `number`                                                                         | no        |
+
+
+
+### Tag
+
+```Javascript
+import { Tag } from 'geslub-platform-react-ui';
+
+export default function Component(): {
+
+	const onClickFn = () => {}
+
+	return (
+            <Tag color='#fff' backgroundColor='#00a65a' onClick={() => onClickFn()}>Editar</Tag>
+	)
+
+}
+```
+
+| Propiedad       | Tipo                                                                             | Requerida |
+| --------------- | -------------------------------------------------------------------------------- | --------- |
+| color           | `string`                                                                         | no        |
+| backgroundColor | `number`                                                                         | no        |
+| onClick         | Function `(text: string) => void`                                                | no        |
+
+

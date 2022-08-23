@@ -1,7 +1,7 @@
 import { Table } from '../src/components/table';
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import TagList from '../src/components/tagList';
+import { TagList } from '../src/components/tagList';
 import { Product, productData } from '../src/utils/data';
 
 export default {
@@ -30,7 +30,7 @@ Default.args = {
     { label: 'Nombre', getValue: (item) => item.name },
     { label: 'Precio', getValue: (item) => item.price },
     { label: 'Comprar', getValue: (item) => <a href={item.link}>Comprar</a> },
-    { label: 'Etiquetas', getValue: (item) => <TagList rounded data={item.tag} /> },
+    { label: 'Etiquetas', getValue: (item) => <TagList getRowKey={(tag: {id: number; name: string}) => tag.id} getValue={(tag) => tag.name} align='left' rounded data={item.tag} /> },
     { label: 'Street', getValue: (item) => item.address.street },
     { label: 'Pais', getValue: (item) => item.address.country },
   ],

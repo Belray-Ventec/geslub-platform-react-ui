@@ -2,18 +2,18 @@ import React from 'react';
 import styles from './tag.module.css';
 
 interface TagProps {
-  text: string;
+  children: React.ReactNode;
   backgroundColor? : string
   color? : string
   rounded?: boolean;
   onClick: (text: string) => void;
 }
 
-export default function Tag({ text, onClick, backgroundColor, color, rounded }: TagProps): JSX.Element {
+export function Tag({ children, onClick, backgroundColor, color, rounded }: TagProps): JSX.Element {
   return (
     <span className={[styles.tag, rounded && styles.tag_rounded].join(' ')} 
-    style={{backgroundColor: backgroundColor && backgroundColor, color: color && color}} onClick={(): void => onClick(text)}>
-      {text}
+    style={{backgroundColor: backgroundColor && backgroundColor, color: color && color}} onClick={(): void => onClick(String(children))}>
+      {children}
     </span>
   );
 }
