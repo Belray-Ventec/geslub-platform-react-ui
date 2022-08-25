@@ -13,6 +13,7 @@ import PenToSquare from '../icons/PenToSquare';
 
 import styles from './table.module.css';
 import Paginator from '../paginator';
+import { Sort, SortType } from '../sort';
 
 interface ActionsProps<T> {
   showInfo?: boolean;
@@ -83,6 +84,7 @@ export function Table<T>({
   onDeleteItem,
 }: TableProps<T>): JSX.Element {
   const [stateData, setStateData] = useState<T[]>(data);
+  const [columnSort, setColumnSort] = useState<{label: string, sort: SortType}>({label: '', sort: 'default'});
   const { paginator, next, previous, goPage } = usePaginate({
     data: stateData,
     setData: setStateData,
@@ -102,6 +104,11 @@ export function Table<T>({
       setSelected([...selected, item]);
     }
   };
+
+  const handleSort = (data: T[]) => {
+    setStateData(data);
+    goPage(1)
+  }
 
   return (
     <>
@@ -151,8 +158,10 @@ export function Table<T>({
               }
             >
               {paginator.data.length > 0 && <th></th>}
-              {columns.map(({ label }) => (
-                <th key={label}>{label}</th>
+              {columns.map(({ label, getValue }) => (
+                <th className={styles.column_header} key={label}>
+                  <Sort label={label} data={stateData} getValue={getValue} onSort={(data) => handleSort(data)}/>
+                </th>
               ))}
               {paginator.data.length > 0 && <th>Acciones</th>}
             </tr>
