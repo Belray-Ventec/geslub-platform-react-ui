@@ -52,12 +52,12 @@ export default function Paginator<T>({
             ))}
           </div>
         )}
-        <div onClick={(): void => previous()} className={styles.previous}>
+        <div aria-label='previous' onClick={(): void => previous()} className={styles.previous}>
           <span className={styles.previous_text}>
             <AngleLeft />
           </span>
         </div>
-        <div
+        <div aria-label='next'
           onClick={(): void => {
             next();
           }}

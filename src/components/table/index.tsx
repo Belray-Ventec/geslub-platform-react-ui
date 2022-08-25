@@ -107,6 +107,7 @@ export function Table<T>({
     <>
       <div className={styles.control}>
         <Button
+          ariaLabel='add'
           primary
           backgroundColor={themeColor ? themeColor : '#fff'}
           variant="text"
@@ -114,6 +115,7 @@ export function Table<T>({
           onClick={() => add && add()}
         />
         <Button
+          ariaLabel='share'
           primary
           backgroundColor={themeColor ? themeColor : '#fff'}
           variant="text"
@@ -121,6 +123,7 @@ export function Table<T>({
           onClick={() => share && share()}
         />
         <Button
+          ariaLabel='delete'
           onClick={(): void => onDelete(selected)}
           primary
           backgroundColor={themeColor ? themeColor : '#fff'}
@@ -233,6 +236,7 @@ function Actions<T>({
     <div className={styles.actions}>
       {showInfo && (
         <Button
+          ariaLabel='infoItem'
           variant={'icon'}
           onClick={(): void => onInfo && onInfo(item)}
           text={<Info />}
@@ -240,6 +244,7 @@ function Actions<T>({
       )}
       {showDownload && (
         <Button
+          ariaLabel='downloadItem'
           variant={'icon'}
           onClick={(): void => onDownload && onDownload(item)}
           text={<FileArrowDown />}
@@ -247,6 +252,7 @@ function Actions<T>({
       )}
       {showShare && (
         <Button
+          ariaLabel='shareItem'
           variant={'icon'}
           onClick={(): void => onShare && onShare(item)}
           text={<ShareNodes />}
@@ -254,6 +260,7 @@ function Actions<T>({
       )}
       {showSee && (
         <Button
+          ariaLabel='seeItem'
           variant={'icon'}
           onClick={(): void => onSee && onSee(item)}
           text={<Eye />}
@@ -271,6 +278,7 @@ function Actions<T>({
         ))}
       <DropDown themeColor={themeColor} title={<Ellipsis />}>
         <Button
+          ariaLabel='editItem'
           onClick={(): void => onEdit && onEdit(item)}
           backgroundColor={themeColor}
           text={
@@ -278,6 +286,7 @@ function Actions<T>({
           }
         />
         <Button
+          ariaLabel='deleteItem'
           onClick={(): void => onDeleteItem && onDeleteItem(item)}
           backgroundColor={themeColor}
           text={<Xmark fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />}

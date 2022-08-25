@@ -8,6 +8,7 @@ export enum Size {
 }
 
 interface ButtonProps {
+  ariaLabel?: string;
   backgroundColor?: string;
   variant?: 'icon' | 'text';
   color?: string;
@@ -20,6 +21,7 @@ interface ButtonProps {
 }
 
 export function Button({
+  ariaLabel,
   backgroundColor,
   size = Size.medium,
   primary = false,
@@ -46,6 +48,7 @@ export function Button({
   const isText = variant === 'text' ? buttonSize : '';
   return (
     <button
+      aria-label={ariaLabel ? ariaLabel : 'button'}
       disabled={disabled}
       onClick={onClick}
       type="button"

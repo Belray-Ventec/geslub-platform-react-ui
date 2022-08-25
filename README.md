@@ -31,9 +31,16 @@ import { Table } from 'geslub-platform-react-ui';
 
 export default function Component(): {
 
-		return (
-				<Table  />
-		)
+	return (
+			<Table  
+			data={[{id: 1, name: 'ProductName', price. 21},
+			{id: 2, name: 	'ProductName2', price. 50}
+			]}
+			columns={[{label: 'name', getValue: (item) => item.name}, {label: 'price', getValue: (item) => item.price}]}
+			getRowKey={(item) => item.id}
+			onDelete={(items) = {console.log(items)}}
+			/>
+	)
 
 }
 ```
@@ -43,6 +50,7 @@ export default function Component(): {
 | data	       | `T[]`                                                                            | si        |
 | columns      | `{ label: string; getValue: (item: T) => React.ReactNode }[]`                    | si        |
 | getRowKey    | Function `(d: T) => string`                                                      | si        |
+| onDelete     | Function `(d: T[]) => void`                                                      | si        |
 | itemsPerPage | `number`                                                                         | no        |
 | actions      | `label: string; callback: (d: T) => void }[]`                                    | no        |
 | themeColor   | `string`                                                                         | no        |
@@ -52,3 +60,62 @@ export default function Component(): {
 | showDownload | `boolean`                                                                        | no        |
 | showSee      | `boolean`                                                                        | no        |
 | caption      | `string`                                                                         | no        |
+| add          | Function `() => void`                                                            | no        |
+| share        | Function `() => void`                                                            | no        |
+| onEdit       | Function `(d: T) => void`                                                        | no        |
+| onDeleteItem | Function `(d: T) => void`                                                        | no        |
+| onSee        | Function `(d: T) => void`                                                        | no        |
+| onDownload   | Function `(d: T) => void`                                                        | no        |
+| onInfo       | Function `(d: T) => void`                                                        | no        |
+| onShare      | Function `(d: T) => void`                                                        | no        |
+
+
+### Search
+
+```Javascript
+import { Search } from 'geslub-platform-react-ui';
+
+export default function Component(): {
+
+	const onSearchFn = (search: string) => { console.log(search) }
+
+	return (
+            <Search
+                handleSearch={(search: string) => onSearchFn(search)}
+                timeDebounce={500}
+            />
+	)
+
+}
+```
+
+| Propiedad    | Tipo                                                                             | Requerida |
+| ------------ | -------------------------------------------------------------------------------- | --------- |
+| handleSearch | Function `(search: string) => void`                                              | si        |
+| timeDebounce | `number`                                                                         | no        |
+
+
+
+### Tag
+
+```Javascript
+import { Tag } from 'geslub-platform-react-ui';
+
+export default function Component(): {
+
+	const onClickFn = () => {}
+
+	return (
+            <Tag color='#fff' backgroundColor='#00a65a' onClick={() => onClickFn()}>Editar</Tag>
+	)
+
+}
+```
+
+| Propiedad       | Tipo                                                                             | Requerida |
+| --------------- | -------------------------------------------------------------------------------- | --------- |
+| color           | `string`                                                                         | no        |
+| backgroundColor | `number`                                                                         | no        |
+| onClick         | Function `(text: string) => void`                                                | no        |
+
+
