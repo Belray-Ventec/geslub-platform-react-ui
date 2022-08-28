@@ -84,7 +84,6 @@ export function Table<T>({
   onDeleteItem,
 }: TableProps<T>): JSX.Element {
   const [stateData, setStateData] = useState<T[]>(data);
-  const [columnSort, setColumnSort] = useState<{label: string, sort: SortType}>({label: '', sort: 'default'});
   const { paginator, next, previous, goPage } = usePaginate({
     data: stateData,
     setData: setStateData,
