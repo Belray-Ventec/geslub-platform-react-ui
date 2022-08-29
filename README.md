@@ -49,12 +49,13 @@ export default function Component(): {
 | ------------ | -------------------------------------------------------------------------------- | --------- |
 | data	       | `T[]`                                                                            | si        |
 | columns      | `{ label: string; getValue: (item: T) => React.ReactNode }[]`                    | si        |
-| getRowKey    | Function `(d: T) => string`                                                      | si        |
+| getRowKey    | Function `(d: T) => string  number`                                               | si        |
 | onDelete     | Function `(d: T[]) => void`                                                      | si        |
 | itemsPerPage | `number`                                                                         | no        |
 | actions      | `label: string; callback: (d: T) => void }[]`                                    | no        |
 | themeColor   | `string`                                                                         | no        |
 | showPages    | `boolean`                                                                        | no        |
+| showHeaderButtons    | `boolean`                                                                | no        |
 | showInfo     | `boolean`                                                                        | no        |
 | showShare    | `boolean`                                                                        | no        |
 | showDownload | `boolean`                                                                        | no        |
@@ -117,5 +118,40 @@ export default function Component(): {
 | color           | `string`                                                                         | no        |
 | backgroundColor | `number`                                                                         | no        |
 | onClick         | Function `(text: string) => void`                                                | no        |
+
+
+
+### TagList
+
+```Javascript
+import { TagList } from 'geslub-platform-react-ui';
+
+export default function Component(): {
+
+	const tags = [{id:1, name: 'Tag 1'}, {id:1, name: 'Tag 2'}]
+
+	return (
+            <TagList 
+			data={tags}
+			getRowKey={(tag) => tag.id}
+		    getValue={(tag) => tag.name}
+			align='left' 
+			rounded 
+			 />
+	)
+
+}
+```
+
+| Propiedad       | Tipo                                                                             | Requerida |
+| --------------- | -------------------------------------------------------------------------------- | --------- |
+| data	          | `T[]`                                                                            | si        |
+| getRowKey       | Function `(d: T) => string  number`                                             | si        |
+| getValue        | Function `(d: T) => string  number`                                             | si        |
+| backgroundColor | `number`                                                                         | no        |
+| color           | `string`                                                                         | no        |
+| onClick         | Function `(item: string) => void`                                                | no        |
+| rounded         | `boolean`                                                                        | no        |
+| align           | `'left'  'center'  'right'`                                                    | no        |
 
 

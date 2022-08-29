@@ -40,6 +40,7 @@ describe('Testing Table', () => {
                 onDownload={() => onDownloadFn()}
                 onInfo={() => onInfoFn()}
                 onShare={() => onShareFn()}
+                showHeaderButtons
             />
         )
     }
@@ -155,6 +156,19 @@ describe('Testing Table', () => {
         expect(street).toBeInTheDocument()
 
      
+    })
+
+    test('Debe permitir ordenar la columna nombre de forma ascendente', async () => {
+        setup()
+        const nombre = screen.getByText(/nombre/i)
+        expect(nombre).toBeInTheDocument()
+
+        fireEvent.click(nombre);
+        const orderedProduct = await screen.findByRole('cell', {
+            name: /articulos de aseo/i
+          })
+        
+        expect(orderedProduct).toBeInTheDocument()
     })
 
 })

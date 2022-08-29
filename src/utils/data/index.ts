@@ -142,6 +142,20 @@ export const productData: Product[] = [
       street: 'los alamos',
     },
   },
+  {
+    id: 10,
+    name: 'Articulos de aseo',
+    price: 2500,
+    link: 'https://www.google.cl',
+    tag: [{id: 1, name: 'Congelados'}, {id: 2, name: 'Panaderia 1'}, {id: 3, name: 'Juegos'}, {id: 4, name: 'Hogar'}],
+    email: 'carlos.contacto@gmail.com',
+    address: {
+      city: 'santiago centro',
+      number: 1221,
+      country: 'colombia',
+      street: 'los alamos 2',
+    },
+  },
 ];
 
 export const productColumns: ProductColumns[] = [
