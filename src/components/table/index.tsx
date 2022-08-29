@@ -13,7 +13,7 @@ import PenToSquare from '../icons/PenToSquare';
 
 import styles from './table.module.css';
 import Paginator from '../paginator';
-import { Sort, SortType } from '../sort';
+import { Sort } from '../sort';
 
 interface ActionsProps<T> {
   showInfo?: boolean;
@@ -44,6 +44,7 @@ export interface TableProps<T> {
   itemsPerPage?: number;
   actions?: { label: string | JSX.Element; callback: (d: T) => void }[];
   caption?: string;
+  showHeaderButtons?: boolean;
   showInfo?: boolean;
   showDownload?: boolean;
   showShare?: boolean;
@@ -69,6 +70,7 @@ export function Table<T>({
   itemsPerPage = 5,
   actions = [],
   caption,
+  showHeaderButtons,
   showInfo,
   showDownload,
   showShare,
@@ -106,37 +108,38 @@ export function Table<T>({
 
   const handleSort = (data: T[]) => {
     setStateData(data);
-    goPage(1)
   }
 
   return (
     <>
-      <div className={styles.control}>
-        <Button
-          ariaLabel='add'
-          primary
-          backgroundColor={themeColor ? themeColor : '#fff'}
-          variant="text"
-          text={<Add size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />}
-          onClick={() => add && add()}
-        />
-        <Button
-          ariaLabel='share'
-          primary
-          backgroundColor={themeColor ? themeColor : '#fff'}
-          variant="text"
-          text={<ShareNodes size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />}
-          onClick={() => share && share()}
-        />
-        <Button
-          ariaLabel='delete'
-          onClick={(): void => onDelete(selected)}
-          primary
-          backgroundColor={themeColor ? themeColor : '#fff'}
-          variant="text"
-          text={<Xmark size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />}
-        />
-      </div>
+      {showHeaderButtons && (
+              <div className={styles.control}>
+              <Button
+                ariaLabel='add'
+                primary
+                backgroundColor={themeColor ? themeColor : '#fff'}
+                variant="text"
+                text={<Add size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />}
+                onClick={() => add && add()}
+              />
+              <Button
+                ariaLabel='share'
+                primary
+                backgroundColor={themeColor ? themeColor : '#fff'}
+                variant="text"
+                text={<ShareNodes size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />}
+                onClick={() => share && share()}
+              />
+              <Button
+                ariaLabel='delete'
+                onClick={(): void => onDelete(selected)}
+                primary
+                backgroundColor={themeColor ? themeColor : '#fff'}
+                variant="text"
+                text={<Xmark size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />}
+              />
+            </div>
+      )}
       <div className={styles.table_container}>
         <table
           style={themeColor ? { borderBottom: `2px solid ${themeColor}` } : {}}
@@ -159,7 +162,7 @@ export function Table<T>({
               {paginator.data.length > 0 && <th></th>}
               {columns.map(({ label, getValue }) => (
                 <th className={styles.column_header} key={label}>
-                  <Sort label={label} data={stateData} getValue={getValue} onSort={(data) => handleSort(data)}/>
+                  <Sort themeColor={themeColor} label={label} data={stateData} getValue={getValue} onSort={(data) => handleSort(data)}/>
                 </th>
               ))}
               {paginator.data.length > 0 && <th>Acciones</th>}

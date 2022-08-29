@@ -11,9 +11,10 @@ interface SortProps<T> {
     getValue: (item: T) => React.ReactNode;
     onSort: (data: T[]) => void;
     label: string;
+    themeColor?: string;
 }
 
-export function Sort<T>({data, getValue, onSort, label} : SortProps<T>) {
+export function Sort<T>({data, getValue, onSort, label, themeColor} : SortProps<T>) {
   const [sort, setSort] = useState<SortType>('default')
 
   const [defaultData] = useState(data)
@@ -74,7 +75,7 @@ export function Sort<T>({data, getValue, onSort, label} : SortProps<T>) {
 
   return (
     <div onClick={() => nextSort()} className={styles.container}>
-      {label} {sort === 'asc' ? <SortUp size={15} /> : sort === 'desc' ? <SortDown size={15}/> : <SortIcon size={15}/>}
+      {label} {sort === 'asc' ? <SortUp fill={themeColor ? '#fff' : '#000'} size={15} /> : sort === 'desc' ? <SortDown size={15} fill={themeColor ? '#fff' : '#000'}/> : <SortIcon fill={themeColor ? '#fff' : '#000'} size={15}/>}
     </div>
   )
 }
