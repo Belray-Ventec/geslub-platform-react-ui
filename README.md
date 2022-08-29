@@ -49,8 +49,8 @@ export default function Component(): {
 | ------------ | -------------------------------------------------------------------------------- | --------- |
 | data	       | `T[]`                                                                            | si        |
 | columns      | `{ label: string; getValue: (item: T) => React.ReactNode }[]`                    | si        |
-| getRowKey    | Function `(d: T) => string  number`                                               | si        |
-| onDelete     | Function `(d: T[]) => void`                                                      | si        |
+| getRowKey    | `(d: T) => string  number`                                               | si        |
+| onDelete     | `(d: T[]) => void`                                                      | si        |
 | itemsPerPage | `number`                                                                         | no        |
 | actions      | `label: string; callback: (d: T) => void }[]`                                    | no        |
 | themeColor   | `string`                                                                         | no        |
@@ -61,14 +61,14 @@ export default function Component(): {
 | showDownload | `boolean`                                                                        | no        |
 | showSee      | `boolean`                                                                        | no        |
 | caption      | `string`                                                                         | no        |
-| add          | Function `() => void`                                                            | no        |
-| share        | Function `() => void`                                                            | no        |
-| onEdit       | Function `(d: T) => void`                                                        | no        |
-| onDeleteItem | Function `(d: T) => void`                                                        | no        |
-| onSee        | Function `(d: T) => void`                                                        | no        |
-| onDownload   | Function `(d: T) => void`                                                        | no        |
-| onInfo       | Function `(d: T) => void`                                                        | no        |
-| onShare      | Function `(d: T) => void`                                                        | no        |
+| add          | `() => void`                                                            | no        |
+| share        | `() => void`                                                            | no        |
+| onEdit       | `(d: T) => void`                                                        | no        |
+| onDeleteItem | `(d: T) => void`                                                        | no        |
+| onSee        | `(d: T) => void`                                                        | no        |
+| onDownload   | `(d: T) => void`                                                        | no        |
+| onInfo       | `(d: T) => void`                                                        | no        |
+| onShare      | `(d: T) => void`                                                        | no        |
 
 
 ### Search
@@ -92,7 +92,7 @@ export default function Component(): {
 
 | Propiedad    | Tipo                                                                             | Requerida |
 | ------------ | -------------------------------------------------------------------------------- | --------- |
-| handleSearch | Function `(search: string) => void`                                              | si        |
+| handleSearch | `(search: string) => void`                                              | si        |
 | timeDebounce | `number`                                                                         | no        |
 
 
@@ -117,7 +117,7 @@ export default function Component(): {
 | --------------- | -------------------------------------------------------------------------------- | --------- |
 | color           | `string`                                                                         | no        |
 | backgroundColor | `number`                                                                         | no        |
-| onClick         | Function `(text: string) => void`                                                | no        |
+| onClick         | `(text: string) => void`                                                | no        |
 
 
 
@@ -146,11 +146,11 @@ export default function Component(): {
 | Propiedad       | Tipo                                                                             | Requerida |
 | --------------- | -------------------------------------------------------------------------------- | --------- |
 | data	          | `T[]`                                                                            | si        |
-| getRowKey       | Function `(d: T) => string  number`                                             | si        |
-| getValue        | Function `(d: T) => string  number`                                             | si        |
+| getRowKey       | `(d: T) => string  number`                                             | si        |
+| getValue        | `(d: T) => string  number`                                             | si        |
 | backgroundColor | `number`                                                                         | no        |
 | color           | `string`                                                                         | no        |
-| onClick         | Function `(item: string) => void`                                                | no        |
+| onClick         | `(item: string) => void`                                                | no        |
 | rounded         | `boolean`                                                                        | no        |
 | align           | `'left'  'center'  'right'`                                                    | no        |
 
