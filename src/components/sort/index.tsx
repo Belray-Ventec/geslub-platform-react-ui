@@ -12,9 +12,11 @@ interface SortProps<T> {
     onSort: (data: T[]) => void;
     label: string;
     themeColor?: string;
+    onSorted : (column: string) => void;
+    lastSortedColumn: string;
 }
 
-export function Sort<T>({data, getValue, onSort, label, themeColor} : SortProps<T>) {
+export function Sort<T>({data, getValue, onSort, label, themeColor, onSorted, lastSortedColumn} : SortProps<T>) {
   const [sort, setSort] = useState<SortType>('default')
 
   const [defaultData] = useState(data)
@@ -42,6 +44,7 @@ export function Sort<T>({data, getValue, onSort, label, themeColor} : SortProps<
 
   useEffect(() => {
     sorted(sort)
+    onSorted(label)
     
   }, [sort])
   
@@ -75,7 +78,7 @@ export function Sort<T>({data, getValue, onSort, label, themeColor} : SortProps<
 
   return (
     <div onClick={() => nextSort()} className={styles.container}>
-      {label} {sort === 'asc' ? <SortUp fill={themeColor ? '#fff' : '#000'} size={15} /> : sort === 'desc' ? <SortDown size={15} fill={themeColor ? '#fff' : '#000'}/> : <SortIcon fill={themeColor ? '#fff' : '#000'} size={15}/>}
+      {label} {lastSortedColumn === label ? sort === 'asc' ? <SortUp fill={themeColor ? '#fff' : '#000'} size={15} /> : sort === 'desc' ? <SortDown size={15} fill={themeColor ? '#fff' : '#000'}/> : <SortIcon fill={themeColor ? '#fff' : '#000'} size={15}/> : <SortIcon fill={themeColor ? '#fff' : '#000'} size={15}/>}
     </div>
   )
 }

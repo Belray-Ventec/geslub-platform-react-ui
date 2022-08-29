@@ -85,6 +85,7 @@ export function Table<T>({
   onShare,
   onDeleteItem,
 }: TableProps<T>): JSX.Element {
+  const [lastSortedColumn, setLastSortedColumn] = useState('')
   const [stateData, setStateData] = useState<T[]>(data);
   const { paginator, next, previous, goPage } = usePaginate({
     data: stateData,
@@ -162,7 +163,7 @@ export function Table<T>({
               {paginator.data.length > 0 && <th></th>}
               {columns.map(({ label, getValue }) => (
                 <th className={styles.column_header} key={label}>
-                  <Sort themeColor={themeColor} label={label} data={stateData} getValue={getValue} onSort={(data) => handleSort(data)}/>
+                  <Sort lastSortedColumn={lastSortedColumn} onSorted={(column) => setLastSortedColumn(column)} themeColor={themeColor} label={label} data={stateData} getValue={getValue} onSort={(data) => handleSort(data)}/>
                 </th>
               ))}
               {paginator.data.length > 0 && <th>Acciones</th>}
