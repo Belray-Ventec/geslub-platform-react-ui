@@ -33,7 +33,7 @@ export default function Paginator<T>({
         {showPages && (
           <div className={styles.pages}>
             {Array.from(Array(paginator.totalPages).keys()).map((item) => (
-              <span
+              <button
                 style={
                   themeColor
                     ? { backgroundColor: themeColor, color: '#fff' }
@@ -48,14 +48,14 @@ export default function Paginator<T>({
                 key={item}
               >
                 {item + 1}
-              </span>
+              </button>
             ))}
           </div>
         )}
         <div aria-label='previous' onClick={(): void => previous()} className={styles.previous}>
-          <span className={styles.previous_text}>
+          <button className={styles.previous_text}>
             <AngleLeft />
-          </span>
+          </button>
         </div>
         <div aria-label='next'
           onClick={(): void => {
@@ -63,9 +63,9 @@ export default function Paginator<T>({
           }}
           className={styles.next}
         >
-          <span className={styles.next_text}>
+          <button className={styles.next_text}>
             <AngleLeft />
-          </span>
+          </button>
         </div>
       </div>
       <span>
