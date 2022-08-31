@@ -16,25 +16,22 @@
     width: 40px;
     height: 40px;
 }
-.previous:hover{
+.previous:hover, .next:hover{
     background-color: #ecf0f1;
     
 }
 
-.next:hover{
-    background-color: #ecf0f1;
-}
 .next_text, .previous_text{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
     color: #000;
-    border: none;
-    background: none;
+    border-radius: 100%;
     width: 40px;
     height: 40px;
     cursor: pointer;
+    border: none
     
 }
 .pages{
