@@ -1,8 +1,7 @@
 import { Table } from '../src/components/table';
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { TagList } from '../src/components/tagList';
-import { Product, productData } from '../src/utils/data';
+import { data2 } from '../src/utils/data';
 
 export default {
   title: 'Table',
@@ -24,18 +23,17 @@ const Template: ComponentStory<typeof Table> = (args) => <Table {...args} />;
 export const Default = Template.bind({});
 
 Default.args = {
-  data: productData,
+  data: data2,
   columns: [
     { label: 'Id', getValue: (item) => item.id },
-    { label: 'Nombre', getValue: (item) => item.name },
-    { label: 'Precio', getValue: (item) => item.price },
-    { label: 'Comprar', getValue: (item) => <a href={item.link}>Comprar</a> },
-    { label: 'Etiquetas', getValue: (item) => <TagList getRowKey={(tag: {id: number; name: string}) => tag.id} getValue={(tag) => tag.name} align='left' rounded data={item.tag} /> },
-    { label: 'Street', getValue: (item) => item.address.street },
-    { label: 'Pais', getValue: (item) => item.address.country },
+    { label: 'Nombre', getValue: (item) => item.first_name },
+    { label: 'Apellido', getValue: (item) => item.last_name },
+    { label: 'Email', getValue: (item) => item.email },
+    { label: 'Genero', getValue: (item) => item.gender },
+    { label: 'Ip address', getValue: (item) => item.ip_address},
   ],
 
-  getRowKey: (item: Product): string | number => item.id,
+  getRowKey: (item): string | number => item.id,
   showPages: true,
   itemsPerPage: 3,
   actions: [],
