@@ -23,23 +23,15 @@ export function Sort<T>({data, getValue, onSort, label, themeColor, onSorted, la
 
   
   const nextSort = () => {
-    switch (sort) {
-      case 'asc':
-        setSort('desc')
-        break;
-      case 'desc':
-        setSort('none')
-        break;
-      case 'none':
-        setSort('asc')
-        break;
-      case 'default':
-        setSort('asc')
-        break;
-      default:
-        setSort('default')
-
+    const sortObject = {
+      asc: () => setSort('desc'),
+      desc: () => setSort('none'),
+      none: () => setSort('asc'),
+      default: () => setSort('asc')
     }
+    const defaultSort = setSort('default')
+    const nextSort = sortObject[sort] || defaultSort
+    nextSort()
   }
 
   useEffect(() => {
@@ -49,7 +41,7 @@ export function Sort<T>({data, getValue, onSort, label, themeColor, onSorted, la
   }, [sort])
   
 
-  const sorted = (sortType: string) => {
+  const sorted = (sortType: SortType) => {
     if (sortType !== 'default') {
 
       const sortedData = [...defaultData].sort((a, b) => {
