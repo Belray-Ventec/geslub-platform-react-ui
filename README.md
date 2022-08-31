@@ -50,12 +50,13 @@ export default function Component(): {
 | data	       | `T[]`                                                                            | si        |
 | columns      | `{ label: string; getValue: (item: T) => React.ReactNode }[]`                    | si        |
 | getRowKey    | `(d: T) => string  number`                                               | si        |
-| onDelete     | `(d: T[]) => void`                                                      | si        |
+| onDelete     | `(d: T[]) => void`                                                      | no       |
 | itemsPerPage | `number`                                                                         | no        |
 | actions      | `label: string; callback: (d: T) => void }[]`                                    | no        |
 | themeColor   | `string`                                                                         | no        |
 | showPages    | `boolean`                                                                        | no        |
 | showHeaderButtons    | `boolean`                                                                | no        |
+| showMoreOptions      | `boolean`                                                                | no        |
 | showInfo     | `boolean`                                                                        | no        |
 | showShare    | `boolean`                                                                        | no        |
 | showDownload | `boolean`                                                                        | no        |

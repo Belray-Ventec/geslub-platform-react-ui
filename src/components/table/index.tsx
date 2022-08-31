@@ -29,6 +29,7 @@ interface ActionsProps<T> {
   onDownload?: (d: T) => void;
   onShare?: (d: T) => void;
   onInfo?: (d: T) => void;
+  showMoreOptions?: boolean;
 
 }
 
@@ -51,13 +52,14 @@ export interface TableProps<T> {
   showSee?: boolean;
   add?: () => void;
   share?: () => void;
-  onDelete: (d: T[]) => void;
+  onDelete?: (d: T[]) => void;
   onEdit?: (d: T) => void;
   onSee?: (d: T) => void;
   onDownload?: (d: T) => void;
   onInfo?: (d: T) => void;
   onShare?: (d: T) => void;
   onDeleteItem?: (d: T) => void;
+  showMoreOptions?: boolean;
 
 }
 
@@ -84,6 +86,7 @@ export function Table<T>({
   onInfo,
   onShare,
   onDeleteItem,
+  showMoreOptions
 }: TableProps<T>): JSX.Element {
   const [lastSortedColumn, setLastSortedColumn] = useState('')
   const [stateData, setStateData] = useState<T[]>(data);
@@ -133,7 +136,7 @@ export function Table<T>({
               />
               <Button
                 ariaLabel='delete'
-                onClick={(): void => onDelete(selected)}
+                onClick={(): void => onDelete && onDelete(selected)}
                 primary
                 backgroundColor={themeColor ? themeColor : '#fff'}
                 variant="text"
@@ -203,6 +206,7 @@ export function Table<T>({
                       onDownload={onDownload}
                       onShare={onShare}
                       onInfo={onInfo}
+                      showMoreOptions={showMoreOptions}
                     />
                   </td>
                 </tr>
@@ -243,6 +247,7 @@ function Actions<T>({
   onDownload,
   onShare,
   onInfo,
+  showMoreOptions
 }: ActionsProps<T>) {
   return (
     <div className={styles.actions}>
@@ -288,22 +293,24 @@ function Actions<T>({
             text={action.label}
           />
         ))}
+      {showMoreOptions && (
       <DropDown themeColor={themeColor} title={<Ellipsis />}>
-        <Button
-          ariaLabel='editItem'
-          onClick={(): void => onEdit && onEdit(item)}
-          backgroundColor={themeColor}
-          text={
-            <PenToSquare fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />
-          }
-        />
-        <Button
-          ariaLabel='deleteItem'
-          onClick={(): void => onDeleteItem && onDeleteItem(item)}
-          backgroundColor={themeColor}
-          text={<Xmark fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />}
-        />
-      </DropDown>
+      <Button
+        ariaLabel='editItem'
+        onClick={(): void => onEdit && onEdit(item)}
+        backgroundColor={themeColor}
+        text={
+          <PenToSquare fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />
+        }
+      />
+      <Button
+        ariaLabel='deleteItem'
+        onClick={(): void => onDeleteItem && onDeleteItem(item)}
+        backgroundColor={themeColor}
+        text={<Xmark fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />}
+      />
+    </DropDown>
+      )} 
     </div>
   );
 }
