@@ -8,7 +8,6 @@
 .container_pages{
     display: flex;
     gap: 5px;
-    margin-bottom: 10px;
 }
 .previous, .next{
     cursor: pointer;
@@ -16,12 +15,14 @@
     background-color: #e4e4e4;
     padding: 10px 15px;
 }
-.previous:hover, .next:hover{
+.previous:hover{
     background-color: #ecf0f1;
-    transition: all 0.3s ease-in-out;
     
 }
 
+.next:hover{
+    background-color: #ecf0f1;
+}
 .next_text, .previous_text{
     display: flex;
     justify-content: center;
