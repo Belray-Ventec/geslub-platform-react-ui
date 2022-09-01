@@ -41,6 +41,7 @@ describe('Testing Table', () => {
                 onInfo={() => onInfoFn()}
                 onShare={() => onShareFn()}
                 showHeaderButtons
+                showMoreOptions
             />
         )
     }
