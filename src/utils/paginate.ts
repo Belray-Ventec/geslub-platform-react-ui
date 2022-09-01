@@ -1,7 +1,7 @@
 export function paginate<T>(
   array: T[],
-  numPag: number,
-  cantPorPaginas: number
+  page: number,
+  itemsPerPage: number
 ): T[] {
-  return array.slice(--numPag * cantPorPaginas, (numPag + 1) * cantPorPaginas);
+  return array.slice(--page * itemsPerPage, (page + 1) * itemsPerPage);
 }
