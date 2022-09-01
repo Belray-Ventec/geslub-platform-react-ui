@@ -14,7 +14,8 @@
     cursor: pointer;
     border-radius: 100%;
     background-color: #e4e4e4;
-    padding: 10px 15px;
+    width: 40px;
+    height: 40px;
 }
 .previous:hover, .next:hover{
     background-color: #ecf0f1;
@@ -28,6 +29,11 @@
     align-items: center;
     gap: 5px;
     color: #000;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border: none
     
 }
 .pages{
@@ -37,14 +43,15 @@
 .page_link{
     color: #c0392b;;
     border: 1px solid #c0392b;;
-    padding-left: 5px;
-    padding-right: 5px;
     cursor: pointer;
     border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30px;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    background-color: #fff;
 }
 .page_link_active{
     color: #fff;

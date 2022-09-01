@@ -88,10 +88,10 @@ export default function Paginator<T>({
         {showPages && (
           <div className={styles.pages}>
             {arrOfPages.map((item) => (
-              <span
+              <button
                 style={
                   themeColor
-                    ? { backgroundColor: themeColor, color: '#fff' }
+                    ? { backgroundColor: themeColor, borderColor: themeColor, color: '#fff' }
                     : {}
                 }
                 onClick={(): void => handlePage(item)}
@@ -103,25 +103,21 @@ export default function Paginator<T>({
                 key={item}
               >
                 {typeof item === 'string' ? item : item + 1}
-              </span>
+              </button>
             ))}
           </div>
         )}
-        <div aria-label='previous' onClick={(): void => previous()} className={styles.previous}>
-          <span className={styles.previous_text}>
+        <button aria-label='previous' onClick={(): void => previous()} className={[styles.previous, styles.previous_text].join(' ')}>
             <AngleLeft />
-          </span>
-        </div>
-        <div aria-label='next'
+        </button>
+        <button aria-label='next'
           onClick={(): void => {
             next();
           }}
-          className={styles.next}
+          className={[styles.next, styles.next_text].join(' ')}
         >
-          <span className={styles.next_text}>
             <AngleLeft />
-          </span>
-        </div>
+        </button>
       </div>
       <span>
         Mostrando {paginator.totalPages > 0 ? firstPage : '0'} a{' '}
