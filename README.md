@@ -56,7 +56,7 @@ export default function Component(): {
 | themeColor   | `string`                                                                         | no        |
 | showPages    | `boolean`                                                                        | no        |
 | showHeaderButtons    | `boolean`                                                                | no        |
-| showMoreOptions      | `boolean`                                                                | no        |
+| showAdminOptions      | `boolean`                                                                | no        |
 | showInfo     | `boolean`                                                                        | no        |
 | showShare    | `boolean`                                                                        | no        |
 | showDownload | `boolean`                                                                        | no        |
