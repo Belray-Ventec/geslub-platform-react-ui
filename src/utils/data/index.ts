@@ -206,7 +206,6 @@ export const tagListData = [
     "id": 1,
     "first_name": "Cart",
     "last_name": "Heaton",
-    "email": "cheaton0@yahoo.co.jp",
     "gender": "Male",
     "ip_address": "56.212.253.63"
   }, {
