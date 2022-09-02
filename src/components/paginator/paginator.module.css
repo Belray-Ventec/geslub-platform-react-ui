@@ -1,10 +1,3 @@
-:root {
-    --color-primary-paginator: #c0392b;
-    --color-primary-active-paginator: #e74a39;
-    --color-secondary-paginator: #e4e4e4;
-    --color-secondary-paginator-hover: #ecf0f1;
-    --color-background-paginator: #fff;
-}
 
 .container_paginator{
     display: flex;
@@ -20,17 +13,17 @@
 .previous, .next{
     cursor: pointer;
     border-radius: 100%;
-    background-color: var(--color-secondary-paginator);
+    background-color: #e4e4e4;
     width: 40px;
     height: 40px;
 }
 .previous:hover{
-    background-color: var(--color-secondary-paginator-hover);
+    background-color: #ecf0f1;
     
 }
 
 .next:hover{
-    background-color: var(--color-secondary-paginator-hover);
+    background-color: #ecf0f1;
 }
 .next_text, .previous_text{
     display: flex;
@@ -49,8 +42,8 @@
     gap: 5px;
 }
 .page_link{
-    color: var(--color-primary-pagtinator);
-    border: 1px solid var(--color-primary-paginator);
+    color: #c0392b;
+    border: 1px solid #c0392b;
     cursor: pointer;
     border-radius: 100%;
     display: flex;
@@ -59,14 +52,14 @@
     width: 40px;
     height: 40px;
     font-size: 1rem;
-    background-color: var(--color-background-paginator);
+    background-color: #fff;
 }
 .page_link:hover{
     filter: brightness(1.2);
 }
 .page_link_active{
-    color: var(--color-on-primary-table);
-    background-color: var(--color-primary-paginator);
+    color: var(--color-on-primary);
+    background-color: #c0392b;
     filter: brightness(1.2);
 }
 .next_text > svg{
