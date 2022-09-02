@@ -1,10 +1,14 @@
+:root {
+    --color-background-dropDown: #fff;
+}
+
 .drop_down_content{
     display: none;
 }
 
 .drop_down{
     position: relative;
-    color: #fff;
+    color: var(--color-on-primary-tag);
     cursor: pointer;
 }
 
@@ -18,7 +22,7 @@
 .drop_down_responsive {
     display: none;
     position: relative;
-    color: #fff;
+    color: var(--color-on-primary-table);
 }
 
 .drop_down_responsive ~ .drop_down_content {
@@ -46,7 +50,7 @@
     right: 100%;
     top: 0;
     gap: 5px;
-    background-color: #fff;
+    background-color: var(--color-background-dropDown);
     box-shadow: 0 2px 6px rgb(0 21 64 / 10%), 0 10px 20px rgb(0 21 64 / 5%);
     padding: 5px;
 }

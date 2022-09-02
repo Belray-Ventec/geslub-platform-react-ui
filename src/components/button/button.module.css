@@ -1,3 +1,8 @@
+:root {
+    --color-disabled-button: #e0e0e0;
+    --color-on-secondary-button: #494949;
+}
+
 .button{
     font-family: sans-serif;
     border: 0;
@@ -7,7 +12,7 @@
     line-height: 1;
 }
 .button:disabled{
-    background-color: gray;
+    background-color: var(--color-disabled-button);
 }
 .button:disabled:hover{
     filter: brightness(1);
@@ -18,12 +23,12 @@
 }
 
 .button_primary{
-    color: #fff;
-    background-color: rgb(52, 73, 94);
+    color: var(--color-on-primary-table);
+    background-color: var(--color-primary-table);
     box-shadow: 0 2px 6px rgb(0 21 64 / 10%), 0 10px 20px rgb(0 21 64 / 5%);
 }
 .button_secondary{
-    color: #494949;
+    color: var(--color-on-secondary-button);
     background-color: transparent;
 }
 .button_small{

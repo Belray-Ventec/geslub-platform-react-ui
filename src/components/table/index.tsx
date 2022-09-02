@@ -154,7 +154,7 @@ export function Table<T>({
             <tr
               style={
                 themeColor
-                  ? { backgroundColor: themeColor }
+                  ? { backgroundColor: themeColor, color: '#fff' }
                   : {
                       backgroundColor: '#fff',
                       color: '#000',

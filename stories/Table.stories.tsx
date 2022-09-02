@@ -36,7 +36,7 @@ Default.args = {
   getRowKey: (item): string | number => item.id,
   showPages: true,
   itemsPerPage: 3,
-  actions: [],
+  actions: [{label: 'Editar', callback: (item) => console.log(item)}],
   showSee: true,
   showDownload: true,
   showInfo: true,

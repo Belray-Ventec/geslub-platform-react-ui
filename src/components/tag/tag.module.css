@@ -1,9 +1,14 @@
+:root {
+    --color-primary-tag: #c0392b;
+    --color-on-primary-tag: #fff;
+}
+
 .tag{
-    background-color: rgb(52, 73, 94);
+    background-color: var(--color-primary-tag);
     padding-inline-start: 0.5rem;
     padding-inline-end: 0.5rem;
     border-radius: 0.375rem;
-    color: #fff;
+    color: var(--color-on-primary-tag);
     font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.875rem;
