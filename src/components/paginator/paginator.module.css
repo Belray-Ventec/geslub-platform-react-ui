@@ -42,8 +42,8 @@
     gap: 5px;
 }
 .page_link{
-    color: #c0392b;
-    border: 1px solid #c0392b;
+    color: #85251b;
+    border: 1px solid #85251b;
     cursor: pointer;
     border-radius: 100%;
     display: flex;
@@ -59,7 +59,7 @@
 }
 .page_link_active{
     color: var(--color-on-primary);
-    background-color: #c0392b;
+    background-color: #85251b;
     filter: brightness(1.2);
 }
 .next_text > svg{
