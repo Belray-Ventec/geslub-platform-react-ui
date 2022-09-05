@@ -184,11 +184,11 @@ export function Table<T>({
                       type="checkbox"
                     />
                   </td>
-                  {columns.map(({ getValue }, idx) => (
+                  {columns.map(({ getValue, label }, idx) => (
                     <td key={idx}>
                       {React.isValidElement(getValue(item))
                         ? getValue(item)
-                        : String(getValue(item))}
+                        : String(getValue(item) || `Sin Información`)}
                     </td>
                   ))}
                   <td>
