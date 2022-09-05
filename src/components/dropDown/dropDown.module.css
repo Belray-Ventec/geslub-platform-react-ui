@@ -4,7 +4,12 @@
 
 .drop_down{
     position: relative;
-    color: #fff;
+    color: var(--color-on-primary);
+    cursor: pointer;
+}
+
+.drop_down:hover span path {
+    filter: brightness(0.5);
 }
 .drop_down_container {
     position: relative;
@@ -13,7 +18,7 @@
 .drop_down_responsive {
     display: none;
     position: relative;
-    color: #fff;
+    color: var(--color-on-primary);
 }
 
 .drop_down_responsive ~ .drop_down_content {

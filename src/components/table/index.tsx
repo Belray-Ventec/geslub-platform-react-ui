@@ -29,7 +29,7 @@ interface ActionsProps<T> {
   onDownload?: (d: T) => void;
   onShare?: (d: T) => void;
   onInfo?: (d: T) => void;
-  showMoreOptions?: boolean;
+  showAdminOptions?: boolean;
 
 }
 
@@ -59,7 +59,7 @@ export interface TableProps<T> {
   onInfo?: (d: T) => void;
   onShare?: (d: T) => void;
   onDeleteItem?: (d: T) => void;
-  showMoreOptions?: boolean;
+  showAdminOptions?: boolean;
 
 }
 
@@ -86,7 +86,7 @@ export function Table<T>({
   onInfo,
   onShare,
   onDeleteItem,
-  showMoreOptions
+  showAdminOptions
 }: TableProps<T>): JSX.Element {
   const [lastSortedColumn, setLastSortedColumn] = useState('')
   const [stateData, setStateData] = useState<T[]>(data);
@@ -154,7 +154,7 @@ export function Table<T>({
             <tr
               style={
                 themeColor
-                  ? { backgroundColor: themeColor }
+                  ? { backgroundColor: themeColor, color: '#fff' }
                   : {
                       backgroundColor: '#fff',
                       color: '#000',
@@ -206,7 +206,7 @@ export function Table<T>({
                       onDownload={onDownload}
                       onShare={onShare}
                       onInfo={onInfo}
-                      showMoreOptions={showMoreOptions}
+                      showAdminOptions={showAdminOptions}
                     />
                   </td>
                 </tr>
@@ -247,7 +247,7 @@ function Actions<T>({
   onDownload,
   onShare,
   onInfo,
-  showMoreOptions
+  showAdminOptions
 }: ActionsProps<T>) {
   return (
     <div className={styles.actions}>
@@ -293,7 +293,7 @@ function Actions<T>({
             text={action.label}
           />
         ))}
-      {showMoreOptions && (
+      {showAdminOptions && (
       <DropDown themeColor={themeColor} title={<Ellipsis />}>
       <Button
         ariaLabel='editItem'

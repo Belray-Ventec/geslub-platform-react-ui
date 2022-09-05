@@ -1,3 +1,4 @@
+
 .container_paginator{
     display: flex;
     flex-direction: column;
@@ -29,7 +30,6 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-    color: #000;
     border-radius: 100%;
     width: 40px;
     height: 40px;
@@ -42,8 +42,8 @@
     gap: 5px;
 }
 .page_link{
-    color: #c0392b;;
-    border: 1px solid #c0392b;;
+    color: #85251b;
+    border: 1px solid #85251b;
     cursor: pointer;
     border-radius: 100%;
     display: flex;
@@ -54,9 +54,13 @@
     font-size: 1rem;
     background-color: #fff;
 }
+.page_link:hover{
+    filter: brightness(1.2);
+}
 .page_link_active{
-    color: #fff;
-    background-color: #c0392b;
+    color: var(--color-on-primary);
+    background-color: #85251b;
+    filter: brightness(1.2);
 }
 .next_text > svg{
     width: 10px;

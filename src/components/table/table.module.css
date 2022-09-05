@@ -7,7 +7,7 @@
     font-size: 0.9em;
     font-family: sans-serif;
     width: 100%;
-    border-bottom: 2px solid #9a9a9a;
+    border-bottom: 2px solid var(--color-border-gray);
     border-spacing: 0px 15px;
     padding: 0px 10px 10px 10px;
     background-color: #fff;
@@ -15,10 +15,9 @@
 }
 
 .table thead tr{
-    background-color: #34495e;
-    color: #ffffff;
+    color: var(--color-on-primary);
     text-align: left;
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid var(--color-border-gray);
 }
 
 .table thead tr th{
@@ -28,8 +27,15 @@
 .table th, table td{
     padding: 12px 15px;
 }
+.table td a{
+    text-decoration: none;
+    color: var(--color-links);
+}
+.table td a:hover{
+    text-decoration: underline;
+}
 .table tbody tr {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid var(--color-border-gray);
     text-align: left;
     background-color: #f2f2f2;
 }
@@ -38,7 +44,7 @@
     transition: all 0.3s ease-out;
 }
 .not_info_found{
-    text-align: center
+    text-align: center;
 }
 
 .actions {

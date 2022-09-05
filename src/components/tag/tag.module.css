@@ -1,9 +1,9 @@
 .tag{
-    background-color: rgb(52, 73, 94);
+    background-color: #c0392b;
     padding-inline-start: 0.5rem;
     padding-inline-end: 0.5rem;
     border-radius: 0.375rem;
-    color: #fff;
+    color: var(--color-on-primary);
     font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.875rem;
