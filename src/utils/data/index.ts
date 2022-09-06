@@ -902,3 +902,54 @@ export const tagListData = [
     "gender": "Female",
     "ip_address": "93.189.43.98"
   }]
+
+
+
+
+  export const drawerData = [
+    {
+    title: 'Item 1',
+    icon: '✝',
+    href: 'www.google.cl', 
+    items: [
+      {title: 'Sub Item 1', 
+      href: 'www.google2.com', 
+      icon: '✅'},
+      {title: 'Sub Item 2', 
+      href: 'www.google2.com', 
+      icon: '✅'}
+  ]
+},
+{
+    title: 'Item 2',
+    icon: '✝',
+    href: 'www.google.cl',
+}
+  ]
+
+
+
+  export const bugData = [
+    {
+      id: '541af07d-b11b-4043-a57e-00dcd2bd206a',
+      concept: "Aceite",
+      definition: "Un líquido viscoso y pegajoso que se obtiene de la refinación de los aceites vegetales o animales.",
+      description: null,
+      enabled: true,
+
+    },
+    {
+      id: '3216f0sd-bc1b-4023-a23a-00dcl2bd206a',
+      concept: "Absorción",
+      definition: "Proceso por el cual una sustancia se incorpora a otra.",
+      description: null,
+    },
+    {
+      id: '5832g0sd-bc1b-4023-a23a-00dcl22sa52a',
+      concept: "Abrasión de tres cuerpos",
+      definition: "Proceso de desgaste de un cuerpo por el contacto con otro cuerpo y un medio de desgaste.",
+      description: null,
+      enabled: true,
+
+    }
+  ]
