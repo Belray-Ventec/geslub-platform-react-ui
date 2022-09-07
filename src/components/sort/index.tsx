@@ -19,8 +19,6 @@ interface SortProps<T> {
 export function Sort<T>({data, getValue, onSort, label, themeColor, onSorted, lastSortedColumn} : SortProps<T>) {
   const [sort, setSort] = useState<SortType>('default')
 
-  const [defaultData] = useState(data)
-
   
   const nextSort = () => {
     const sortObject = {
@@ -44,7 +42,7 @@ export function Sort<T>({data, getValue, onSort, label, themeColor, onSorted, la
   const sorted = (sortType: SortType) => {
     if (sortType !== 'default') {
 
-      const sortedData = [...defaultData].sort((a, b) => {
+      const sortedData = [...data].sort((a, b) => {
         if (getValue(a)! < getValue(b)!) {
           return -1;
         }
@@ -58,7 +56,7 @@ export function Sort<T>({data, getValue, onSort, label, themeColor, onSorted, la
         sortedData.reverse()
       }
 
-      sortType === 'none' ? onSort(defaultData) : onSort(sortedData)
+      sortType === 'none' ? onSort(data) : onSort(sortedData)
     }
   }
 
