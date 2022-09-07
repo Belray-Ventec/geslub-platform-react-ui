@@ -12,3 +12,18 @@
 * {
     box-sizing: border-box;
 }
+
+.grid-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.grid-item {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+    width: 200px;
+    height: 200px;
+}

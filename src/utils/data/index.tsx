@@ -906,28 +906,6 @@ export const tagListData = [
 
 
 
-  export const drawerData = [
-    {
-    title: 'Item 1',
-    icon: '✝',
-    href: 'www.google.cl', 
-    items: [
-      {title: 'Sub Item 1', 
-      href: 'www.google2.com', 
-      icon: '✅'},
-      {title: 'Sub Item 2', 
-      href: 'www.google2.com', 
-      icon: '✅'}
-  ]
-},
-{
-    title: 'Item 2',
-    icon: '✝',
-    href: 'www.google.cl',
-}
-  ]
-
-
 
   export const bugData = [
     {

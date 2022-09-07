@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {Drawer} from '../src/components/drawer/index';
 import Home from '../src/components/icons/Home';
-import { drawerData } from '../src/utils/data/index';
+import Eye from '../src/components/icons/Eye';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -16,14 +16,20 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Drawer> = (args) => <>
-<Drawer data={drawerData} >
+<Drawer {...args} >
 <div style={{padding: '20px'}}>
     <h2>Title</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit similique cum itaque reiciendis dignissimos tempora eum sunt veritatis atque, est nam, consequatur eligendi molestias minus aspernatur dicta commodi! Assumenda, odio!
-    Ducimus consequuntur nostrum voluptatibus fuga molestias, facere deserunt adipisci, delectus doloribus aliquam rerum mollitia ab temporibus dignissimos corporis nemo! Nemo fugit veritatis voluptatem rerum inventore laborum, nisi similique quisquam esse!
-    Possimus animi, commodi quasi nobis et tempore, minus facilis minima atque, quod necessitatibus omnis voluptate. Odit magni beatae autem temporibus repudiandae harum corrupti sapiente rerum, nam voluptas tempora quaerat ipsam.
-    Ipsum, perferendis inventore! Similique placeat necessitatibus in mollitia sit quibusdam non quae dolor nesciunt, error accusantium illum consequatur animi. Tempora illum iure sapiente quis earum odit asperiores cupiditate sed illo?
-    Similique dolor exercitationem sint dolorum. Consequuntur nihil ad veritatis aliquam delectus voluptatibus soluta voluptates sapiente nemo nostrum, animi vel ea corrupti, quae consectetur debitis eum incidunt asperiores quo quis repellat.</p>
+    <div className="grid-container">
+      <div className="grid-item">1</div>
+      <div className="grid-item">2</div>
+      <div className="grid-item">3</div>  
+      <div className="grid-item">4</div>
+      <div className="grid-item">5</div>
+      <div className="grid-item">6</div>  
+      <div className="grid-item">7</div>
+      <div className="grid-item">8</div>
+      <div className="grid-item">9</div>  
+    </div>
 </div>
 </Drawer>
 </>;
@@ -31,4 +37,26 @@ const Template: ComponentStory<typeof Drawer> = (args) => <>
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
+  data: [
+    {
+    title: 'Item 1',
+    icon: <Home size={30} />,
+    href: 'www.google.cl', 
+    items: [
+      {
+        title: 'Sub Item 1', 
+        href: 'www.google2.com', 
+      },
+      {
+        title: 'Sub Item 2', 
+        href: 'www.google2.com', 
+      }
+    ]
+  },
+{
+    title: 'Item 2',
+    icon: <Eye color='#fff' />,
+    href: 'www.google.cl',
+}
+  ]
 };

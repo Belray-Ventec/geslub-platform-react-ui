@@ -10,6 +10,7 @@ import Info from '../icons/Info';
 import ShareNodes from '../icons/ShareNodes';
 import Xmark from '../icons/Xmark';
 import PenToSquare from '../icons/PenToSquare';
+import '../../../public/index.css';
 
 import styles from './table.module.css';
 import Paginator from '../paginator';
