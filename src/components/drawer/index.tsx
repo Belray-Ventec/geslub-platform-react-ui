@@ -11,7 +11,7 @@ import useWindowSize from '../../hooks/useWindowSize';
 interface DrawerData {
   label: string;
   icon?: React.ReactNode;
-  to: string;
+  to?: string;
   sub?: { label: string; to: string; icon?: React.ReactNode }[];
 }
 
@@ -24,7 +24,7 @@ interface DrawerProps {
 
 interface DrawerItemProps {
   children: React.ReactNode;
-  to: string;
+  to?: string;
   icon?: React.ReactNode;
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -36,7 +36,7 @@ export function Drawer({ data, logo, title, themeColor }: DrawerProps) {
 
   if (width && width > 768) {
     return (
-      <div
+      <div role={'navigation'}
         style={{ backgroundColor: themeColor ? themeColor : '#04111C' }}
         className={[styles.drawer, isOpen && styles.drawer_expanded].join(' ')}
       >
@@ -51,6 +51,7 @@ export function Drawer({ data, logo, title, themeColor }: DrawerProps) {
           )}
           <div className={styles.showDrawer}>
             <button
+              aria-label='show drawer'
               style={{
                 backgroundColor: themeColor ? themeColor : '',
                 filter: 'brightness(1.2)',
@@ -98,7 +99,7 @@ export function Drawer({ data, logo, title, themeColor }: DrawerProps) {
 
   return (
     <>
-      <div
+      <div role={'navigation'}
         style={{ backgroundColor: themeColor ? themeColor : '' , position: isOpen ? 'fixed' : 'relative'}}
         className={styles.drawer_responsive}
       >
@@ -158,7 +159,7 @@ Drawer.prototypes = {
     PropTypes.shape({
       label: PropTypes.string.isRequired,
       icon: PropTypes.element,
-      to: PropTypes.string.isRequired,
+      to: PropTypes.string,
       sub: PropTypes.arrayOf(
         PropTypes.shape({
           label: PropTypes.string.isRequired,

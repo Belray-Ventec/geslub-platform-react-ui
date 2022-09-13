@@ -156,3 +156,60 @@ export default function Component(): {
 | align           | `'left'  'center'  'right'`                                                    | no        |
 
 
+### Drawer
+
+```Javascript
+import { Drawer } from 'geslub-platform-react-ui';
+
+export default function Component(): {
+
+	return (
+                <Drawer
+                    title="Geslub Platform"
+                    data={
+                        [
+                            {
+                                label: 'Home', 
+                                icon: <Icon icon="Home" size={25} color='#fff' /> , 
+                                to: '/'
+                            },
+                            {
+                                label: "Lubricantes Especiales",
+                                icon: <Icon icon='Document' size={25} color='#fff'/>,
+                                sub: [
+                                  {
+                                    label: "Información técnica",
+                                    to: '/informacion-tecnica',
+                                  },
+                                  {
+                                    label: "Certificados",
+                                    to: '/certificados',
+                                  },
+                                  {
+                                    label: "Marketing",
+                                    to: '/marketing',
+                                  },
+                                  {
+                                    label: "Testimoniales",
+                                    to: '/testimoniales',
+                                  },
+                                  {
+                                    label: "OEM",
+                                    to: '/oem',
+                                  },
+                                ],
+                              },
+                    ]}
+                />
+				<App />
+	)
+
+}
+```
+
+| Propiedad       | Tipo                                                                             | Requerida |
+| --------------- | -------------------------------------------------------------------------------- | --------- |
+| data            |   {label: string; icon?: ReactNode; to?: string; sub?: { label: string; to: string; icon?: ReactNode }[]; | si        |
+| title           | `ReactNode`                                                                         | no        |
+| logo         | `string`                               							                 | no        |
+| themeColor | `string`                                                                         | no        |
