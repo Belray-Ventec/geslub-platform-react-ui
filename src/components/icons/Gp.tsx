@@ -1,8 +1,12 @@
 import React from 'react'
 
-export default function Gp() {
+interface GpProps {
+    size?: number;
+}
+
+export default function Gp({size = 52.311}: GpProps) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="52.311" height="51.791" viewBox="0 0 52.311 51.791">
+    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 52.311 51.791">
   <defs>
     <clipPath id="clip-path">
       <path id="Trazado_240" data-name="Trazado 240" d="M494.955,902.66h-5.826a23.4,23.4,0,0,0-19.809,10.862,22.3,22.3,0,0,0-3.5,11.965v5.707a22.255,22.255,0,0,0,3.5,11.965,23.19,23.19,0,0,0,7.594,7.439,23.666,23.666,0,0,0,8.614,3.142h-.106a33.269,33.269,0,0,0,6.543.713,30.987,30.987,0,0,0,6.543-.713h.048a23.513,23.513,0,0,0,8.614-3.142,22.772,22.772,0,0,0,10.961-17.135v-30.8Z" transform="translate(-465.82 -902.66)" fill="#fff" stroke="#fff" strokeWidth="1"/>
