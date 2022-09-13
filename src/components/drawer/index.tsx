@@ -36,7 +36,8 @@ export function Drawer({ data, logo, title, themeColor }: DrawerProps) {
 
   if (width && width > 768) {
     return (
-      <div role={'navigation'}
+      <div
+        role={'navigation'}
         style={{ backgroundColor: themeColor ? themeColor : '#04111C' }}
         className={[styles.drawer, isOpen && styles.drawer_expanded].join(' ')}
       >
@@ -51,7 +52,7 @@ export function Drawer({ data, logo, title, themeColor }: DrawerProps) {
           )}
           <div className={styles.showDrawer}>
             <button
-              aria-label='show drawer'
+              aria-label="show drawer"
               style={{
                 backgroundColor: themeColor ? themeColor : '',
                 filter: 'brightness(1.2)',
@@ -99,8 +100,12 @@ export function Drawer({ data, logo, title, themeColor }: DrawerProps) {
 
   return (
     <>
-      <div role={'navigation'}
-        style={{ backgroundColor: themeColor ? themeColor : '' , position: isOpen ? 'fixed' : 'relative'}}
+      <div
+        role={'navigation'}
+        style={{
+          backgroundColor: themeColor ? themeColor : '',
+          position: isOpen ? 'fixed' : 'relative',
+        }}
         className={styles.drawer_responsive}
       >
         <button
@@ -111,12 +116,16 @@ export function Drawer({ data, logo, title, themeColor }: DrawerProps) {
           <Icon icon="Bars" size={20} color={'#fff'} />
         </button>
         <span className={styles.logo_container}>
-        {logo ? <img alt={String(title)} src={logo} width={30} height={30} /> : <Gp size={30} />}
-        {title ? (
-          <span className={styles.logo_responsive}>{title}</span>
-        ) : (
-          <span className={styles.logo_responsive}>Geslub Platform</span>
-        )}
+          {logo ? (
+            <img alt={String(title)} src={logo} width={30} height={30} />
+          ) : (
+            <Gp size={30} />
+          )}
+          {title ? (
+            <span className={styles.logo_responsive}>{title}</span>
+          ) : (
+            <span className={styles.logo_responsive}>Geslub Platform</span>
+          )}
         </span>
         <div className={styles.fix_nav_responsive}></div>
       </div>
@@ -241,11 +250,7 @@ function DrawerSubItem({
           style={{ justifyContent: !isOpen ? 'center' : 'flex-start' }}
         >
           <span className={[!isOpen ? styles.icon : ''].join(' ')}>
-            {icon ? (
-              icon
-            ) : (
-              <Icon icon="CaretRight" color="#fff" size={25} />
-            )}
+            {icon ? icon : <Icon icon="CaretRight" color="#fff" size={25} />}
           </span>
           {isOpen && (
             <>
@@ -272,7 +277,11 @@ function DrawerSubItem({
               className={styles.drawer_subitem_item}
               key={index}
             >
-              {item.icon ? item.icon : <Icon color='#fff' icon='CaretRight' size={25}/>}
+              {item.icon ? (
+                item.icon
+              ) : (
+                <Icon color="#fff" icon="CaretRight" size={25} />
+              )}
               {isOpen && (
                 <span className={styles.drawer_item_show}>{item.label}</span>
               )}

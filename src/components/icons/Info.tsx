@@ -1,12 +1,14 @@
 import React from 'react';
 
 interface InfoProps {
-    size?: number;
-    color?: string;
+  size?: number;
+  color?: string;
 }
 
-
-export default function Info({size = 30 , color = '#000'}: InfoProps): JSX.Element {
+export default function Info({
+  size = 30,
+  color = '#000',
+}: InfoProps): JSX.Element {
   return (
     <svg
       width={size}
