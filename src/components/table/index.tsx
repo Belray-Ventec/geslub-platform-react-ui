@@ -31,7 +31,6 @@ interface ActionsProps<T> {
   onShare?: (d: T) => void;
   onInfo?: (d: T) => void;
   showAdminOptions?: boolean;
-
 }
 
 export interface TableProps<T> {
@@ -61,7 +60,6 @@ export interface TableProps<T> {
   onShare?: (d: T) => void;
   onDeleteItem?: (d: T) => void;
   showAdminOptions?: boolean;
-
 }
 
 export function Table<T>({
@@ -87,9 +85,9 @@ export function Table<T>({
   onInfo,
   onShare,
   onDeleteItem,
-  showAdminOptions
+  showAdminOptions,
 }: TableProps<T>): JSX.Element {
-  const [lastSortedColumn, setLastSortedColumn] = useState('')
+  const [lastSortedColumn, setLastSortedColumn] = useState('');
   const [stateData, setStateData] = useState<T[]>(data);
   const { paginator, next, previous, goPage } = usePaginate({
     data: stateData,
@@ -113,37 +111,39 @@ export function Table<T>({
 
   const handleSort = (data: T[]) => {
     setStateData(data);
-  }
+  };
 
   return (
     <>
       {showHeaderButtons && (
-              <div className={styles.control}>
-              <Button
-                ariaLabel='add'
-                primary
-                backgroundColor={themeColor ? themeColor : '#fff'}
-                variant="text"
-                text={<Add size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />}
-                onClick={() => add && add()}
-              />
-              <Button
-                ariaLabel='share'
-                primary
-                backgroundColor={themeColor ? themeColor : '#fff'}
-                variant="text"
-                text={<ShareNodes size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />}
-                onClick={() => share && share()}
-              />
-              <Button
-                ariaLabel='delete'
-                onClick={(): void => onDelete && onDelete(selected)}
-                primary
-                backgroundColor={themeColor ? themeColor : '#fff'}
-                variant="text"
-                text={<Xmark size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />}
-              />
-            </div>
+        <div className={styles.control}>
+          <Button
+            ariaLabel="add"
+            primary
+            backgroundColor={themeColor ? themeColor : '#fff'}
+            variant="text"
+            text={<Add size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />}
+            onClick={() => add && add()}
+          />
+          <Button
+            ariaLabel="share"
+            primary
+            backgroundColor={themeColor ? themeColor : '#fff'}
+            variant="text"
+            text={
+              <ShareNodes size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />
+            }
+            onClick={() => share && share()}
+          />
+          <Button
+            ariaLabel="delete"
+            onClick={(): void => onDelete && onDelete(selected)}
+            primary
+            backgroundColor={themeColor ? themeColor : '#fff'}
+            variant="text"
+            text={<Xmark size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />}
+          />
+        </div>
       )}
       <div className={styles.table_container}>
         <table
@@ -167,7 +167,15 @@ export function Table<T>({
               {paginator.data.length > 0 && <th></th>}
               {columns.map(({ label, getValue }) => (
                 <th className={styles.column_header} key={label}>
-                  <Sort lastSortedColumn={lastSortedColumn} onSorted={(column) => setLastSortedColumn(column)} themeColor={themeColor} label={label} data={stateData} getValue={getValue} onSort={(data) => handleSort(data)}/>
+                  <Sort
+                    lastSortedColumn={lastSortedColumn}
+                    onSorted={(column) => setLastSortedColumn(column)}
+                    themeColor={themeColor}
+                    label={label}
+                    data={stateData}
+                    getValue={getValue}
+                    onSort={(data) => handleSort(data)}
+                  />
                 </th>
               ))}
               {paginator.data.length > 0 && <th>Acciones</th>}
@@ -214,8 +222,11 @@ export function Table<T>({
               ))
             ) : (
               <tr>
-                <td className={styles.not_info_found} colSpan={actions ? columns.length + 1 : columns.length}>
-                    No hay información disponible
+                <td
+                  className={styles.not_info_found}
+                  colSpan={actions ? columns.length + 1 : columns.length}
+                >
+                  No hay información disponible
                 </td>
               </tr>
             )}
@@ -248,13 +259,13 @@ function Actions<T>({
   onDownload,
   onShare,
   onInfo,
-  showAdminOptions
+  showAdminOptions,
 }: ActionsProps<T>) {
   return (
     <div className={styles.actions}>
       {showInfo && (
         <Button
-          ariaLabel='infoItem'
+          ariaLabel="infoItem"
           variant={'icon'}
           onClick={(): void => onInfo && onInfo(item)}
           text={<Info />}
@@ -262,7 +273,7 @@ function Actions<T>({
       )}
       {showDownload && (
         <Button
-          ariaLabel='downloadItem'
+          ariaLabel="downloadItem"
           variant={'icon'}
           onClick={(): void => onDownload && onDownload(item)}
           text={<FileArrowDown />}
@@ -270,7 +281,7 @@ function Actions<T>({
       )}
       {showShare && (
         <Button
-          ariaLabel='shareItem'
+          ariaLabel="shareItem"
           variant={'icon'}
           onClick={(): void => onShare && onShare(item)}
           text={<ShareNodes />}
@@ -278,7 +289,7 @@ function Actions<T>({
       )}
       {showSee && (
         <Button
-          ariaLabel='seeItem'
+          ariaLabel="seeItem"
           variant={'icon'}
           onClick={(): void => onSee && onSee(item)}
           text={<Eye />}
@@ -295,23 +306,23 @@ function Actions<T>({
           />
         ))}
       {showAdminOptions && (
-      <DropDown themeColor={themeColor} title={<Ellipsis />}>
-      <Button
-        ariaLabel='editItem'
-        onClick={(): void => onEdit && onEdit(item)}
-        backgroundColor={themeColor}
-        text={
-          <PenToSquare fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />
-        }
-      />
-      <Button
-        ariaLabel='deleteItem'
-        onClick={(): void => onDeleteItem && onDeleteItem(item)}
-        backgroundColor={themeColor}
-        text={<Xmark fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />}
-      />
-    </DropDown>
-      )} 
+        <DropDown themeColor={themeColor} title={<Ellipsis />}>
+          <Button
+            ariaLabel="editItem"
+            onClick={(): void => onEdit && onEdit(item)}
+            backgroundColor={themeColor}
+            text={
+              <PenToSquare fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />
+            }
+          />
+          <Button
+            ariaLabel="deleteItem"
+            onClick={(): void => onDeleteItem && onDeleteItem(item)}
+            backgroundColor={themeColor}
+            text={<Xmark fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />}
+          />
+        </DropDown>
+      )}
     </div>
   );
 }

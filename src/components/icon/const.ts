@@ -1,2 +1,22 @@
 import { iconsType } from './index';
-export const icons: iconsType[] = ['Add', 'AngleLeft', 'BookOpen', 'BullHorn', 'CaretRight', 'Document', 'Ellipsis', 'Eye', 'FileArrowDown', 'Home', 'Info', 'PenToSquare', 'ShareNodes', 'User', 'Video', 'CircleQuestion', 'Star', 'Tag', 'Bars']
+export const icons: iconsType[] = [
+  'Add',
+  'AngleLeft',
+  'BookOpen',
+  'BullHorn',
+  'CaretRight',
+  'Document',
+  'Ellipsis',
+  'Eye',
+  'FileArrowDown',
+  'Home',
+  'Info',
+  'PenToSquare',
+  'ShareNodes',
+  'User',
+  'Video',
+  'CircleQuestion',
+  'Star',
+  'Tag',
+  'Bars',
+];

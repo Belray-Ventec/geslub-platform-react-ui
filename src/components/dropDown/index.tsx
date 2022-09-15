@@ -19,16 +19,11 @@ export default function DropDown({
 
   if (!onlyResponsive) {
     return (
-      <div
-        onClick={(): void => setShow(!show)}
-        className={styles.drop_down}
-      >
+      <div onClick={(): void => setShow(!show)} className={styles.drop_down}>
         <span>{title}</span>
         <div
           className={
-            !show
-              ? styles.drop_down_content
-              : styles.drop_down_content_hover
+            !show ? styles.drop_down_content : styles.drop_down_content_hover
           }
         >
           {children}
@@ -51,9 +46,7 @@ export default function DropDown({
       </div>
       <div
         className={
-          !show
-            ? styles.drop_down_content
-            : styles.drop_down_content_hover
+          !show ? styles.drop_down_content : styles.drop_down_content_hover
         }
       >
         {children}

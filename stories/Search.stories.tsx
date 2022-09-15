@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Search } from '../src/components/search';
 
-
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Search',
@@ -17,7 +16,6 @@ export const Default = Template.bind({});
 Default.args = {
   timeDebounce: 500,
   handleSearch: (value: string) => {
-    console.log(value)
-  }
-
+    console.log(value);
+  },
 };

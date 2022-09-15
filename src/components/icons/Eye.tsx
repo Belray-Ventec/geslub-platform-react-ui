@@ -1,11 +1,14 @@
 import React from 'react';
 
 interface EyeProps {
-    size?: number;
-    color?: string;
+  size?: number;
+  color?: string;
 }
 
-export default function Eye({size = 30, color = '#9a9a9a'}: EyeProps): JSX.Element {
+export default function Eye({
+  size = 30,
+  color = '#9a9a9a',
+}: EyeProps): JSX.Element {
   return (
     <svg
       width={size}

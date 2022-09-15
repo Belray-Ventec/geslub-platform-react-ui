@@ -1,12 +1,14 @@
 import React from 'react';
 
 interface IconProps {
-    color?: string;
-    size?: number;
+  color?: string;
+  size?: number;
 }
 
-
-export default function Ellipsis({color = '#9a9a9a', size = 30}: IconProps): JSX.Element {
+export default function Ellipsis({
+  color = '#9a9a9a',
+  size = 30,
+}: IconProps): JSX.Element {
   return (
     <svg
       width={size}

@@ -1,11 +1,14 @@
 import React from 'react';
 
 interface IconProps {
-    color?: string;
-    size?: number;
+  color?: string;
+  size?: number;
 }
 
-export default function FileArrowDown({size = 30, color = '#9a9a9a'}: IconProps): JSX.Element {
+export default function FileArrowDown({
+  size = 30,
+  color = '#9a9a9a',
+}: IconProps): JSX.Element {
   return (
     <svg
       width={size}

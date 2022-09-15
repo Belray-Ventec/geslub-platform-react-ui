@@ -9,33 +9,29 @@ interface SearchProps {
   handleSearch: (search: string) => void;
 }
 
-
-
-export function Search({ timeDebounce = 0, handleSearch }: SearchProps): JSX.Element {
-
-
-
-
+export function Search({
+  timeDebounce = 0,
+  handleSearch,
+}: SearchProps): JSX.Element {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value)
-  }
+    setSearch(e.target.value);
+  };
 
-
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('');
 
   const handleSearchDebounce = useMemo(() => {
     return debounce(() => {
-      handleSearch(search)
-    }, timeDebounce)
-  }, [search])
+      handleSearch(search);
+    }, timeDebounce);
+  }, [search]);
 
   useEffect(() => {
-    handleSearchDebounce()
+    handleSearchDebounce();
 
     return () => {
       handleSearchDebounce.cancel();
-    }
-  }, [search])
+    };
+  }, [search]);
 
   return (
     <form className={styles.search_container}>

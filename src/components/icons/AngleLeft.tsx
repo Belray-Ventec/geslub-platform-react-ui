@@ -5,7 +5,10 @@ interface AngleLeftProps {
   size?: number;
 }
 
-export default function AngleLeft({size = 40, color='#9a9a9a'}: AngleLeftProps): JSX.Element {
+export default function AngleLeft({
+  size = 40,
+  color = '#9a9a9a',
+}: AngleLeftProps): JSX.Element {
   return (
     <svg
       width={size}
