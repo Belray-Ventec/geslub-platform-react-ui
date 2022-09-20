@@ -6,7 +6,6 @@
 npm i git+https://github.com/Belray-Ventec/geslub-platform-react-ui.git
 ```
 
-
 ## Instalación
 
 Instalar dependencias
@@ -32,7 +31,7 @@ import { Table } from 'geslub-platform-react-ui';
 export default function Component(): {
 
 	return (
-			<Table  
+			<Table
 			data={[{id: 1, name: 'ProductName', price. 21},
 			{id: 2, name: 	'ProductName2', price. 50}
 			]}
@@ -45,32 +44,31 @@ export default function Component(): {
 }
 ```
 
-| Propiedad    | Tipo                                                                             | Requerida |
-| ------------ | -------------------------------------------------------------------------------- | --------- |
-| data	       | `T[]`                                                                            | si        |
-| columns      | `{ label: string; getValue: (item: T) => React.ReactNode }[]`                    | si        |
-| getRowKey    | `(d: T) => string  number`                                               | si        |
-| onDelete     | `(d: T[]) => void`                                                      | no       |
-| itemsPerPage | `number`                                                                         | no        |
-| actions      | `label: string; callback: (d: T) => void }[]`                                    | no        |
-| themeColor   | `string`                                                                         | no        |
-| showPages    | `boolean`                                                                        | no        |
-| showHeaderButtons    | `boolean`                                                                | no        |
-| showAdminOptions      | `boolean`                                                                | no        |
-| showInfo     | `boolean`                                                                        | no        |
-| showShare    | `boolean`                                                                        | no        |
-| showDownload | `boolean`                                                                        | no        |
-| showSee      | `boolean`                                                                        | no        |
-| caption      | `string`                                                                         | no        |
-| add          | `() => void`                                                            | no        |
-| share        | `() => void`                                                            | no        |
-| onEdit       | `(d: T) => void`                                                        | no        |
-| onDeleteItem | `(d: T) => void`                                                        | no        |
-| onSee        | `(d: T) => void`                                                        | no        |
-| onDownload   | `(d: T) => void`                                                        | no        |
-| onInfo       | `(d: T) => void`                                                        | no        |
-| onShare      | `(d: T) => void`                                                        | no        |
-
+| Propiedad         | Tipo                                                          | Requerida |
+| ----------------- | ------------------------------------------------------------- | --------- |
+| data              | `T[]`                                                         | si        |
+| columns           | `{ label: string; getValue: (item: T) => React.ReactNode }[]` | si        |
+| getRowKey         | `(d: T) => string number`                                     | si        |
+| onDelete          | `(d: T[]) => void`                                            | no        |
+| itemsPerPage      | `number`                                                      | no        |
+| actions           | `label: string; callback: (d: T) => void }[]`                 | no        |
+| themeColor        | `string`                                                      | no        |
+| showPages         | `boolean`                                                     | no        |
+| showHeaderButtons | `boolean`                                                     | no        |
+| showAdminOptions  | `boolean`                                                     | no        |
+| showInfo          | `boolean`                                                     | no        |
+| showShare         | `boolean`                                                     | no        |
+| showDownload      | `boolean`                                                     | no        |
+| showSee           | `boolean`                                                     | no        |
+| caption           | `string`                                                      | no        |
+| add               | `() => void`                                                  | no        |
+| share             | `() => void`                                                  | no        |
+| onEdit            | `(d: T) => void`                                              | no        |
+| onDeleteItem      | `(d: T) => void`                                              | no        |
+| onSee             | `(d: T) => void`                                              | no        |
+| onDownload        | `(d: T) => void`                                              | no        |
+| onInfo            | `(d: T) => void`                                              | no        |
+| onShare           | `(d: T) => void`                                              | no        |
 
 ### Search
 
@@ -91,12 +89,10 @@ export default function Component(): {
 }
 ```
 
-| Propiedad    | Tipo                                                                             | Requerida |
-| ------------ | -------------------------------------------------------------------------------- | --------- |
-| handleSearch | `(search: string) => void`                                              | si        |
-| timeDebounce | `number`                                                                         | no        |
-
-
+| Propiedad    | Tipo                       | Requerida |
+| ------------ | -------------------------- | --------- |
+| handleSearch | `(search: string) => void` | si        |
+| timeDebounce | `number`                   | no        |
 
 ### Tag
 
@@ -114,13 +110,11 @@ export default function Component(): {
 }
 ```
 
-| Propiedad       | Tipo                                                                             | Requerida |
-| --------------- | -------------------------------------------------------------------------------- | --------- |
-| color           | `string`                                                                         | no        |
-| backgroundColor | `number`                                                                         | no        |
-| onClick         | `(text: string) => void`                                                | no        |
-
-
+| Propiedad       | Tipo                     | Requerida |
+| --------------- | ------------------------ | --------- |
+| color           | `string`                 | no        |
+| backgroundColor | `number`                 | no        |
+| onClick         | `(text: string) => void` | no        |
 
 ### TagList
 
@@ -132,29 +126,28 @@ export default function Component(): {
 	const tags = [{id:1, name: 'Tag 1'}, {id:1, name: 'Tag 2'}]
 
 	return (
-            <TagList 
+            <TagList
 			data={tags}
 			getRowKey={(tag) => tag.id}
 		    getValue={(tag) => tag.name}
-			align='left' 
-			rounded 
+			align='left'
+			rounded
 			 />
 	)
 
 }
 ```
 
-| Propiedad       | Tipo                                                                             | Requerida |
-| --------------- | -------------------------------------------------------------------------------- | --------- |
-| data	          | `T[]`                                                                            | si        |
-| getRowKey       | `(d: T) => string  number`                                             | si        |
-| getValue        | `(d: T) => string  number`                                             | si        |
-| backgroundColor | `number`                                                                         | no        |
-| color           | `string`                                                                         | no        |
-| onClick         | `(item: string) => void`                                                | no        |
-| rounded         | `boolean`                                                                        | no        |
-| align           | `'left'  'center'  'right'`                                                    | no        |
-
+| Propiedad       | Tipo                      | Requerida |
+| --------------- | ------------------------- | --------- |
+| data            | `T[]`                     | si        |
+| getRowKey       | `(d: T) => string number` | si        |
+| getValue        | `(d: T) => string number` | si        |
+| backgroundColor | `number`                  | no        |
+| color           | `string`                  | no        |
+| onClick         | `(item: string) => void`  | no        |
+| rounded         | `boolean`                 | no        |
+| align           | `'left' 'center' 'right'` | no        |
 
 ### Drawer
 
@@ -169,8 +162,8 @@ export default function Component(): {
                     data={
                         [
                             {
-                                label: 'Home', 
-                                icon: <Icon icon="Home" size={25} color='#fff' /> , 
+                                label: 'Home',
+                                icon: <Icon icon="Home" size={25} color='#fff' /> ,
                                 to: '/'
                             },
                             {
@@ -207,9 +200,67 @@ export default function Component(): {
 }
 ```
 
-| Propiedad       | Tipo                                                                             | Requerida |
-| --------------- | -------------------------------------------------------------------------------- | --------- |
-| data            |   {label: string; icon?: ReactNode; to?: string; sub?: { label: string; to: string; icon?: ReactNode }[]; | si        |
-| title           | `ReactNode`                                                                         | no        |
-| logo         | `string`                               							                 | no        |
-| themeColor | `string`                                                                         | no        |
+| Propiedad  | Tipo                                                                                                    | Requerida |
+| ---------- | ------------------------------------------------------------------------------------------------------- | --------- |
+| data       | {label: string; icon?: ReactNode; to?: string; sub?: { label: string; to: string; icon?: ReactNode }[]; | si        |
+| title      | `ReactNode`                                                                                             | no        |
+| logo       | `string`                                                                                                | no        |
+| themeColor | `string`                                                                                                | no        |
+
+### Tag
+
+```Javascript
+import React, { useState } from 'react';
+import { Modal } from 'geslub-platform-react-ui';
+
+export default function Component(): {
+
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+	return (
+                <div>
+      <button
+      onClick={() => setIsModalOpen(true)}
+      />
+      <Modal
+        title={'Modal Title'}
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        position={'top'}
+        size={'medium'}
+        okText={'Guardar'}
+        cancelText={'Cancelar'}
+        onOk={() => console.log('ok')}
+        onCancel={() => console.log('cancel')}
+      >
+        <h2>Modal Title H2</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, culpa,
+          odio doloribus ratione sed soluta explicabo id nam ea quas cumque. Odio
+          non accusamus dignissimos praesentium deleniti nulla, perferendis illum.
+          Aut consequatur culpa sequi odio sunt voluptatem explicabo, labore
+        </p>
+      </Modal>
+    </div>
+	)
+
+}
+```
+
+| Propiedad      | Tipo                                                | Requerida |
+| -------------- | --------------------------------------------------- | --------- |
+| isOpen         | `boolean`                                           | si        |
+| onRequestClose | `() => void`                                        | si        |
+| title          | `string`                                            | si        |
+| position       | `'top'\|'center'\|'bottom'`                         | no        |
+| size           | `'small'\|'medium'\|'large'\|'extra_large'\|'full'` | no        |
+| okText         | `string`                                            | no        |
+| cancelText     | `string`                                            | no        |
+| onOk           | `() => void`                                        | no        |
+| onCancel       | `() => void`                                        | no        |
+| themeColor     | `string`                                            | no        |
+| children       | `ReactNode`                                         | no        |
