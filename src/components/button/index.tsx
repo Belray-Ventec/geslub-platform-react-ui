@@ -42,8 +42,8 @@ export function Button({
     size === Size.small
       ? styles.button_small
       : size === Size.medium
-        ? styles.button_medium
-        : styles.button_large;
+      ? styles.button_medium
+      : styles.button_large;
 
   const isText = variant === 'text' ? buttonSize : '';
   return (
@@ -53,7 +53,11 @@ export function Button({
       onClick={onClick}
       type="button"
       className={[styles.button, isText, valuePrimary].join(' ')}
-      style={{ backgroundColor: backgroundColor, borderRadius: valueRounded, color: color ? color : '' }}
+      style={{
+        backgroundColor: backgroundColor,
+        borderRadius: valueRounded,
+        color: color ? color : '',
+      }}
       {...props}
     >
       {text}

@@ -207,7 +207,8 @@ export default function Component(): {
 | logo       | `string`                                                                                                | no        |
 | themeColor | `string`                                                                                                | no        |
 
-### Tag
+
+### Modal
 
 ```Javascript
 import React, { useState } from 'react';
@@ -264,3 +265,4 @@ export default function Component(): {
 | onCancel       | `() => void`                                        | no        |
 | themeColor     | `string`                                            | no        |
 | children       | `ReactNode`                                         | no        |
+=======
