@@ -52,6 +52,10 @@
     flex-direction: column;
 }
 
+.drawer_subitem_list > * {
+    padding-left: 35px !important;
+}
+
 .drawer_header .logo {
     font-size: 1.5rem;
     font-family: 'Nexa';
@@ -85,6 +89,9 @@
     cursor: pointer;
     gap: 0.5rem;
     overflow: hidden;
+    background: none;
+    width: 100%;
+    border: none;
 }
 .bold {
     font-weight: 900;
@@ -114,7 +121,8 @@
     -youbkit-user-select: none;   /* Chrome 6.0+, Safari 3.1+, Edge y Opera 15+ */
     -moz-user-select: none;    /*Firefox*/
     -ms-user-select: none;        /* IE 10+ y Edge */
-    user-select: none;            /* Versión sin prefijo,
+    user-select: none;    
+    text-align: start;        /* Versión sin prefijo,
                                 actualmente compatible con Chrome y Opera */
 }
 
@@ -220,6 +228,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+    z-index: 100;
 }
 .logo_responsive {
     font-family: 'Nexa';
@@ -258,6 +267,7 @@
     top: 60px;
     height: calc(100vh - 60px);
     overflow-y: auto;
+    z-index: 100;
     
     animation: opacityIn 0.25s ease-in-out;
 }

@@ -3,36 +3,35 @@ import AngleLeft from '../icons/AngleLeft';
 import styles from './drawer.module.css';
 import Gp from '../icons/Gp';
 import AngleDown from '../icons/AngleDown';
-import { useEffect } from 'react';
-import { iconsType, Icon } from '../icon';
 import PropTypes from 'prop-types';
 import useWindowSize from '../../hooks/useWindowSize';
-
-interface DrawerData {
-  label: string;
-  icon?: React.ReactNode;
-  to?: string;
-  sub?: { label: string; to: string; icon?: React.ReactNode }[];
-}
+import { Icon } from '../icon';
 
 interface DrawerProps {
-  data: DrawerData[];
-  title: React.ReactNode;
+  title?: React.ReactNode;
   logo?: string;
   themeColor?: string;
+  children: React.ReactNode;
+  isOpen: boolean;
+  onStateChange: () => void;
 }
 
 interface DrawerItemProps {
   children: React.ReactNode;
-  to?: string;
   icon?: React.ReactNode;
   isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isSubOpen?: boolean;
 }
 
-export function Drawer({ data, logo, title, themeColor }: DrawerProps) {
+export function Drawer({
+  logo,
+  title,
+  themeColor,
+  isOpen,
+  onStateChange,
+  children,
+}: DrawerProps) {
   const { width } = useWindowSize();
-  const [isOpen, setIsOpen] = useState(false);
 
   if (width && width > 768) {
     return (
@@ -61,38 +60,14 @@ export function Drawer({ data, logo, title, themeColor }: DrawerProps) {
                 styles.show_drawer_button,
                 isOpen ? styles.show_drawer_button_open : '',
               ].join(' ')}
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => onStateChange()}
             >
               <AngleLeft color="#fff" size={20} />
             </button>
           </div>
         </div>
         <div className={styles.drawer_body}>
-          <nav className={styles.nav}>
-            {data.map((item, index) => {
-              return item.sub ? (
-                <DrawerSubItem
-                  setIsOpen={setIsOpen}
-                  key={index}
-                  isOpen={isOpen}
-                  icon={item.icon}
-                  sub={item.sub}
-                >
-                  {item.label}
-                </DrawerSubItem>
-              ) : (
-                <DrawerItem
-                  setIsOpen={setIsOpen}
-                  key={index}
-                  isOpen={isOpen}
-                  icon={item.icon}
-                  to={item.to}
-                >
-                  {item.label}
-                </DrawerItem>
-              );
-            })}
-          </nav>
+          <nav className={styles.nav}>{children}</nav>
         </div>
       </div>
     );
@@ -110,7 +85,7 @@ export function Drawer({ data, logo, title, themeColor }: DrawerProps) {
       >
         <button
           style={{ backgroundColor: themeColor ? themeColor : '' }}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => onStateChange()}
           className={styles.button_responsive}
         >
           <Icon icon="Bars" size={20} color={'#fff'} />
@@ -134,29 +109,7 @@ export function Drawer({ data, logo, title, themeColor }: DrawerProps) {
           style={{ backgroundColor: themeColor ? themeColor : '' }}
           className={styles.nav_responsive}
         >
-          {data.map((item) =>
-            item.sub ? (
-              <DrawerSubItem
-                key={item.label}
-                setIsOpen={setIsOpen}
-                isOpen={true}
-                icon={item.icon}
-                sub={item.sub}
-              >
-                {item.label}
-              </DrawerSubItem>
-            ) : (
-              <DrawerItem
-                key={item.label}
-                setIsOpen={setIsOpen}
-                isOpen={true}
-                icon={item.icon}
-                to={item.to}
-              >
-                {item.label}
-              </DrawerItem>
-            )
-          )}
+          {children}
         </nav>
       )}
     </>
@@ -164,81 +117,48 @@ export function Drawer({ data, logo, title, themeColor }: DrawerProps) {
 }
 
 Drawer.prototypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      icon: PropTypes.element,
-      to: PropTypes.string,
-      sub: PropTypes.arrayOf(
-        PropTypes.shape({
-          label: PropTypes.string.isRequired,
-          to: PropTypes.string.isRequired,
-          icon: PropTypes.element,
-        })
-      ),
-    })
-  ).isRequired,
   title: PropTypes.node,
   logo: PropTypes.string,
   themeColor: PropTypes.string,
 };
 
-function DrawerItem({
-  children,
-  to,
-  icon,
-  isOpen,
-  setIsOpen,
-}: DrawerItemProps) {
+export function DrawerItem({ children, icon, isOpen }: DrawerItemProps) {
   return (
-    <a
-      onClick={() => setIsOpen(false)}
-      title={children as string}
-      href={to}
-      className={styles.drawer_item}
-    >
+    <span title={children as string} className={styles.drawer_item}>
       <span
         className={styles.itemText}
         style={{ justifyContent: !isOpen ? 'center' : '' }}
       >
         {icon ? (
-          <Icon icon={icon as iconsType} size={25} />
+          <i>{icon}</i>
         ) : (
           <Icon icon="CaretRight" color="#fff" size={25} />
         )}
         {isOpen && <span className={styles.drawer_item_show}>{children}</span>}
       </span>
-    </a>
+    </span>
   );
 }
 
 interface DrawerSubItemProps {
   children: React.ReactNode;
   icon?: React.ReactNode;
-  sub: { label: string; to: string; icon?: React.ReactNode }[];
+  title: string;
   isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function DrawerSubItem({
+export function DrawerSubItem({
   children,
   icon,
-  sub,
+  title,
   isOpen,
-  setIsOpen,
 }: DrawerSubItemProps) {
   const [isSubOpen, setIsSubOpen] = useState(false);
 
-  useEffect(() => {
-    if (!isOpen) {
-      setIsSubOpen(false);
-    }
-  }, [isOpen]);
-
   return (
     <div className={styles.drawer_subitem}>
-      <a
-        title={children as string}
+      <button
+        title={title}
         onClick={() => setIsSubOpen(!isSubOpen)}
         className={[
           styles.drawer_item,
@@ -254,7 +174,7 @@ function DrawerSubItem({
           </span>
           {isOpen && (
             <>
-              <span className={styles.drawer_item_show}>{children}</span>
+              <span className={styles.drawer_item_show}>{title}</span>
               <span
                 className={[
                   isSubOpen ? styles.subitem_arrow_down : '',
@@ -266,28 +186,9 @@ function DrawerSubItem({
             </>
           )}
         </span>
-      </a>
+      </button>
       {isSubOpen && (
-        <div className={styles.drawer_subitem_list}>
-          {sub.map((item, index) => (
-            <a
-              onClick={() => setIsOpen(false)}
-              title={item.label}
-              href={item.to}
-              className={styles.drawer_subitem_item}
-              key={index}
-            >
-              {item.icon ? (
-                item.icon
-              ) : (
-                <Icon color="#fff" icon="CaretRight" size={25} />
-              )}
-              {isOpen && (
-                <span className={styles.drawer_item_show}>{item.label}</span>
-              )}
-            </a>
-          ))}
-        </div>
+        <div className={styles.drawer_subitem_list}>{children}</div>
       )}
     </div>
   );

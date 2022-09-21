@@ -5,6 +5,7 @@
     cursor: pointer;
     display: inline-block;
     line-height: 1;
+    color: #fff;
 }
 .button:disabled{
     background-color: #e0e0e0;

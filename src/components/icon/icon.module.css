@@ -1,0 +1,6 @@
+.icon_click {
+    cursor: pointer;
+}
+.icon_click:hover {
+    filter: brightness(1.25);
+}

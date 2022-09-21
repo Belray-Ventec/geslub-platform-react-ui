@@ -18,6 +18,7 @@ import Star from '../icons/Star';
 import Tag from '../icons/Tag';
 import User from '../icons/User';
 import Video from '../icons/Video';
+import styles from './icon.module.css';
 
 export type iconsType =
   | 'Home'
@@ -44,144 +45,243 @@ interface IconProps {
   color?: string;
   size?: number;
   icon?: iconsType;
+  onClick?: () => void;
+  ariaLabel?: string;
 }
 
-export function Icon({ icon, color = '#000', size = 25 }: IconProps) {
+export function Icon({
+  icon,
+  color = '#000',
+  size = 25,
+  onClick,
+  ariaLabel,
+}: IconProps) {
   if (icon === 'Home')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <Home color={color} size={size} />
       </i>
     );
 
   if (icon === 'CaretRight')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <CaretRight size={size} color={color} />
       </i>
     );
 
   if (icon === 'Eye')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <Eye size={size} color={color} />
       </i>
     );
 
   if (icon === 'Info')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <Info size={size} color={color} />
       </i>
     );
 
   if (icon === 'Ellipsis')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <Ellipsis size={size} color={color} />
       </i>
     );
 
   if (icon === 'FileArrowDown')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <FileArrowDown size={size} color={color} />
       </i>
     );
 
   if (icon === 'PenToSquare')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <PenToSquare size={size} fill={color} />
       </i>
     );
 
   if (icon === 'ShareNodes')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <ShareNodes size={size} fill={color} />
       </i>
     );
 
   if (icon === 'Add')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <Add size={size} fill={color} />
       </i>
     );
 
   if (icon === 'Document')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <Document size={size} color={color} />
       </i>
     );
 
   if (icon === 'BookOpen')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <BookOpen size={size} color={color} />
       </i>
     );
 
   if (icon === 'BullHorn')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <BullHorn size={size} color={color} />
       </i>
     );
 
   if (icon === 'User')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <User size={size} color={color} />
       </i>
     );
 
   if (icon === 'Video')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <Video size={size} color={color} />
       </i>
     );
 
   if (icon === 'AngleLeft')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <AngleLeft size={size} color={color} />
       </i>
     );
 
   if (icon === 'CircleQuestion')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <CircleQuestion size={size} color={color} />
       </i>
     );
 
   if (icon === 'Star')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <Star size={size} color={color} />
       </i>
     );
 
   if (icon === 'Tag')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <Tag size={size} color={color} />
       </i>
     );
 
   if (icon === 'Bars')
     return (
-      <i>
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
         <Bars size={size} color={color} />
       </i>
     );
 
+  if (icon === 'FileArrowDown')
+    return (
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
+        <FileArrowDown size={size} color={color} />
+      </i>
+    );
+
   return (
-    <i>
+    <i
+      className={onClick && styles.icon_click}
+      aria-label={ariaLabel && ariaLabel}
+      onClick={() => onClick && onClick()}
+    >
       <img alt="icon" src={icon} width={size} height={size} />
     </i>
   );
