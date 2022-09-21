@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Drawer } from '../src/components/drawer';
+import { Drawer, DrawerItem, DrawerSubItem } from '../src/components/drawer';
 import { Icon } from '../src/components/icon';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -17,7 +17,39 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Drawer> = (args) => (
   <>
-    <Drawer {...args} />
+    <Drawer {...args}>
+      {SUB_MENU.map((item) =>
+        !item.sub ? (
+          <DrawerItem
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            isOpen={args.isOpen!}
+            key={item.label}
+            icon={item.icon}
+          >
+            {item.label}
+          </DrawerItem>
+        ) : (
+          <DrawerSubItem
+            title={item.label}
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            isOpen={args.isOpen!}
+            key={item.label}
+            icon={item.icon}
+          >
+            {item.sub.map((subItem) => (
+              <DrawerItem
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                isOpen={args.isOpen!}
+                key={subItem.label}
+                icon={subItem.icon}
+              >
+                {subItem.label}
+              </DrawerItem>
+            ))}
+          </DrawerSubItem>
+        )
+      )}
+    </Drawer>
     <div style={{ padding: '20px' }}>
       <h2>Title</h2>
       <div className="grid-container">
@@ -37,6 +69,14 @@ const Template: ComponentStory<typeof Drawer> = (args) => (
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
+
+Primary.args = {
+  title: 'Menu',
+  isOpen: true,
+  close: () => {
+    console.log('close');
+  },
+};
 
 const SUB_MENU = [
   {
@@ -228,7 +268,3 @@ const SUB_MENU = [
     to: '/',
   },
 ];
-
-Primary.args = {
-  data: SUB_MENU,
-};
