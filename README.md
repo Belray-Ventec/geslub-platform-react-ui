@@ -153,6 +153,7 @@ export default function Component(): {
 
 ```Javascript
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import { Drawer, DrawerItem, DrawerSubItem } from 'geslub-platform-react-ui';
 
 export default function Component(): {
@@ -193,23 +194,27 @@ export default function Component(): {
                       icon={listItem.icon}
                     >
                     {listItem.sub.map((subItem) => (
-                      <DrawerItem
-                        isOpen={isOpen}
-                        key={subItem.label}
-                        icon={subItem.icon}
-                      >
-                        {subItem.label}
-                      </DrawerItem>
+                      <Link to={subItem.to}>
+                          <DrawerItem
+                            isOpen={isOpen}
+                            key={subItem.label}
+                            icon={subItem.icon}
+                          >
+                            {subItem.label}
+                          </DrawerItem>
+                      </Link>
                     ))}
                     </DrawerSubItem>
                   ) : (
-                    <DrawerItem
-                      isOpen={isOpen}
-                      key={listItem.label}
-                      icon={listItem.icon}
-                    >
-                      {listItem.label}
-                    </DrawerItem>
+                    <Link to={listItem.to}>
+                        <DrawerItem
+                          isOpen={isOpen}
+                          key={listItem.label}
+                          icon={listItem.icon}
+                        >
+                          {listItem.label}
+                        </DrawerItem>
+                    </Link>
                   )
 
                 </Drawer>
