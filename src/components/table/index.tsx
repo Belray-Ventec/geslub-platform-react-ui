@@ -15,6 +15,7 @@ import '../../../public/index.css';
 import styles from './table.module.css';
 import Paginator from '../paginator';
 import { Sort } from '../sort';
+import { Icon } from '../icon';
 
 interface ActionsProps<T> {
   showInfo?: boolean;
@@ -264,35 +265,38 @@ function Actions<T>({
   return (
     <div className={styles.actions}>
       {showInfo && (
-        <Button
+        <Icon
           ariaLabel="infoItem"
-          variant={'icon'}
-          onClick={(): void => onInfo && onInfo(item)}
-          text={<Info />}
+          size={30}
+          onClick={() => onInfo && onInfo(item)}
+          icon={'Info'}
         />
       )}
       {showDownload && (
-        <Button
+        <Icon
           ariaLabel="downloadItem"
-          variant={'icon'}
-          onClick={(): void => onDownload && onDownload(item)}
-          text={<FileArrowDown />}
+          color="#9a9a9a"
+          size={30}
+          onClick={() => onDownload && onDownload(item)}
+          icon={'FileArrowDown'}
         />
       )}
       {showShare && (
-        <Button
+        <Icon
           ariaLabel="shareItem"
-          variant={'icon'}
-          onClick={(): void => onShare && onShare(item)}
-          text={<ShareNodes />}
+          color="#9a9a9a"
+          size={30}
+          onClick={() => onShare && onShare(item)}
+          icon={'ShareNodes'}
         />
       )}
       {showSee && (
-        <Button
+        <Icon
           ariaLabel="seeItem"
-          variant={'icon'}
-          onClick={(): void => onSee && onSee(item)}
-          text={<Eye />}
+          color="#9a9a9a"
+          size={30}
+          onClick={() => onSee && onSee(item)}
+          icon={'Eye'}
         />
       )}
       {actions &&

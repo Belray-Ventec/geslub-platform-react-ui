@@ -152,60 +152,85 @@ export default function Component(): {
 ### Drawer
 
 ```Javascript
-import { Drawer } from 'geslub-platform-react-ui';
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+import { Drawer, DrawerItem, DrawerSubItem } from 'geslub-platform-react-ui';
 
 export default function Component(): {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const SUB_MENU = [{
+                      label: 'Home',
+                      icon: <Icon icon="Home" size={25} color='#fff' /> ,
+                      to: '/'
+                    },
+                    {
+                      label: "Lubricantes Especiales",
+                      icon: <Icon icon='Document' size={25} color='#fff'/>,
+                      sub: [
+                        { label: "Información técnica", to: '/informacion-tecnica' },
+                        { label: "Certificados", to: '/certificados' },
+                        { label: "Marketing", to: '/marketing' },
+                        { label: "Testimoniales", to: '/testimoniales' },
+                        { label: "OEM", to: '/oem' },
+                        ],
+                      }]
 
 	return (
                 <Drawer
                     title="Geslub Platform"
-                    data={
-                        [
-                            {
-                                label: 'Home',
-                                icon: <Icon icon="Home" size={25} color='#fff' /> ,
-                                to: '/'
-                            },
-                            {
-                                label: "Lubricantes Especiales",
-                                icon: <Icon icon='Document' size={25} color='#fff'/>,
-                                sub: [
-                                  {
-                                    label: "Información técnica",
-                                    to: '/informacion-tecnica',
-                                  },
-                                  {
-                                    label: "Certificados",
-                                    to: '/certificados',
-                                  },
-                                  {
-                                    label: "Marketing",
-                                    to: '/marketing',
-                                  },
-                                  {
-                                    label: "Testimoniales",
-                                    to: '/testimoniales',
-                                  },
-                                  {
-                                    label: "OEM",
-                                    to: '/oem',
-                                  },
-                                ],
-                              },
-                    ]}
+                    isOpen={isOpen}
+
+                    onStateChange={() => setIsOpen(!isOpen)}
                 />
+
+                {SUB_MENU.map((listItem) =>
+                  listItem.sub ? (
+                    <DrawerSubItem
+                      title={listItem.label}
+                      isOpen={isOpen}
+                      key={listItem.label}
+                      icon={listItem.icon}
+                    >
+                    {listItem.sub.map((subItem) => (
+                      <Link to={subItem.to}>
+                          <DrawerItem
+                            isOpen={isOpen}
+                            key={subItem.label}
+                            icon={subItem.icon}
+                          >
+                            {subItem.label}
+                          </DrawerItem>
+                      </Link>
+                    ))}
+                    </DrawerSubItem>
+                  ) : (
+                    <Link to={listItem.to}>
+                        <DrawerItem
+                          isOpen={isOpen}
+                          key={listItem.label}
+                          icon={listItem.icon}
+                        >
+                          {listItem.label}
+                        </DrawerItem>
+                    </Link>
+                  )
+
+                </Drawer>
 				<App />
 	)
 
 }
 ```
 
-| Propiedad  | Tipo                                                                                                    | Requerida |
-| ---------- | ------------------------------------------------------------------------------------------------------- | --------- |
-| data       | {label: string; icon?: ReactNode; to?: string; sub?: { label: string; to: string; icon?: ReactNode }[]; | si        |
-| title      | `ReactNode`                                                                                             | no        |
-| logo       | `string`                                                                                                | no        |
-| themeColor | `string`                                                                                                | no        |
+| Propiedad     | Tipo         | Descripcion                                    | Requerida |
+| ------------- | ------------ | ---------------------------------------------- | --------- |
+| isOpen        | `boolean`    |                                                | si        |
+| onStateChange | `() => void` | Maneja el estado del Drawer (setState(!state)) | si        |
+| title         | `ReactNode`  |                                                | no        |
+| logo          | `string`     |                                                | no        |
+| themeColor    | `string`     |                                                | no        |
 
 
 ### Modal
@@ -265,4 +290,3 @@ export default function Component(): {
 | onCancel       | `() => void`                                        | no        |
 | themeColor     | `string`                                            | no        |
 | children       | `ReactNode`                                         | no        |
-=======
