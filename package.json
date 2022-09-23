@@ -20,7 +20,8 @@
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "style:write": "prettier --write **/*.{json,svg,js,jsx,ts,tsx,md}"
+    "style:write": "prettier --write **/*.{json,svg,js,jsx,ts,tsx,md}",
+    "buildtokens": "node src/utils/scripts/buildTokens"
   },
   "peerDependencies": {
     "react": ">=16"

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
-import { Tag } from '../src/components/tag';
+import { Tag } from '../src/components/atoms/tag';
 
 describe('Testing Tag', () => {
   const onClickFn = jest.fn();
