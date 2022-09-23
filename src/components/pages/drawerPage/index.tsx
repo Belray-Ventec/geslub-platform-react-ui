@@ -207,6 +207,7 @@ export function DrawerPage() {
               isOpen={isOpen}
               key={item.label}
               icon={item.icon}
+              onStateChange={() => setIsOpen(!isOpen)}
             >
               {item.sub.map((subItem) => (
                 <DrawerItem

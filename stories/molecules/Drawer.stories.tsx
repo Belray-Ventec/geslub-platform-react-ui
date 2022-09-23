@@ -36,6 +36,7 @@ const Template: ComponentStory<typeof Drawer> = (args) => (
             isOpen={args.isOpen}
             key={item.label}
             icon={item.icon}
+            onStateChange={() => console.log('onStateChange subItem')}
           >
             {item.sub.map((subItem) => (
               <DrawerItem

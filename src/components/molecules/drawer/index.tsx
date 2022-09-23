@@ -145,6 +145,7 @@ interface DrawerSubItemProps {
   icon?: React.ReactNode;
   title: string;
   isOpen: boolean;
+  onStateChange: () => void;
 }
 
 export function DrawerSubItem({
@@ -152,6 +153,7 @@ export function DrawerSubItem({
   icon,
   title,
   isOpen,
+  onStateChange,
 }: DrawerSubItemProps) {
   const [isSubOpen, setIsSubOpen] = useState(false);
 
@@ -159,7 +161,10 @@ export function DrawerSubItem({
     <div className={styles.drawer_subitem}>
       <button
         title={title}
-        onClick={() => setIsSubOpen(!isSubOpen)}
+        onClick={() => {
+          !isOpen && onStateChange();
+          setIsSubOpen(!isSubOpen);
+        }}
         className={[
           styles.drawer_item,
           isSubOpen ? styles.drawer_item_open : '',
