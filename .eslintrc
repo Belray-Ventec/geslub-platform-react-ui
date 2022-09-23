@@ -21,6 +21,9 @@
   "rules": {
     "react/react-in-jsx-scope": 0,
     "react/prop-types": 0,
-    "disallowArithmeticOperators": 0
-  }
+    "disallowArithmeticOperators": 0,
+    "@typescript-eslint/no-non-null-assertion": 0,
+    "react-hooks/exhaustive-deps": 0
+  },
+  "ignorePatterns": ["node_modules/", "dist/", "tsdx.config.js"]
 }
