@@ -63,6 +63,7 @@ describe('Testing Drawer', () => {
             </DrawerItem>
           ) : (
             <DrawerSubItem
+              onStateChange={() => console.log('onStateChange subItem')}
               title={item.label}
               // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
               isOpen={true}

@@ -190,6 +190,7 @@ export default function Component(): {
                     <DrawerSubItem
                       title={listItem.label}
                       isOpen={isOpen}
+                      onStateChange={() => setIsOpen(!isOpen)}
                       key={listItem.label}
                       icon={listItem.icon}
                     >
