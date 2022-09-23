@@ -9,6 +9,8 @@ import {
 import { Icon } from '../src/components/atoms/icon';
 
 describe('Testing Drawer', () => {
+  const onStateChangeFn = jest.fn();
+
   const setup = () => {
     const SUB_MENU = [
       {
@@ -49,30 +51,23 @@ describe('Testing Drawer', () => {
       <Drawer
         title="Geslub Platform"
         isOpen={true}
-        onStateChange={() => console.log('onStateChange')}
+        onStateChange={onStateChangeFn()}
       >
         {SUB_MENU.map((item) =>
           !item.sub ? (
-            <DrawerItem
-              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-              isOpen={true}
-              key={item.label}
-              icon={item.icon}
-            >
+            <DrawerItem isOpen={true} key={item.label} icon={item.icon}>
               {item.label}
             </DrawerItem>
           ) : (
             <DrawerSubItem
-              onStateChange={() => console.log('onStateChange subItem')}
+              onStateChange={() => onStateChangeFn()}
               title={item.label}
-              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
               isOpen={true}
               key={item.label}
               icon={item.icon}
             >
               {item.sub.map((subItem) => (
                 <DrawerItem
-                  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                   isOpen={true}
                   key={subItem.label}
                   icon={subItem.icon}
