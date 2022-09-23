@@ -1,5 +1,5 @@
 import React from 'react';
-import { TagList } from '../src/components/tagList/';
+import { TagList } from '../src/components/molecules/tagList/';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { tagListData } from '../src/utils/data/';
 import '@testing-library/jest-dom';

@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { Search } from '../src/components/search';
+import { Search } from '../src/components/atoms/search';
 
 describe('Testing Search', () => {
   const onSearchFn = jest.fn();
