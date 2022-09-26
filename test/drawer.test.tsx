@@ -51,7 +51,7 @@ describe('Testing Drawer', () => {
       <Drawer
         title="Geslub Platform"
         isOpen={true}
-        onStateChange={onStateChangeFn()}
+        onStateChange={onStateChangeFn}
       >
         {SUB_MENU.map((item) =>
           !item.sub ? (
@@ -60,7 +60,7 @@ describe('Testing Drawer', () => {
             </DrawerItem>
           ) : (
             <DrawerSubItem
-              onStateChange={() => onStateChangeFn()}
+              onStateChange={onStateChangeFn}
               title={item.label}
               isOpen={true}
               key={item.label}
