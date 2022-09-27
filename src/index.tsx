@@ -8,4 +8,4 @@ export {
 export { Tag } from './components/atoms/tag';
 export { Table } from './components/molecules/table';
 export { TagList } from './components/molecules/tagList';
-export { Icon } from './components/atoms/icon';
+export { Icon, iconsType } from './components/atoms/icon';

@@ -9,5 +9,5 @@ module.exports = {
   typescript: {
     check: true, // type-check stories during Storybook build
   },
-  staticDirs: ['../public'],
+  staticDirs: ['../src/public'],
 };
