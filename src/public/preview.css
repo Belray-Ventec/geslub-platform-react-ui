@@ -36,3 +36,8 @@ html {
     align-items: center; 
     flex-direction: column
 }
+
+.sb-show-main.sb-main-padded {
+    margin: 0;
+    padding: 0;
+}

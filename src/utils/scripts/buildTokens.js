@@ -36,7 +36,7 @@ const BuildCustomProperties = () => {
   }
   `
 
-  fs.writeFile("public/tokens.css", data, "utf-8", (err) => {
+  fs.writeFile("src/public/tokens.css", data, "utf-8", (err) => {
     if (err) throw err;
     console.log('The tokens has been saved!');
   });

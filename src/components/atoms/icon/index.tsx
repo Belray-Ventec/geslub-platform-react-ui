@@ -44,7 +44,7 @@ export type iconsType =
 interface IconProps {
   color?: string;
   size?: number;
-  icon?: iconsType;
+  icon?: iconsType | string;
   onClick?: () => void;
   ariaLabel?: string;
 }

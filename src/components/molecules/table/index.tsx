@@ -7,7 +7,7 @@ import Ellipsis from '../../../assets/icons/Ellipsis';
 import ShareNodes from '../../../assets/icons/ShareNodes';
 import Xmark from '../../../assets/icons/Xmark';
 import PenToSquare from '../../../assets/icons/PenToSquare';
-import '../../../../public/index.css';
+import '../../../../src/public/index.css';
 import styles from './table.module.css';
 import Paginator from '../../atoms/paginator';
 import { Sort } from '../../atoms/sort';
