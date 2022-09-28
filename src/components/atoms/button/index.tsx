@@ -35,7 +35,7 @@ export function Button({
   const valuePrimary = primary
     ? `${styles.button_primary}`
     : `${styles.button_secondary}`;
-  const valueRounded = rounded ? '3rem' : '';
+  const valueRounded = rounded ? '3rem' : undefined;
 
   const buttonSize =
     size === Size.small
@@ -54,7 +54,7 @@ export function Button({
       style={{
         backgroundColor: backgroundColor,
         borderRadius: valueRounded,
-        color: color ? color : '',
+        color: color ? color : undefined,
       }}
       {...props}
     >

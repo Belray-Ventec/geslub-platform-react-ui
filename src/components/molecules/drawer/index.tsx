@@ -53,12 +53,12 @@ export function Drawer({
               <button
                 aria-label="show drawer"
                 style={{
-                  backgroundColor: themeColor ? themeColor : '',
+                  backgroundColor: themeColor ? themeColor : undefined,
                   filter: 'brightness(1.2)',
                 }}
                 className={[
                   styles.show_drawer_button,
-                  isOpen ? styles.show_drawer_button_open : '',
+                  isOpen ? styles.show_drawer_button_open : undefined,
                 ].join(' ')}
                 onClick={() => onStateChange()}
               >
@@ -82,13 +82,13 @@ export function Drawer({
       <div
         role={'navigation'}
         style={{
-          backgroundColor: themeColor ? themeColor : '',
+          backgroundColor: themeColor ? themeColor : undefined,
           position: isOpen ? 'fixed' : 'relative',
         }}
         className={styles.drawer_responsive}
       >
         <button
-          style={{ backgroundColor: themeColor ? themeColor : '' }}
+          style={{ backgroundColor: themeColor ? themeColor : undefined }}
           onClick={() => onStateChange()}
           className={styles.button_responsive}
         >
@@ -110,7 +110,7 @@ export function Drawer({
       </div>
       {isOpen && (
         <nav
-          style={{ backgroundColor: themeColor ? themeColor : '' }}
+          style={{ backgroundColor: themeColor ? themeColor : undefined }}
           className={styles.nav_responsive}
         >
           {children}
@@ -134,12 +134,21 @@ interface DrawerItemProps {
   onClick?: () => void;
 }
 
-export function DrawerItem({ children, icon, isOpen, onClick }: DrawerItemProps) {
+export function DrawerItem({
+  children,
+  icon,
+  isOpen,
+  onClick,
+}: DrawerItemProps) {
   return (
-    <span onClick={() => onClick && onClick()} title={children as string} className={styles.drawer_item}>
+    <span
+      onClick={() => onClick && onClick()}
+      title={children as string}
+      className={styles.drawer_item}
+    >
       <span
         className={styles.itemText}
-        style={{ justifyContent: !isOpen ? 'center' : '' }}
+        style={{ justifyContent: !isOpen ? 'center' : undefined }}
       >
         {icon ? (
           <i>{icon}</i>
@@ -179,14 +188,14 @@ export function DrawerSubItem({
         }}
         className={[
           styles.drawer_item,
-          isSubOpen ? styles.drawer_item_open : '',
+          isSubOpen ? styles.drawer_item_open : undefined,
         ].join(' ')}
       >
         <span
           className={styles.subItemText}
           style={{ justifyContent: !isOpen ? 'center' : 'flex-start' }}
         >
-          <span className={[!isOpen ? styles.icon : ''].join(' ')}>
+          <span className={[!isOpen ? styles.icon : undefined].join(' ')}>
             {icon ? icon : <Icon icon="CaretRight" color="#fff" size={25} />}
           </span>
           {isOpen && (
@@ -194,7 +203,7 @@ export function DrawerSubItem({
               <span className={styles.drawer_item_show}>{title}</span>
               <span
                 className={[
-                  isSubOpen ? styles.subitem_arrow_down : '',
+                  isSubOpen ? styles.subitem_arrow_down : undefined,
                   styles.arrowSubItem,
                 ].join(' ')}
               >

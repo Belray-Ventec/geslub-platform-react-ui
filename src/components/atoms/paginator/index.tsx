@@ -99,7 +99,7 @@ export default function Paginator<T>({
                 className={`${styles.page_link} ${
                   paginator.page === Number(item) + 1
                     ? `${styles.page_link_active}`
-                    : ''
+                    : undefined
                 }`}
                 key={item}
               >
