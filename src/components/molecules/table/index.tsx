@@ -142,7 +142,9 @@ export function Table<T>({
       )}
       <div className={styles.table_container}>
         <table
-          style={themeColor ? { borderBottom: `2px solid ${themeColor}` } : {}}
+          style={
+            themeColor ? { borderBottom: `2px solid ${themeColor}` } : undefined
+          }
           className={styles.table}
         >
           {caption && <caption className={styles.caption}>{caption}</caption>}
@@ -173,7 +175,13 @@ export function Table<T>({
                   />
                 </th>
               ))}
-              {paginator.data.length > 0 && <th>Acciones</th>}
+              {(showInfo ||
+                showDownload ||
+                showSee ||
+                showShare ||
+                showAdminOptions ||
+                actions.length > 0) &&
+                paginator.data.length > 0 && <th>Acciones</th>}
             </tr>
           </thead>
           <tbody>
