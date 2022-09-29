@@ -10,7 +10,6 @@ export enum Size {
 interface ButtonProps {
   ariaLabel?: string;
   backgroundColor?: string;
-  variant?: 'icon' | 'text';
   color?: string;
   size?: Size;
   primary?: boolean;

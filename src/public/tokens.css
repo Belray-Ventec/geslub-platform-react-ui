@@ -153,6 +153,7 @@
     --font-family-mono-0: "Roboto Mono";
     --font-family-mono-1: Consolas;
     --font-family-mono-2: monospace;
+    --font-family-system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
       
     --font-size-base: 10px;
     --font-size-xs: .75rem;
@@ -238,5 +239,31 @@
     --colors-primary: #34495D;
     --colors-links: #208fff;
     --colors-borderGray: #9a9a9a;
+      
+      
+    --sizes-avatar-2xs: 16px;
+    --sizes-avatar-xs: 24px;
+    --sizes-avatar-sm: 32px;
+    --sizes-avatar-md: 48px;
+    --sizes-avatar-lg: 64px;
+    --sizes-avatar-xl: 96px;
+    --sizes-avatar-2xl: 128px;
+      
+      
+    --text-font-family-body: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      
+      
+    --fonts-font-size-h1: 4rem;
+    --fonts-font-size-h2: 3rem;
+    --fonts-font-size-h3: 2.25rem;
+    --fonts-font-size-h4: 1.875rem;
+    --fonts-font-size-h5: 1.5rem;
+    --fonts-font-size-h6: 1.25rem;
+    --fonts-font-size-paragraph: 1rem;
+    --fonts-font-size-small: .875rem;
+      
+    --fonts-font-weight-light: 300;
+    --fonts-font-weight-normal: 400;
+    --fonts-font-weight-bold: 700;
   }
   

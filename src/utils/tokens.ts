@@ -161,6 +161,8 @@ const choices = {
     serif: ['Roboto Slab', '"Times New Roman"', 'serif'],
     sans: ['Apercu', 'Arial', 'sans-serif'],
     mono: ['"Roboto Mono"', 'Consolas', 'monospace'],
+    'system-ui':
+      'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   },
   fontSize: {
     base: '10px',
@@ -262,6 +264,39 @@ const decisions = {
     primary: choices.colors.brand.pickledBluewood,
     links: choices.colors.brand.dodgerBlue,
     borderGray: choices.colors.brand.spanishGray,
+  },
+  sizes: {
+    avatar: {
+      '2xs': '16px',
+      xs: '24px',
+      sm: '32px',
+      md: '48px',
+      lg: '64px',
+      xl: '96px',
+      '2xl': '128px',
+    },
+  },
+  text: {
+    fontFamily: {
+      body: choices.fontFamily['system-ui'],
+    },
+  },
+  fonts: {
+    fontSize: {
+      h1: choices.fontSize['6xl'],
+      h2: choices.fontSize['5xl'],
+      h3: choices.fontSize['4xl'],
+      h4: choices.fontSize['3xl'],
+      h5: choices.fontSize['2xl'],
+      h6: choices.fontSize['xl'],
+      paragraph: choices.fontSize['md'],
+      small: choices.fontSize['sm'],
+    },
+    fontWeight: {
+      light: choices.fontWeight.light,
+      normal: choices.fontWeight.normal,
+      bold: choices.fontWeight.bold,
+    },
   },
 };
 
