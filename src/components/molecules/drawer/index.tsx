@@ -120,7 +120,7 @@ export function Drawer({
   );
 }
 
-Drawer.prototypes = {
+Drawer.propTypes = {
   title: PropTypes.node,
   logo: PropTypes.string,
   themeColor: PropTypes.string,
@@ -129,6 +129,7 @@ Drawer.prototypes = {
 interface DrawerItemProps {
   children: React.ReactNode;
   icon?: React.ReactNode;
+  isActive?: boolean;
   isOpen: boolean;
   isSubOpen?: boolean;
   onClick?: () => void;
@@ -139,12 +140,16 @@ export function DrawerItem({
   icon,
   isOpen,
   onClick,
+  isActive,
 }: DrawerItemProps) {
   return (
     <span
       onClick={() => onClick && onClick()}
       title={children as string}
-      className={styles.drawer_item}
+      className={[
+        styles.drawer_item,
+        isActive ? styles.isActive : undefined,
+      ].join(' ')}
     >
       <span
         className={styles.itemText}
@@ -166,6 +171,7 @@ interface DrawerSubItemProps {
   icon?: React.ReactNode;
   title: string;
   isOpen: boolean;
+  isActive?: boolean;
   onStateChange: () => void;
 }
 
@@ -174,12 +180,18 @@ export function DrawerSubItem({
   icon,
   title,
   isOpen,
+  isActive,
   onStateChange,
 }: DrawerSubItemProps) {
   const [isSubOpen, setIsSubOpen] = useState(false);
 
   return (
-    <div className={styles.drawer_subitem}>
+    <div
+      className={[
+        styles.drawer_subitem,
+        isActive ? styles.isActive : undefined,
+      ].join(' ')}
+    >
       <button
         title={title}
         onClick={() => {

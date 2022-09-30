@@ -1,0 +1,59 @@
+.h1 {
+    font-size: calc(var(--fonts-font-size-h1) + 1vw);
+    line-height: var(--fonts-line-height-h1);
+    letter-spacing: var(--fonts-letter-spacing-h1);
+    color: var(--colors-text);
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+.h2_size {
+    font-size: calc(var(--fonts-font-size-h2) + 1vw);
+}
+
+.h3_size {
+    font-size: calc(var(--fonts-font-size-h3) + 1vw);
+}
+
+.h4_size {
+    font-size: calc(var(--fonts-font-size-h4) + 1vw);
+}
+
+.h5_size {
+    font-size: calc(var(--fonts-font-size-h5) +  1vw);
+}
+.h6_size {
+    font-size: calc(var(--fonts-font-size-h6) + 1vw);
+}
+.paragraph {
+    font-size: calc(var(--fonts-font-size-paragraph) + 1vw);
+}
+.small {
+    font-size: calc(var(--fonts-font-size-small) + 1vw);
+}
+
+
+.h1_italic {
+    font-style: italic;
+}
+.h1_bold {
+    font-weight: var(--fonts-font-weight-bold);
+}
+
+.fontWeightLight {
+    font-weight: var(--fonts-font-weight-light);
+}
+.fontWeightNormal {
+    font-weight: var(--fonts-font-weight-normal);
+}
+.fontWeightBold {
+    font-weight: var(--fonts-font-weight-bold);
+}
+
+
+.nowrap {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

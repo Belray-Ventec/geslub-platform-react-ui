@@ -45,7 +45,7 @@ export function TagList<T>({
             color={color}
             backgroundColor={backgroundColor}
             key={getRowKey(item)}
-            onClick={() => onClick && onClick('sadas')}
+            onClick={() => onClick && onClick(getValue(item) as string)}
           >
             {getValue(item)}
           </Tag>

@@ -19,4 +19,5 @@ export const icons: iconsType[] = [
   'Star',
   'Tag',
   'Bars',
+  'AngleDown',
 ];

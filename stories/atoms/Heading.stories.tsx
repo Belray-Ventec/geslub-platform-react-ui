@@ -1,23 +1,24 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { H1 } from '../../../src/components/atoms/h1';
+import { Heading } from '../../src/components/atoms/heading';
 
 export default {
-  title: 'atoms/titles/H1',
-  component: H1,
+  title: 'atoms/Heading',
+  component: Heading,
   argTypes: {
     color: { control: 'color' },
     size: { control: 'select' },
   },
-} as ComponentMeta<typeof H1>;
+} as ComponentMeta<typeof Heading>;
 
-const Template: ComponentStory<typeof H1> = (args) => (
-  <H1 {...args}>{args.children}</H1>
+const Template: ComponentStory<typeof Heading> = (args) => (
+  <Heading {...args}>{args.children}</Heading>
 );
 
 export const Default = Template.bind({});
 
 Default.args = {
   children: 'Documentos Técnicos',
-  size: 'h1',
+  as: 'h1',
+  size: '2xs',
 };

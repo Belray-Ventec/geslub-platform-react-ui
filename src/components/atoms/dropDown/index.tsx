@@ -6,6 +6,7 @@ interface DropDownProps {
   title: string | JSX.Element;
   children: ReactNode;
   themeColor: string | undefined;
+  position: 'left' | 'right';
   onlyResponsive?: boolean;
 }
 
@@ -14,6 +15,7 @@ export default function DropDown({
   children,
   onlyResponsive,
   themeColor,
+  position = 'left',
 }: DropDownProps): JSX.Element {
   const [show, setShow] = useState(false);
 
@@ -22,9 +24,10 @@ export default function DropDown({
       <div onClick={(): void => setShow(!show)} className={styles.drop_down}>
         <span>{title}</span>
         <div
-          className={
-            !show ? styles.drop_down_content : styles.drop_down_content_hover
-          }
+          className={[
+            !show ? styles.drop_down_content : styles.drop_down_content_hover,
+            position === 'left' ? styles.left : styles.right,
+          ].join('')}
         >
           {children}
         </div>

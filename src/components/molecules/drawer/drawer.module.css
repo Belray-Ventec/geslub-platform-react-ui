@@ -89,7 +89,6 @@
 
 .drawer_item {
     font-size: 1.1rem;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     padding: 10px 10px;
     transition: background-color 0.25s ease-in;
     text-decoration: none;
@@ -105,6 +104,11 @@
     width: 100%;
     border: none;
 }
+
+.isActive {
+    background-color: rgb(191 58 47);
+}
+
 .bold {
     font-weight: 900;
 }
@@ -217,6 +221,7 @@
 }
 .itemText {
     display: flex;
+    font-size: 1.1rem;
     white-space: nowrap;
     gap: 0.5rem;
     align-items: center;

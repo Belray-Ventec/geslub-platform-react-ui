@@ -4,8 +4,7 @@
 }
 .table{
     border-collapse: separate;
-    font-size: 0.9em;
-    font-family: sans-serif;
+    font-size: 0.9rem;
     width: 100%;
     border-bottom: 2px solid var(--color-border-gray);
     border-spacing: 0px 15px;
@@ -22,6 +21,7 @@
 
 .table thead tr th{
     text-align: left;
+    color: #707070
 }
 
 .table th, table td{

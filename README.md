@@ -212,6 +212,7 @@ export default function Component(): {
                           isOpen={isOpen}
                           key={listItem.label}
                           icon={listItem.icon}
+                          isActive={listItem.isActive}
                         >
                           {listItem.label}
                         </DrawerItem>
@@ -225,10 +226,19 @@ export default function Component(): {
 }
 ```
 
-| Propiedad     | Tipo         | Descripcion                                    | Requerida |
-| ------------- | ------------ | ---------------------------------------------- | --------- |
-| isOpen        | `boolean`    |                                                | si        |
-| onStateChange | `() => void` | Maneja el estado del Drawer (setState(!state)) | si        |
-| title         | `ReactNode`  |                                                | no        |
-| logo          | `string`     |                                                | no        |
-| themeColor    | `string`     |                                                | no        |
+| Propiedad     | Tipo         | Descripcion                                                                        | Requerida |
+| ------------- | ------------ | ---------------------------------------------------------------------------------- | --------- |
+| isOpen        | `boolean`    |                                                                                    | si        |
+| onStateChange | `() => void` | Maneja el estado del Drawer (setState(!state))                                     | si        |
+| title         | `ReactNode`  |                                                                                    | no        |
+| logo          | `string`     |                                                                                    | no        |
+| themeColor    | `string`     |                                                                                    | no        |
+| children      | `ReactNode`  | Contenido del Drawer se suguiere utilizar el componente DrawerItem o DrawerSubItem | si        |
+
+### DrawerItem
+
+| Propiedad | Tipo        | Descripcion                                    | Requerida |
+| --------- | ----------- | ---------------------------------------------- | --------- |
+| isOpen    | `boolean`   |                                                | si        |
+| icon      | `ReactNode` | Maneja el estado del Drawer (setState(!state)) | no        |
+| isActive  | `boolean`   | Establece de color el item activo              | no        |

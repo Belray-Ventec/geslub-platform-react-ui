@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 
 export type Size = '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
-interface AvatarProps {
+export interface AvatarProps {
   title?: string;
   src?: string;
   size?: Size;
+  children?: React.ReactNode;
 }
 
-export function Avatar({ title, src, size }: AvatarProps) {
+export function Avatar({ title, src, size, children }: AvatarProps) {
   const [isError, setisError] = useState(false);
 
   const firstLetters = () => {
@@ -51,7 +52,7 @@ export function Avatar({ title, src, size }: AvatarProps) {
   }, [src]);
 
   return (
-    <>
+    <div className={styles.avatar_container}>
       {!isError ? (
         <img
           alt={title}
@@ -71,12 +72,18 @@ export function Avatar({ title, src, size }: AvatarProps) {
           {firstLetters()}
         </div>
       )}
-    </>
+      {children}
+    </div>
   );
 }
 
-Avatar.prototype = {
+Avatar.propTypes = {
   title: PropTypes.string.isRequired,
   src: PropTypes.string,
   size: PropTypes.oneOf(['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl']),
+  children: PropTypes.node,
+};
+
+Avatar.defaultProps = {
+  src: '',
 };

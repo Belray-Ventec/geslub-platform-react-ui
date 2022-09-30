@@ -1,5 +1,6 @@
 import React from 'react';
 import Add from '../../../assets/icons/Add';
+import AngleDown from '../../../assets/icons/AngleDown';
 import AngleLeft from '../../../assets/icons/AngleLeft';
 import Bars from '../../../assets/icons/Bars';
 import BookOpen from '../../../assets/icons/BookOpen';
@@ -39,7 +40,8 @@ export type iconsType =
   | 'CircleQuestion'
   | 'Star'
   | 'Tag'
-  | 'Bars';
+  | 'Bars'
+  | 'AngleDown';
 
 interface IconProps {
   color?: string;
@@ -273,6 +275,17 @@ export function Icon({
         onClick={() => onClick && onClick()}
       >
         <FileArrowDown size={size} color={color} />
+      </i>
+    );
+
+  if (icon === 'AngleDown')
+    return (
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
+        <AngleDown size={size} color={color} />
       </i>
     );
 

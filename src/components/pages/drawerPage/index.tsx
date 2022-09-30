@@ -225,6 +225,9 @@ export function DrawerPage() {
             </DrawerItem>
           )
         )}
+        <DrawerItem isOpen={isOpen} isActive>
+          Salir
+        </DrawerItem>
       </Drawer>
       <div style={{ padding: '20px' }}>
         <h2>Title</h2>

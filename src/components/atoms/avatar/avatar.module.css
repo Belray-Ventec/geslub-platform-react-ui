@@ -1,5 +1,7 @@
 
-
+.avatar_container {
+    position: relative;
+}
 .avatar {
     display: inline-block;
     border-radius: 50%;
@@ -11,6 +13,7 @@
     font-family: var(--text-font-family-body);
     color: var(--colors-white);
     text-align: center;
+    object-fit: cover;
 }
 
 .avatar_container {

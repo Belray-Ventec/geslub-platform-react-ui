@@ -1,44 +1,56 @@
 import React from 'react';
-import styles from './h1.module.css';
+import styles from './heading.module.css';
 import PropTypes from 'prop-types';
 
-interface H1Props {
+interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
+  as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   color?: string;
   isBold?: boolean;
   isItalic?: boolean;
-  size?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
+  isNoWrap?: boolean;
+  size?: 'xl' | 'lg' | 'md' | 'sm' | 'xs' | '2xs' | '3xs' | '4xs';
   className?: string;
   style?: React.CSSProperties;
 }
 
-export function H1({
+export function Heading({
   children,
   isBold,
   isItalic,
   size,
+  isNoWrap,
   color,
   className,
   style,
+  as,
   ...props
-}: H1Props) {
+}: HeadingProps) {
   const fontSize = () => {
     switch (size) {
-      case 'h5':
+      case '4xs':
+        return styles.small;
+      case '3xs':
+        return styles.paragraph;
+      case '2xs':
+        return styles.h6_size;
+      case 'xs':
         return styles.h5_size;
-      case 'h4':
+      case 'sm':
         return styles.h4_size;
-      case 'h3':
+      case 'md':
         return styles.h3_size;
-      case 'h2':
+      case 'lg':
         return styles.h2_size;
       default:
         return undefined;
     }
   };
 
+  const HeadingTag: keyof JSX.IntrinsicElements = as;
+
   return (
-    <h1
+    <HeadingTag
       {...props}
       className={[
         styles.h1,
@@ -46,24 +58,25 @@ export function H1({
         isBold ? styles.h1_bold : undefined,
         fontSize(),
         className,
+        isNoWrap ? styles.nowrap : undefined,
       ].join(' ')}
       style={{ color, ...style }}
     >
       {children}
-    </h1>
+    </HeadingTag>
   );
 }
 
-H1.prototype = {
+Heading.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.string,
   isBold: PropTypes.bool,
   isItalic: PropTypes.bool,
-  size: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5']).isRequired,
+  size: PropTypes.oneOf(['xl', 'lg', 'md', 'sm', 'xs', '2xs', '3xs', '4xs']),
   className: PropTypes.string,
   style: PropTypes.object,
 };
 
-H1.defaultProps = {
-  size: 'h1',
+Heading.defaultProps = {
+  size: 'md',
 };

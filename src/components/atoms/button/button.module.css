@@ -7,6 +7,9 @@
     line-height: 1;
     color: #fff;
     transition: all 0.1s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .button:active {
@@ -44,4 +47,8 @@
 .button_large{
     font-size: 16px;
     padding: 13px 27px;
+}
+
+.fullWidth{
+    width: 100%;
 }

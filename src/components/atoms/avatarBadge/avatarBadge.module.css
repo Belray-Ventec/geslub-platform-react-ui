@@ -1,0 +1,10 @@
+.avatarBadge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: .9rem;
+    height: .9rem;
+    border-radius: 50%;
+    background-color: var(--colors-green-400);
+    border: 0.1rem solid #fff;
+}

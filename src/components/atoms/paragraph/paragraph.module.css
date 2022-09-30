@@ -1,0 +1,52 @@
+.paragraph {
+    font-size: calc(var(--fonts-font-size-paragraph) + 1vw);
+    line-height: var(--fonts-line-height-normal);
+    letter-spacing: var(--fonts-letter-spacing-normal);
+    color: var(--colors-text);
+    margin: 0;
+    padding: 0;
+    font-weight: var(--fonts-font-weight-normal);
+}
+
+.paragraph_xs {
+    font-size: var(--paragraph-font-size-xs);
+}
+.paragraph_sm {
+    font-size: var(--paragraph-font-size-sm);
+}
+.paragraph_md {
+    font-size: var(--paragraph-font-size-md);
+}
+.paragraph_lg {
+    font-size: var(--paragraph-font-size-lg);
+}
+
+
+.fontWeightLight {
+    font-weight: var(--fonts-font-weight-light);
+}
+.fontWeightNormal {
+    font-weight: var(--fonts-font-weight-normal);
+}
+.fontWeightBold {
+    font-weight: var(--fonts-font-weight-bold);
+}
+.isItalic {
+    font-style: italic;
+}
+.isStriked {
+    text-decoration: line-through;
+}
+
+.align_left {
+    text-align: left;
+}
+.align_center {
+    text-align: center;
+}
+.align_right {
+    text-align: right;
+}
+.align_justify {
+    text-align: justify;
+}
