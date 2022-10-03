@@ -38,3 +38,7 @@ Header.propTypes = {
     '4xs',
   ]),
 };
+
+Header.defaultProps = {
+  titleSize: '3xs',
+};
