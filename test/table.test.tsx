@@ -1,8 +1,8 @@
 import { screen, render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
-import { Table } from '../src/components/table';
-import { productColumns, productData } from '../src/utils/data';
+import { Table } from '../src/components/molecules/table';
+import { Product, productColumns, productData } from '../src/utils/data';
 
 describe('Testing Table', () => {
   const onEditCustomFn = jest.fn();
@@ -23,7 +23,7 @@ describe('Testing Table', () => {
       <Table
         data={productData}
         columns={productColumns}
-        getRowKey={(item) => item.id}
+        getRowKey={(item: Product) => item.id}
         showPages
         itemsPerPage={3}
         actions={[{ label: 'Editar', callback: onEditCustomFn }]}

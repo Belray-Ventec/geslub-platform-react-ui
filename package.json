@@ -14,13 +14,14 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "prepare": "tsdx build && husky install",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "style:write": "prettier --write **/*.{json,svg,js,jsx,ts,tsx,md}"
+    "style:write": "prettier --write **/*.{json,svg,js,jsx,ts,tsx,md}",
+    "buildtokens": "node src/utils/scripts/buildTokens"
   },
   "peerDependencies": {
     "react": ">=16"

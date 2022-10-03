@@ -1,19 +1,16 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
-import { Button } from '../src/components/button';
+import { Button } from '../src/components/atoms/button';
 
 describe('Testing Button', () => {
   const onClickFn = jest.fn();
 
   const setup = () => {
     render(
-      <Button
-        ariaLabel="infoItem"
-        variant={'icon'}
-        onClick={(): void => onClickFn()}
-        text={'Editar'}
-      />
+      <Button ariaLabel="infoItem" onClick={(): void => onClickFn()}>
+        Editar
+      </Button>
     );
   };
 

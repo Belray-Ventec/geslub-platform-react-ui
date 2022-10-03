@@ -1,0 +1,43 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+.grid-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.grid-item {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+    width: 200px;
+    height: 200px;
+}
+
+.list-icon-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.icon-list {
+    padding: 10px; 
+    border: 1px dashed #000; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column
+}
+
+.sb-show-main.sb-main-padded {
+    margin: 0;
+    padding: 0;
+}

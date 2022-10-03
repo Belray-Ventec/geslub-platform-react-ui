@@ -1,0 +1,20 @@
+:root {
+    --color-primary: #34495d;
+    --color-border-gray: #9a9a9a;
+    --color-on-primary: #fff;
+    --color-links: #208fff;
+    --color-on-secondary: #000;
+}
+
+html {
+    box-sizing: border-box;
+  }
+
+body {
+  font-size: var(--font-size-base);
+}
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+    font-family: var(--text-font-family-body);
+  }

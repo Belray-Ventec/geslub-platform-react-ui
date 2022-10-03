@@ -1,5 +1,5 @@
 import React from 'react';
-import { TagList } from '../src/components/tagList/';
+import { TagList } from '../src/components/molecules/tagList/';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { tagListData } from '../src/utils/data/';
 import '@testing-library/jest-dom';
@@ -11,7 +11,7 @@ describe('TagList', () => {
     render(
       <TagList
         data={tagListData}
-        getRowKey={(item) => item.id}
+        getRowKey={(item: { id: number; name: string }) => item.id}
         getValue={(item) => item.name}
         backgroundColor="#00a65a"
         color="#fff"

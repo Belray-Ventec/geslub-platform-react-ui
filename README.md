@@ -190,6 +190,7 @@ export default function Component(): {
                     <DrawerSubItem
                       title={listItem.label}
                       isOpen={isOpen}
+                      onStateChange={() => setIsOpen(!isOpen)}
                       key={listItem.label}
                       icon={listItem.icon}
                     >
@@ -211,6 +212,7 @@ export default function Component(): {
                           isOpen={isOpen}
                           key={listItem.label}
                           icon={listItem.icon}
+                          isActive={listItem.isActive}
                         >
                           {listItem.label}
                         </DrawerItem>
@@ -224,13 +226,204 @@ export default function Component(): {
 }
 ```
 
-| Propiedad     | Tipo         | Descripcion                                    | Requerida |
-| ------------- | ------------ | ---------------------------------------------- | --------- |
-| isOpen        | `boolean`    |                                                | si        |
-| onStateChange | `() => void` | Maneja el estado del Drawer (setState(!state)) | si        |
-| title         | `ReactNode`  |                                                | no        |
-| logo          | `string`     |                                                | no        |
-| themeColor    | `string`     |                                                | no        |
+| Propiedad     | Tipo         | Descripcion                                                                        | Requerida |
+| ------------- | ------------ | ---------------------------------------------------------------------------------- | --------- |
+| isOpen        | `boolean`    |                                                                                    | si        |
+| onStateChange | `() => void` | Maneja el estado del Drawer (setState(!state))                                     | si        |
+| title         | `ReactNode`  |                                                                                    | no        |
+| logo          | `string`     |                                                                                    | no        |
+| themeColor    | `string`     |                                                                                    | no        |
+| children      | `ReactNode`  | Contenido del Drawer se suguiere utilizar el componente DrawerItem o DrawerSubItem | si        |
+
+#### DrawerItem
+
+| Propiedad | Tipo        | Descripcion                                    | Requerida |
+| --------- | ----------- | ---------------------------------------------- | --------- |
+| isOpen    | `boolean`   |                                                | si        |
+| icon      | `ReactNode` | Maneja el estado del Drawer (setState(!state)) | no        |
+| isActive  | `boolean`   | Establece de color el item activo              | no        |
+| children  | `string`    | Titulo                                         | no        |
+
+### Heading
+
+```Javascript
+import { Heading } from 'geslub-platform-react-ui';
+
+export default function Component(): {
+
+
+	return (
+      <Heading isNoWrap as="h2" size="4xs" color="#000">
+        AJUSTES PERSONALES
+      </Heading>
+	)
+
+}
+```
+
+| Propiedad | Tipo                                             | Requerida |
+| --------- | ------------------------------------------------ | --------- |
+| as        | `'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6' `  | no        |
+| size      | `'2xs' \| 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' ` | no        |
+| isBold    | `boolean `                                       | no        |
+| isItalic  | `boolean `                                       | no        |
+| color     | `string `                                        | no        |
+| children  | `ReactNode`                                      | si        |
+
+### Avatar
+
+```Javascript
+import { Avatar } from 'geslub-platform-react-ui';
+
+export default function Component(): {
+
+
+	return (
+        <Avatar
+          size="2xl"
+          src="https://i.imgur.com/TutKhdx.jpg"
+          title="Developer"
+        />
+	)
+
+}
+```
+
+| Propiedad | Tipo                                                      | Requerida |
+| --------- | --------------------------------------------------------- | --------- |
+| title     | `string`                                                  | no        |
+| size      | `'xs' \| 'sm' \| 'md' \| 'lg' \| '2xs' \| 'xl' \| '2xl' ` | no        |
+| src       | `string`                                                  | no        |
+
+### Paragraph
+
+```Javascript
+import { Paragraph } from 'geslub-platform-react-ui';
+
+export default function Component(): {
+
+
+	return (
+        <Paragraph as='p' size='sm' >
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+        </Paragraph>
+	)
+
+}
+```
+
+| Propiedad | Tipo                                         | Requerida |
+| --------- | -------------------------------------------- | --------- |
+| as        | `'p' \| 'span' \| 'div' `                    | no        |
+| size      | `'xs' \| 'sm' \| 'md' \| 'lg'`               | no        |
+| isBold    | `boolean `                                   | no        |
+| isItalic  | `boolean `                                   | no        |
+| isStriked | `boolean `                                   | no        |
+| align     | `'right' \| 'center' \| 'left' \| 'justify'` | no        |
+| color     | `string `                                    | no        |
+| children  | `ReactNode`                                  | si        |
+
+### AvatarDropDown
+
+```Javascript
+import { AvatarDropDown } from 'geslub-platform-react-ui';
+
+export default function Component(): {
+
+
+	return (
+            <AvatarDropDown
+              avatarTitle="Brian Cifuentes"
+              badgeColor="green"
+              color="#000"
+              right
+              size="md"
+              src="https://i.imgur.com/Tlk89Es.jpg"
+            >
+              <Heading
+                as="h2"
+                color="#000"
+                isNoWrap
+                size="4xs"
+              >
+                Ajustes Personales
+              </Heading>
+              <hr />
+              <Paragraph
+                as="span"
+                size="sm"
+              >
+                Brian Cifuentes
+              </Paragraph>
+              <Paragraph
+                as="span"
+                size="sm"
+              >
+                Administrador
+              </Paragraph>
+              <Button
+                fullWidth
+                primary
+              >
+                Salir
+              </Button>
+            </AvatarDropDown>
+	)
+
+}
+```
+
+| Propiedad   | Tipo                                                     | Requerida |
+| ----------- | -------------------------------------------------------- | --------- |
+| avatarTitle | `string`                                                 | no        |
+| badgeColor  | `string`                                                 | no        |
+| title       | `string`                                                 | no        |
+| color       | `string`                                                 | no        |
+| right       | `boolean`                                                | no        |
+| size        | `'xs' \| 'sm' \| 'md' \| 'lg' \| '2xs' \| 'xl' \| '2xl'` | no        |
+| children    | `ReactNode`                                              | si        |
+
+### Header
+
+```Javascript
+import { AvatarDropDown, Heading, Divider, Paragraph, Button, Header } from 'geslub-platform-react-ui';
+
+export default function Component(): {
+
+
+	return (
+  <Header title='Documentos Técnicos' titleSize='3xs'>
+    <AvatarDropDown
+      src="https://i.imgur.com/Tlk89Es.jpg"
+      avatarTitle="Brian Cifuentes"
+    >
+      <Heading isNoWrap as="h2" size="4xs" color="#000">
+        AJUSTES PERSONALES
+      </Heading>
+      <Divider />
+      <Paragraph as="span" size="sm">
+        Brian Cifuentes
+      </Paragraph>
+      <Paragraph as="span" size="xs">
+        Administrador
+      </Paragraph>
+      <Button fullWidth primary>
+        Salir
+      </Button>
+    </AvatarDropDown>
+  </Header>
+	)
+
+}
+```
+
+| Propiedad | Tipo                                                              | Requerida |
+| --------- | ----------------------------------------------------------------- | --------- |
+| title     | `string`                                                          | si        |
+| titleSize | `'xl' \| 'lg' \| 'md' \| 'sm' \| 'xs' \| '2xs' \| '3xs' \| '4xs'` | no        |
+| children  | `ReactNode`                                                       | no        |
+
+
 
 
 ### Modal
@@ -272,12 +465,8 @@ export default function Component(): {
         </p>
       </Modal>
     </div>
-	)
-
-}
-```
-
-| Propiedad      | Tipo                                                | Requerida |
+    
+  | Propiedad      | Tipo                                                | Requerida |
 | -------------- | --------------------------------------------------- | --------- |
 | isOpen         | `boolean`                                           | si        |
 | onRequestClose | `() => void`                                        | si        |
