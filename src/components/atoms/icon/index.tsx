@@ -49,6 +49,7 @@ interface IconProps {
   icon?: iconsType | string;
   onClick?: () => void;
   ariaLabel?: string;
+  role?: string;
 }
 
 export function Icon({
@@ -57,10 +58,12 @@ export function Icon({
   size = 25,
   onClick,
   ariaLabel,
+  role,
 }: IconProps) {
   if (icon === 'Home')
     return (
       <i
+        role={role ? role : undefined}
         className={onClick && styles.icon_click}
         aria-label={ariaLabel && ariaLabel}
         onClick={() => onClick && onClick()}

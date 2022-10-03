@@ -77,6 +77,7 @@ export function AvatarDropDown({
             />
           </Avatar>
           <Icon
+            ariaLabel="arrow"
             onClick={() => handleShowOptions()}
             icon="AngleDown"
             size={arrowSize()}
