@@ -14,3 +14,5 @@ export { Paragraph } from './components/atoms/paragraph';
 export { Avatar } from './components/atoms/avatar';
 export { AvatarBadge } from './components/atoms/avatarBadge';
 export { Header } from './components/molecules/header';
+export { AvatarDropDown } from './components/molecules/avatarDropDown';
+export { Divider } from './components/atoms/divider';
