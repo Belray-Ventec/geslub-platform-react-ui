@@ -71,10 +71,7 @@ export function AvatarDropDown({
       <div className={styles.showOptionsContainer}>
         <div className={styles.container}>
           <Avatar size={size} src={src} title={avatarTitle}>
-            <AvatarBadge
-              color={badgeColor ? badgeColor : undefined}
-              size={badgeSize()}
-            />
+            <AvatarBadge color={badgeColor ?? undefined} size={badgeSize()} />
           </Avatar>
           <Icon
             ariaLabel="arrow"

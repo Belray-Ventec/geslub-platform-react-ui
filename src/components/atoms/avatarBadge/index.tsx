@@ -18,10 +18,10 @@ export function AvatarBadge({
   return (
     <div
       style={{
-        width: size ? size : undefined,
-        height: size ? size : undefined,
-        backgroundColor: color ? color : undefined,
-        borderColor: borderColor ? borderColor : undefined,
+        width: size ?? undefined,
+        height: size ?? undefined,
+        backgroundColor: color ?? undefined,
+        borderColor: borderColor ?? undefined,
       }}
       className={styles.avatarBadge}
     >
