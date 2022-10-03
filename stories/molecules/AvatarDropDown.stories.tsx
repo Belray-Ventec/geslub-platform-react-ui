@@ -8,9 +8,16 @@ import { Heading } from '../../src/components/atoms/heading';
 export default {
   title: 'Molecules/AvatarDropDown',
   component: AvatarDropDown,
+  argTypes: {
+    color: { control: 'color' },
+    size: { control: 'select' },
+    badgeColor: { control: 'color' },
+  },
+  parameters: {
+    docs: { inlineStories: false, iframeHeight: 250 },
+  },
 } as ComponentMeta<typeof AvatarDropDown>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof AvatarDropDown> = (args) => (
   <AvatarDropDown {...args}>
     <Heading isNoWrap as="h2" size="4xs" color="#000">
@@ -30,7 +37,6 @@ const Template: ComponentStory<typeof AvatarDropDown> = (args) => (
 );
 
 export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
   src: 'https://i.imgur.com/Tlk89Es.jpg',
   avatarTitle: 'Brian Cifuentes',

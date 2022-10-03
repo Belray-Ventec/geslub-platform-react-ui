@@ -5,6 +5,9 @@ import { Paragraph } from '../../src/components/atoms/paragraph/index';
 export default {
   title: 'Atoms/Paragraph',
   component: Paragraph,
+  argTypes: {
+    color: { control: 'color' },
+  },
 } as ComponentMeta<typeof Paragraph>;
 
 const Template: ComponentStory<typeof Paragraph> = (args) => (

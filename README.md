@@ -242,3 +242,4 @@ export default function Component(): {
 | isOpen    | `boolean`   |                                                | si        |
 | icon      | `ReactNode` | Maneja el estado del Drawer (setState(!state)) | no        |
 | isActive  | `boolean`   | Establece de color el item activo              | no        |
+| children  | `string`    | Titulo                                         | no        |

@@ -9,7 +9,21 @@ export default {
 
 const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 
+const TemplateSize: ComponentStory<typeof Avatar> = (args) => (
+  <>
+    <Avatar size="2xs" src="https://i.imgur.com/TutKhdx.jpg" />
+    <Avatar size="xs" src="https://i.imgur.com/TutKhdx.jpg" />
+    <Avatar size="sm" src="https://i.imgur.com/TutKhdx.jpg" />
+    <Avatar size="md" src="https://i.imgur.com/TutKhdx.jpg" />
+    <Avatar size="lg" src="https://i.imgur.com/TutKhdx.jpg" />
+    <Avatar size="xl" src="https://i.imgur.com/TutKhdx.jpg" />
+    <Avatar size="2xl" src="https://i.imgur.com/TutKhdx.jpg" />
+  </>
+);
+
 export const Primary = Template.bind({});
+
+export const Size = TemplateSize.bind({});
 
 Primary.args = {
   title: 'Developer',

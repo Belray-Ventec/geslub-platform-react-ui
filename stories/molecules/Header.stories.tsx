@@ -5,10 +5,14 @@ import { AvatarDropDown } from '../../src/components/molecules/avatarDropDown';
 import { Heading } from '../../src/components/atoms/heading';
 import { Paragraph } from '../../src/components/atoms/paragraph';
 import { Button } from '../../src/components/atoms/button';
+import { Divider } from '../../src/components/atoms/divider';
 
 export default {
   title: 'molecules/Header',
   component: Header,
+  parameters: {
+    docs: { inlineStories: false, iframeHeight: 300 },
+  },
 } as ComponentMeta<typeof Header>;
 
 const Template: ComponentStory<typeof Header> = (args) => (
@@ -18,13 +22,13 @@ const Template: ComponentStory<typeof Header> = (args) => (
       avatarTitle="Brian Cifuentes"
     >
       <Heading isNoWrap as="h2" size="4xs" color="#000">
-        Ajustes Personales
+        AJUSTES PERSONALES
       </Heading>
-      <hr />
+      <Divider />
       <Paragraph as="span" size="sm">
         Brian Cifuentes
       </Paragraph>
-      <Paragraph as="span" size="sm">
+      <Paragraph as="span" size="xs">
         Administrador
       </Paragraph>
       <Button fullWidth primary>

@@ -323,6 +323,9 @@ const decisions = {
       md: choices.paragraph.fontSize.md,
       lg: choices.paragraph.fontSize.lg,
     },
+    colors: {
+      base: choices.colors.gray[800],
+    },
   },
 };
 

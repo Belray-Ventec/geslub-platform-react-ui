@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
-  as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   color?: string;
   isBold?: boolean;
   isItalic?: boolean;
@@ -23,7 +23,7 @@ export function Heading({
   color,
   className,
   style,
-  as,
+  as = 'h1',
   ...props
 }: HeadingProps) {
   const fontSize = () => {
@@ -73,10 +73,11 @@ Heading.propTypes = {
   isBold: PropTypes.bool,
   isItalic: PropTypes.bool,
   size: PropTypes.oneOf(['xl', 'lg', 'md', 'sm', 'xs', '2xs', '3xs', '4xs']),
+  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
   className: PropTypes.string,
   style: PropTypes.object,
 };
 
 Heading.defaultProps = {
-  size: 'md',
+  size: 'xl',
 };

@@ -34,4 +34,5 @@ Default.args = {
   data: tagListData,
   getRowKey: (item) => item.id,
   getValue: (item) => item.name,
+  onClick: (item) => console.log(item),
 };

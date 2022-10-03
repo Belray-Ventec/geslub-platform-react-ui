@@ -25,6 +25,47 @@ export function AvatarDropDown({
 
   const handleShowOptions = () => setShowOptions(!showOptions);
 
+  const badgeSize = () => {
+    switch (size) {
+      case '2xs':
+        return '0.3rem';
+      case 'xs':
+        return '0.5rem';
+      case 'sm':
+        return '0.7rem';
+      case 'md':
+        return '0.9rem';
+      case 'lg':
+        return '1.1rem';
+      case 'xl':
+        return '1.3rem';
+      case '2xl':
+        return '1.5rem';
+      default:
+        return '0.9rem';
+    }
+  };
+
+  const arrowSize = () => {
+    switch (size) {
+      case '2xs':
+        return 8;
+      case 'xs':
+        return 11;
+      case 'sm':
+        return 14;
+      case 'md':
+        return 17;
+      case 'lg':
+        return 20;
+      case 'xl':
+        return 23;
+      case '2xl':
+        return 26;
+      default:
+        return 29;
+    }
+  };
   return (
     <>
       <div className={styles.showOptionsContainer}>
@@ -32,13 +73,13 @@ export function AvatarDropDown({
           <Avatar size={size} src={src} title={avatarTitle}>
             <AvatarBadge
               color={badgeColor ? badgeColor : undefined}
-              size="0.9rem"
+              size={badgeSize()}
             />
           </Avatar>
           <Icon
             onClick={() => handleShowOptions()}
             icon="AngleDown"
-            size={20}
+            size={arrowSize()}
             color={color}
           />
         </div>

@@ -285,5 +285,7 @@
     --paragraph-font-size-sm: 1.2rem;
     --paragraph-font-size-md: 1.4rem;
     --paragraph-font-size-lg: 1.6rem;
+      
+    --paragraph-colors-base: #2d3748;
   }
   
