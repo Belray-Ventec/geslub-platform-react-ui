@@ -422,3 +422,60 @@ export default function Component(): {
 | title     | `string`                                                          | si        |
 | titleSize | `'xl' \| 'lg' \| 'md' \| 'sm' \| 'xs' \| '2xs' \| '3xs' \| '4xs'` | no        |
 | children  | `ReactNode`                                                       | no        |
+
+
+
+
+### Modal
+
+```Javascript
+import React, { useState } from 'react';
+import { Modal } from 'geslub-platform-react-ui';
+
+export default function Component(): {
+
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+	return (
+                <div>
+      <button
+      onClick={() => setIsModalOpen(true)}
+      />
+      <Modal
+        title={'Modal Title'}
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        position={'top'}
+        size={'medium'}
+        okText={'Guardar'}
+        cancelText={'Cancelar'}
+        onOk={() => console.log('ok')}
+        onCancel={() => console.log('cancel')}
+      >
+        <h2>Modal Title H2</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, culpa,
+          odio doloribus ratione sed soluta explicabo id nam ea quas cumque. Odio
+          non accusamus dignissimos praesentium deleniti nulla, perferendis illum.
+          Aut consequatur culpa sequi odio sunt voluptatem explicabo, labore
+        </p>
+      </Modal>
+    </div>
+    
+  | Propiedad      | Tipo                                                | Requerida |
+| -------------- | --------------------------------------------------- | --------- |
+| isOpen         | `boolean`                                           | si        |
+| onRequestClose | `() => void`                                        | si        |
+| title          | `string`                                            | si        |
+| position       | `'top'\|'center'\|'bottom'`                         | no        |
+| size           | `'small'\|'medium'\|'large'\|'extra_large'\|'full'` | no        |
+| okText         | `string`                                            | no        |
+| cancelText     | `string`                                            | no        |
+| onOk           | `() => void`                                        | no        |
+| onCancel       | `() => void`                                        | no        |
+| themeColor     | `string`                                            | no        |
+| children       | `ReactNode`                                         | no        |
