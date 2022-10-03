@@ -4,6 +4,7 @@ const choices = {
       pickledBluewood: '#34495D',
       dodgerBlue: '#208fff',
       spanishGray: '#9a9a9a',
+      cyanBlue: '#04111c',
     },
 
     transparent: 'transparent',
@@ -161,19 +162,29 @@ const choices = {
     serif: ['Roboto Slab', '"Times New Roman"', 'serif'],
     sans: ['Apercu', 'Arial', 'sans-serif'],
     mono: ['"Roboto Mono"', 'Consolas', 'monospace'],
+    'system-ui':
+      'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   },
   fontSize: {
     base: '10px',
-    xs: '.75rem',
-    sm: '.875rem',
-    md: '1rem',
-    lg: '1.125rem',
-    xl: '1.25rem',
-    '2xl': '1.5rem',
-    '3xl': '1.875rem',
-    '4xl': '2.25rem',
-    '5xl': '3rem',
-    '6xl': '4rem',
+    xs: '.55rem',
+    sm: '.675rem',
+    md: '.8rem',
+    lg: '0.9125rem',
+    xl: '1.05rem',
+    '2xl': '1.3rem',
+    '3xl': '1.675rem',
+    '4xl': '2.05rem',
+    '5xl': '2.8rem',
+    '6xl': '3.8rem',
+  },
+  paragraph: {
+    fontSize: {
+      xs: '15px',
+      sm: '1.2rem',
+      md: '1.4rem',
+      lg: '1.6rem',
+    },
   },
   fontWeight: {
     hairline: 100,
@@ -260,8 +271,61 @@ const choices = {
 const decisions = {
   colors: {
     primary: choices.colors.brand.pickledBluewood,
+    tertiary: choices.colors.brand.cyanBlue,
     links: choices.colors.brand.dodgerBlue,
     borderGray: choices.colors.brand.spanishGray,
+  },
+  sizes: {
+    avatar: {
+      '2xs': '16px',
+      xs: '24px',
+      sm: '32px',
+      md: '48px',
+      lg: '64px',
+      xl: '96px',
+      '2xl': '128px',
+    },
+  },
+  text: {
+    fontFamily: {
+      body: choices.fontFamily['system-ui'],
+    },
+  },
+  fonts: {
+    fontSize: {
+      h1: choices.fontSize['6xl'],
+      h2: choices.fontSize['5xl'],
+      h3: choices.fontSize['4xl'],
+      h4: choices.fontSize['3xl'],
+      h5: choices.fontSize['2xl'],
+      h6: choices.fontSize['xl'],
+      paragraph: choices.fontSize['md'],
+      small: choices.fontSize['sm'],
+    },
+    fontWeight: {
+      light: choices.fontWeight.light,
+      normal: choices.fontWeight.normal,
+      bold: choices.fontWeight.bold,
+    },
+    'letter-spacing': {
+      normal: choices.letterSpacing.normal,
+      wide: choices.letterSpacing.wide,
+    },
+    lineHeight: {
+      normal: choices.lineHeight.normal,
+      relaxed: choices.lineHeight.relaxed,
+    },
+  },
+  paragraph: {
+    fontSize: {
+      xs: choices.paragraph.fontSize.xs,
+      sm: choices.paragraph.fontSize.sm,
+      md: choices.paragraph.fontSize.md,
+      lg: choices.paragraph.fontSize.lg,
+    },
+    colors: {
+      base: choices.colors.gray[800],
+    },
   },
 };
 

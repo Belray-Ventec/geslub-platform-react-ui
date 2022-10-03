@@ -313,7 +313,7 @@ function Actions<T>({
           </Button>
         ))}
       {showAdminOptions && (
-        <DropDown themeColor={themeColor} title={<Ellipsis />}>
+        <DropDown position="left" themeColor={themeColor} title={<Ellipsis />}>
           <Button
             ariaLabel="editItem"
             onClick={(): void => onEdit && onEdit(item)}

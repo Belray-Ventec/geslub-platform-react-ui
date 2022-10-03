@@ -6,6 +6,7 @@
     position: relative;
     color: var(--color-on-primary);
     cursor: pointer;
+    display: inline-block;
 }
 
 .drop_down:hover span path {
@@ -42,11 +43,11 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    height: 50px;
     right: 100%;
     top: 0;
     gap: 5px;
     background-color: #fff;
     box-shadow: 0 2px 6px rgb(0 21 64 / 10%), 0 10px 20px rgb(0 21 64 / 5%);
-    padding: 5px;
+    padding: 0.5rem 0.5rem;
+    overflow: hidden;
 }

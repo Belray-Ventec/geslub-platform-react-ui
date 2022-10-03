@@ -1,5 +1,6 @@
 import React from 'react';
 import Add from '../../../assets/icons/Add';
+import AngleDown from '../../../assets/icons/AngleDown';
 import AngleLeft from '../../../assets/icons/AngleLeft';
 import Bars from '../../../assets/icons/Bars';
 import BookOpen from '../../../assets/icons/BookOpen';
@@ -39,7 +40,8 @@ export type iconsType =
   | 'CircleQuestion'
   | 'Star'
   | 'Tag'
-  | 'Bars';
+  | 'Bars'
+  | 'AngleDown';
 
 interface IconProps {
   color?: string;
@@ -47,6 +49,7 @@ interface IconProps {
   icon?: iconsType | string;
   onClick?: () => void;
   ariaLabel?: string;
+  role?: string;
 }
 
 export function Icon({
@@ -55,10 +58,12 @@ export function Icon({
   size = 25,
   onClick,
   ariaLabel,
+  role,
 }: IconProps) {
   if (icon === 'Home')
     return (
       <i
+        role={role ? role : undefined}
         className={onClick && styles.icon_click}
         aria-label={ariaLabel && ariaLabel}
         onClick={() => onClick && onClick()}
@@ -273,6 +278,17 @@ export function Icon({
         onClick={() => onClick && onClick()}
       >
         <FileArrowDown size={size} color={color} />
+      </i>
+    );
+
+  if (icon === 'AngleDown')
+    return (
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
+        <AngleDown size={size} color={color} />
       </i>
     );
 

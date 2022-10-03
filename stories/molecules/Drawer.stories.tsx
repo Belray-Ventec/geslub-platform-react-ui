@@ -21,18 +21,12 @@ const Template: ComponentStory<typeof Drawer> = (args) => (
     <Drawer {...args}>
       {SUB_MENU.map((item) =>
         !item.sub ? (
-          <DrawerItem
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            isOpen={args.isOpen!}
-            key={item.label}
-            icon={item.icon}
-          >
+          <DrawerItem isOpen={args.isOpen!} key={item.label} icon={item.icon}>
             {item.label}
           </DrawerItem>
         ) : (
           <DrawerSubItem
             title={item.label}
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             isOpen={args.isOpen}
             key={item.label}
             icon={item.icon}
@@ -40,7 +34,6 @@ const Template: ComponentStory<typeof Drawer> = (args) => (
           >
             {item.sub.map((subItem) => (
               <DrawerItem
-                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 isOpen={args.isOpen}
                 key={subItem.label}
                 icon={subItem.icon}

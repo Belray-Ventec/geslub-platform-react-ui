@@ -7,15 +7,15 @@ export enum Size {
   large = 'large',
 }
 
-interface ButtonProps {
+interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   ariaLabel?: string;
   backgroundColor?: string;
-  variant?: 'icon' | 'text';
   color?: string;
   size?: Size;
   primary?: boolean;
   rounded?: boolean;
   disabled?: boolean;
+  fullWidth?: boolean;
   onClick?: () => void;
   children: React.ReactNode;
 }
@@ -29,6 +29,7 @@ export function Button({
   disabled = false,
   onClick,
   color,
+  fullWidth = false,
   children,
   ...props
 }: ButtonProps): JSX.Element {
@@ -50,7 +51,12 @@ export function Button({
       disabled={disabled}
       onClick={onClick}
       type="button"
-      className={[styles.button, buttonSize, valuePrimary].join(' ')}
+      className={[
+        styles.button,
+        buttonSize,
+        valuePrimary,
+        fullWidth ? styles.fullWidth : undefined,
+      ].join(' ')}
       style={{
         backgroundColor: backgroundColor,
         borderRadius: valueRounded,

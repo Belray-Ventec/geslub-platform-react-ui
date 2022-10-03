@@ -5,9 +5,6 @@ import { DrawerPage } from '../../src/components/pages/drawerPage';
 export default {
   title: 'Pages/DrawerPage',
   component: DrawerPage,
-  argTypes: {
-    themeColor: { control: 'color' },
-  },
 } as ComponentMeta<typeof DrawerPage>;
 
 const Template: ComponentStory<typeof DrawerPage> = (args) => <DrawerPage />;
