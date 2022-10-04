@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button } from '../button';
-import { Modal } from '../modal';
+import { Button } from '../../atoms/button';
+import { Modal } from '../../atoms/modal';
 
 interface ModalWithButtonProps {
   title: string;
@@ -33,11 +33,9 @@ export function ModalWithButton({
 
   return (
     <div>
-      <Button
-        primary
-        text={'Open Modal'}
-        onClick={() => setIsModalOpen(true)}
-      />
+      <Button primary onClick={() => setIsModalOpen(true)}>
+        Open Modal
+      </Button>
       <Modal
         title={title}
         isOpen={isModalOpen}

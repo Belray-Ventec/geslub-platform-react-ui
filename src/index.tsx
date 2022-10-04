@@ -1,4 +1,4 @@
-export { Modal } from './components/modal';
+export { Modal } from './components/atoms/modal';
 export { Button } from './components/atoms/button';
 export { Search } from './components/atoms/search';
 export {
