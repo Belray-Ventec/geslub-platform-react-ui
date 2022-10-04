@@ -9,6 +9,7 @@ interface SelectProps {
   onChange?: (option: OptionProps[] | OptionProps | null) => void;
   isInline?: boolean;
   multiple?: boolean;
+  initialValue: OptionProps | OptionProps[];
 }
 
 interface OptionProps {
@@ -16,7 +17,13 @@ interface OptionProps {
   value: string | number;
 }
 
-export function Select({ options, isInline, onChange, multiple }: SelectProps) {
+export function Select({
+  options,
+  isInline,
+  onChange,
+  multiple,
+  initialValue,
+}: SelectProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [filteredOptions, setFilteredOptions] = useState(options);
 
@@ -67,6 +74,14 @@ export function Select({ options, isInline, onChange, multiple }: SelectProps) {
     setFilteredOptions(options);
   }, [options]);
 
+  useEffect(() => {
+    if (multiple) {
+      initialValue && setSelectedValue([...(initialValue as OptionProps[])]);
+    } else {
+      initialValue && setSelectedValue(initialValue);
+    }
+  }, [initialValue]);
+
   return (
     <>
       <div
@@ -88,6 +103,7 @@ export function Select({ options, isInline, onChange, multiple }: SelectProps) {
             ) : multiple ? (
               (selectedValue as OptionProps[])?.length > 0 ? (
                 <TagList
+                  minWidth="0"
                   data={selectedValue as OptionProps[]}
                   getValue={(option) => option.label}
                   getRowKey={(option) => option.value}

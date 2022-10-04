@@ -11,6 +11,7 @@ interface TagListProps<T> {
   rounded?: boolean;
   onClick?: (text: string) => void;
   align?: 'left' | 'right' | 'center';
+  minWidth?: string;
 }
 
 export function TagList<T>({
@@ -22,6 +23,7 @@ export function TagList<T>({
   align = 'center',
   getValue,
   getRowKey,
+  minWidth = '300px',
 }: TagListProps<T>): JSX.Element {
   const alignProp = () => {
     if (align === 'left') {
@@ -36,7 +38,7 @@ export function TagList<T>({
   return (
     <div
       className={styles.tag_list_container}
-      style={{ justifyContent: `${alignProp()}` }}
+      style={{ justifyContent: `${alignProp()}`, minWidth: minWidth }}
     >
       {data.map(
         (item): JSX.Element => (
