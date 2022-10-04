@@ -1,3 +1,5 @@
+export { TokenPage } from './components/pages/tokensPage';
+
 export { Modal } from './components/modal';
 export { Button } from './components/atoms/button';
 export { Search } from './components/atoms/search';

@@ -3,15 +3,15 @@ import { Heading } from '../../atoms/heading';
 import styles from './header.module.css';
 import PropTypes from 'prop-types';
 
-interface HeaderProps {
+interface HeaderProps extends React.HTMLProps<HTMLDivElement> {
   title: string;
   children?: React.ReactNode;
   titleSize?: 'xl' | 'lg' | 'md' | 'sm' | 'xs' | '2xs' | '3xs' | '4xs';
 }
 
-export function Header({ title, children, titleSize }: HeaderProps) {
+export function Header({ title, children, titleSize, ...props }: HeaderProps) {
   return (
-    <div className={styles.header_container}>
+    <div {...props} className={styles.header_container}>
       <div className={styles.header_content}>
         <div className={styles.header_title}>
           <Heading as={'h1'} size={titleSize}>
