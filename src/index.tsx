@@ -1,6 +1,5 @@
+export { Modal } from './components/atoms/modal';
 export { TokenPage } from './components/pages/tokensPage';
-
-export { Modal } from './components/modal';
 export { Button } from './components/atoms/button';
 export { Search } from './components/atoms/search';
 export {
@@ -19,3 +18,4 @@ export { AvatarBadge } from './components/atoms/avatarBadge';
 export { Header } from './components/molecules/header';
 export { AvatarDropDown } from './components/molecules/avatarDropDown';
 export { Divider } from './components/atoms/divider';
+export { Select } from './components/atoms/select';

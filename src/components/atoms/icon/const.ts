@@ -20,4 +20,5 @@ export const icons: iconsType[] = [
   'Tag',
   'Bars',
   'AngleDown',
+  'CircleXmark',
 ];
