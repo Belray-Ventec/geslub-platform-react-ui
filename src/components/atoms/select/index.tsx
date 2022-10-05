@@ -58,6 +58,10 @@ export function Select({
     }
   };
 
+  const removeAllTags = () => {
+    setSelectedValue([]);
+  };
+
   const handleRemoveTag = (label: string) => {
     const filtered = (selectedValue as OptionProps[]).filter(
       (item) => item.label !== label
@@ -102,13 +106,21 @@ export function Select({
               ></input>
             ) : multiple ? (
               (selectedValue as OptionProps[])?.length > 0 ? (
-                <TagList
-                  minWidth="0"
-                  data={selectedValue as OptionProps[]}
-                  getValue={(option) => option.label}
-                  getRowKey={(option) => option.value}
-                  onClick={(label) => handleRemoveTag(label)}
-                />
+                <>
+                  <TagList
+                    minWidth="0"
+                    data={selectedValue as OptionProps[]}
+                    getValue={(option) => option.label}
+                    getRowKey={(option) => option.value}
+                    onClick={(label) => handleRemoveTag(label)}
+                  />
+                  <Icon
+                    onClick={removeAllTags}
+                    icon="CircleXmark"
+                    size={25}
+                    color={'#000'}
+                  />
+                </>
               ) : (
                 <Paragraph className={styles.nowrap} size="sm">
                   Seleccione

@@ -7,6 +7,7 @@ import BookOpen from '../../../assets/icons/BookOpen';
 import BullHorn from '../../../assets/icons/BullHorn';
 import CaretRight from '../../../assets/icons/CaretRight';
 import CircleQuestion from '../../../assets/icons/CircleQuestion';
+import { CircleXmark } from '../../../assets/icons/CircleXmark';
 import Document from '../../../assets/icons/Document';
 import Ellipsis from '../../../assets/icons/Ellipsis';
 import Eye from '../../../assets/icons/Eye';
@@ -41,7 +42,8 @@ export type iconsType =
   | 'Star'
   | 'Tag'
   | 'Bars'
-  | 'AngleDown';
+  | 'AngleDown'
+  | 'CircleXmark';
 
 interface IconProps {
   color?: string;
@@ -289,6 +291,17 @@ export function Icon({
         onClick={() => onClick && onClick()}
       >
         <AngleDown size={size} color={color} />
+      </i>
+    );
+
+  if (icon === 'CircleXmark')
+    return (
+      <i
+        className={onClick && styles.icon_click}
+        aria-label={ariaLabel && ariaLabel}
+        onClick={() => onClick && onClick()}
+      >
+        <CircleXmark size={size} color={color} />
       </i>
     );
 
