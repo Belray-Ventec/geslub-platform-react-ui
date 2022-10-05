@@ -1,4 +1,5 @@
 export { Modal } from './components/atoms/modal';
+export { TokenPage } from './components/pages/tokensPage';
 export { Button } from './components/atoms/button';
 export { Search } from './components/atoms/search';
 export {
