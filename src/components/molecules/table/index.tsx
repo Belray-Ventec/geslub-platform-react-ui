@@ -15,6 +15,7 @@ import Paginator from '../../atoms/paginator';
 import { Sort } from '../../atoms/sort';
 import { Icon } from '../../atoms/icon';
 import { ActionsProps, TableProps, HeaderButtonProps, ThProps } from './types';
+import { stylesInline } from './const';
 
 export function Table<T>({
   columns,
@@ -42,12 +43,13 @@ export function Table<T>({
   showAdminOptions,
 }: TableProps<T>): JSX.Element {
   const [stateData, setStateData] = useState<T[]>(data);
+  const [selected, setSelected] = useState<T[]>([]);
+
   const { paginator, next, previous, goPage } = usePaginate({
     data: stateData,
     setData: setStateData,
     itemsPerPage: itemsPerPage,
   });
-  const [selected, setSelected] = useState<T[]>([]);
 
   useEffect(() => {
     setStateData(data);
@@ -78,26 +80,10 @@ export function Table<T>({
         />
       )}
       <div className={styles.table_container}>
-        <table
-          style={
-            themeColor ? { borderBottom: `2px solid ${themeColor}` } : undefined
-          }
-          className={styles.table}
-        >
+        <table style={stylesInline(themeColor).table} className={styles.table}>
           {caption && <caption className={styles.caption}>{caption}</caption>}
           <thead>
-            <tr
-              style={
-                themeColor
-                  ? { backgroundColor: themeColor, color: '#fff' }
-                  : {
-                      backgroundColor: '#fff',
-                      color: '#000',
-                      boxShadow:
-                        '0 2px 6px rgb(0 21 64 / 10%), 0 10px 20px rgb(0 21 64 / 5%)',
-                    }
-              }
-            >
+            <tr style={stylesInline(themeColor).trStyle}>
               {paginator.data.length > 0 && <th></th>}
               {columns.map(({ label, getValue }) => (
                 <Th
@@ -238,7 +224,7 @@ function Actions<T>({
       {actions &&
         actions.map((action, index) => (
           <Button
-            backgroundColor={themeColor ? themeColor : '#34495e'}
+            backgroundColor={stylesInline(themeColor).actionsButton}
             primary
             key={index}
             onClick={(): void => action.callback(item)}
@@ -253,14 +239,17 @@ function Actions<T>({
             onClick={(): void => onEdit && onEdit(item)}
             backgroundColor={themeColor}
           >
-            <PenToSquare fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />
+            <PenToSquare
+              fill={stylesInline(themeColor).penToSquare}
+              size={20}
+            />
           </Button>
           <Button
             ariaLabel="deleteItem"
             onClick={(): void => onDeleteItem && onDeleteItem(item)}
             backgroundColor={themeColor}
           >
-            <Xmark fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />
+            <Xmark fill={stylesInline(themeColor).penToSquare} size={20} />
           </Button>
         </DropDown>
       )}
@@ -280,26 +269,26 @@ function HeaderButtons<T>({
       <Button
         ariaLabel="add"
         primary
-        backgroundColor={themeColor ? themeColor : '#fff'}
+        backgroundColor={stylesInline(themeColor).headerButtons}
         onClick={() => add && add()}
       >
-        <Add size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />
+        <Add size={20} fill={stylesInline(themeColor).penToSquare} />
       </Button>
       <Button
         ariaLabel="share"
         primary
-        backgroundColor={themeColor ? themeColor : '#fff'}
+        backgroundColor={stylesInline(themeColor).headerButtons}
         onClick={() => share && share()}
       >
-        <ShareNodes size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />
+        <ShareNodes size={20} fill={stylesInline(themeColor).penToSquare} />
       </Button>
       <Button
         ariaLabel="delete"
         onClick={(): void => onDelete && onDelete(selected)}
         primary
-        backgroundColor={themeColor ? themeColor : '#fff'}
+        backgroundColor={stylesInline(themeColor).headerButtons}
       >
-        <Xmark size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />
+        <Xmark size={20} fill={stylesInline(themeColor).penToSquare} />
       </Button>
     </div>
   );
