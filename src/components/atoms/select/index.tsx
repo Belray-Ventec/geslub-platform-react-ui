@@ -90,7 +90,7 @@ export function Select({
     <>
       <div
         onClick={() => setIsOpen(!isOpen)}
-        role={'button'}
+        role={'listbox'}
         className={[
           styles.container,
           isInline ? styles.container_inline : undefined,
@@ -140,6 +140,7 @@ export function Select({
           <div className={[styles.options_container].join(' ')}>
             {filteredOptions.map(({ label, value }) => (
               <div
+                role={'listitem'}
                 onClick={() => handleOptionClick(label, value)}
                 key={value}
                 className={styles.option}
