@@ -9,7 +9,7 @@ interface SelectProps {
   onChange?: (option: OptionProps[] | OptionProps | null) => void;
   isInline?: boolean;
   multiple?: boolean;
-  initialValue: OptionProps | OptionProps[];
+  initialValue?: OptionProps | OptionProps[];
 }
 
 interface OptionProps {
