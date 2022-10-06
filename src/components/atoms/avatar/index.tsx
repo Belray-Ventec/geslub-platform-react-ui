@@ -17,6 +17,7 @@ export function Avatar({ title, src, size, children }: AvatarProps) {
   const firstLetters = () => {
     if (title) {
       const listOfWords = title.toUpperCase().split(' ');
+
       const listOfFirstLetters = listOfWords.map((word) => word[0]);
 
       return listOfFirstLetters.length >= 2
