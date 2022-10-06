@@ -101,7 +101,11 @@ export function Table<T>({
                 showShare ||
                 showAdminOptions ||
                 actions.length > 0) &&
-                paginator.data.length > 0 && <th>Acciones</th>}
+                paginator.data.length > 0 && (
+                  <th style={{ color: stylesInline(themeColor).thaction }}>
+                    Acciones
+                  </th>
+                )}
             </tr>
           </thead>
           <tbody>
