@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { Avatar } from '../src/components/atoms/avatar';
+import { Avatar } from '.';
 
 describe('Testing Avatar', () => {
   const setup = (size: '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl') => {

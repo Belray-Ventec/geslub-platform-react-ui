@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Avatar, AvatarProps } from '../../atoms/avatar';
+import { Avatar } from '../../atoms/avatar';
+import { AvatarProps } from '../../atoms/avatar/types';
 import { AvatarBadge } from '../../atoms/avatarBadge';
 import styles from './avatarDropDown.module.css';
 import { Icon } from '../../atoms/icon';

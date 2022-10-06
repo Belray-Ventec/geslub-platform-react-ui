@@ -1,10 +1,10 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
-import { Heading } from '../src/components/atoms/heading';
-import { Paragraph } from '../src/components/atoms/paragraph';
-import { AvatarDropDown } from '../src/components/molecules/avatarDropDown';
-import { Button } from '../src/components/atoms/button';
+import { Heading } from '../../atoms/heading';
+import { Paragraph } from '../../atoms/paragraph';
+import { AvatarDropDown } from '.';
+import { Button } from '../../atoms/button';
 
 describe('Testing AvatarDropDown', () => {
   const setup = () => {

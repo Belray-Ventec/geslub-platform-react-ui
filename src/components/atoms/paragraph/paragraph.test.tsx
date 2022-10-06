@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { Paragraph } from '../src/components/atoms/paragraph';
+import { Paragraph } from '.';
 
 describe('Testing Paragraph', () => {
   const setup = (tag: 'p' | 'span' | 'div') => {

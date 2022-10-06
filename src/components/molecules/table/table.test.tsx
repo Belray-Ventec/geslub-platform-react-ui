@@ -1,8 +1,8 @@
 import { screen, render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
-import { Table } from '../src/components/molecules/table';
-import { Product, productColumns, productData } from '../src/utils/data';
+import { Table } from '.';
+import { Product, productColumns, productData } from '../../../utils/data';
 
 describe('Testing Table', () => {
   const onEditCustomFn = jest.fn();

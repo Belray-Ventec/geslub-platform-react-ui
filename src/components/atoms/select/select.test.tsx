@@ -1,8 +1,8 @@
 import React from 'react';
 import { screen, render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Select } from '../src/components/atoms/select';
-import { selectData } from '../src/utils/data';
+import { Select } from '.';
+import { selectData } from '../../../utils/data';
 
 describe('Testing Select', () => {
   const setup = (initialValue?: { label: string; value: string | number }) => {
