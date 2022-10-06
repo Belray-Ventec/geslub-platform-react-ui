@@ -8,6 +8,10 @@
     font-weight: var(--fonts-font-weight-normal);
 }
 
+.paragraph {
+        font-size: calc(var(--fonts-font-size-paragraph) + 1vw);
+}
+
 .paragraph_xs {
     font-size: var(--paragraph-font-size-xs);
 }
