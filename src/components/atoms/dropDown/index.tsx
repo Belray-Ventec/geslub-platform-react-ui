@@ -21,7 +21,7 @@ export default function DropDown({
 
   if (!onlyResponsive) {
     return (
-      <div onClick={(): void => setShow(!show)} className={styles.drop_down}>
+      <div onClick={() => setShow(!show)} className={styles.drop_down}>
         <span>{title}</span>
         <div
           className={[
