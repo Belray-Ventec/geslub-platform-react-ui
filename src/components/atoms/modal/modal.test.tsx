@@ -26,8 +26,8 @@ describe('Testing Modal', () => {
 
   test('Debe mostrar el modal', async () => {
     setup();
-    const modal = screen.getAllByRole('dialog');
-    modal.map((element) => expect(element).toBeInTheDocument());
+    const modal = screen.getByRole('dialog');
+    expect(modal).toBeInTheDocument();
   });
 
   test('Debe mostrar el titulo del modal', async () => {
