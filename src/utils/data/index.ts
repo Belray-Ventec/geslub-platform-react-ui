@@ -1076,3 +1076,10 @@ export const bugData = [
     enabled: true,
   },
 ];
+
+export const selectData = [
+  { label: 'opcion 1', value: 1 },
+  { label: 'opcion 2', value: 2 },
+  { label: 'opcion 3', value: 3 },
+  { label: 'opcion 4', value: 4 },
+];
