@@ -25,7 +25,11 @@ export function Sort<T>({
   });
 
   return (
-    <div onClick={() => nextSort()} className={styles.container}>
+    <div
+      style={{ color: themeColor ? '#fff' : undefined }}
+      onClick={() => nextSort()}
+      className={styles.container}
+    >
       {label}{' '}
       {lastSortedColumn === label ? (
         sort === 'asc' ? (

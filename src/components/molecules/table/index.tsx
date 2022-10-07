@@ -2,62 +2,20 @@ import React, { useEffect, useState } from 'react';
 import usePaginate from '../../../hooks/usePaginate';
 import { Button } from '../../atoms/button';
 import DropDown from '../../atoms/dropDown';
-import Add from '../../../assets/icons/Add';
-import Ellipsis from '../../../assets/icons/Ellipsis';
-import ShareNodes from '../../../assets/icons/ShareNodes';
-import Xmark from '../../../assets/icons/Xmark';
-import PenToSquare from '../../../assets/icons/PenToSquare';
+import {
+  Ellipsis,
+  ShareNodes,
+  Xmark,
+  PenToSquare,
+  Add,
+} from '../../../assets/icons/';
 import '../../../../src/public/index.css';
 import styles from './table.module.css';
 import Paginator from '../../atoms/paginator';
 import { Sort } from '../../atoms/sort';
 import { Icon } from '../../atoms/icon';
-
-interface ActionsProps<T> {
-  showInfo?: boolean;
-  showDownload?: boolean;
-  showShare?: boolean;
-  showSee?: boolean;
-  actions?: { label: string | JSX.Element; callback: (d: T) => void }[];
-  themeColor?: string;
-  item: T;
-  onEdit?: (d: T) => void;
-  onDeleteItem?: (d: T) => void;
-  onSee?: (d: T) => void;
-  onDownload?: (d: T) => void;
-  onShare?: (d: T) => void;
-  onInfo?: (d: T) => void;
-  showAdminOptions?: boolean;
-}
-
-export interface TableProps<T> {
-  data: T[];
-  columns: {
-    label: string;
-    getValue: (item: T) => React.ReactNode;
-  }[];
-  getRowKey: (d: T) => string | number;
-  themeColor?: string;
-  showPages?: boolean;
-  itemsPerPage?: number;
-  actions?: { label: string | JSX.Element; callback: (d: T) => void }[];
-  caption?: string;
-  showHeaderButtons?: boolean;
-  showInfo?: boolean;
-  showDownload?: boolean;
-  showShare?: boolean;
-  showSee?: boolean;
-  add?: () => void;
-  share?: () => void;
-  onDelete?: (d: T[]) => void;
-  onEdit?: (d: T) => void;
-  onSee?: (d: T) => void;
-  onDownload?: (d: T) => void;
-  onInfo?: (d: T) => void;
-  onShare?: (d: T) => void;
-  onDeleteItem?: (d: T) => void;
-  showAdminOptions?: boolean;
-}
+import { ActionsProps, TableProps, HeaderButtonProps, ThProps } from './types';
+import { stylesInline } from './const';
 
 export function Table<T>({
   columns,
@@ -84,14 +42,14 @@ export function Table<T>({
   onDeleteItem,
   showAdminOptions,
 }: TableProps<T>): JSX.Element {
-  const [lastSortedColumn, setLastSortedColumn] = useState('');
   const [stateData, setStateData] = useState<T[]>(data);
+  const [selected, setSelected] = useState<T[]>([]);
+
   const { paginator, next, previous, goPage } = usePaginate({
     data: stateData,
     setData: setStateData,
     itemsPerPage: itemsPerPage,
   });
-  const [selected, setSelected] = useState<T[]>([]);
 
   useEffect(() => {
     setStateData(data);
@@ -113,67 +71,29 @@ export function Table<T>({
   return (
     <>
       {showHeaderButtons && (
-        <div className={styles.control}>
-          <Button
-            ariaLabel="add"
-            primary
-            backgroundColor={themeColor ? themeColor : '#fff'}
-            onClick={() => add && add()}
-          >
-            <Add size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />
-          </Button>
-          <Button
-            ariaLabel="share"
-            primary
-            backgroundColor={themeColor ? themeColor : '#fff'}
-            onClick={() => share && share()}
-          >
-            <ShareNodes size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />
-          </Button>
-          <Button
-            ariaLabel="delete"
-            onClick={(): void => onDelete && onDelete(selected)}
-            primary
-            backgroundColor={themeColor ? themeColor : '#fff'}
-          >
-            <Xmark size={20} fill={themeColor ? '#fff' : '#9a9a9a'} />
-          </Button>
-        </div>
+        <HeaderButtons
+          themeColor={themeColor}
+          add={add}
+          share={share}
+          onDelete={onDelete}
+          selected={selected}
+        />
       )}
       <div className={styles.table_container}>
-        <table
-          style={
-            themeColor ? { borderBottom: `2px solid ${themeColor}` } : undefined
-          }
-          className={styles.table}
-        >
+        <table style={stylesInline(themeColor).table} className={styles.table}>
           {caption && <caption className={styles.caption}>{caption}</caption>}
           <thead>
-            <tr
-              style={
-                themeColor
-                  ? { backgroundColor: themeColor, color: '#fff' }
-                  : {
-                      backgroundColor: '#fff',
-                      color: '#000',
-                      boxShadow:
-                        '0 2px 6px rgb(0 21 64 / 10%), 0 10px 20px rgb(0 21 64 / 5%)',
-                    }
-              }
-            >
+            <tr style={stylesInline(themeColor).trStyle}>
               {paginator.data.length > 0 && <th></th>}
               {columns.map(({ label, getValue }) => (
-                <th className={styles.column_header} key={label}>
-                  <Sort
-                    lastSortedColumn={lastSortedColumn}
-                    onSorted={(column) => setLastSortedColumn(column)}
-                    themeColor={themeColor}
-                    label={label}
-                    data={stateData}
-                    getValue={getValue}
-                    onSort={(data) => handleSort(data)}
-                  />
-                </th>
+                <Th
+                  key={label}
+                  label={label}
+                  getValue={getValue}
+                  handleSort={handleSort}
+                  stateData={stateData}
+                  themeColor={themeColor}
+                />
               ))}
               {(showInfo ||
                 showDownload ||
@@ -181,7 +101,11 @@ export function Table<T>({
                 showShare ||
                 showAdminOptions ||
                 actions.length > 0) &&
-                paginator.data.length > 0 && <th>Acciones</th>}
+                paginator.data.length > 0 && (
+                  <th style={{ color: stylesInline(themeColor).thaction }}>
+                    Acciones
+                  </th>
+                )}
             </tr>
           </thead>
           <tbody>
@@ -304,7 +228,7 @@ function Actions<T>({
       {actions &&
         actions.map((action, index) => (
           <Button
-            backgroundColor={themeColor ? themeColor : '#34495e'}
+            backgroundColor={stylesInline(themeColor).actionsButton}
             primary
             key={index}
             onClick={(): void => action.callback(item)}
@@ -319,17 +243,80 @@ function Actions<T>({
             onClick={(): void => onEdit && onEdit(item)}
             backgroundColor={themeColor}
           >
-            <PenToSquare fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />
+            <PenToSquare
+              fill={stylesInline(themeColor).penToSquare}
+              size={20}
+            />
           </Button>
           <Button
             ariaLabel="deleteItem"
             onClick={(): void => onDeleteItem && onDeleteItem(item)}
             backgroundColor={themeColor}
           >
-            <Xmark fill={themeColor ? '#fff' : '#9a9a9a'} size={20} />
+            <Xmark fill={stylesInline(themeColor).penToSquare} size={20} />
           </Button>
         </DropDown>
       )}
     </div>
+  );
+}
+
+function HeaderButtons<T>({
+  themeColor,
+  add,
+  share,
+  onDelete,
+  selected,
+}: HeaderButtonProps<T>) {
+  return (
+    <div className={styles.control}>
+      <Button
+        ariaLabel="add"
+        primary
+        backgroundColor={stylesInline(themeColor).headerButtons}
+        onClick={() => add && add()}
+      >
+        <Add size={20} fill={stylesInline(themeColor).penToSquare} />
+      </Button>
+      <Button
+        ariaLabel="share"
+        primary
+        backgroundColor={stylesInline(themeColor).headerButtons}
+        onClick={() => share && share()}
+      >
+        <ShareNodes size={20} fill={stylesInline(themeColor).penToSquare} />
+      </Button>
+      <Button
+        ariaLabel="delete"
+        onClick={(): void => onDelete && onDelete(selected)}
+        primary
+        backgroundColor={stylesInline(themeColor).headerButtons}
+      >
+        <Xmark size={20} fill={stylesInline(themeColor).penToSquare} />
+      </Button>
+    </div>
+  );
+}
+
+function Th<T>({
+  label,
+  stateData,
+  getValue,
+  themeColor,
+  handleSort,
+}: ThProps<T>) {
+  const [lastSortedColumn, setLastSortedColumn] = useState('');
+  return (
+    <th className={styles.column_header} key={label}>
+      <Sort
+        lastSortedColumn={lastSortedColumn}
+        onSorted={(column) => setLastSortedColumn(column)}
+        themeColor={themeColor}
+        label={label}
+        data={stateData}
+        getValue={getValue}
+        onSort={(data) => handleSort(data)}
+      />
+    </th>
   );
 }
