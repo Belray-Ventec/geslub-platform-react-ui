@@ -10,7 +10,8 @@ export {
 export { Tag } from './components/atoms/tag';
 export { Table } from './components/molecules/table';
 export { TagList } from './components/molecules/tagList';
-export { Icon, iconsType } from './components/atoms/icon';
+export { Icon } from './components/atoms/icon';
+export { iconsType } from './components/atoms/icon/types';
 export { Heading } from './components/atoms/heading';
 export { Paragraph } from './components/atoms/paragraph';
 export { Avatar } from './components/atoms/avatar';
