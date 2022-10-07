@@ -1,13 +1,5 @@
 import { useEffect, useState } from 'react';
-import { SortType } from '../types';
-
-interface UseSortProps<T> {
-  data: T[];
-  getValue: (item: T) => React.ReactNode;
-  onSort: (data: T[]) => void;
-  onSorted: (column: string) => void;
-  label: string;
-}
+import { SortType, UseSortProps } from '../types';
 
 export default function useSort<T>({
   data,
@@ -51,6 +43,7 @@ export default function useSort<T>({
     sorted(sort);
     onSorted(label);
   }, [sort]);
+
   return {
     nextSort,
     sort,

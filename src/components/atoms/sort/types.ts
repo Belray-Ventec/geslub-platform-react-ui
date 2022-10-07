@@ -9,3 +9,11 @@ export interface SortProps<T> {
   onSorted: (column: string) => void;
   lastSortedColumn: string;
 }
+
+export interface UseSortProps<T> {
+  data: T[];
+  getValue: (item: T) => React.ReactNode;
+  onSort: (data: T[]) => void;
+  onSorted: (column: string) => void;
+  label: string;
+}
