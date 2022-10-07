@@ -1,21 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { TagList } from '../../molecules/tagList';
 import { Icon } from '../icon';
 import { Paragraph } from '../paragraph';
+import useSearchOptions from './hooks/useSearchOptions';
+import useSelectValue from './hooks/useSelectValue';
 import styles from './select.module.css';
-
-interface SelectProps {
-  options: OptionProps[];
-  onChange?: (option: OptionProps[] | OptionProps | null) => void;
-  isInline?: boolean;
-  multiple?: boolean;
-  initialValue?: OptionProps | OptionProps[];
-}
-
-interface OptionProps {
-  label: string;
-  value: string | number;
-}
+import { OptionProps, SelectProps, ItemListProps } from './types';
 
 export function Select({
   options,
@@ -25,66 +15,18 @@ export function Select({
   initialValue,
 }: SelectProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [filteredOptions, setFilteredOptions] = useState(options);
 
-  const [selectedValue, setSelectedValue] = useState<
-    OptionProps | OptionProps[] | null
-  >(multiple ? [] : null);
-
-  const handleSearch = (term: string) => {
-    const filtered = options.filter(({ label }) => {
-      return String(label).toLowerCase().includes(term.toLowerCase());
+  const { handleOptionClick, handleRemoveTag, removeAllTags, selectedValue } =
+    useSelectValue({
+      multiple,
+      initialValue,
     });
-    setFilteredOptions(filtered);
-  };
 
-  const handleOptionClick = (label: string, value: string | number) => {
-    if (multiple) {
-      if (
-        (selectedValue as OptionProps[]).find((item) => item.value === value)
-      ) {
-        const filtered = (selectedValue as OptionProps[]).filter(
-          (item) => item.value !== value
-        );
-        setSelectedValue(filtered);
-      } else {
-        setSelectedValue([
-          ...(selectedValue as OptionProps[]),
-          { label, value },
-        ]);
-      }
-    } else {
-      setSelectedValue({ label, value });
-    }
-  };
-
-  const removeAllTags = () => {
-    setSelectedValue([]);
-  };
-
-  const handleRemoveTag = (label: string) => {
-    const filtered = (selectedValue as OptionProps[]).filter(
-      (item) => item.label !== label
-    );
-    setSelectedValue([...filtered]);
-  };
-
-  useEffect(() => {
-    onChange && onChange(selectedValue);
-    setFilteredOptions(options);
-  }, [selectedValue]);
-
-  useEffect(() => {
-    setFilteredOptions(options);
-  }, [options]);
-
-  useEffect(() => {
-    if (multiple) {
-      initialValue && setSelectedValue([...(initialValue as OptionProps[])]);
-    } else {
-      initialValue && setSelectedValue(initialValue);
-    }
-  }, [initialValue]);
+  const { filteredOptions, handleSearch } = useSearchOptions({
+    options,
+    onChange,
+    selectedValue,
+  });
 
   return (
     <>
@@ -137,20 +79,10 @@ export function Select({
           </div>
         </div>
         {isOpen && (
-          <div className={[styles.options_container].join(' ')}>
-            {filteredOptions.map(({ label, value }) => (
-              <div
-                role={'listitem'}
-                onClick={() => handleOptionClick(label, value)}
-                key={value}
-                className={styles.option}
-              >
-                <Paragraph className={styles.nowrap} as="span" size="xs">
-                  {label}
-                </Paragraph>
-              </div>
-            ))}
-          </div>
+          <OptionsList
+            filteredOptions={filteredOptions}
+            handleOptionClick={handleOptionClick}
+          />
         )}
       </div>
       {isOpen && (
@@ -163,10 +95,21 @@ export function Select({
   );
 }
 
-// function MultiSelectTags() {
-//     return (
-//         <div className={styles.multitags_container}>
-
-//         </div>
-//     )
-// }
+function OptionsList({ filteredOptions, handleOptionClick }: ItemListProps) {
+  return (
+    <div className={[styles.options_container].join(' ')}>
+      {filteredOptions.map(({ label, value }) => (
+        <div
+          role={'listitem'}
+          onClick={() => handleOptionClick(label, value)}
+          key={value}
+          className={styles.option}
+        >
+          <Paragraph className={styles.nowrap} as="span" size="xs">
+            {label}
+          </Paragraph>
+        </div>
+      ))}
+    </div>
+  );
+}
