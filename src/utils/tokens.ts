@@ -157,6 +157,13 @@ const choices = {
       lg: '1023px',
       xl: '1279px',
     },
+    container: {
+      xs: '420px',
+      sm: '604px',
+      md: '720px',
+      lg: '992px',
+      xl: '1280px',
+    },
   },
   fontFamily: {
     serif: ['Roboto Slab', '"Times New Roman"', 'serif'],
@@ -326,6 +333,21 @@ const decisions = {
     colors: {
       base: choices.colors.gray[800],
     },
+  },
+  responsive: {
+    xs: choices.screens.xs,
+    sm: choices.screens.sm,
+    md: choices.screens.md,
+    lg: choices.screens.lg,
+    xl: choices.screens.xl,
+  },
+
+  container: {
+    xs: choices.screens.xs,
+    sm: choices.screens.sm,
+    md: choices.screens.md,
+    lg: choices.screens.lg,
+    xl: choices.screens.xl,
   },
 };
 
