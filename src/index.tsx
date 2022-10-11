@@ -20,3 +20,4 @@ export { Header } from './components/molecules/header';
 export { AvatarDropDown } from './components/molecules/avatarDropDown';
 export { Divider } from './components/atoms/divider';
 export { Select } from './components/atoms/select';
+export { Container } from './components/atoms/container';
