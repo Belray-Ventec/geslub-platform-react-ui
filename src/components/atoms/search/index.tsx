@@ -3,20 +3,12 @@ import React, { useMemo, useState } from 'react';
 import Seeker from '../../../assets/icons/Seeker';
 import styles from './search.module.css';
 import { useEffect } from 'react';
-
-interface SearchProps {
-  timeDebounce?: number;
-  handleSearch: (search: string) => void;
-}
+import { SearchProps } from './types';
 
 export function Search({
   timeDebounce = 0,
   handleSearch,
 }: SearchProps): JSX.Element {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
-  };
-
   const [search, setSearch] = useState('');
 
   const handleSearchDebounce = useMemo(() => {
@@ -42,7 +34,7 @@ export function Search({
         <input
           placeholder="Buscar"
           value={search}
-          onChange={handleChange}
+          onChange={(e) => setSearch(e.target.value)}
           className={styles.search}
           type={'search'}
         />

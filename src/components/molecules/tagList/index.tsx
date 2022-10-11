@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tag } from '../../atoms/tag';
+import { alignProp } from './const';
 import styles from './tagList.module.css';
 
 interface TagListProps<T> {
@@ -25,20 +26,10 @@ export function TagList<T>({
   getRowKey,
   minWidth = '300px',
 }: TagListProps<T>): JSX.Element {
-  const alignProp = () => {
-    if (align === 'left') {
-      return 'flex-start';
-    }
-    if (align === 'right') {
-      return 'flex-end';
-    }
-    return 'center';
-  };
-
   return (
     <div
       className={styles.tag_list_container}
-      style={{ justifyContent: `${alignProp()}`, minWidth: minWidth }}
+      style={{ justifyContent: `${alignProp[align]}`, minWidth: minWidth }}
     >
       {data.map(
         (item): JSX.Element => (

@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { Modal } from '../src/components/atoms/modal';
+import { Modal } from '.';
 
 describe('Testing Modal', () => {
   const onCloseFn = jest.fn();
@@ -26,8 +26,8 @@ describe('Testing Modal', () => {
 
   test('Debe mostrar el modal', async () => {
     setup();
-    const modal = screen.getAllByRole('dialog');
-    modal.map((element) => expect(element).toBeInTheDocument());
+    const modal = screen.getByRole('dialog');
+    expect(modal).toBeInTheDocument();
   });
 
   test('Debe mostrar el titulo del modal', async () => {

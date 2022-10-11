@@ -6,15 +6,8 @@ import AngleDown from '../../../assets/icons/AngleDown';
 import PropTypes from 'prop-types';
 import useWindowSize from '../../../hooks/useWindowSize';
 import { Icon } from '../../atoms/icon';
-
-interface DrawerProps {
-  title?: React.ReactNode;
-  logo?: string;
-  themeColor?: string;
-  children: React.ReactNode;
-  isOpen: boolean;
-  onStateChange: () => void;
-}
+import { DrawerItemProps, DrawerProps, DrawerSubItemProps } from './types';
+import { stylesInline } from './const';
 
 export function Drawer({
   logo,
@@ -31,7 +24,7 @@ export function Drawer({
       <>
         <div
           role={'navigation'}
-          style={{ backgroundColor: themeColor ? themeColor : '#04111C' }}
+          style={stylesInline(themeColor).drawer}
           className={[styles.drawer, isOpen && styles.drawer_expanded].join(
             ' '
           )}
@@ -52,10 +45,7 @@ export function Drawer({
             <div className={styles.showDrawer}>
               <button
                 aria-label="show drawer"
-                style={{
-                  backgroundColor: themeColor ? themeColor : undefined,
-                  filter: 'brightness(1.2)',
-                }}
+                style={stylesInline(themeColor).showDrawer}
                 className={[
                   styles.show_drawer_button,
                   isOpen ? styles.show_drawer_button_open : undefined,
@@ -88,7 +78,7 @@ export function Drawer({
         className={styles.drawer_responsive}
       >
         <button
-          style={{ backgroundColor: themeColor ? themeColor : undefined }}
+          style={stylesInline(themeColor).button}
           onClick={() => onStateChange()}
           className={styles.button_responsive}
         >
@@ -110,7 +100,7 @@ export function Drawer({
       </div>
       {isOpen && (
         <nav
-          style={{ backgroundColor: themeColor ? themeColor : undefined }}
+          style={stylesInline(themeColor).button}
           className={styles.nav_responsive}
         >
           {children}
@@ -125,15 +115,6 @@ Drawer.propTypes = {
   logo: PropTypes.string,
   themeColor: PropTypes.string,
 };
-
-interface DrawerItemProps {
-  children: React.ReactNode;
-  icon?: React.ReactNode;
-  isActive?: boolean;
-  isOpen: boolean;
-  isSubOpen?: boolean;
-  onClick?: () => void;
-}
 
 export function DrawerItem({
   children,
@@ -164,15 +145,6 @@ export function DrawerItem({
       </span>
     </span>
   );
-}
-
-interface DrawerSubItemProps {
-  children: React.ReactNode;
-  icon?: React.ReactNode;
-  title: string;
-  isOpen: boolean;
-  isActive?: boolean;
-  onStateChange: () => void;
 }
 
 export function DrawerSubItem({

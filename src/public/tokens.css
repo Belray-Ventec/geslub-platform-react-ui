@@ -142,6 +142,12 @@
     --screens-max-lg: 1023px;
     --screens-max-xl: 1279px;
       
+    --screens-container-xs: 420px;
+    --screens-container-sm: 604px;
+    --screens-container-md: 720px;
+    --screens-container-lg: 992px;
+    --screens-container-xl: 1280px;
+      
       
     --font-family-serif-0: Roboto Slab;
     --font-family-serif-1: "Times New Roman";
@@ -287,5 +293,17 @@
     --paragraph-font-size-lg: 1.6rem;
       
     --paragraph-colors-base: #2d3748;
+      
+    --responsive-xs: 420px;
+    --responsive-sm: 640px;
+    --responsive-md: 768px;
+    --responsive-lg: 1024px;
+    --responsive-xl: 1280px;
+      
+    --container-xs: 420px;
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
   }
   

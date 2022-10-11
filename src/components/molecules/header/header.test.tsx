@@ -1,12 +1,12 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { Header } from '../src/components/molecules/header/index';
-import { AvatarDropDown } from '../src/components/molecules/avatarDropDown/index';
+import { Header } from './index';
+import { AvatarDropDown } from '../avatarDropDown/index';
 import React from 'react';
-import { Heading } from '../src/components/atoms/heading';
-import { Paragraph } from '../src/components/atoms/paragraph';
-import { Divider } from '../src/components/atoms/divider/index';
-import { Button } from '../src/components/atoms/button';
+import { Heading } from '../../atoms/heading';
+import { Paragraph } from '../../atoms/paragraph';
+import { Divider } from '../../atoms/divider/index';
+import { Button } from '../../atoms/button';
 
 describe('Testing Header', () => {
   const setup = () => {

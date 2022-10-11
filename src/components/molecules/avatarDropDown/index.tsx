@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
-import { Avatar, AvatarProps } from '../../atoms/avatar';
+import { Avatar } from '../../atoms/avatar';
 import { AvatarBadge } from '../../atoms/avatarBadge';
 import styles from './avatarDropDown.module.css';
 import { Icon } from '../../atoms/icon';
-
-interface AvatarDropDownProps extends AvatarProps {
-  children?: React.ReactNode;
-  avatarTitle?: string;
-  badgeColor?: string;
-  right?: boolean;
-  color?: string;
-}
+import { arrowSize, badgeSize } from './const';
+import { AvatarDropDownProps } from './types';
 
 export function AvatarDropDown({
   src,
   avatarTitle,
-  size,
+  size = 'md',
   children,
   badgeColor,
   color = '#fff',
@@ -23,61 +17,21 @@ export function AvatarDropDown({
 }: AvatarDropDownProps) {
   const [showOptions, setShowOptions] = useState(false);
 
-  const handleShowOptions = () => setShowOptions(!showOptions);
-
-  const badgeSize = () => {
-    switch (size) {
-      case '2xs':
-        return '0.3rem';
-      case 'xs':
-        return '0.5rem';
-      case 'sm':
-        return '0.7rem';
-      case 'md':
-        return '0.9rem';
-      case 'lg':
-        return '1.1rem';
-      case 'xl':
-        return '1.3rem';
-      case '2xl':
-        return '1.5rem';
-      default:
-        return '0.9rem';
-    }
-  };
-
-  const arrowSize = () => {
-    switch (size) {
-      case '2xs':
-        return 8;
-      case 'xs':
-        return 11;
-      case 'sm':
-        return 14;
-      case 'md':
-        return 17;
-      case 'lg':
-        return 20;
-      case 'xl':
-        return 23;
-      case '2xl':
-        return 26;
-      default:
-        return 29;
-    }
-  };
   return (
     <>
       <div className={styles.showOptionsContainer}>
         <div className={styles.container}>
           <Avatar size={size} src={src} title={avatarTitle}>
-            <AvatarBadge color={badgeColor ?? undefined} size={badgeSize()} />
+            <AvatarBadge
+              color={badgeColor ?? undefined}
+              size={badgeSize(size)}
+            />
           </Avatar>
           <Icon
             ariaLabel="arrow"
-            onClick={() => handleShowOptions()}
+            onClick={() => setShowOptions(!showOptions)}
             icon="AngleDown"
-            size={arrowSize()}
+            size={arrowSize[size]}
             color={color}
           />
         </div>

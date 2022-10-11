@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
-import { Heading } from '../src/components/atoms/heading';
+import { Heading } from '.';
 
 describe('Testing Heading', () => {
   const setup = (tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6') => {

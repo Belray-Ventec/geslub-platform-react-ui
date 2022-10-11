@@ -2,12 +2,7 @@ import React from 'react';
 import { Heading } from '../../atoms/heading';
 import styles from './header.module.css';
 import PropTypes from 'prop-types';
-
-interface HeaderProps extends React.HTMLProps<HTMLDivElement> {
-  title: string;
-  children?: React.ReactNode;
-  titleSize?: 'xl' | 'lg' | 'md' | 'sm' | 'xs' | '2xs' | '3xs' | '4xs';
-}
+import { HeaderProps } from './types';
 
 export function Header({ title, children, titleSize, ...props }: HeaderProps) {
   return (

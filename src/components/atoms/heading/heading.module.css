@@ -8,6 +8,10 @@
     font-weight: 400;
 }
 
+.h1_size {
+    font-size: calc(var(--fonts-font-size-h1) + 1vw);
+}
+
 .h2_size {
     font-size: calc(var(--fonts-font-size-h2) + 1vw);
 }

@@ -1,12 +1,8 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import {
-  Drawer,
-  DrawerItem,
-  DrawerSubItem,
-} from '../src/components/molecules/drawer';
-import { Icon } from '../src/components/atoms/icon';
+import { Drawer, DrawerItem, DrawerSubItem } from '.';
+import { Icon } from '../../atoms/icon';
 
 describe('Testing Drawer', () => {
   const onStateChangeFn = jest.fn();

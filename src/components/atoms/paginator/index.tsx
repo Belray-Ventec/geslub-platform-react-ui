@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { StatePaginatorProps } from '../../../hooks/usePaginate';
 import AngleLeft from '../../../assets/icons/AngleLeft';
 import styles from './paginator.module.css';
-
-export interface PaginatorProps<T> {
-  paginator: StatePaginatorProps<T>;
-  showPages?: boolean;
-  next: () => void;
-  previous: () => void;
-  goPage: (page: number) => void;
-  themeColor: string | undefined;
-}
+import {
+  dotsInitial,
+  dotsLeft,
+  dotsRight,
+  firstPage,
+  lastPage,
+  stylesInline,
+} from './const';
+import { PaginatorProps } from './types';
+import { Paragraph } from '../paragraph';
 
 export default function Paginator<T>({
   paginator,
@@ -20,13 +20,6 @@ export default function Paginator<T>({
   showPages,
   themeColor,
 }: PaginatorProps<T>): JSX.Element {
-  const firstPage = Math.ceil(
-    (paginator.totalItems / paginator.totalPages) * paginator.previousPage + 1
-  );
-  const lastPage = Math.ceil(
-    (paginator.totalItems / paginator.totalPages) * paginator.page
-  );
-
   const [pagesList] = useState(Array.from(Array(paginator.totalPages).keys()));
   const [arrOfPages, setArrOfPages] = useState<(string | number)[]>([]);
 
@@ -44,10 +37,6 @@ export default function Paginator<T>({
 
   useEffect(() => {
     let tempArrPages = [...arrOfPages];
-
-    const dotsLeft = '... ';
-    const dotsRight = ' ...';
-    const dotsInitial = '...';
 
     if (pagesList.length < 6) {
       tempArrPages = pagesList;
@@ -86,15 +75,7 @@ export default function Paginator<T>({
           <div className={styles.pages}>
             {arrOfPages.map((item) => (
               <button
-                style={
-                  themeColor
-                    ? {
-                        backgroundColor: themeColor,
-                        borderColor: themeColor,
-                        color: '#fff',
-                      }
-                    : {}
-                }
+                style={stylesInline(themeColor).button}
                 onClick={(): void => handlePage(item)}
                 className={`${styles.page_link} ${
                   paginator.page === Number(item) + 1
@@ -125,11 +106,11 @@ export default function Paginator<T>({
           <AngleLeft />
         </button>
       </div>
-      <span>
-        Mostrando {paginator.totalPages > 0 ? firstPage : '0'} a{' '}
-        {paginator.totalPages > 0 ? lastPage : '0'} de {paginator.totalItems}{' '}
-        registros
-      </span>
+      <Paragraph size="xs">
+        Mostrando {paginator.totalPages > 0 ? firstPage(paginator) : '0'} a{' '}
+        {paginator.totalPages > 0 ? lastPage(paginator) : '0'} de{' '}
+        {paginator.totalItems} registros
+      </Paragraph>
     </div>
   );
 }

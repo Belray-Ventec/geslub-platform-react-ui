@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
-import { Button } from '../src/components/atoms/button';
+import { Button } from '.';
 
 describe('Testing Button', () => {
   const onClickFn = jest.fn();

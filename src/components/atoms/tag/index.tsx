@@ -1,13 +1,6 @@
 import React from 'react';
 import styles from './tag.module.css';
-
-interface TagProps {
-  children: React.ReactNode;
-  backgroundColor?: string;
-  color?: string;
-  rounded?: boolean;
-  onClick?: (text: string) => void;
-}
+import { TagProps } from './types';
 
 export function Tag({
   children,
@@ -18,10 +11,12 @@ export function Tag({
 }: TagProps): JSX.Element {
   return (
     <span
-      className={[styles.tag, rounded && styles.tag_rounded].join(' ')}
+      className={[styles.tag, rounded ? styles.tag_rounded : undefined].join(
+        ' '
+      )}
       style={{
         backgroundColor: backgroundColor && backgroundColor,
-        color: color && color,
+        color: color ?? undefined,
       }}
       onClick={(): void => onClick && onClick(String(children))}
     >
