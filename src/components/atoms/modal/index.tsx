@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './modal.module.css';
 import { modalPosition, modalSize } from './const';
 import { ModalProps } from './types';
+import { Heading } from '../heading';
 
 export function Modal({
   title,
@@ -15,6 +16,7 @@ export function Modal({
   cancelText = 'Cancel',
   size = 'medium',
   themeColor,
+  showOk,
 }: ModalProps) {
   if (isOpen) {
     return (
@@ -32,20 +34,26 @@ export function Modal({
             style={{ backgroundColor: themeColor ?? undefined }}
             className={styles.modal_header}
           >
-            <h2 className={styles.modal_title}>{title}</h2>
+            <Heading as="h2" size="4xs">
+              {title}
+            </Heading>
           </div>
           <div className={styles.modal_body}>{children}</div>
           <div className={styles.modal_footer}>
-            <button
-              style={{ backgroundColor: themeColor ?? undefined }}
-              className={styles.modal_ok}
-              onClick={() => {
-                onOk && onOk();
-                onRequestClose();
-              }}
-            >
-              {okText}
-            </button>
+            {showOk ? (
+              <button
+                style={{ backgroundColor: themeColor ?? undefined }}
+                className={styles.modal_ok}
+                onClick={() => {
+                  onOk && onOk();
+                  onRequestClose();
+                }}
+              >
+                {okText}
+              </button>
+            ) : (
+              <div></div>
+            )}
             <button
               className={styles.modal_cancel}
               onClick={() => {

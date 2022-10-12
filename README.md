@@ -423,9 +423,6 @@ export default function Component(): {
 | titleSize | `'xl' \| 'lg' \| 'md' \| 'sm' \| 'xs' \| '2xs' \| '3xs' \| '4xs'` | no        |
 | children  | `ReactNode`                                                       | no        |
 
-
-
-
 ### Modal
 
 ```Javascript
@@ -451,6 +448,7 @@ export default function Component(): {
         onRequestClose={closeModal}
         position={'top'}
         size={'medium'}
+        show
         okText={'Guardar'}
         cancelText={'Cancelar'}
         onOk={() => console.log('ok')}
@@ -465,8 +463,10 @@ export default function Component(): {
         </p>
       </Modal>
     </div>
-    
-  | Propiedad      | Tipo                                                | Requerida |
+
+```
+
+| Propiedad      | Tipo                                                | Requerida |
 | -------------- | --------------------------------------------------- | --------- |
 | isOpen         | `boolean`                                           | si        |
 | onRequestClose | `() => void`                                        | si        |
@@ -476,6 +476,7 @@ export default function Component(): {
 | okText         | `string`                                            | no        |
 | cancelText     | `string`                                            | no        |
 | onOk           | `() => void`                                        | no        |
+| showOk         | `boolean`                                           | no        |
 | onCancel       | `() => void`                                        | no        |
 | themeColor     | `string`                                            | no        |
 | children       | `ReactNode`                                         | no        |
