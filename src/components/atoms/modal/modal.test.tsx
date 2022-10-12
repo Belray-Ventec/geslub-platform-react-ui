@@ -14,6 +14,7 @@ describe('Testing Modal', () => {
         title="Actualizar Información"
         isOpen={true}
         onRequestClose={() => onCloseFn()}
+        showOk
         onOk={() => onOkFn()}
         onCancel={() => onCancelFn()}
         cancelText="Cancelar"

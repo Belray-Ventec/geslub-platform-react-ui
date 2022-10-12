@@ -4,6 +4,7 @@ export interface ModalProps {
   onCancel?: () => void;
   onOk?: () => void;
   okText?: string;
+  showOk?: boolean;
   cancelText?: string;
   isOpen: boolean;
   onRequestClose: () => void;
