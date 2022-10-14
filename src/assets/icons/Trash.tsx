@@ -5,7 +5,7 @@ interface TrashProps {
   size?: number;
 }
 
-export default function Trash({ size, color = '#fff' }: TrashProps) {
+export default function Trash({ size = 20, color = '#fff' }: TrashProps) {
   return (
     <svg
       width={size}
