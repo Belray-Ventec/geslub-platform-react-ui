@@ -13,6 +13,9 @@ export interface ActionsProps<T> {
   onShare?: (d: T) => void;
   onInfo?: (d: T) => void;
   showAdminOptions?: boolean;
+  showDisabled?: boolean;
+  onDisabled?: (d: T) => void;
+  isRowEnabled?: boolean;
 }
 
 export interface TableProps<T> {
@@ -42,6 +45,9 @@ export interface TableProps<T> {
   onShare?: (d: T) => void;
   onDeleteItem?: (d: T) => void;
   showAdminOptions?: boolean;
+  getRowIsEnabled?: (d: T) => boolean;
+  showDisabled?: boolean;
+  onDisabled?: (d: T) => void;
 }
 
 export interface HeaderButtonProps<T> {

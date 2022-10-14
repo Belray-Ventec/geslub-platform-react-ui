@@ -40,6 +40,7 @@ Default.args = {
   showSee: true,
   showDownload: true,
   showInfo: true,
+  showDisabled: true,
   showAdminOptions: true,
   onDelete: (data) => {
     console.log(data);

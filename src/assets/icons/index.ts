@@ -27,3 +27,5 @@ export { default as Tag } from './Tag';
 export { default as User } from './User';
 export { default as Video } from './Video';
 export { default as Xmark } from './Xmark';
+export { default as Trash } from './Trash';
+export { default as Check } from './Check';
