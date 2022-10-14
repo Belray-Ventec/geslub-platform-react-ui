@@ -44,6 +44,7 @@ export function Table<T>({
   getRowIsEnabled = () => true,
   showDisabled,
   onDisabled,
+  onEnabled
 }: TableProps<T>): JSX.Element {
   const [stateData, setStateData] = useState<T[]>(data);
   const [selected, setSelected] = useState<T[]>([]);
@@ -161,6 +162,7 @@ export function Table<T>({
                       showAdminOptions={showAdminOptions}
                       showDisabled={showDisabled}
                       onDisabled={onDisabled}
+                      onEnabled={onEnabled}
                       isRowEnabled={getRowIsEnabled(item)}
                     />
                   </td>
@@ -208,6 +210,7 @@ function Actions<T>({
   showAdminOptions,
   showDisabled,
   onDisabled,
+  onEnabled
   isRowEnabled = true,
 }: ActionsProps<T>) {
   return (
@@ -261,7 +264,7 @@ function Actions<T>({
       {showDisabled && (
         <Button
           style={{ display: 'flex', gap: '0.3rem' }}
-          onClick={() => onDisabled && onDisabled(item)}
+          onClick={() => isRowEnabled && onDisabled ? onDisabled(item) : onEnabled && onEnabled(item)}
           color={isRowEnabled ? '#e74c3c' : '#2ecc71'}
         >
           {isRowEnabled ? (

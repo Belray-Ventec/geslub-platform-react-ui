@@ -15,6 +15,7 @@ export interface ActionsProps<T> {
   showAdminOptions?: boolean;
   showDisabled?: boolean;
   onDisabled?: (d: T) => void;
+  onEnabled?: (d: T) => void;
   isRowEnabled?: boolean;
 }
 
@@ -48,6 +49,7 @@ export interface TableProps<T> {
   getRowIsEnabled?: (d: T) => boolean;
   showDisabled?: boolean;
   onDisabled?: (d: T) => void;
+  onEnabled?: (d: T) => void;
 }
 
 export interface HeaderButtonProps<T> {
