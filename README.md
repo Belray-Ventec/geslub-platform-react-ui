@@ -59,6 +59,7 @@ export default function Component(): {
 | showInfo          | `boolean`                                                     | no        |
 | showShare         | `boolean`                                                     | no        |
 | showDownload      | `boolean`                                                     | no        |
+| showDisabled      | `boolean`                                                     | no        |
 | showSee           | `boolean`                                                     | no        |
 | caption           | `string`                                                      | no        |
 | add               | `() => void`                                                  | no        |
@@ -69,6 +70,7 @@ export default function Component(): {
 | onDownload        | `(d: T) => void`                                              | no        |
 | onInfo            | `(d: T) => void`                                              | no        |
 | onShare           | `(d: T) => void`                                              | no        |
+| onDisabled        | `(d: T) => void`                                              | no        |
 
 ### Search
 

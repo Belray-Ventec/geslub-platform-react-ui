@@ -21,6 +21,7 @@ import AngleLeft from '../../../assets/icons/AngleLeft';
 import Video from '../../../assets/icons/Video';
 import Tag from '../../../assets/icons/Tag';
 import { iconsType } from './types';
+import { Check, Trash } from '../../../assets/icons';
 export const icons: iconsType[] = [
   'Add',
   'AngleLeft',
@@ -43,6 +44,8 @@ export const icons: iconsType[] = [
   'Bars',
   'AngleDown',
   'CircleXmark',
+  'Trash',
+  'Check',
 ];
 
 export const iconList = (size: number, color: string, src?: string) => {
@@ -69,5 +72,7 @@ export const iconList = (size: number, color: string, src?: string) => {
     Tag: <Tag size={size} color={color} />,
     CircleXmark: <CircleXmark size={size} color={color} />,
     Image: <img alt="icon" src={src} width={size} height={size} />,
+    Trash: <Trash size={size} color={color} />,
+    Check: <Check size={size} color={color} />,
   };
 };

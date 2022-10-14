@@ -41,6 +41,9 @@ export function Table<T>({
   onShare,
   onDeleteItem,
   showAdminOptions,
+  getRowIsEnabled = () => true,
+  showDisabled,
+  onDisabled,
 }: TableProps<T>): JSX.Element {
   const [stateData, setStateData] = useState<T[]>(data);
   const [selected, setSelected] = useState<T[]>([]);
@@ -111,10 +114,23 @@ export function Table<T>({
           <tbody>
             {paginator.data.length > 0 ? (
               paginator.data.map((item, index) => (
-                <tr onClick={(): void => isChecked(item)} key={getRowKey(item)}>
+                <tr
+                  style={
+                    getRowIsEnabled(item) === false
+                      ? { opacity: 0.4 }
+                      : { opacity: 1 }
+                  }
+                  onClick={(): void =>
+                    getRowIsEnabled(item) !== false
+                      ? isChecked(item)
+                      : undefined
+                  }
+                  key={getRowKey(item)}
+                >
                   <td>
                     <input
                       readOnly
+                      disabled={getRowIsEnabled(item) === false}
                       id={`belCheck${index}`}
                       checked={selected.includes(item)}
                       type="checkbox"
@@ -143,6 +159,9 @@ export function Table<T>({
                       onShare={onShare}
                       onInfo={onInfo}
                       showAdminOptions={showAdminOptions}
+                      showDisabled={showDisabled}
+                      onDisabled={onDisabled}
+                      isRowEnabled={getRowIsEnabled(item)}
                     />
                   </td>
                 </tr>
@@ -187,6 +206,9 @@ function Actions<T>({
   onShare,
   onInfo,
   showAdminOptions,
+  showDisabled,
+  onDisabled,
+  isRowEnabled = true,
 }: ActionsProps<T>) {
   return (
     <div className={styles.actions}>
@@ -236,6 +258,20 @@ function Actions<T>({
             {action.label}
           </Button>
         ))}
+      {showDisabled && (
+        <Button
+          style={{ display: 'flex', gap: '0.3rem' }}
+          onClick={() => onDisabled && onDisabled(item)}
+          color={isRowEnabled ? '#e74c3c' : '#2ecc71'}
+        >
+          {isRowEnabled ? (
+            <Icon icon="Trash" size={13} color="#e74c3c" />
+          ) : (
+            <Icon icon="Check" size={13} color="#2ecc71" />
+          )}
+          {isRowEnabled ? 'Deshabilitar' : 'Habilitar'}
+        </Button>
+      )}
       {showAdminOptions && (
         <DropDown position="left" themeColor={themeColor} title={<Ellipsis />}>
           <Button

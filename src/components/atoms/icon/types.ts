@@ -20,7 +20,9 @@ export type iconsType =
   | 'Bars'
   | 'AngleDown'
   | 'CircleXmark'
-  | 'Image';
+  | 'Image'
+  | 'Trash'
+  | 'Check';
 
 export interface IconProps {
   color?: string;

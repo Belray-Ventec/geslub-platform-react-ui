@@ -18,6 +18,7 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
   onClick?: () => void;
   children: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
 export function Button({
@@ -31,6 +32,7 @@ export function Button({
   color,
   fullWidth = false,
   children,
+  style,
   ...props
 }: ButtonProps): JSX.Element {
   const valuePrimary = primary
@@ -61,6 +63,7 @@ export function Button({
         backgroundColor: backgroundColor,
         borderRadius: valueRounded,
         color: color ? color : undefined,
+        ...style,
       }}
       {...props}
     >

@@ -257,6 +257,7 @@ export const data2 = [
     last_name: 'Heaton',
     gender: 'Male',
     ip_address: '56.212.253.63',
+    enabled: false,
   },
   {
     id: 2,
@@ -273,6 +274,7 @@ export const data2 = [
     email: 'eacutt2@theatlantic.com',
     gender: 'Male',
     ip_address: '156.84.16.78',
+    enabled: false,
   },
   {
     id: 4,
