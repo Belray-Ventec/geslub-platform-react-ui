@@ -282,6 +282,7 @@ function Actions<T>({
       {showAdminOptions && (
         <DropDown position="left" themeColor={themeColor} title={<Ellipsis />}>
           <Button
+            disabled={!isRowEnabled}
             ariaLabel="editItem"
             onClick={(): void => onEdit && onEdit(item)}
             backgroundColor={themeColor}
@@ -292,6 +293,7 @@ function Actions<T>({
             />
           </Button>
           <Button
+            disabled={!isRowEnabled}
             ariaLabel="deleteItem"
             onClick={(): void => onDeleteItem && onDeleteItem(item)}
             backgroundColor={themeColor}
