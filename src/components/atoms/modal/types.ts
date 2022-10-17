@@ -1,4 +1,6 @@
-export interface ModalProps {
+import { CSSProperties, HTMLAttributes } from 'react';
+
+export interface ModalProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
   children: React.ReactNode;
   onCancel?: () => void;
@@ -11,4 +13,5 @@ export interface ModalProps {
   position?: 'top' | 'center' | 'bottom';
   size?: 'small' | 'medium' | 'large' | 'extra_large' | 'full';
   themeColor?: string;
+  style: CSSProperties;
 }
