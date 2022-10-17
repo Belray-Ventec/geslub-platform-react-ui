@@ -13,5 +13,5 @@ export interface ModalProps extends HTMLAttributes<HTMLDivElement> {
   position?: 'top' | 'center' | 'bottom';
   size?: 'small' | 'medium' | 'large' | 'extra_large' | 'full';
   themeColor?: string;
-  style: CSSProperties;
+  style?: CSSProperties;
 }
