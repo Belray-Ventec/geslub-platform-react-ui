@@ -44,6 +44,9 @@
     margin-bottom: 3.75rem;
     animation: opacityIn 0.5s ease-in-out;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .modal_small {
