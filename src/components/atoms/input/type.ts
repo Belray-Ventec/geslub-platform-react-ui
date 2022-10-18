@@ -1,5 +1,6 @@
-import { HTMLAttributes } from 'react';
-export interface InputProps extends HTMLAttributes<HTMLInputElement> {
+import { InputHTMLAttributes } from 'react';
+export interface InputProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   themeColor?: string;
   variant?: Variant;
   size?: Size;
