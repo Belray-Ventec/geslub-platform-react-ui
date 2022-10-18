@@ -282,6 +282,20 @@ const decisions = {
     links: choices.colors.brand.dodgerBlue,
     borderGray: choices.colors.brand.spanishGray,
   },
+  padding: {
+    0: choices.spacing[0],
+    1: choices.spacing[1],
+    2: choices.spacing[2],
+    3: choices.spacing[3],
+    4: choices.spacing[4],
+    5: choices.spacing[5],
+    6: choices.spacing[6],
+    8: choices.spacing[8],
+    10: choices.spacing[10],
+    12: choices.spacing[12],
+    16: choices.spacing[16],
+    20: choices.spacing[20],
+  },
   sizes: {
     avatar: {
       '2xs': '16px',
@@ -348,6 +362,13 @@ const decisions = {
     md: choices.screens.md,
     lg: choices.screens.lg,
     xl: choices.screens.xl,
+  },
+  radius: {
+    none: choices.borderRadius.none,
+    sm: choices.borderRadius.sm,
+    md: choices.borderRadius.md,
+    lg: choices.borderRadius.lg,
+    full: choices.borderRadius.full,
   },
 };
 

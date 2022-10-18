@@ -1,0 +1,33 @@
+.input_element {
+    width: auto;
+    background-color: var(--colors-gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline-start: var(--spacing-4);
+    padding-inline-end: var(--spacing-4);
+    font-size: 1rem;
+    border: 1px solid var(--colors-gray-300);
+}
+
+.xs {
+    font-size: var(--font-size-sm);
+    padding-inline-start: var(--spacing-3);
+    padding-inline-end: var(--spacing-3);
+    
+}
+.sm {
+    padding-inline-start: var(--spacing-3);
+    padding-inline-end: var(--spacing-3);
+    font-size: var(--font-size-md);
+}
+.md {
+    padding-inline-start: var(--spacing-4);
+    padding-inline-end: var(--spacing-4);
+    font-size: var(--font-size-xl);
+}
+.lg {
+    padding-inline-start: var(--spacing-4);
+    padding-inline-end: var(--spacing-4);
+    font-size: 1.12rem;
+}
