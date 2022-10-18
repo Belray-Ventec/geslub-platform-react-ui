@@ -3,9 +3,17 @@ import { InputElementProps } from './type';
 import styles from './inputelement.module.css';
 import { sizes } from './const';
 
-export function InputElement({ children, size = 'md' }: InputElementProps) {
+export function InputElement({
+  children,
+  size = 'md',
+  className,
+  ...props
+}: InputElementProps) {
   return (
-    <div className={[styles.input_element, sizes[size]].join(' ')}>
+    <div
+      {...props}
+      className={[styles.input_element, sizes[size], className].join(' ')}
+    >
       {children}
     </div>
   );

@@ -7,7 +7,7 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <div style={{ margin: '3em' }}>
+    <div style={{ margin: '3em', display: 'flex', flexDirection: 'column', gap: '20px' }}>
       {Story()}
     </div>
   ),

@@ -13,6 +13,9 @@
     color: var(--colors-gray-700);
 
 }
+
+
+
 .input:focus {
     outline: var(--colors-brand-dodgerBlue) solid 2px;
     outline-offset: 0px;

@@ -24,6 +24,7 @@
     background-color: var(--colors-primary);
     font-family: var(--text-font-family-body);
     color: var(--colors-white);
+    width: fit-content;
 }
 
 
