@@ -44,33 +44,35 @@ export default function Component(): {
 }
 ```
 
-| Propiedad         | Tipo                                                          | Requerida |
-| ----------------- | ------------------------------------------------------------- | --------- |
-| data              | `T[]`                                                         | si        |
-| columns           | `{ label: string; getValue: (item: T) => React.ReactNode }[]` | si        |
-| getRowKey         | `(d: T) => string number`                                     | si        |
-| onDelete          | `(d: T[]) => void`                                            | no        |
-| itemsPerPage      | `number`                                                      | no        |
-| actions           | `label: string; callback: (d: T) => void }[]`                 | no        |
-| themeColor        | `string`                                                      | no        |
-| showPages         | `boolean`                                                     | no        |
-| showHeaderButtons | `boolean`                                                     | no        |
-| showAdminOptions  | `boolean`                                                     | no        |
-| showInfo          | `boolean`                                                     | no        |
-| showShare         | `boolean`                                                     | no        |
-| showDownload      | `boolean`                                                     | no        |
-| showDisabled      | `boolean`                                                     | no        |
-| showSee           | `boolean`                                                     | no        |
-| caption           | `string`                                                      | no        |
-| add               | `() => void`                                                  | no        |
-| share             | `() => void`                                                  | no        |
-| onEdit            | `(d: T) => void`                                              | no        |
-| onDeleteItem      | `(d: T) => void`                                              | no        |
-| onSee             | `(d: T) => void`                                              | no        |
-| onDownload        | `(d: T) => void`                                              | no        |
-| onInfo            | `(d: T) => void`                                              | no        |
-| onShare           | `(d: T) => void`                                              | no        |
-| onDisabled        | `(d: T) => void`                                              | no        |
+| Propiedad         | Tipo                                                          | Descripción                                                                                                 | Requerida |
+| ----------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | --------- |
+| data              | `T[]`                                                         |                                                                                                             | si        |
+| columns           | `{ label: string; getValue: (item: T) => React.ReactNode }[]` |                                                                                                             | si        |
+| getRowKey         | `(d: T) => string number`                                     |                                                                                                             | si        |
+| onDelete          | `(d: T[]) => void`                                            |                                                                                                             | no        |
+| itemsPerPage      | `number`                                                      |                                                                                                             | no        |
+| actions           | `label: string; callback: (d: T) => void }[]`                 |                                                                                                             | no        |
+| themeColor        | `string`                                                      |                                                                                                             | no        |
+| showPages         | `boolean`                                                     |                                                                                                             | no        |
+| showHeaderButtons | `boolean`                                                     |                                                                                                             | no        |
+| showAdminOptions  | `boolean`                                                     |                                                                                                             | no        |
+| showInfo          | `boolean`                                                     |                                                                                                             | no        |
+| showShare         | `boolean`                                                     |                                                                                                             | no        |
+| showDownload      | `boolean`                                                     |                                                                                                             | no        |
+| showDisabled      | `boolean`                                                     | Muestra el boton de deshabilitar/habilitar registro                                                         | no        |
+| showSee           | `boolean`                                                     |                                                                                                             | no        |
+| caption           | `string`                                                      |                                                                                                             | no        |
+| add               | `() => void`                                                  |                                                                                                             | no        |
+| share             | `() => void`                                                  |                                                                                                             | no        |
+| onEdit            | `(d: T) => void`                                              |                                                                                                             | no        |
+| onDeleteItem      | `(d: T) => void`                                              |                                                                                                             | no        |
+| onSee             | `(d: T) => void`                                              |                                                                                                             | no        |
+| onDownload        | `(d: T) => void`                                              |                                                                                                             | no        |
+| onInfo            | `(d: T) => void`                                              |                                                                                                             | no        |
+| onShare           | `(d: T) => void`                                              |                                                                                                             | no        |
+| onDisabled        | `(d: T) => void`                                              | Callback que regresa el item para ser deshabilitado                                                         | no        |
+| onEnabled         | `(d: T) => void`                                              | Callback que regresa el item para ser habilitado                                                            | no        |
+| getRowIsEnabled   | `(d: T) => boolean`                                           | Callback para especificar que propiedad es la que definira el estado de habilitado/deshabilitado de la fila | no        |
 
 ### Search
 

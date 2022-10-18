@@ -17,19 +17,30 @@ export function Modal({
   size = 'medium',
   themeColor,
   showOk,
+  className,
+  style,
+  ...props
 }: ModalProps) {
   if (isOpen) {
     return (
       <div
         role="dialog"
-        className={[styles.modal_position, modalPosition[position]].join(' ')}
+        className={[
+          styles.modal_position,
+          modalPosition[position],
+          className,
+        ].join(' ')}
       >
         <div
           onClick={() => onRequestClose()}
           className={styles.modal_container}
           tabIndex={-1}
         ></div>
-        <div className={[styles.modal, modalSize[size]].join(' ')}>
+        <div
+          {...props}
+          style={{ ...style }}
+          className={[styles.modal, modalSize[size]].join(' ')}
+        >
           <div
             style={{ backgroundColor: themeColor ?? undefined }}
             className={styles.modal_header}

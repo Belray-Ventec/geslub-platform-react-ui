@@ -35,13 +35,14 @@ Default.args = {
 
   getRowKey: (item): string | number => item.id,
   showPages: true,
-  itemsPerPage: 3,
+  itemsPerPage: 5,
   actions: [{ label: 'Editar', callback: (item) => console.log(item) }],
   showSee: true,
   showDownload: true,
   showInfo: true,
   showDisabled: true,
   showAdminOptions: true,
+  getRowIsEnabled: (item) => item.enabled,
   onDelete: (data) => {
     console.log(data);
   },
@@ -63,4 +64,8 @@ Default.args = {
   onShare: (data) => {
     console.log(data);
   },
+  onDisabled: (item) =>
+    console.log(`Registro deshabilitado: ${JSON.stringify(item)}`),
+  onEnabled: (item) =>
+    console.log(`Registro habilitado: ${JSON.stringify(item)}`),
 };
