@@ -1,0 +1,76 @@
+.input {
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    position: relative;
+    width: 100%;
+    min-width: 0px;
+    appearance: none;
+    padding-inline-start: var(--spacing-2);
+    padding-inline-end: var(--spacing-2);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--colors-gray-300);
+    transition: all ease-in-out 200ms;
+    color: var(--colors-gray-700);
+
+}
+
+
+
+.input:focus {
+    outline: var(--colors-brand-dodgerBlue) solid 2px;
+    outline-offset: 0px;
+}
+
+.xs {
+    height: 1.5rem;
+    font-size: var(--font-size-sm);
+    padding-inline-start: var(--spacing-3);
+    padding-inline-end: var(--spacing-3);
+    
+}
+.sm {
+    height: 2rem;
+    padding-inline-start: var(--spacing-3);
+    padding-inline-end: var(--spacing-3);
+    font-size: var(--font-size-md);
+}
+.md {
+    height: 2.5rem ;
+    padding-inline-start: var(--spacing-4);
+    padding-inline-end: var(--spacing-4);
+    font-size: var(--font-size-xl);
+}
+.lg {
+    height: 3rem;
+    padding-inline-start: var(--spacing-4);
+    padding-inline-end: var(--spacing-4);
+    font-size: 1.12rem;
+}
+
+
+
+.filled {
+    background-color: var(--colors-gray-200);
+    border-color: var(--colors-transparent);
+}
+.unstyled, .unstyled:focus {
+    border: none;
+    outline: none;
+}
+
+.flushed {
+    border-radius: 0px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+}
+
+.flushed:focus {
+    outline-color: transparent;
+    border-bottom-color: var(--colors-brand-dodgerBlue);
+    border-bottom-width: 2px;
+}

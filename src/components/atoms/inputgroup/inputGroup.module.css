@@ -1,0 +1,10 @@
+.input_group {
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.input_group_addon > input{
+    padding-inline-start: var(--spacing-10);
+    padding-inline-end: var(--spacing-10);
+}

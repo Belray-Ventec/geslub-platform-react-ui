@@ -10,6 +10,7 @@
     text-transform: lowercase;
     min-width: 1.5rem;
     padding: 0.75rem;
+    width: fit-content;
 }
 
 .tag_rounded {
