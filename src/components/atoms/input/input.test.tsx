@@ -1,16 +1,18 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { InputWithLabel } from './';
+import { Input } from './';
+import { Label } from '../label';
 
 describe('Testing Input', () => {
   const setup = () => {
     render(
-      <InputWithLabel
-        label="Nombre Completo"
-        id="nombrecompleto"
-        placeholder="Enter the name"
-      />
+      <>
+        <Label size="md" htmlFor="fullname">
+          Nombre Completo
+        </Label>
+        <Input id="fullname" placeholder="Enter the name" />
+      </>
     );
   };
 

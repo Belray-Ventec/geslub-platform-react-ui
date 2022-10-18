@@ -4,7 +4,6 @@ import { Input } from '../../src/components/atoms/input';
 import { InputGroup } from '../../src/components/atoms/inputgroup';
 import { InputElement } from '../../src/components/atoms/inputelement';
 import { InputAddon } from '../../src/components/atoms/inputaddon';
-import { InputWithLabel } from '../../src/components/atoms/input/index';
 
 export default {
   title: 'molecules/InputGroup',
@@ -41,8 +40,6 @@ const TemplateAddon: ComponentStory<typeof InputGroup> = (args) => (
       <InputElement>@</InputElement>
       <Input style={{ width: '100px' }} placeholder=".com" />
     </InputGroup>
-
-    <InputWithLabel label="Nombre Completo" id="nombrecompleto" />
   </>
 );
 

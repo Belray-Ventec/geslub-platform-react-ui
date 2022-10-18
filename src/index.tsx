@@ -21,7 +21,7 @@ export { AvatarDropDown } from './components/molecules/avatarDropDown';
 export { Divider } from './components/atoms/divider';
 export { Select } from './components/atoms/select';
 export { Container } from './components/atoms/container';
-export { Input, InputWithLabel } from './components/atoms/input';
+export { Input } from './components/atoms/input';
 export { InputElement } from './components/atoms/inputelement';
 export { InputAddon } from './components/atoms/inputaddon';
 export { InputGroup } from './components/atoms/inputgroup';
