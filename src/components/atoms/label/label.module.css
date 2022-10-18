@@ -1,0 +1,18 @@
+.label {
+    display: block;
+    margin-bottom: var(--spacing-2);
+    font-weight: var(--font-weight-medium);
+}
+
+.font_xs {
+    font-size: var(--font-size-sm);
+}
+.font_sm {
+    font-size: var(--font-size-md);
+}
+.font_md {
+    font-size: var(--font-size-xl);
+}
+.font_lg {
+    font-size: 1.12rem;
+}

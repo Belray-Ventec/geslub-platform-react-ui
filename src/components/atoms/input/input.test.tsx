@@ -1,23 +1,29 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { Input } from './';
+import { InputWithLabel } from './';
 
 describe('Testing Input', () => {
   const setup = () => {
-    render(<Input placeholder="Enter the name" />);
+    render(
+      <InputWithLabel
+        label="Nombre Completo"
+        id="nombrecompleto"
+        placeholder="Enter the name"
+      />
+    );
   };
 
   it('Se debe mostrar el input', () => {
     setup();
 
-    const input = screen.getByRole('textbox');
+    const input = screen.getByLabelText('Nombre Completo');
     expect(input).toBeInTheDocument();
   });
 
-  it('Se debe escribir en el input y mostrar el texto', async () => {
+  it('Se debe escribir en el input y mostrar el texto Belray', async () => {
     setup();
-    const input = screen.getByRole('textbox');
+    const input = screen.getByLabelText('Nombre Completo');
     fireEvent.change(input, {
       target: { value: 'Belray' },
     });

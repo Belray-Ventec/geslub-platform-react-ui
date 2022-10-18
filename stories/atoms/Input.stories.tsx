@@ -30,6 +30,8 @@ Default.args = {
   size: 'lg',
   placeholder: 'Belray',
   variant: 'outline',
+  id: 'belrayventec',
+  label: 'Nombre',
 };
 
 DateTime.args = {

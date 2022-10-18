@@ -47,6 +47,8 @@
     font-size: 1.12rem;
 }
 
+
+
 .filled {
     background-color: var(--colors-gray-200);
     border-color: var(--colors-transparent);
