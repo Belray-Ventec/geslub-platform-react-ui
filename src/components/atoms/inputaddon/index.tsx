@@ -1,5 +1,5 @@
 import React from 'react';
-import { sizes } from '../inputelement/const';
+import { sizes } from '../inputaddon/const';
 import { inputAddonPositionStyle } from './const';
 import styles from './inputaddon.module.css';
 import { InputAddonProps } from './type';

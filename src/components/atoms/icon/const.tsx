@@ -21,7 +21,9 @@ import AngleLeft from '../../../assets/icons/AngleLeft';
 import Video from '../../../assets/icons/Video';
 import Tag from '../../../assets/icons/Tag';
 import { iconsType } from './types';
-import { Check, Trash } from '../../../assets/icons';
+import { Check, Seeker, Trash } from '../../../assets/icons';
+import { Pdf } from '../../../assets/icons/Pdf';
+import { GeneratePdf } from '../../../assets/icons/GeneratePdf';
 export const icons: iconsType[] = [
   'Add',
   'AngleLeft',
@@ -46,6 +48,8 @@ export const icons: iconsType[] = [
   'CircleXmark',
   'Trash',
   'Check',
+  'Pdf',
+  'GeneratePdf',
 ];
 
 export const iconList = (size: number, color: string, src?: string) => {
@@ -74,5 +78,8 @@ export const iconList = (size: number, color: string, src?: string) => {
     Image: <img alt="icon" src={src} width={size} height={size} />,
     Trash: <Trash size={size} color={color} />,
     Check: <Check size={size} color={color} />,
+    Seeker: <Seeker size={size} color={color} />,
+    Pdf: <Pdf size={size} color={color} />,
+    GeneratePdf: <GeneratePdf size={size} color={color} />,
   };
 };

@@ -22,7 +22,10 @@ export type iconsType =
   | 'CircleXmark'
   | 'Image'
   | 'Trash'
-  | 'Check';
+  | 'Check'
+  | 'Seeker'
+  | 'Pdf'
+  | 'GeneratePdf';
 
 export interface IconProps {
   color?: string;
