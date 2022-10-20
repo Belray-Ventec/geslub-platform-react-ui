@@ -24,6 +24,12 @@ import { iconsType } from './types';
 import { Check, Seeker, Trash } from '../../../assets/icons';
 import { Pdf } from '../../../assets/icons/Pdf';
 import { GeneratePdf } from '../../../assets/icons/GeneratePdf';
+import { Mp4 } from '../../../assets/icons/Mp4';
+import { Youtube } from '../../../assets/icons/Youtube';
+import { Rusia } from '../../../assets/icons/Russia';
+import { UnitedKingdom } from '../../../assets/icons/UnitedKingdom';
+import { Spain } from '../../../assets/icons/Spain';
+import { PdfSend } from '../../../assets/icons/PdfSend';
 export const icons: iconsType[] = [
   'Add',
   'AngleLeft',
@@ -50,6 +56,12 @@ export const icons: iconsType[] = [
   'Check',
   'Pdf',
   'GeneratePdf',
+  'Mp4',
+  'Youtube',
+  'Rusia',
+  'UnitedKingdom',
+  'Spain',
+  'PdfSend',
 ];
 
 export const iconList = (size: number, color: string, src?: string) => {
@@ -81,5 +93,11 @@ export const iconList = (size: number, color: string, src?: string) => {
     Seeker: <Seeker size={size} color={color} />,
     Pdf: <Pdf size={size} color={color} />,
     GeneratePdf: <GeneratePdf size={size} color={color} />,
+    Mp4: <Mp4 size={size} color={color} />,
+    Youtube: <Youtube size={size} color={color} />,
+    Rusia: <Rusia size={size} />,
+    UnitedKingdom: <UnitedKingdom size={size} />,
+    Spain: <Spain size={size} />,
+    PdfSend: <PdfSend size={size} color={color} />,
   };
 };

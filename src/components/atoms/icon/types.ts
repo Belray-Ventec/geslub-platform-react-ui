@@ -25,7 +25,13 @@ export type iconsType =
   | 'Check'
   | 'Seeker'
   | 'Pdf'
-  | 'GeneratePdf';
+  | 'GeneratePdf'
+  | 'Mp4'
+  | 'Youtube'
+  | 'Rusia'
+  | 'UnitedKingdom'
+  | 'Spain'
+  | 'PdfSend';
 
 export interface IconProps {
   color?: string;

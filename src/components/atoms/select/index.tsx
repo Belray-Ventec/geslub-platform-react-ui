@@ -35,6 +35,7 @@ export function Select({
   return (
     <>
       <div
+        tabIndex={0}
         role={'listbox'}
         className={[
           styles.container,
