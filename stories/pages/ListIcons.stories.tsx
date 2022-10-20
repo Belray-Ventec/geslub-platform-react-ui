@@ -26,5 +26,4 @@ export const ListIcons = Template.bind({});
 
 ListIcons.args = {
   size: 30,
-  color: '#9a9a9a',
 };

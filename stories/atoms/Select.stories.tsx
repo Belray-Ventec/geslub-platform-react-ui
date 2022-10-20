@@ -40,7 +40,6 @@ select.args = {
   ],
   onChange: (opcion) => console.log(opcion),
   multiple: false,
-  initialValue: { label: 'opcion 16', value: 16 },
 };
 
 multiple.args = {

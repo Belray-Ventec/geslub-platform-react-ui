@@ -14,10 +14,14 @@ export function Icon({
 }: IconProps) {
   return (
     <i
+      style={{ width: size, height: size }}
       role={role ?? undefined}
       className={onClick && styles.icon_click}
       aria-label={ariaLabel ?? undefined}
-      onClick={() => onClick && onClick()}
+      onClick={(e) => {
+        onClick && onClick();
+        onClick && e.stopPropagation();
+      }}
     >
       {iconList(size, color, src)[icon || 'Image']}
     </i>

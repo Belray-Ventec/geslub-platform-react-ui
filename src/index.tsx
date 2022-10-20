@@ -26,3 +26,4 @@ export { InputElement } from './components/atoms/inputelement';
 export { InputAddon } from './components/atoms/inputaddon';
 export { InputGroup } from './components/atoms/inputgroup';
 export { Label } from './components/atoms/label';
+export { OptionProps } from './components/atoms/select/types';
