@@ -5,10 +5,7 @@ interface UnitedKingdomProps {
   color?: string;
 }
 
-export function UnitedKingdom({
-  size = 30,
-  color = '#FF1D25',
-}: UnitedKingdomProps) {
+export function UnitedKingdom({ size = 30 }: UnitedKingdomProps) {
   return (
     <svg
       width={size}

@@ -36,20 +36,18 @@ export function Select({
     <>
       <div
         tabIndex={0}
+        onClick={(e) => {
+          setIsOpen(!isOpen);
+          handleSearch('');
+          e.stopPropagation();
+        }}
         role={'listbox'}
         className={[
           styles.container,
           isInline ? styles.container_inline : undefined,
         ].join(' ')}
       >
-        <div
-          onClick={(e) => {
-            setIsOpen(!isOpen);
-            handleSearch('');
-            e.stopPropagation();
-          }}
-          className={[styles.select, sizes[size]].join(' ')}
-        >
+        <div className={[styles.select, sizes[size]].join(' ')}>
           <div className={styles.input_container}>
             {isOpen ? (
               <InputGroup size={size}>

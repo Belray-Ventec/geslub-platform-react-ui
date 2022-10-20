@@ -14,7 +14,6 @@ export function InputGroup({
       typeof child.type !== 'string' &&
       child.type.name === 'InputAddon'
   );
-  console.log(existAddon);
   return (
     <div
       {...props}
