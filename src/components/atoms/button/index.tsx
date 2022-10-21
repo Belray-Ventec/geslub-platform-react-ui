@@ -1,4 +1,5 @@
 import React, { ButtonHTMLAttributes } from 'react';
+import { Loading } from '../../../assets/icons/Loading';
 import styles from './button.module.css';
 
 export enum Size {
@@ -19,6 +20,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: () => void;
   children: React.ReactNode;
   style?: React.CSSProperties;
+  isLoading?: boolean;
+  leftIcon?: React.ReactNode;
+  loadingText?: string;
 }
 
 export function Button({
@@ -34,6 +38,9 @@ export function Button({
   children,
   className,
   style,
+  leftIcon,
+  isLoading,
+  loadingText,
   ...props
 }: ButtonProps): JSX.Element {
   const valuePrimary = primary
@@ -69,7 +76,17 @@ export function Button({
       }}
       {...props}
     >
-      {children}
+      {isLoading ? (
+        <>
+          <Loading size={15} color={primary ? '#fff' : '#34495D'} />
+          {loadingText}
+        </>
+      ) : (
+        <>
+          {leftIcon && leftIcon}
+          {children}
+        </>
+      )}
     </button>
   );
 }
