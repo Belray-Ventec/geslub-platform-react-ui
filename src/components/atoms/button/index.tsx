@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import styles from './button.module.css';
 
 export enum Size {
@@ -7,7 +7,7 @@ export enum Size {
   large = 'large',
 }
 
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   ariaLabel?: string;
   backgroundColor?: string;
   color?: string;
@@ -32,6 +32,7 @@ export function Button({
   color,
   fullWidth = false,
   children,
+  className,
   style,
   ...props
 }: ButtonProps): JSX.Element {
@@ -58,6 +59,7 @@ export function Button({
         buttonSize,
         valuePrimary,
         fullWidth ? styles.fullWidth : undefined,
+        className,
       ].join(' ')}
       style={{
         backgroundColor: backgroundColor,
