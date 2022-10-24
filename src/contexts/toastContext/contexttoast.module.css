@@ -1,0 +1,40 @@
+.toastsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    z-index: 5500;
+}
+
+.bottom_left {
+    left: 1rem;
+    bottom: 1rem;
+}
+
+.bottom_right {
+    right: 1rem;
+    bottom: 1rem;
+}
+
+.bottom {
+    bottom: 1rem;
+    left: 50%;
+}
+.top {
+    top: 1rem;
+    left: 50%;
+}
+
+.top_left {
+    left: 1rem;
+    top: 1rem;
+}
+
+.top_right {
+    right: 1rem;
+    top: 1rem;
+}
+
+.toast {
+    background-color: var(--colors-primary);
+}
