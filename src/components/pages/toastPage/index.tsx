@@ -18,10 +18,10 @@ export function ToastPage() {
         primary
         onClick={() =>
           addToast({
-            title: 'Titulo toast 2',
+            title: 'Nuevo titulo',
             description: 'descripcion toast 2',
             status: 'error',
-            position: 'top-left',
+            position: 'top-right',
             isClosable: true,
           })
         }

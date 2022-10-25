@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Toast } from '../../src/components/atoms/toast';
+import Toast from '../../src/components/atoms/toast';
 import { ToastPage } from '../../src/components/pages/toastPage';
 import { ToastContextProvider } from '../../src/contexts/toastContext/toastContext';
 
