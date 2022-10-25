@@ -31,6 +31,7 @@ import { UnitedKingdom } from '../../../assets/icons/UnitedKingdom';
 import { Spain } from '../../../assets/icons/Spain';
 import { PdfSend } from '../../../assets/icons/PdfSend';
 import { CircleCheck } from '../../../assets/icons/CircleCheck';
+import { Chile } from '../../../assets/icons/Chile';
 export const icons: iconsType[] = [
   'Add',
   'AngleLeft',
@@ -64,6 +65,7 @@ export const icons: iconsType[] = [
   'Spain',
   'PdfSend',
   'CircleCheck',
+  'Chile',
 ];
 
 export const iconList = (size: number, color: string, src?: string) => {
@@ -102,5 +104,6 @@ export const iconList = (size: number, color: string, src?: string) => {
     Spain: <Spain size={size} />,
     PdfSend: <PdfSend size={size} color={color} />,
     CircleCheck: <CircleCheck size={size} color={color} />,
+    Chile: <Chile size={size} color={color} />,
   };
 };

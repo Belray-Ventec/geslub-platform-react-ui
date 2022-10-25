@@ -32,7 +32,8 @@ export type iconsType =
   | 'UnitedKingdom'
   | 'Spain'
   | 'PdfSend'
-  | 'CircleCheck';
+  | 'CircleCheck'
+  | 'Chile';
 
 export interface IconProps {
   color?: string;
