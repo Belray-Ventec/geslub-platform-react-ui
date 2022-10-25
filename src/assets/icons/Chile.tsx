@@ -1,11 +1,11 @@
 import React from 'react';
 
-interface CheckProps {
+interface ChileProps {
   size?: number;
   color?: string;
 }
 
-export function Chile({ size = 20, color = '#fff' }: CheckProps) {
+export function Chile({ size = 20, color = '#fff' }: ChileProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
