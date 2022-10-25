@@ -21,6 +21,7 @@ export function ToastContextProvider({ children }: ToastContextProviderProps) {
         clearTimeout(timer);
       };
     }
+    return;
   }, [toasts]);
 
   const addToast = useCallback(
