@@ -11,6 +11,9 @@
     align-items: center;
     justify-content: center;
     width: fit-content;
+    min-width: var(--spacing-10);
+    height: var(--spacing-10);
+    gap: .5rem;
 }
 
 .button:active {

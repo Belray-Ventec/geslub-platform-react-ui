@@ -31,7 +31,9 @@ export type iconsType =
   | 'Rusia'
   | 'UnitedKingdom'
   | 'Spain'
-  | 'PdfSend';
+  | 'PdfSend'
+  | 'CircleCheck'
+  | 'Chile';
 
 export interface IconProps {
   color?: string;
