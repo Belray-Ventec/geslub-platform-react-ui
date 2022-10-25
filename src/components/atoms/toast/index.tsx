@@ -38,6 +38,12 @@ function Toast({
       <>
         {ReactDOM.createPortal(
           <div
+            style={{ cursor: isClosable ? 'pointer' : 'default' }}
+            onClick={() =>
+              isClosable &&
+              onClose &&
+              onClose({ title, description, status, onClose, isClosable })
+            }
             className={[
               styles.toast_container,
               statusStyle[status],
