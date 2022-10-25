@@ -11,6 +11,7 @@ export default ToastContext;
 
 export function ToastContextProvider({ children }: ToastContextProviderProps) {
   const [toasts, setToasts] = useState<ToastProps[]>([]);
+
   useEffect(() => {
     if (toasts.length) {
       const timer = setTimeout(() => {
@@ -29,15 +30,12 @@ export function ToastContextProvider({ children }: ToastContextProviderProps) {
     [setToasts]
   );
 
-  const closeToast = useCallback(
-    function (prop: ToastProps) {
-      const filterToast = toasts.filter(
-        (t) => t.description !== prop.description
-      );
-      setToasts(filterToast);
-    },
-    [setToasts]
-  );
+  const closeToast = (prop: ToastProps) => {
+    const filterToast = toasts.filter(
+      (t) => t.description !== prop.description
+    );
+    setToasts(filterToast);
+  };
 
   return (
     <ToastContext.Provider value={addToast}>

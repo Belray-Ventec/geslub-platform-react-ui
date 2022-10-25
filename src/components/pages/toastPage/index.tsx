@@ -18,10 +18,10 @@ export function ToastPage() {
         primary
         onClick={() =>
           addToast({
-            title: 'Nuevo titulo',
+            title: 'Nuevo titulo 1',
             description: 'descripcion toast 2',
             status: 'error',
-            position: 'top-right',
+            position: 'top-left',
             isClosable: true,
           })
         }
@@ -32,8 +32,22 @@ export function ToastPage() {
         primary
         onClick={() =>
           addToast({
+            title: 'Nuevo titulo 15',
+            description: 'descripcion toast 15',
+            status: 'info',
+            position: 'top-left',
+            isClosable: true,
+          })
+        }
+      >
+        Top-left 2
+      </Button>
+      <Button
+        primary
+        onClick={() =>
+          addToast({
             title: 'Titulo toast 2',
-            description: 'descripcion toast 2',
+            description: 'descripcion toast 3',
             status: 'warning',
             position: 'top',
           })
@@ -46,7 +60,7 @@ export function ToastPage() {
         onClick={() =>
           addToast({
             title: 'Titulo toast 2',
-            description: 'descripcion toast 2',
+            description: 'descripcion toast 4',
             status: 'info',
             position: 'top-right',
           })
@@ -59,7 +73,7 @@ export function ToastPage() {
         onClick={() =>
           addToast({
             title: 'Titulo toast 2',
-            description: 'descripcion toast 2',
+            description: 'descripcion toast 5',
             status: 'error',
             position: 'bottom-left',
           })
@@ -72,7 +86,7 @@ export function ToastPage() {
         onClick={() =>
           addToast({
             title: 'Titulo toast 2',
-            description: 'descripcion toast 2',
+            description: 'descripcion toast 6',
             status: 'warning',
             position: 'bottom',
           })
@@ -85,7 +99,7 @@ export function ToastPage() {
         onClick={() =>
           addToast({
             title: 'Titulo toast 2',
-            description: 'descripcion toast 2',
+            description: 'descripcion toast 8',
             status: 'info',
             position: 'bottom-right',
           })
