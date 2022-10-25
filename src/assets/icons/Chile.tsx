@@ -5,7 +5,7 @@ interface ChileProps {
   color?: string;
 }
 
-export function Chile({ size = 20, color = '#fff' }: ChileProps) {
+export function Chile({ size = 20 }: ChileProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
