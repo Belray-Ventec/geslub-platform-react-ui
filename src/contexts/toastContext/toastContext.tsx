@@ -42,6 +42,7 @@ export function ToastContextProvider({ children }: ToastContextProviderProps) {
       {children}
       {toasts.map((toast, idx) => (
         <Toast
+          isPortal
           position={toast.position}
           key={idx}
           status={toast.status}

@@ -14,6 +14,7 @@ interface ToastProps {
   isClosable?: boolean;
   onClose: (props: ToastProps) => void;
   position?: PositionType;
+  isPortal?: boolean;
 }
 
 function Toast({
@@ -23,6 +24,7 @@ function Toast({
   onClose,
   isClosable = false,
   position = 'top-left',
+  isPortal,
 }: ToastProps) {
   const statusStyle = {
     success: styles.success,
@@ -31,47 +33,87 @@ function Toast({
     info: styles.info,
   };
 
-  return (
-    <>
-      {ReactDOM.createPortal(
-        <div
-          className={[
-            styles.toast_container,
-            statusStyle[status],
-            styles.fadeIn,
-          ].join(' ')}
-        >
-          <div>
-            <Icon
-              color="#fff"
-              size={15}
-              icon={status === 'success' ? 'CircleCheck' : 'Info'}
-            />
-          </div>
-          <div>
-            {title && (
-              <Paragraph className={styles.title} size="sm">
-                {title}
-              </Paragraph>
-            )}
-            <Paragraph className={styles.description} size="xs">
-              {description}
-            </Paragraph>
-          </div>
-          {isClosable && (
-            <div
-              className={styles.close_container}
-              onClick={() =>
-                onClose({ title, description, status, onClose, isClosable })
-              }
-            >
-              <Xmark fill="#fff" size={15} />
+  if (isPortal) {
+    return (
+      <>
+        {ReactDOM.createPortal(
+          <div
+            className={[
+              styles.toast_container,
+              statusStyle[status],
+              styles.fadeIn,
+            ].join(' ')}
+          >
+            <div>
+              <Icon
+                color="#fff"
+                size={15}
+                icon={status === 'success' ? 'CircleCheck' : 'Info'}
+              />
             </div>
-          )}
-        </div>,
-        document.querySelector(`#toastregion${position}`)!
+            <div>
+              {title && (
+                <Paragraph className={styles.title} size="sm">
+                  {title}
+                </Paragraph>
+              )}
+              <Paragraph className={styles.description} size="xs">
+                {description}
+              </Paragraph>
+            </div>
+            {isClosable && (
+              <div
+                className={styles.close_container}
+                onClick={() =>
+                  onClose({ title, description, status, onClose, isClosable })
+                }
+              >
+                <Xmark fill="#fff" size={15} />
+              </div>
+            )}
+          </div>,
+          document.querySelector(`#toastregion${position}`)!
+        )}
+      </>
+    );
+  }
+
+  return (
+    <div
+      className={[
+        styles.toast_container,
+        statusStyle[status],
+        styles.fadeIn,
+      ].join(' ')}
+    >
+      <div>
+        <Icon
+          color="#fff"
+          size={15}
+          icon={status === 'success' ? 'CircleCheck' : 'Info'}
+        />
+      </div>
+      <div>
+        {title && (
+          <Paragraph className={styles.title} size="sm">
+            {title}
+          </Paragraph>
+        )}
+        <Paragraph className={styles.description} size="xs">
+          {description}
+        </Paragraph>
+      </div>
+      {isClosable && (
+        <div
+          className={styles.close_container}
+          onClick={() =>
+            onClose({ title, description, status, onClose, isClosable })
+          }
+        >
+          <Xmark fill="#fff" size={15} />
+        </div>
       )}
-    </>
+    </div>
   );
 }
 
