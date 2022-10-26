@@ -42,6 +42,9 @@
 .accordion_button:hover{
     background-color: var(--colors-gray-200);
 }
+.accordion_button:focus{
+    outline-color: var(--colors-brand-dodgerBlue)
+}
 
 .accordion_button > i{
     transition: all 300ms ease-in-out;
