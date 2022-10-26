@@ -484,3 +484,38 @@ export default function Component(): {
 | onCancel       | `() => void`                                        | no        |
 | themeColor     | `string`                                            | no        |
 | children       | `ReactNode`                                         | no        |
+
+### Accordion
+
+```Javascript
+import React, { useState } from 'react';
+import { Accordion, AccordionItem } from 'geslub-platform-react-ui';
+
+export default function Component(): {
+
+
+	return (
+    <Accordion allowToggle>
+      <AccordionItem title="Niveles de sectores">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada odio eu enim congue, id ullamcorper ligula fringilla. Nulla feugiat risus sed semper volutpat. Sed in tempus ex. Mauris quis eleifend mi, nec auctor metus. Curabitur commodo metus non tellus porta, at euismod dolor ultrices. Nullam vitae sapien a lacus
+      </AccordionItem>
+      <AccordionItem title="Niveles de instancias de equipos">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada odio eu enim congue, id ullamcorper ligula fringilla. Nulla feugiat risus sed semper volutpat. Sed in tempus ex. Mauris quis eleifend mi, nec auctor metus. Curabitur commodo metus non tellus porta, at euismod dolor ultrices. Nullam vitae sapien a lacus
+      </AccordionItem>
+    </Accordion>
+  )
+
+```
+
+### Accordion
+
+| Propiedad   | Tipo      | Descripcion                                                     | Requerida |
+| ----------- | --------- | --------------------------------------------------------------- | --------- |
+| allowToggle | `boolean` | Si se activa permite abrir multiples acordeones al mismo tiempo | no        |
+
+### AccordionItem
+
+| Propiedad | Tipo      | Descripcion            | Requerida |
+| --------- | --------- | ---------------------- | --------- |
+| title     | `string`  | Titulo del acordeon    | si        |
+| children  | `boolean` | Contenido del acordeon | si        |

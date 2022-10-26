@@ -33,7 +33,8 @@ export type iconsType =
   | 'Spain'
   | 'PdfSend'
   | 'CircleCheck'
-  | 'Chile';
+  | 'Chile'
+  | 'AngleUp';
 
 export interface IconProps {
   color?: string;
@@ -43,4 +44,5 @@ export interface IconProps {
   ariaLabel?: string;
   role?: string;
   src?: string;
+  className?: string;
 }

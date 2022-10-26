@@ -11,12 +11,13 @@ export function Icon({
   ariaLabel,
   role,
   src,
+  className,
 }: IconProps) {
   return (
     <i
       style={{ width: size, height: size }}
       role={role ?? undefined}
-      className={onClick && styles.icon_click}
+      className={[onClick && styles.icon_click, className].join(' ')}
       aria-label={ariaLabel ?? undefined}
       onClick={(e) => {
         onClick && onClick();

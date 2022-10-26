@@ -46,7 +46,7 @@ export default function useSelectValue({
     } else {
       initialValue && setSelectedValue(initialValue);
     }
-  }, [initialValue]);
+  }, []);
 
   return {
     removeAllTags,
