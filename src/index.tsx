@@ -29,3 +29,5 @@ export { Label } from './components/atoms/label';
 export { OptionProps } from './components/atoms/select/types';
 export { useToast } from './hooks/useToast';
 export { ToastContextProvider } from './contexts/toastContext/toastContext';
+export { Accordion } from './components/atoms/accordion';
+export { AccordionItem } from './components/atoms/accordionItem';
