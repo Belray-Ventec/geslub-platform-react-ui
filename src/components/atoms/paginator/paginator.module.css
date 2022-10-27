@@ -40,6 +40,7 @@
 .pages{
     display: flex;
     gap: 5px;
+    flex-wrap: wrap;
 }
 .page_link{
     color: #85251b;
