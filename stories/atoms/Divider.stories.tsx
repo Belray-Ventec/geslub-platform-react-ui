@@ -7,6 +7,11 @@ export default {
   component: Divider,
 } as ComponentMeta<typeof Divider>;
 
-const Template: ComponentStory<typeof Divider> = (args) => <Divider />;
+const Template: ComponentStory<typeof Divider> = (args) => (
+  <Divider {...args} />
+);
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({
+  vertical: true,
+  height: 200,
+});
