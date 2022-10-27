@@ -20,7 +20,10 @@ export function AvatarDropDown({
   return (
     <>
       <div className={styles.showOptionsContainer}>
-        <div className={styles.container}>
+        <div
+          onClick={() => setShowOptions(!showOptions)}
+          className={styles.container}
+        >
           <Avatar size={size} src={src} title={avatarTitle}>
             <AvatarBadge
               color={badgeColor ?? undefined}
@@ -29,7 +32,6 @@ export function AvatarDropDown({
           </Avatar>
           <Icon
             ariaLabel="arrow"
-            onClick={() => setShowOptions(!showOptions)}
             icon="AngleDown"
             size={arrowSize[size]}
             color={color}
