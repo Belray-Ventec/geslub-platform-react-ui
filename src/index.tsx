@@ -32,3 +32,5 @@ export { ToastContextProvider } from './contexts/toastContext/toastContext';
 export { Accordion } from './components/atoms/accordion';
 export { AccordionItem } from './components/atoms/accordionItem';
 export { CheckBox } from './components/atoms/checkbox';
+export { FormControl } from './components/atoms/formControl';
+export { FormErrorMessage } from './components/atoms/formErrorMessage';

@@ -4,7 +4,7 @@ import React, {
   isValidElement,
   ReactElement,
 } from 'react';
-
+import styles from './formControl.module.css';
 interface FormControlProps {
   children: React.ReactNode;
   isRequired: boolean;
@@ -32,18 +32,19 @@ export function FormControl({
     typeof data === 'function';
 
   return (
-    <>
+    <div className={styles.form_control}>
       {arrayOfChildren.map((children) => {
         if (isValidElement(children) && isFunction(children.type)) {
           return children.type.name === 'Label'
             ? renderChildren(children)['Label']
             : children.type.name === 'Input' ||
-              children.type.name === 'InputGroup'
+              children.type.name === 'InputGroup' ||
+              children.type.name === 'FormErrorMessage'
             ? renderChildren(children)['Input']
             : cloneElement(children);
         }
         return children;
       })}
-    </>
+    </div>
   );
 }
