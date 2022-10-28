@@ -8,11 +8,17 @@ export function Input({
   variant = 'outline',
   size = 'md',
   htmlSize,
+  isError,
   ...props
 }: InputProps) {
   return (
     <input
-      className={[styles.input, sizes[size], variantStyle[variant]].join(' ')}
+      className={[
+        styles.input,
+        sizes[size],
+        variantStyle[variant],
+        isError ? styles.error : undefined,
+      ].join(' ')}
       {...props}
     />
   );

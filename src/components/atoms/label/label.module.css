@@ -16,3 +16,9 @@
 .font_lg {
     font-size: 1.12rem;
 }
+
+.required::after {
+    content: '*';
+    color: var(--colors-red-500);
+    margin-inline-start: var(--spacing-1);
+}
