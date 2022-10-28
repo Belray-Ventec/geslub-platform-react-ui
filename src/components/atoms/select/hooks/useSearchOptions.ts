@@ -20,10 +20,6 @@ export default function useSearchOptions({
     setFilteredOptions(options);
   }, [selectedValue]);
 
-  useEffect(() => {
-    setFilteredOptions(options);
-  }, [options]);
-
   return {
     handleSearch,
     filteredOptions,

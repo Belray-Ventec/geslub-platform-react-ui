@@ -5,16 +5,7 @@ export interface InputProps
   variant?: Variant;
   size?: Size;
   htmlSize?: number;
-}
-
-export interface InputPropsWithLabel
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
-  themeColor?: string;
-  variant?: Variant;
-  size?: Size;
-  label: string;
-  htmlSize?: number;
-  htmlFor?: string;
+  isError?: boolean;
 }
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg';

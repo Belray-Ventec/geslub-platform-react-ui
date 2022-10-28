@@ -3,3 +3,8 @@
     height: 1px;
     background: var(--paragraph-colors-base);
 }
+
+.vertical {
+    width: 1px;
+    background: var(--paragraph-colors-base);
+}

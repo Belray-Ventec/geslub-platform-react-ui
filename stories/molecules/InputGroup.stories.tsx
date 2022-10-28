@@ -27,7 +27,9 @@ const Template: ComponentStory<typeof InputGroup> = (args) => (
 
 const TemplateLabelInput: ComponentStory<typeof InputGroup> = (args) => (
   <>
-    <Label htmlFor="nombre">Nombre</Label>
+    <Label isRequired htmlFor="nombre">
+      Nombre
+    </Label>
     <InputGroup {...args}>
       <Input id="nombre" placeholder="belray" />
       <InputElement>$</InputElement>

@@ -1,0 +1,9 @@
+.error {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    color: var(--colors-red-500);
+    margin-top: var(--spacing-2);
+    font-size: var(--font-size-sm);
+    line-height: normal;
+}

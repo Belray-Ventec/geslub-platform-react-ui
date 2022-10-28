@@ -5,6 +5,7 @@ import styles from './inputGroup.module.css';
 export function InputGroup({
   children,
   size = 'md',
+  isError,
   ...props
 }: InputGroupProps) {
   const arrayOfChildren = Children.toArray(children);
@@ -23,7 +24,10 @@ export function InputGroup({
       ].join(' ')}
     >
       {arrayOfChildren.map((children) =>
-        cloneElement(children as React.ReactElement, { size: size })
+        cloneElement(children as React.ReactElement, {
+          size: size,
+          isError: isError,
+        })
       )}
     </div>
   );
