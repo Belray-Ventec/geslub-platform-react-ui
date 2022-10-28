@@ -6,6 +6,7 @@ export interface InputProps
   size?: Size;
   htmlSize?: number;
   isError?: boolean;
+  isRequired?: boolean;
 }
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg';

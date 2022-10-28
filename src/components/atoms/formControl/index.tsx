@@ -7,8 +7,8 @@ import React, {
 import styles from './formControl.module.css';
 interface FormControlProps {
   children: React.ReactNode;
-  isRequired: boolean;
-  isError: boolean;
+  isRequired?: boolean;
+  isError?: boolean;
 }
 
 export function FormControl({
@@ -23,8 +23,14 @@ export function FormControl({
       Label: cloneElement(child as React.ReactElement, {
         isRequired: isRequired,
       }),
-      InputGroup: cloneElement(child as ReactElement, { isError: isError }),
-      Input: cloneElement(child as ReactElement, { isError: isError }),
+      InputGroup: cloneElement(child as ReactElement, {
+        isError: isError,
+        isRequired: isRequired,
+      }),
+      Input: cloneElement(child as ReactElement, {
+        isError: isError,
+        isRequired: isRequired,
+      }),
     };
   };
 
@@ -37,9 +43,10 @@ export function FormControl({
         if (isValidElement(children) && isFunction(children.type)) {
           return children.type.name === 'Label'
             ? renderChildren(children)['Label']
-            : children.type.name === 'Input' ||
-              children.type.name === 'InputGroup' ||
+            : children.type.name === 'InputGroup' ||
               children.type.name === 'FormErrorMessage'
+            ? renderChildren(children)['InputGroup']
+            : children.type.name === 'Input'
             ? renderChildren(children)['Input']
             : cloneElement(children);
         }

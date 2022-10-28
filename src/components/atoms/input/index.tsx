@@ -9,10 +9,12 @@ export function Input({
   size = 'md',
   htmlSize,
   isError,
+  isRequired = false,
   ...props
 }: InputProps) {
   return (
     <input
+      required={isRequired}
       className={[
         styles.input,
         sizes[size],
