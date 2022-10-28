@@ -6,6 +6,7 @@ export function InputGroup({
   children,
   size = 'md',
   isError,
+  isRequired,
   ...props
 }: InputGroupProps) {
   const arrayOfChildren = Children.toArray(children);
@@ -27,6 +28,7 @@ export function InputGroup({
         cloneElement(children as React.ReactElement, {
           size: size,
           isError: isError,
+          isRequired: isRequired,
         })
       )}
     </div>
