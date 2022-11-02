@@ -25,6 +25,7 @@ export function Icon({
       }}
     >
       {iconList(size, color, src)[icon || 'Image']}
+      <span className={styles.visually_hidden}>{ariaLabel}</span>
     </i>
   );
 }

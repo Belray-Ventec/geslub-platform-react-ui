@@ -284,7 +284,12 @@ function Actions<T>({
           name="adminOptions"
           position="left"
           themeColor={themeColor}
-          title={<Ellipsis />}
+          title={
+            <>
+              <Ellipsis />
+              <span className={styles.visually_hidden}>adminOptions</span>
+            </>
+          }
         >
           <Button
             disabled={!isRowEnabled}
@@ -296,6 +301,7 @@ function Actions<T>({
               fill={stylesInline(themeColor).penToSquare}
               size={20}
             />
+            <span className={styles.visually_hidden}>editItem</span>
           </Button>
           <Button
             disabled={!isRowEnabled}
@@ -304,6 +310,7 @@ function Actions<T>({
             backgroundColor={themeColor}
           >
             <Xmark fill={stylesInline(themeColor).penToSquare} size={20} />
+            <span className={styles.visually_hidden}>deleteItem</span>
           </Button>
         </DropDown>
       )}
@@ -327,6 +334,7 @@ function HeaderButtons<T>({
         onClick={() => add && add()}
       >
         <Add size={20} fill={stylesInline(themeColor).penToSquare} />
+        <span className={styles.visually_hidden}>add</span>
       </Button>
       <Button
         ariaLabel="share"
@@ -335,6 +343,7 @@ function HeaderButtons<T>({
         onClick={() => share && share()}
       >
         <ShareNodes size={20} fill={stylesInline(themeColor).penToSquare} />
+        <span className={styles.visually_hidden}>share</span>
       </Button>
       <Button
         ariaLabel="delete"
@@ -343,6 +352,7 @@ function HeaderButtons<T>({
         backgroundColor={stylesInline(themeColor).headerButtons}
       >
         <Xmark size={20} fill={stylesInline(themeColor).penToSquare} />
+        <span className={styles.visually_hidden}>delete</span>
       </Button>
     </div>
   );

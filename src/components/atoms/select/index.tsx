@@ -41,7 +41,9 @@ export function Select({
           handleSearch('');
           e.stopPropagation();
         }}
-        role={'listbox'}
+        aria-expanded={isOpen}
+        aria-controls="select"
+        role={'combobox'}
         className={[
           styles.container,
           isInline ? styles.container_inline : undefined,
@@ -118,14 +120,20 @@ function OptionsList({
   selectedValue,
 }: ItemListProps) {
   return (
-    <div className={[styles.options_container].join(' ')}>
+    <div role={'listbox'} className={[styles.options_container].join(' ')}>
       {filteredOptions.length > 0 ? (
         filteredOptions.map(({ label, value }) => (
-          <div
-            role={'listitem'}
+          <button
+            value={value}
+            role="option"
             onClick={() => handleOptionClick(label, value)}
             key={value}
             className={styles.option}
+            aria-selected={Boolean(
+              Array.isArray(selectedValue)
+                ? selectedValue?.find((item) => item.value === value)
+                : selectedValue?.value === value
+            )}
           >
             {selectedValue && Array.isArray(selectedValue) ? (
               <>
@@ -146,7 +154,7 @@ function OptionsList({
                 )}
               </>
             )}
-          </div>
+          </button>
         ))
       ) : (
         <div role={'listitem'} className={styles.option}>

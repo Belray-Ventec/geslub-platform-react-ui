@@ -40,6 +40,7 @@ export function AccordionItem({
           className={isExpanded ? styles.angledown : undefined}
           size={20}
           icon="AngleUp"
+          ariaLabel="Expand"
         />
       </button>
       <div
