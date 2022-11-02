@@ -280,7 +280,12 @@ function Actions<T>({
         </Button>
       )}
       {showAdminOptions && (
-        <DropDown position="left" themeColor={themeColor} title={<Ellipsis />}>
+        <DropDown
+          name="adminOptions"
+          position="left"
+          themeColor={themeColor}
+          title={<Ellipsis />}
+        >
           <Button
             disabled={!isRowEnabled}
             ariaLabel="editItem"

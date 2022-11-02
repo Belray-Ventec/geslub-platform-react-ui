@@ -1,8 +1,9 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ButtonHTMLAttributes, ReactNode, useState } from 'react';
 import styles from './dropDown.module.css';
 import { Button } from '../button';
 
-interface DropDownProps {
+interface DropDownProps
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'title'> {
   title: string | JSX.Element;
   children: ReactNode;
   themeColor: string | undefined;
@@ -16,12 +17,18 @@ export default function DropDown({
   onlyResponsive,
   themeColor,
   position = 'left',
+  ...props
 }: DropDownProps): JSX.Element {
   const [show, setShow] = useState(false);
 
   if (!onlyResponsive) {
     return (
-      <div onClick={() => setShow(!show)} className={styles.drop_down}>
+      <button
+        aria-expanded={show}
+        onClick={() => setShow(!show)}
+        className={styles.drop_down}
+        {...props}
+      >
         <span>{title}</span>
         <div
           className={[
@@ -31,7 +38,7 @@ export default function DropDown({
         >
           {children}
         </div>
-      </div>
+      </button>
     );
   }
 
