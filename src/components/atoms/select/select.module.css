@@ -109,6 +109,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: none;
 }
 
 .option:hover {

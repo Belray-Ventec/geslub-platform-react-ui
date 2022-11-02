@@ -21,15 +21,15 @@ describe('Testing Accordion', () => {
 
   it('Debe renderizar el componente mostrando el titulo de Belray y Ventec', () => {
     setup();
-    const belrayAccordionItem = screen.getByRole('button', { name: 'Belray' });
-    const ventecAccordionItem = screen.getByRole('button', { name: 'Ventec' });
+    const belrayAccordionItem = screen.getByRole('button', { name: /Belray/i });
+    const ventecAccordionItem = screen.getByRole('button', { name: /Ventec/i });
     expect(belrayAccordionItem).toBeInTheDocument();
     expect(ventecAccordionItem).toBeInTheDocument();
   });
 
   it('Debe mostrar el contenido del Acordeon al presionar sobre Belray', async () => {
     setup();
-    const belrayAccordionItem = screen.getByRole('button', { name: 'Belray' });
+    const belrayAccordionItem = screen.getByRole('button', { name: /Belray/i });
     fireEvent.click(belrayAccordionItem);
     const contenido = await screen.findByText('Contenido Belray');
     expect(contenido).toBeInTheDocument();

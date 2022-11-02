@@ -95,6 +95,7 @@ export default function Paginator<T>({
           className={[styles.previous, styles.previous_text].join(' ')}
         >
           <AngleLeft />
+          <span className={styles.visually_hidden}>previous</span>
         </button>
         <button
           aria-label="next"
@@ -104,6 +105,7 @@ export default function Paginator<T>({
           className={[styles.next, styles.next_text].join(' ')}
         >
           <AngleLeft />
+          <span className={styles.visually_hidden}>next</span>
         </button>
       </div>
       <Paragraph size="xs">
