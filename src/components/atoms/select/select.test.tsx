@@ -11,17 +11,17 @@ describe('Testing Select', () => {
 
   it('Debe mostrar Select', () => {
     setup();
-    const select = screen.getByRole('listbox');
+    const select = screen.getByRole('combobox');
     expect(select).toBeInTheDocument();
   });
 
   it('Debe seleccionar la opcion "Opcion 2" en el select', async () => {
     setup();
-    const select = screen.getByRole('listbox');
+    const select = screen.getByRole('combobox');
 
     fireEvent.click(select);
 
-    const items = await screen.findAllByRole('listitem');
+    const items = await screen.findAllByRole('option');
 
     expect(items[1]).toHaveTextContent('opcion 2');
 
@@ -32,7 +32,7 @@ describe('Testing Select', () => {
 
   it('Debe tener el label opcion 3 seleccionado como valor inicial', () => {
     setup({ label: 'opcion 3', value: 3 });
-    const select = screen.getByRole('listbox');
+    const select = screen.getByRole('combobox');
     expect(select).toHaveTextContent('opcion 3');
   });
 });
