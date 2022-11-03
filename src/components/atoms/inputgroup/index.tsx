@@ -25,11 +25,24 @@ export function InputGroup({
       ].join(' ')}
     >
       {arrayOfChildren.map((children) =>
-        cloneElement(children as React.ReactElement, {
-          size: size,
-          isError: isError,
-          isRequired: isRequired,
-        })
+        React.isValidElement(children) &&
+        typeof children.type !== 'string' &&
+        children.type.name === 'Input'
+          ? cloneElement(children as React.ReactElement, {
+              size: size,
+              isError: isError,
+              isRequired: isRequired,
+            })
+          : (React.isValidElement(children) &&
+              typeof children.type !== 'string' &&
+              children.type.name === 'InputAddon') ||
+            (React.isValidElement(children) &&
+              typeof children.type !== 'string' &&
+              children.type.name === 'InputElement')
+          ? cloneElement(children as React.ReactElement, {
+              size: size,
+            })
+          : cloneElement(children as React.ReactElement)
       )}
     </div>
   );
