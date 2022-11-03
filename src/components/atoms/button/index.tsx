@@ -17,7 +17,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   rounded?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
-  onClick?: () => void;
   children: React.ReactNode;
   style?: React.CSSProperties;
   isLoading?: boolean;
@@ -32,7 +31,6 @@ export function Button({
   primary = false,
   rounded = false,
   disabled = false,
-  onClick,
   color,
   fullWidth = false,
   children,
@@ -57,9 +55,8 @@ export function Button({
 
   return (
     <button
-      aria-label={ariaLabel ? ariaLabel : 'button'}
+      aria-label={ariaLabel ? ariaLabel : undefined}
       disabled={disabled}
-      onClick={onClick}
       type="button"
       className={[
         styles.button,
