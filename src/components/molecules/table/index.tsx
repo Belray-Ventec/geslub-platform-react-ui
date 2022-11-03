@@ -256,7 +256,10 @@ function Actions<T>({
             backgroundColor={stylesInline(themeColor).actionsButton}
             primary
             key={index}
-            onClick={(): void => action.callback(item)}
+            onClick={(e): void => {
+              e.stopPropagation();
+              action.callback(item);
+            }}
           >
             {action.label}
           </Button>
@@ -264,11 +267,12 @@ function Actions<T>({
       {showDisabled && (
         <Button
           style={{ display: 'flex', gap: '0.3rem' }}
-          onClick={() =>
+          onClick={(e) => {
+            e.stopPropagation();
             isRowEnabled && onDisabled
               ? onDisabled(item)
-              : onEnabled && onEnabled(item)
-          }
+              : onEnabled && onEnabled(item);
+          }}
           color={isRowEnabled ? '#e74c3c' : '#2ecc71'}
         >
           {isRowEnabled ? (
@@ -281,7 +285,6 @@ function Actions<T>({
       )}
       {showAdminOptions && (
         <DropDown
-          name="adminOptions"
           position="left"
           themeColor={themeColor}
           title={

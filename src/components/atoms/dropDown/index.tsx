@@ -1,9 +1,9 @@
-import React, { ButtonHTMLAttributes, ReactNode, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import styles from './dropDown.module.css';
 import { Button } from '../button';
+import { HTMLAttributes } from 'react';
 
-interface DropDownProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'title'> {
+interface DropDownProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
   title: string | JSX.Element;
   children: ReactNode;
   themeColor: string | undefined;
@@ -23,9 +23,12 @@ export default function DropDown({
 
   if (!onlyResponsive) {
     return (
-      <button
+      <div
         aria-expanded={show}
-        onClick={() => setShow(!show)}
+        onClick={(e) => {
+          e.stopPropagation();
+          setShow(!show);
+        }}
         className={styles.drop_down}
         {...props}
       >
@@ -38,7 +41,7 @@ export default function DropDown({
         >
           {children}
         </div>
-      </button>
+      </div>
     );
   }
 
