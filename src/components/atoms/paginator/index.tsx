@@ -20,7 +20,9 @@ export default function Paginator<T>({
   showPages,
   themeColor,
 }: PaginatorProps<T>): JSX.Element {
-  const [pagesList] = useState(Array.from(Array(paginator.totalPages).keys()));
+  const [pagesList, setPageList] = useState(
+    Array.from(Array(paginator.totalPages).keys())
+  );
   const [arrOfPages, setArrOfPages] = useState<(string | number)[]>([]);
 
   const handlePage = (item: number | string) => {
@@ -66,7 +68,11 @@ export default function Paginator<T>({
     }
 
     setArrOfPages(tempArrPages);
-  }, [paginator.page, paginator.totalPages]);
+  }, [paginator.page, pagesList]);
+
+  useEffect(() => {
+    setPageList(Array.from(Array(paginator.totalPages).keys()));
+  }, [paginator.totalPages]);
 
   return (
     <div className={styles.container_paginator}>
