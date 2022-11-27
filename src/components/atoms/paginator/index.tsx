@@ -66,7 +66,7 @@ export default function Paginator<T>({
     }
 
     setArrOfPages(tempArrPages);
-  }, [paginator.page]);
+  }, [paginator.page, paginator.totalPages]);
 
   return (
     <div className={styles.container_paginator}>
