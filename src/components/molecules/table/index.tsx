@@ -26,7 +26,7 @@ export function Table<T>({
   itemsPerPage = 5,
   actions = [],
   caption,
-  showHeaderButtons,
+  showHeaderButtons = false,
   showInfo,
   showDownload,
   showShare,
@@ -88,7 +88,7 @@ export function Table<T>({
           {caption && <caption className={styles.caption}>{caption}</caption>}
           <thead>
             <tr style={stylesInline(themeColor).trStyle}>
-              {paginator.data.length > 0 && <th></th>}
+              {paginator.data.length > 0 && showHeaderButtons && <th></th>}
               {columns.map(({ label, getValue }) => (
                 <Th
                   key={label}
@@ -128,15 +128,17 @@ export function Table<T>({
                   }
                   key={getRowKey(item)}
                 >
-                  <td>
-                    <input
-                      readOnly
-                      disabled={getRowIsEnabled(item) === false}
-                      id={`belCheck${index}`}
-                      checked={selected.includes(item)}
-                      type="checkbox"
-                    />
-                  </td>
+                  {showHeaderButtons && (
+                    <td>
+                      <input
+                        readOnly
+                        disabled={getRowIsEnabled(item) === false}
+                        id={`belCheck${index}`}
+                        checked={selected.includes(item)}
+                        type="checkbox"
+                      />
+                    </td>
+                  )}
                   {columns.map(({ getValue }, idx) => (
                     <td key={idx}>
                       {React.isValidElement(getValue(item))
