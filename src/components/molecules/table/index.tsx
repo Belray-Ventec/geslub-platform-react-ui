@@ -23,7 +23,7 @@ export function Table<T>({
   getRowKey,
   themeColor,
   showPages = false,
-  itemsPerPage = 5,
+  itemsPerPage = 10,
   actions = [],
   caption,
   showHeaderButtons = false,
