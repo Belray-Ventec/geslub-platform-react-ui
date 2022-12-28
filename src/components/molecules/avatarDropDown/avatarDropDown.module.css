@@ -7,7 +7,16 @@
 }
 .showOptionsContainer{
     position: relative;
-    width: fit-content;
+    transition: all 0.25s ease-in-out;
+}
+.showOptionsContainer:hover .scaleImg {
+    filter: brightness(0.9);
+    scale: 1.1;
+    transition: all 0.25s ease-in-out;
+ 
+}
+.showOptionsContainer img {
+    transition: all 0.25s ease-in-out;
 }
 
 .content {
@@ -21,7 +30,8 @@
     color: #000;
     padding: 1rem 1rem;
     right: 0;
-    top: 100%;
+    top: calc(100% + 0.5rem);
+    min-width: 11rem;
     border-radius: 6px;
     border: 1px solid var(--colors-borderGray);
     box-shadow: 0 4px 6px -1px rgb(17 24 39 / 10%),0 2px 4px -1px rgb(17 24 39 / 5%);
@@ -31,7 +41,6 @@
 
 .right {
     left: 0;
-    width: fit-content;
 }
 
 @keyframes opacityIn {
@@ -53,3 +62,15 @@
     z-index: 100;
     animation: opacityIn 0.25s ease-in-out;
 }
+
+@media screen and (max-width: 640px) {
+    .content {
+        width: 100%;
+        top: calc(100% + 0.5rem);
+    }
+    .showOptionsContainer{
+        position: static;
+    }
+}
+
+    

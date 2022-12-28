@@ -4,7 +4,14 @@ import PropTypes from 'prop-types';
 import { AvatarProps, Size } from './types';
 import { firstLetters, sizes } from './const';
 
-export function Avatar({ title, src, size, children }: AvatarProps) {
+export function Avatar({
+  title,
+  src,
+  size,
+  children,
+  className,
+  ...props
+}: AvatarProps) {
   const [isError, setisError] = useState(false);
 
   useEffect(() => {
@@ -17,8 +24,9 @@ export function Avatar({ title, src, size, children }: AvatarProps) {
         <img
           alt={title}
           title={title}
-          className={[styles.avatar, sizes[size as Size]].join(' ')}
+          className={[styles.avatar, sizes[size as Size], className].join(' ')}
           src={src}
+          {...props}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null;
             setisError(true);
