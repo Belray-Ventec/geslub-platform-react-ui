@@ -70,16 +70,10 @@
 }
 
 .modal_header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: .5rem;
     border-bottom: 1px solid #ccc;
-    font-size: .9rem;
-    font-family: 'Nexa', sans-serif;
     background-color: #163F65;	
+    display: flex;
     color: #fff;
-    gap: 1rem;
 }
 
 .modal_close {
@@ -95,20 +89,51 @@
     color: var(--color-primary);
 }
 
+.modal_header_title_close{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    right: 0;
+    top: 0;
+}
+
+.modal_header_title_close:hover {
+    background: rgba(0, 0, 0, 0.1);
+    filter: brightness(0.9);
+
+}
+
+.modal_header_title{
+    flex:9;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-inline-start: var(--padding-6);
+    padding-inline-end: var(--padding-6);
+    padding-top: var(--padding-4);
+    padding-bottom: var(--padding-4);
+}
+
 .modal_header h2 {
     margin: 0;
     font-family: sans-serif;
     font-weight: 200;
-    white-space: nowrap;
+    white-space: normal;
     text-overflow: ellipsis;
     overflow: hidden;
     
 }
 .modal_body {
-    padding-inline-start: 1.5rem;
-    padding-inline-end: 1.5rem;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
+    padding-inline-start: var(--padding-6);
+    padding-inline-end: var(--padding-6);
+    padding-top: var(--padding-4);
+    padding-bottom: var(--padding-4);
     word-wrap: break-word;
     max-height: calc(100% - 7.5rem);
     overflow-y: auto;

@@ -3,6 +3,7 @@ import styles from './modal.module.css';
 import { modalPosition, modalSize } from './const';
 import { ModalProps } from './types';
 import { Heading } from '../heading';
+import { Xmark } from '../../../assets/icons';
 
 export function Modal({
   title,
@@ -18,12 +19,14 @@ export function Modal({
   themeColor,
   showOk,
   className,
+  showCloseIcon = true,
+  showFooter = false,
   style,
   ...props
 }: ModalProps) {
   if (isOpen) {
     return (
-      <div
+      <section
         role="dialog"
         className={[
           styles.modal_position,
@@ -41,42 +44,55 @@ export function Modal({
           style={{ ...style }}
           className={[styles.modal, modalSize[size]].join(' ')}
         >
-          <div
+          <header
             style={{ backgroundColor: themeColor ?? undefined }}
             className={styles.modal_header}
           >
-            <Heading as="h2" size="4xs">
+            <Heading
+              title={title}
+              className={styles.modal_header_title}
+              as="h2"
+              size="4xs"
+            >
               {title}
             </Heading>
-          </div>
+            <button
+              onClick={() => onRequestClose()}
+              className={styles.modal_header_title_close}
+            >
+              <Xmark size={25} fill="#fff" />
+            </button>
+          </header>
           <div className={styles.modal_body}>{children}</div>
-          <div className={styles.modal_footer}>
-            {showOk ? (
+          {showFooter && (
+            <div className={styles.modal_footer}>
+              {showOk ? (
+                <button
+                  style={{ backgroundColor: themeColor ?? undefined }}
+                  className={styles.modal_ok}
+                  onClick={() => {
+                    onOk && onOk();
+                    onRequestClose();
+                  }}
+                >
+                  {okText}
+                </button>
+              ) : (
+                <div></div>
+              )}
               <button
-                style={{ backgroundColor: themeColor ?? undefined }}
-                className={styles.modal_ok}
+                className={styles.modal_cancel}
                 onClick={() => {
-                  onOk && onOk();
+                  onCancel && onCancel();
                   onRequestClose();
                 }}
               >
-                {okText}
+                {cancelText}
               </button>
-            ) : (
-              <div></div>
-            )}
-            <button
-              className={styles.modal_cancel}
-              onClick={() => {
-                onCancel && onCancel();
-                onRequestClose();
-              }}
-            >
-              {cancelText}
-            </button>
-          </div>
+            </div>
+          )}
         </div>
-      </div>
+      </section>
     );
   }
 
