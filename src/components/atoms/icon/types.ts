@@ -34,7 +34,29 @@ export type iconsType =
   | 'PdfSend'
   | 'CircleCheck'
   | 'Chile'
-  | 'AngleUp';
+  | 'AngleUp'
+  | 'Articulos'
+  | 'Certificados'
+  | 'Coas'
+  | 'Comentarios'
+  | 'Companias'
+  | 'DepartamentoTecnico'
+  | 'EnsayoLaboratorio'
+  | 'Equipos'
+  | 'Especificaciones'
+  | 'InformacionTecnica'
+  | 'InputActividad'
+  | 'Marcas'
+  | 'Marketing'
+  | 'Oem'
+  | 'Peligro'
+  | 'ReferenciaAplicaciones'
+  | 'RevistasTecnicas'
+  | 'Rss'
+  | 'SustitucionProducto'
+  | 'TipoEquipos'
+  | 'Webinars'
+  | 'Calculator';
 
 export interface IconProps {
   color?: string;
