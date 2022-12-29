@@ -21,7 +21,33 @@ import AngleLeft from '../../../assets/icons/AngleLeft';
 import Video from '../../../assets/icons/Video';
 import Tag from '../../../assets/icons/Tag';
 import { iconsType } from './types';
-import { Check, Seeker, Trash } from '../../../assets/icons';
+import {
+  Check,
+  Seeker,
+  Trash,
+  Articulos,
+  Certificados,
+  Coas,
+  Comentarios,
+  Companias,
+  DepartamentoTecnico,
+  EnsayoLaboratorio,
+  Equipos,
+  Especificaciones,
+  InformacionTecnica,
+  InputActividad,
+  Marcas,
+  Marketing,
+  Oem,
+  Peligro,
+  ReferenciaAplicaciones,
+  RevistasTecnicas,
+  SustitucionProducto,
+  Rss,
+  TipoEquipos,
+  Webinars,
+  Calculator,
+} from '../../../assets/icons';
 import { Pdf } from '../../../assets/icons/Pdf';
 import { GeneratePdf } from '../../../assets/icons/GeneratePdf';
 import { Mp4 } from '../../../assets/icons/Mp4';
@@ -68,6 +94,28 @@ export const icons: iconsType[] = [
   'CircleCheck',
   'Chile',
   'AngleUp',
+  'Articulos',
+  'Certificados',
+  'Coas',
+  'Comentarios',
+  'Companias',
+  'DepartamentoTecnico',
+  'EnsayoLaboratorio',
+  'Equipos',
+  'Especificaciones',
+  'InformacionTecnica',
+  'InputActividad',
+  'Marcas',
+  'Marketing',
+  'Oem',
+  'Peligro',
+  'ReferenciaAplicaciones',
+  'RevistasTecnicas',
+  'Rss',
+  'SustitucionProducto',
+  'TipoEquipos',
+  'Webinars',
+  'Calculator',
 ];
 
 export const iconList = (size: number, color: string, src?: string) => {
@@ -108,5 +156,30 @@ export const iconList = (size: number, color: string, src?: string) => {
     CircleCheck: <CircleCheck size={size} color={color} />,
     Chile: <Chile size={size} color={color} />,
     AngleUp: <AngleUp size={size} color={color} />,
+    Articulos: <Articulos size={size} color={color} />,
+    Certificados: <Certificados size={size} color={color} />,
+    Coas: <Coas size={size} color={color} />,
+    Comentarios: <Comentarios size={size} color={color} />,
+    Companias: <Companias size={size} color={color} />,
+    DepartamentoTecnico: <DepartamentoTecnico size={size} color={color} />,
+    EnsayoLaboratorio: <EnsayoLaboratorio size={size} color={color} />,
+    Equipos: <Equipos size={size} color={color} />,
+    Especificaciones: <Especificaciones size={size} color={color} />,
+    InformacionTecnica: <InformacionTecnica size={size} color={color} />,
+    InputActividad: <InputActividad size={size} color={color} />,
+    Marcas: <Marcas size={size} color={color} />,
+    Marketing: <Marketing size={size} color={color} />,
+    Oem: <Oem size={size} color={color} />,
+    Peligro: <Peligro size={size} color={color} />,
+    ReferenciaAplicaciones: (
+      <ReferenciaAplicaciones size={size} color={color} />
+    ),
+
+    RevistasTecnicas: <RevistasTecnicas size={size} color={color} />,
+    Rss: <Rss size={size} color={color} />,
+    SustitucionProducto: <SustitucionProducto size={size} color={color} />,
+    TipoEquipos: <TipoEquipos size={size} color={color} />,
+    Webinars: <Webinars size={size} color={color} />,
+    Calculator: <Calculator size={size} color={color} />,
   };
 };

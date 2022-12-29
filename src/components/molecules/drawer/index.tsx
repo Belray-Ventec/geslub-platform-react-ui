@@ -8,6 +8,7 @@ import useWindowSize from '../../../hooks/useWindowSize';
 import { Icon } from '../../atoms/icon';
 import { DrawerItemProps, DrawerProps, DrawerSubItemProps } from './types';
 import { stylesInline } from './const';
+import { useEffect } from 'react';
 
 export function Drawer({
   logo,
@@ -156,6 +157,10 @@ export function DrawerSubItem({
   onStateChange,
 }: DrawerSubItemProps) {
   const [isSubOpen, setIsSubOpen] = useState(false);
+
+  useEffect(() => {
+    !isOpen && setIsSubOpen(false);
+  }, [isOpen]);
 
   return (
     <div
