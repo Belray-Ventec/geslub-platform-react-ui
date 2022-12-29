@@ -16,6 +16,7 @@ describe('Testing Modal', () => {
         onRequestClose={() => onCloseFn()}
         showOk
         onOk={() => onOkFn()}
+        showFooter
         onCancel={() => onCancelFn()}
         cancelText="Cancelar"
         okText="Actualizar"
