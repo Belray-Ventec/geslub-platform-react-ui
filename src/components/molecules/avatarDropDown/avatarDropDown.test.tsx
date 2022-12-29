@@ -11,8 +11,6 @@ describe('Testing AvatarDropDown', () => {
     render(
       <AvatarDropDown
         avatarTitle="Brian Cifuentes"
-        badgeColor="green"
-        color="#000"
         right
         size="md"
         src="https://i.imgur.com/Tlk89Es.jpg"
@@ -42,7 +40,7 @@ describe('Testing AvatarDropDown', () => {
 
   it('Debe renderizar el AvatarDropDown con el texto "Ajustes Personales" al presionar en el boton', async () => {
     setup();
-    const button = screen.getByLabelText('arrow');
+    const button = screen.getByAltText('Brian Cifuentes');
     fireEvent.click(button);
 
     const contentAvatarDropDown = await screen.findByText('Ajustes Personales');

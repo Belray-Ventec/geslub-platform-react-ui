@@ -9,6 +9,9 @@
 .showOptionsContainer{
     position: relative;
     transition: all 0.25s ease-in-out;
+    background: none;
+    border: none;
+    outline: none;
 }
 .showOptionsContainer:hover .scaleImg {
     filter: brightness(0.9);
@@ -32,7 +35,7 @@
     padding: 1rem 1rem;
     right: 0;
     top: calc(100% + 0.5rem);
-    min-width: 11rem;
+    min-width: 20rem;
     border-radius: 6px;
     border: 1px solid var(--colors-borderGray);
     box-shadow: 0 4px 6px -1px rgb(17 24 39 / 10%),0 2px 4px -1px rgb(17 24 39 / 5%);
@@ -68,9 +71,11 @@
     .content {
         width: 100%;
         top: calc(100% + 0.5rem);
+        min-width: auto;
     }
     .showOptionsContainer{
         position: static;
+        
     }
 }
 
