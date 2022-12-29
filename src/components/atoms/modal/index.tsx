@@ -48,14 +48,11 @@ export function Modal({
             style={{ backgroundColor: themeColor ?? undefined }}
             className={styles.modal_header}
           >
-            <Heading
-              title={title}
-              className={styles.modal_header_title}
-              as="h2"
-              size="4xs"
-            >
-              {title}
-            </Heading>
+            <div className={styles.modal_header_title}>
+              <Heading title={title} as="h2" size="4xs">
+                {title}
+              </Heading>
+            </div>
             <button
               onClick={() => onRequestClose()}
               className={styles.modal_header_title_close}
