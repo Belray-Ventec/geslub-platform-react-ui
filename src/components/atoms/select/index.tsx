@@ -20,6 +20,22 @@ export function Select({
   placeholder = 'Seleccione',
 }: SelectProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [value, setValue] = React.useState('');
+  const [visible, setVisible] = React.useState(false);
+  const [width, setWidth] = React.useState<number>(0);
+  const measurer = React.useRef<HTMLElement>(null);
+
+  React.useEffect(() => {
+    setVisible(true);
+  }, [value]);
+
+  React.useLayoutEffect(() => {
+    if (visible && measurer?.current) {
+      const rect = measurer.current.getBoundingClientRect();
+      setWidth(rect.width + 100);
+      setVisible(false);
+    }
+  }, [visible]);
 
   const { handleOptionClick, removeAllTags, selectedValue } = useSelectValue({
     multiple,
@@ -34,6 +50,10 @@ export function Select({
 
   return (
     <>
+      <span style={{ width: 'fit-content' }} ref={measurer}>
+        {visible && value}
+        {value.length === 0 && visible && placeholder}
+      </span>
       <div
         tabIndex={0}
         onClick={(e) => {
@@ -61,10 +81,16 @@ export function Select({
                   />
                 </InputAddon>
                 <Input
+                  value={value}
+                  style={{ width: width }}
                   autoFocus
                   placeholder="Buscar"
                   onClick={(e) => e.stopPropagation()}
-                  onChange={(event) => handleSearch(event.target.value)}
+                  onChange={(event) => {
+                    const { value } = event.target;
+                    setValue(value);
+                    handleSearch(event.target.value);
+                  }}
                   variant="unstyled"
                 />
               </InputGroup>
@@ -93,7 +119,7 @@ export function Select({
             )}
           </div>
           <div className={styles.arrow_container}>
-            <Icon icon="AngleDown" color="#d82f11" size={iconSizes[size]} />
+            <Icon icon="AngleDown" size={iconSizes[size] * 0.7} />
           </div>
         </div>
         {isOpen && (

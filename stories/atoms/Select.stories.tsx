@@ -10,7 +10,12 @@ export default {
   },
 } as ComponentMeta<typeof Select>;
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+const Template: ComponentStory<typeof Select> = (args) => (
+  <>
+    <Select {...args} />
+    <Select {...args} />
+  </>
+);
 
 export const select = Template.bind({});
 export const multiple = Template.bind({});
