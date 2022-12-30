@@ -7,7 +7,7 @@
 
 .select {
     background-color: var(--colors-white);
-    border: 1px solid var(--colors-borderGray);
+    border: 1px solid #E2E8F0;
     color: var(--paragraph-colors-base);
     border-radius: var(--border-radius-md);
     width: 100%;
@@ -55,7 +55,6 @@
 .container {
     position: relative;
     width: 100%;
-    z-index: 11;
 }
 
 .container_inline {
@@ -73,6 +72,7 @@
     position: absolute;
     overflow: auto;
     max-height: 300px;
+    z-index: 15;
 }
 
 .options_container::-webkit-scrollbar {
