@@ -5,6 +5,10 @@
     padding: 20px;
 }
 
+td > div {
+    position: relative;
+}
+
 .table_container::-webkit-scrollbar {
     width: 12px;
     height: 12px;
