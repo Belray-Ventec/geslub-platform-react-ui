@@ -143,7 +143,7 @@ export function Table<T>({
                     <td key={idx}>
                       {React.isValidElement(getValue(item))
                         ? getValue(item)
-                        : String(getValue(item) || `Sin Información`)}
+                        : String(getValue(item) ?? `Sin Información`)}
                     </td>
                   ))}
                   <td>
