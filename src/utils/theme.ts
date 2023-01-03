@@ -4,12 +4,12 @@ import { extendTheme } from '@chakra-ui/react';
 const Button: ComponentStyleConfig = {
   variants: {
     primary: {
-      bg: 'secondary',
-      color: 'onSecondary',
-    },
-    secondary: {
       bg: 'primary',
       color: 'onPrimary',
+    },
+    secondary: {
+      bg: 'secondary',
+      color: 'onSecondary',
     },
     danger: {
       bg: 'danger',

@@ -12,10 +12,12 @@ module.exports = {
   features: {
     emotionAlias: false,
   },
+  framework: '@storybook/react',
   // https://storybook.js.org/docs/react/configure/typescript#mainjs-configuration
   typescript: {
-    check: true, // type-check stories during Storybook build
-    reactDocgen: false
+    check: true,
+    checkOptions: {},
+    reactDocgen: false,
   },
   staticDirs: ['../src/public'],
   webpackFinal: async (config) => {
