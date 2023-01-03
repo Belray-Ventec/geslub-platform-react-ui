@@ -95,24 +95,26 @@ export default function Paginator<T>({
             ))}
           </div>
         )}
-        <button
-          aria-label="previous"
-          onClick={(): void => previous()}
-          className={[styles.previous, styles.previous_text].join(' ')}
-        >
-          <AngleLeft />
-          <span className={styles.visually_hidden}>previous</span>
-        </button>
-        <button
-          aria-label="next"
-          onClick={(): void => {
-            next();
-          }}
-          className={[styles.next, styles.next_text].join(' ')}
-        >
-          <AngleLeft />
-          <span className={styles.visually_hidden}>next</span>
-        </button>
+        <div className={styles.arrows_container}>
+          <button
+            aria-label="previous"
+            onClick={(): void => previous()}
+            className={[styles.previous, styles.previous_text].join(' ')}
+          >
+            <AngleLeft />
+            <span className={styles.visually_hidden}>previous</span>
+          </button>
+          <button
+            aria-label="next"
+            onClick={(): void => {
+              next();
+            }}
+            className={[styles.next, styles.next_text].join(' ')}
+          >
+            <AngleLeft />
+            <span className={styles.visually_hidden}>next</span>
+          </button>
+        </div>
       </div>
       <Paragraph size="xs">
         Mostrando {paginator.totalPages > 0 ? firstPage(paginator) : '0'} a{' '}

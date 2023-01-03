@@ -5,10 +5,11 @@
     padding-right: 20px;
     align-items: flex-end;
     font-family: sans-serif;
+    gap: .8rem;
 }
 .container_pages{
     display: flex;
-    gap: 5px;
+    gap: .8rem;
 }
 .previous, .next{
     cursor: pointer;
@@ -39,7 +40,7 @@
 }
 .pages{
     display: flex;
-    gap: 5px;
+    gap: .3rem;
     flex-wrap: wrap;
 }
 .page_link{
@@ -88,3 +89,18 @@
     white-space: nowrap; 
     width: 1px; 
   }
+  .arrows_container {
+    display: flex;
+    gap: 0.2rem;
+  }
+
+  
+
+  @media screen and (max-width: 440px) {
+    .container_pages {
+        flex-direction: column;
+        align-items: center;
+    }
+  }
+    
+  
