@@ -67,7 +67,6 @@ td > div {
     background-color: #f2f2f2;
 }
 .table tbody tr:hover {
-    filter: brightness(0.95);
     transition: all 0.3s ease-out;
 }
 .not_info_found{
@@ -113,3 +112,11 @@ td > div {
     white-space: nowrap; 
     width: 1px; 
   }
+  .container_adminOptions{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+

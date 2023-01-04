@@ -18,6 +18,7 @@ export { Avatar } from './components/atoms/avatar';
 export { AvatarBadge } from './components/atoms/avatarBadge';
 export { Header } from './components/molecules/header';
 export { AvatarDropDown } from './components/molecules/avatarDropDown';
+export { DropDown } from './components/atoms/dropDown';
 export { Divider } from './components/atoms/divider';
 export { Select } from './components/atoms/select';
 export { Container } from './components/atoms/container';

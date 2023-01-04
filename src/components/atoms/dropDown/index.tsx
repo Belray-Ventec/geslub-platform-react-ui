@@ -1,67 +1,28 @@
-import React, { ReactNode, useState } from 'react';
-import styles from './dropDown.module.css';
-import { Button } from '../button';
+import React, { ReactNode } from 'react';
 import { HTMLAttributes } from 'react';
+import { Menu, MenuButton, MenuList } from '@chakra-ui/menu';
 
 interface DropDownProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
   title: string | JSX.Element;
   children: ReactNode;
-  themeColor: string | undefined;
-  position: 'left' | 'right';
-  onlyResponsive?: boolean;
+  disabled?: boolean;
+  width?: string;
 }
 
-export default function DropDown({
+export function DropDown({
   title,
   children,
-  onlyResponsive,
-  themeColor,
-  position = 'left',
-  ...props
+  disabled = false,
+  width,
 }: DropDownProps): JSX.Element {
-  const [show, setShow] = useState(false);
-
-  if (!onlyResponsive) {
-    return (
-      <div
-        aria-expanded={show}
-        onClick={(e) => {
-          e.stopPropagation();
-          setShow(!show);
-        }}
-        className={styles.drop_down}
-        {...props}
-      >
-        <span>{title}</span>
-        <div
-          className={[
-            !show ? styles.drop_down_content : styles.drop_down_content_hover,
-            position === 'left' ? styles.left : styles.right,
-          ].join('')}
-        >
-          {children}
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className={styles.drop_down_container}>
-      <div
-        onClick={(): void => setShow(!show)}
-        className={styles.drop_down_responsive}
-      >
-        <Button backgroundColor={themeColor ? themeColor : '#34495e'} primary>
-          {title}
-        </Button>
-      </div>
-      <div
-        className={
-          !show ? styles.drop_down_content : styles.drop_down_content_hover
-        }
-      >
+    <Menu closeOnBlur>
+      <MenuButton disabled={disabled} onClick={(e) => e.stopPropagation()}>
+        {title}
+      </MenuButton>
+      <MenuList minW={0} width={width ? width : undefined}>
         {children}
-      </div>
-    </div>
+      </MenuList>
+    </Menu>
   );
 }

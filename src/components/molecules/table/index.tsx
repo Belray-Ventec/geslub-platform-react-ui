@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import usePaginate from '../../../hooks/usePaginate';
 import { Button } from '../../atoms/button';
-import DropDown from '../../atoms/dropDown';
+import { DropDown } from '../../atoms/dropDown';
 import {
   Ellipsis,
   ShareNodes,
@@ -16,6 +16,7 @@ import { Sort } from '../../atoms/sort';
 import { Icon } from '../../atoms/icon';
 import { ActionsProps, TableProps, HeaderButtonProps, ThProps } from './types';
 import { stylesInline } from './const';
+import Tooltip from '../../atoms/tooltip';
 
 export function Table<T>({
   columns,
@@ -287,8 +288,7 @@ function Actions<T>({
       )}
       {showAdminOptions && (
         <DropDown
-          position="left"
-          themeColor={themeColor}
+          disabled={!isRowEnabled}
           title={
             <>
               <Ellipsis />
@@ -296,27 +296,29 @@ function Actions<T>({
             </>
           }
         >
-          <Button
-            disabled={!isRowEnabled}
-            ariaLabel="editItem"
-            onClick={(): void => onEdit && onEdit(item)}
-            backgroundColor={themeColor}
-          >
-            <PenToSquare
-              fill={stylesInline(themeColor).penToSquare}
-              size={20}
-            />
-            <span className={styles.visually_hidden}>editItem</span>
-          </Button>
-          <Button
-            disabled={!isRowEnabled}
-            ariaLabel="deleteItem"
-            onClick={(): void => onDeleteItem && onDeleteItem(item)}
-            backgroundColor={themeColor}
-          >
-            <Xmark fill={stylesInline(themeColor).penToSquare} size={20} />
-            <span className={styles.visually_hidden}>deleteItem</span>
-          </Button>
+          <div className={styles.container_adminOptions}>
+            <Button
+              disabled={!isRowEnabled}
+              ariaLabel="editItem"
+              onClick={(): void => onEdit && onEdit(item)}
+              backgroundColor={themeColor}
+            >
+              <PenToSquare
+                fill={stylesInline(themeColor).penToSquare}
+                size={20}
+              />
+              <span className={styles.visually_hidden}>editItem</span>
+            </Button>
+            <Button
+              disabled={!isRowEnabled}
+              ariaLabel="deleteItem"
+              onClick={(): void => onDeleteItem && onDeleteItem(item)}
+              backgroundColor={themeColor}
+            >
+              <Xmark fill={stylesInline(themeColor).penToSquare} size={20} />
+              <span className={styles.visually_hidden}>deleteItem</span>
+            </Button>
+          </div>
         </DropDown>
       )}
     </div>
@@ -338,26 +340,34 @@ function HeaderButtons<T>({
         backgroundColor={stylesInline(themeColor).headerButtons}
         onClick={() => add && add()}
       >
-        <Add size={20} fill={stylesInline(themeColor).penToSquare} />
-        <span className={styles.visually_hidden}>add</span>
+        <Tooltip position="up" text="Nuevo">
+          <Add size={20} fill={stylesInline(themeColor).penToSquare} />
+          <span className={styles.visually_hidden}>add</span>
+        </Tooltip>
       </Button>
+
       <Button
         ariaLabel="share"
         primary
         backgroundColor={stylesInline(themeColor).headerButtons}
         onClick={() => share && share()}
       >
-        <ShareNodes size={20} fill={stylesInline(themeColor).penToSquare} />
-        <span className={styles.visually_hidden}>share</span>
+        <Tooltip position="up" text="Compartir">
+          <ShareNodes size={20} fill={stylesInline(themeColor).penToSquare} />
+          <span className={styles.visually_hidden}>share</span>
+        </Tooltip>
       </Button>
+
       <Button
         ariaLabel="delete"
         onClick={(): void => onDelete && onDelete(selected)}
         primary
         backgroundColor={stylesInline(themeColor).headerButtons}
       >
-        <Xmark size={20} fill={stylesInline(themeColor).penToSquare} />
-        <span className={styles.visually_hidden}>delete</span>
+        <Tooltip position="up" text="Eliminar">
+          <Xmark size={20} fill={stylesInline(themeColor).penToSquare} />
+          <span className={styles.visually_hidden}>delete</span>
+        </Tooltip>
       </Button>
     </div>
   );
