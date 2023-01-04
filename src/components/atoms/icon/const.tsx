@@ -59,6 +59,8 @@ import { PdfSend } from '../../../assets/icons/PdfSend';
 import { CircleCheck } from '../../../assets/icons/CircleCheck';
 import { Chile } from '../../../assets/icons/Chile';
 import { AngleUp } from '../../../assets/icons/AngleUp';
+import WorldFlag from '../../../assets/icons/WorldFlag';
+import Aleman from '../../../assets/icons/Aleman';
 export const icons: iconsType[] = [
   'Add',
   'AngleLeft',
@@ -116,6 +118,8 @@ export const icons: iconsType[] = [
   'TipoEquipos',
   'Webinars',
   'Calculator',
+  'WorldFlag',
+  'Germany',
 ];
 
 export const iconList = (size: number, color: string, src?: string) => {
@@ -181,5 +185,7 @@ export const iconList = (size: number, color: string, src?: string) => {
     TipoEquipos: <TipoEquipos size={size} color={color} />,
     Webinars: <Webinars size={size} color={color} />,
     Calculator: <Calculator size={size} color={color} />,
+    WorldFlag: <WorldFlag size={size} />,
+    Germany: <Aleman size={size} />,
   };
 };
