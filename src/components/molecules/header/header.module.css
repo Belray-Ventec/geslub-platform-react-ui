@@ -1,7 +1,7 @@
 .header_container {
     background-color: var(--colors-tertiary);
     color: var(--colors-white);
-    padding: .5rem 1rem;
+    padding: 1rem 1rem;
     position: relative;
 }
 
