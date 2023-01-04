@@ -6,20 +6,17 @@ import { Modal } from '.';
 describe('Testing Modal', () => {
   const onCloseFn = jest.fn();
   const onOkFn = jest.fn();
-  const onCancelFn = jest.fn();
 
   const setup = () => {
     render(
       <Modal
         title="Actualizar Información"
         isOpen={true}
-        onRequestClose={() => onCloseFn()}
-        showOk
-        onOk={() => onOkFn()}
-        showFooter
-        onCancel={() => onCancelFn()}
+        onClose={() => onCloseFn()}
+        onAction={() => onOkFn()}
+        onCancel={() => onCloseFn()}
+        actionText="Actualizar"
         cancelText="Cancelar"
-        okText="Actualizar"
       >
         <div>Modal Content</div>
       </Modal>

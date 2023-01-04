@@ -1,15 +1,15 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Modal } from '../../src/components/atoms/modal';
-import { Heading } from '../../src/components/atoms/heading';
-import { Divider } from '../../src/components/atoms/divider';
-import { Paragraph } from '../../src/components/atoms/paragraph';
+import { getThemingArgTypes } from '@chakra-ui/storybook-addon';
+import { geslubTheme } from '../../src/utils/theme';
+import { Text } from '@chakra-ui/layout';
 
 export default {
   title: 'Atoms/Modal',
   component: Modal,
   argTypes: {
-    themeColor: { control: 'color' },
+    ...getThemingArgTypes(geslubTheme, 'Modal'),
   },
 } as ComponentMeta<typeof Modal>;
 
@@ -28,16 +28,12 @@ const Template: ComponentStory<typeof Modal> = (args) => (
       <div className="grid-item">9</div>
     </div>
     <Modal {...args}>
-      <Heading as="h2" size="3xs">
-        Modal Title
-      </Heading>
-      <Divider />
-      <Paragraph size="xs">
+      <Text fontSize="2xl">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, culpa,
         odio doloribus ratione sed soluta explicabo id nam ea quas cumque. Odio
         non accusamus dignissimos praesentium deleniti nulla, perferendis illum.
         Aut consequatur culpa sequi odio sunt voluptatem explicabo, labore
-      </Paragraph>
+      </Text>
     </Modal>
   </>
 );
@@ -45,8 +41,11 @@ const Template: ComponentStory<typeof Modal> = (args) => (
 export const ModalActive = Template.bind({});
 
 ModalActive.args = {
+  title: 'Crear Usuario',
   isOpen: true,
-  title: 'Modal title',
-  onOk: () => console.log('ok clicked'),
-  onCancel: () => console.log('cancel clicked'),
+  onClose: () => console.log('onClose'),
+  showFooter: false,
+  actionText: 'Guardar',
+  cancelText: 'Cancelar',
+  hiddenAction: false,
 };

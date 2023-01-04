@@ -68,4 +68,5 @@ Default.args = {
     console.log(`Registro deshabilitado: ${JSON.stringify(item)}`),
   onEnabled: (item) =>
     console.log(`Registro habilitado: ${JSON.stringify(item)}`),
+  showHeaderButtons: true,
 };

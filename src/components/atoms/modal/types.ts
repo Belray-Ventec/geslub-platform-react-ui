@@ -1,19 +1,15 @@
-import { CSSProperties, HTMLAttributes } from 'react';
-
-export interface ModalProps extends HTMLAttributes<HTMLDivElement> {
+import { ModalProps as ChakraModalProps } from '@chakra-ui/react';
+export interface ModalProps extends ChakraModalProps {
   title: string;
-  children: React.ReactNode;
-  onCancel?: () => void;
-  onOk?: () => void;
-  okText?: string;
-  showOk?: boolean;
-  cancelText?: string;
   isOpen: boolean;
-  onRequestClose: () => void;
-  position?: 'top' | 'center' | 'bottom';
-  size?: 'small' | 'medium' | 'large' | 'extra_large' | 'full';
-  themeColor?: string;
-  showFooter?: boolean;
-  showCloseIcon?: boolean;
-  style?: CSSProperties;
+  onClose: () => void;
+  hiddenFooter?: boolean;
+  showCloseButton?: boolean;
+  actionText?: string;
+  cancelText?: string;
+  onAction?: () => void;
+  onCancel?: () => void;
+  hiddenAction?: boolean;
+
+  children: React.ReactNode;
 }

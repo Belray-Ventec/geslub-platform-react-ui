@@ -1,55 +1,28 @@
-import React, { useState } from 'react';
-import { Button } from '../../atoms/button';
+import React from 'react';
+import { Button } from '@chakra-ui/button';
 import { Modal } from '../../atoms/modal';
+import { useDisclosure } from '@chakra-ui/hooks';
 
 interface ModalWithButtonProps {
   title: string;
   children: React.ReactNode;
-  position?: 'top' | 'center' | 'bottom';
-  size?: 'small' | 'medium' | 'large' | 'extra_large' | 'full';
-  themeColor?: string;
-  okText?: string;
-  cancelText?: string;
-  onOk?: () => void;
-  onCancel?: () => void;
 }
 
-export function ModalWithButton({
-  children,
-  title,
-  position,
-  size,
-  themeColor,
-  okText,
-  cancelText,
-  onOk,
-  onCancel,
-}: ModalWithButtonProps) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
+export function ModalWithButton({ children, title }: ModalWithButtonProps) {
+  const { isOpen, onClose, onOpen } = useDisclosure();
   return (
-    <div>
-      <Button primary onClick={() => setIsModalOpen(true)}>
+    <>
+      <Button variant={'primary'} onClick={onOpen}>
         Open Modal
       </Button>
       <Modal
+        onAction={() => console.log('Action')}
         title={title}
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        position={position}
-        size={size}
-        themeColor={themeColor}
-        okText={okText}
-        cancelText={cancelText}
-        onOk={onOk}
-        onCancel={onCancel}
+        isOpen={isOpen}
+        onClose={onClose}
       >
         {children}
       </Modal>
-    </div>
+    </>
   );
 }
