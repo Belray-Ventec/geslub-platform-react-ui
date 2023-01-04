@@ -19,8 +19,8 @@ export function Modal({
   actionText = 'Aceptar',
   cancelText = 'Cancelar',
   hiddenFooter = false,
-  onCancel = () => {},
-  onAction = () => {},
+  onCancel,
+  onAction,
   hiddenAction = false,
   ...props
 }: ModalProps) {
@@ -36,7 +36,11 @@ export function Modal({
         {!hiddenFooter && (
           <ModalFooter>
             {!hiddenAction && (
-              <Button variant="primary" mr={3} onClick={() => onAction()}>
+              <Button
+                variant="primary"
+                mr={3}
+                onClick={() => onAction && onAction()}
+              >
                 {actionText}
               </Button>
             )}
@@ -44,7 +48,7 @@ export function Modal({
               variant="ghost"
               onClick={() => {
                 onClose();
-                onCancel();
+                onCancel && onCancel();
               }}
             >
               {cancelText}

@@ -24,8 +24,7 @@
     "disallowArithmeticOperators": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "react-hooks/exhaustive-deps": "off",
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-empty-function": "off"
+    "@typescript-eslint/no-unused-vars": "error"
   },
   "ignorePatterns": ["node_modules/", "dist/", "tsdx.config.js", "src/utils/scripts/buildTokens.js"]
 }
