@@ -195,6 +195,50 @@ export function DrawerPage() {
       label: 'Perifericos Perifericos Perifericos',
       to: '/',
     },
+    {
+      label: 'Perifericos Perifericos Perifericos',
+      to: '/',
+    },
+    {
+      label: 'Perifericos Perifericos Perifericos',
+      to: '/',
+    },
+    {
+      label: 'Perifericos Perifericos Perifericos',
+      to: '/',
+    },
+    {
+      label: 'Perifericos Perifericos Perifericos',
+      to: '/',
+    },
+    {
+      label: 'Perifericos Perifericos Perifericos',
+      to: '/',
+    },
+    {
+      label: 'Perifericos Perifericos Perifericos',
+      to: '/',
+    },
+    {
+      label: 'Perifericos Perifericos Perifericos',
+      to: '/',
+    },
+    {
+      label: 'Perifericos Perifericos Perifericos',
+      to: '/',
+    },
+    {
+      label: 'Perifericos Perifericos Perifericos',
+      to: '/',
+    },
+    {
+      label: 'Perifericos Perifericos Perifericos',
+      to: '/',
+    },
+    {
+      label: 'Perifericos Perifericos Perifericos',
+      to: '/',
+    },
   ];
 
   return (
