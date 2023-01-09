@@ -16,7 +16,7 @@
 .tag_rounded {
     border-radius: 1.5rem;
 }
-.tag:hover{
+.tagclick:hover{
     filter: brightness(1.25);
     transition: all 0.3s ease-in-out;
     cursor: pointer;
