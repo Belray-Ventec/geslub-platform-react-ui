@@ -58,7 +58,8 @@ export type iconsType =
   | 'Webinars'
   | 'Calculator'
   | 'WorldFlag'
-  | 'Germany';
+  | 'Germany'
+  | 'China';
 
 export interface IconProps {
   color?: string;
