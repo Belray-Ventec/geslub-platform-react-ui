@@ -8,11 +8,11 @@ export function DrawerPage() {
   const data = [
     {
       label: 'Administración',
-      icon: <Icon icon="Home" size={25} color="#fff" />,
+      icon: <Icon icon="Home" size={20} color="#fff" />,
       sub: [
         {
           label: 'Noticias',
-          icon: <Icon icon="Document" size={25} color="#fff" />,
+          icon: <Icon icon="Document" size={20} color="#fff" />,
           to: '/noticias',
         },
         {
@@ -43,7 +43,7 @@ export function DrawerPage() {
     },
     {
       label: 'Lubricantes Especiales',
-      icon: <Icon icon="Document" size={25} color="#fff" />,
+      icon: <Icon icon="Document" size={20} color="#fff" />,
       sub: [
         {
           label: 'Información técnica',
@@ -69,7 +69,7 @@ export function DrawerPage() {
     },
     {
       label: 'Mantenimiento Industrial',
-      icon: <Icon icon="BookOpen" size={25} color="#fff" />,
+      icon: <Icon icon="BookOpen" size={20} color="#fff" />,
       sub: [
         { label: 'Webinars', to: '/webinars' },
         {
@@ -88,7 +88,7 @@ export function DrawerPage() {
     },
     {
       label: 'Departamento Técnico',
-      icon: <Icon icon="BullHorn" size={25} color="#fff" />,
+      icon: <Icon icon="BullHorn" size={20} color="#fff" />,
       sub: [
         { label: 'Normas', to: 'normas' },
         {
@@ -119,7 +119,7 @@ export function DrawerPage() {
     },
     {
       label: 'Audiovisuales',
-      icon: <Icon icon="User" size={25} color="#fff" />,
+      icon: <Icon icon="User" size={20} color="#fff" />,
       sub: [
         { label: 'Canal Youtube', to: '/' },
         {
@@ -134,7 +134,7 @@ export function DrawerPage() {
     },
     {
       label: 'Diccionario',
-      icon: <Icon icon="Video" size={25} color="#fff" />,
+      icon: <Icon icon="Video" size={20} color="#fff" />,
       sub: [
         { label: 'Diccionario', to: '/diccionario' },
         {
@@ -158,7 +158,7 @@ export function DrawerPage() {
         {
           label: 'Dosificación de lubricante para cadena',
           to: '/dosificacion-lubricante-cadena',
-          icon: <Icon icon="Document" size={25} color="#fff" />,
+          icon: <Icon icon="Document" size={20} color="#fff" />,
         },
         {
           label: 'Calculo de Viscosidad Lubricacion',
