@@ -11,9 +11,11 @@ export function Tag({
 }: TagProps): JSX.Element {
   return (
     <span
-      className={[styles.tag, rounded ? styles.tag_rounded : undefined].join(
-        ' '
-      )}
+      className={[
+        styles.tag,
+        rounded ? styles.tag_rounded : undefined,
+        onClick ? styles.tagclick : undefined,
+      ].join(' ')}
       style={{
         backgroundColor: backgroundColor && backgroundColor,
         color: color ?? undefined,
