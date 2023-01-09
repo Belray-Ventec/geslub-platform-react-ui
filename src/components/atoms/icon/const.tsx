@@ -61,6 +61,7 @@ import { Chile } from '../../../assets/icons/Chile';
 import { AngleUp } from '../../../assets/icons/AngleUp';
 import WorldFlag from '../../../assets/icons/WorldFlag';
 import Aleman from '../../../assets/icons/Aleman';
+import { China } from '../../../assets/icons/China';
 export const icons: iconsType[] = [
   'Add',
   'AngleLeft',
@@ -120,6 +121,7 @@ export const icons: iconsType[] = [
   'Calculator',
   'WorldFlag',
   'Germany',
+  'China',
 ];
 
 export const iconList = (size: number, color: string, src?: string) => {
@@ -187,5 +189,6 @@ export const iconList = (size: number, color: string, src?: string) => {
     Calculator: <Calculator size={size} color={color} />,
     WorldFlag: <WorldFlag size={size} />,
     Germany: <Aleman size={size} />,
+    China: <China size={size} />,
   };
 };

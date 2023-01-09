@@ -65,7 +65,7 @@
      text-align: center;
 }
 .drawer_expanded {
-    min-width: 15rem;
+    min-width: calc(20rem + 5px);
 }
 .showDrawer {
     position: absolute;
@@ -115,7 +115,7 @@
 
 .drawer_item_show {
     animation: opacityIn 0.5s ease-in-out;
-    width: 150px;
+    width: 15rem;
     text-overflow: ellipsis;
     overflow: hidden;
     -youbkit-touch-callout: none; /*iOS Safari*/
@@ -185,10 +185,10 @@
 }
 .subItemText {
     display: flex;
-    gap: 0.5rem;
     align-items: center;
     width: 100%;
     position: relative;
+    padding: 0 1.5rem;
 }
 
 .content {
@@ -199,16 +199,26 @@
     display: flex;
     justify-content: center;
 }
+
+.icon_expanded {
+    margin-right: 20px;
+
+}
+.icon_expanded svg {
+    width: 20px;
+    height: 20px;
+}
 .arrowSubItem{
-    position: absolute;
+    position: relative;
     right: 0;
+    margin-left: 10px;
 }
 .itemText {
     display: flex;
     font-size: 1.1rem;
-    gap: 0.5rem;
     align-items: center;
     width: 100%;
+    padding: 0 1.5rem;
     position: relative;
     -youbkit-touch-callout: none; /*iOS Safari*/
     -youbkit-user-select: none;   /* Chrome 6.0+, Safari 3.1+, Edge y Opera 15+ */

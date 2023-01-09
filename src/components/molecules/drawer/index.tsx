@@ -138,9 +138,13 @@ export function DrawerItem({
         style={{ justifyContent: !isOpen ? 'center' : undefined }}
       >
         {icon ? (
-          <i>{icon}</i>
+          <span className={isOpen ? styles.icon_expanded : ''}>
+            <i>{icon}</i>
+          </span>
         ) : (
-          <Icon icon="CaretRight" color="#fff" size={25} />
+          <span className={isOpen ? styles.icon_expanded : ''}>
+            <Icon icon="CaretRight" color="#fff" size={20} />
+          </span>
         )}
         {isOpen && <span className={styles.drawer_item_show}>{children}</span>}
       </span>
@@ -180,8 +184,10 @@ export function DrawerSubItem({
           className={styles.subItemText}
           style={{ justifyContent: !isOpen ? 'center' : 'flex-start' }}
         >
-          <span className={[!isOpen ? styles.icon : undefined].join(' ')}>
-            {icon ? icon : <Icon icon="CaretRight" color="#fff" size={25} />}
+          <span
+            className={[!isOpen ? styles.icon : styles.icon_expanded].join(' ')}
+          >
+            {icon ? icon : <Icon icon="CaretRight" color="#fff" size={20} />}
           </span>
           {isOpen && (
             <>
