@@ -10,6 +10,7 @@ export interface ModalProps extends ChakraModalProps {
   onAction?: () => void;
   onCancel?: () => void;
   hiddenAction?: boolean;
+  backgroundHeader?: string;
 
   children: React.ReactNode;
 }

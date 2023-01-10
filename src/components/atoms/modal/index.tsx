@@ -22,13 +22,17 @@ export function Modal({
   onCancel,
   onAction,
   hiddenAction = false,
+  backgroundHeader,
   ...props
 }: ModalProps) {
   return (
     <ChakraModal isOpen={isOpen} onClose={onClose} {...props}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader color={'onPrimary'} bg={'primary'}>
+        <ModalHeader
+          color={'onPrimary'}
+          bg={backgroundHeader ? backgroundHeader : 'primary'}
+        >
           {title}
         </ModalHeader>
         <ModalCloseButton color={'onPrimary'} />
