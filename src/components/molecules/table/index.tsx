@@ -28,6 +28,7 @@ export function Table<T>({
   actions = [],
   caption,
   showHeaderButtons = false,
+  showHeaderShareButton = false,
   showInfo,
   showDownload,
   showShare,
@@ -82,6 +83,7 @@ export function Table<T>({
           share={share}
           onDelete={onDelete}
           selected={selected}
+          showHeaderShareButton={showHeaderShareButton}
         />
       )}
       <div className={styles.table_container}>
@@ -331,6 +333,7 @@ function HeaderButtons<T>({
   share,
   onDelete,
   selected,
+  showHeaderShareButton,
 }: HeaderButtonProps<T>) {
   return (
     <div className={styles.control}>
@@ -346,17 +349,19 @@ function HeaderButtons<T>({
         </Tooltip>
       </Button>
 
-      <Button
-        ariaLabel="share"
-        primary
-        backgroundColor={stylesInline(themeColor).headerButtons}
-        onClick={() => share && share()}
-      >
-        <Tooltip position="up" text="Compartir">
-          <ShareNodes size={20} fill={stylesInline(themeColor).penToSquare} />
-          <span className={styles.visually_hidden}>share</span>
-        </Tooltip>
-      </Button>
+      {showHeaderShareButton && (
+        <Button
+          ariaLabel="share"
+          primary
+          backgroundColor={stylesInline(themeColor).headerButtons}
+          onClick={() => share && share()}
+        >
+          <Tooltip position="up" text="Compartir">
+            <ShareNodes size={20} fill={stylesInline(themeColor).penToSquare} />
+            <span className={styles.visually_hidden}>share</span>
+          </Tooltip>
+        </Button>
+      )}
 
       <Button
         ariaLabel="delete"
