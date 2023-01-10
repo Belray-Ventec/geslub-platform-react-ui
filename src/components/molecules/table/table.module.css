@@ -80,6 +80,9 @@
 .center_data svg {
     margin: 0 auto;
 }
+.center_data {
+    text-align: center;
+}
 
 .actions {
     display: flex;
