@@ -92,7 +92,7 @@ export function Table<T>({
           <thead>
             <tr style={stylesInline(themeColor).trStyle}>
               {paginator.data.length > 0 && showHeaderButtons && <th></th>}
-              {columns.map(({ label, getValue }) => (
+              {columns.map(({ label, getValue, hiddenSort }) => (
                 <Th
                   key={label}
                   label={label}
@@ -100,6 +100,7 @@ export function Table<T>({
                   handleSort={handleSort}
                   stateData={stateData}
                   themeColor={themeColor}
+                  hiddenSort={hiddenSort}
                 />
               ))}
               {(showInfo ||
@@ -142,8 +143,11 @@ export function Table<T>({
                       />
                     </td>
                   )}
-                  {columns.map(({ getValue }, idx) => (
-                    <td key={idx}>
+                  {columns.map(({ getValue, isCentered }, idx) => (
+                    <td
+                      className={isCentered ? styles.center_data : undefined}
+                      key={idx}
+                    >
                       {React.isValidElement(getValue(item))
                         ? getValue(item)
                         : String(getValue(item) ?? `Sin Información`)}
@@ -384,11 +388,13 @@ function Th<T>({
   getValue,
   themeColor,
   handleSort,
+  hiddenSort = false,
 }: ThProps<T>) {
   const [lastSortedColumn, setLastSortedColumn] = useState('');
   return (
     <th className={styles.column_header} key={label}>
       <Sort
+        hiddenSort={hiddenSort}
         lastSortedColumn={lastSortedColumn}
         onSorted={(column) => setLastSortedColumn(column)}
         themeColor={themeColor}

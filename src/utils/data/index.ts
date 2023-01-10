@@ -253,7 +253,7 @@ export const tagListData = [
 export const data2 = [
   {
     id: 1,
-    first_name: 'Cart',
+    first_name: 'Cart Cart Cart Cart Cart Cart Cart Cart',
     last_name: 'Heaton',
     gender: 'Male',
     ip_address: '56.212.253.63',
@@ -263,7 +263,8 @@ export const data2 = [
     id: 2,
     first_name: 'Salmon',
     last_name: 'Cartmill',
-    email: 'scartmill1@hostgator.com',
+    email:
+      'scartmill1@hostgator.com scartmill1@hostgator.com scartmill1@hostgator.com scartmill1@hostgator.com scartmill1@hostgator.com',
     gender: 'Male',
     ip_address: '43.177.92.186',
   },

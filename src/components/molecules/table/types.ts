@@ -24,6 +24,8 @@ export interface TableProps<T> {
   columns: {
     label: string;
     getValue: (item: T) => React.ReactNode;
+    isCentered?: boolean;
+    hiddenSort?: boolean;
   }[];
   getRowKey: (d: T) => string | number;
   themeColor?: string;
@@ -68,4 +70,5 @@ export interface ThProps<T> {
   getValue: (item: T) => React.ReactNode;
   themeColor?: string;
   handleSort: (data: T[]) => void;
+  hiddenSort?: boolean;
 }
