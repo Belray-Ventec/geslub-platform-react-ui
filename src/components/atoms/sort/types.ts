@@ -8,6 +8,7 @@ export interface SortProps<T> {
   themeColor?: string;
   onSorted: (column: string) => void;
   lastSortedColumn: string;
+  hiddenSort?: boolean;
 }
 
 export interface UseSortProps<T> {

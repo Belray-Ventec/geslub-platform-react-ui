@@ -15,6 +15,7 @@ export function Sort<T>({
   themeColor,
   onSorted,
   lastSortedColumn,
+  hiddenSort = false,
 }: SortProps<T>) {
   const { sort, nextSort } = useSort({
     data,
@@ -27,21 +28,24 @@ export function Sort<T>({
   return (
     <div
       style={{ color: themeColor ? '#fff' : undefined }}
-      onClick={() => nextSort()}
-      className={styles.container}
+      onClick={() => !hiddenSort && nextSort()}
+      className={[styles.container, !hiddenSort ? styles.hand : undefined].join(
+        ' '
+      )}
     >
       {label}{' '}
-      {lastSortedColumn === label ? (
-        sort === 'asc' ? (
-          <SortUp fill={stylesInline(themeColor).sortFill} size={15} />
-        ) : sort === 'desc' ? (
-          <SortDown fill={stylesInline(themeColor).sortFill} size={15} />
+      {!hiddenSort &&
+        (lastSortedColumn === label ? (
+          sort === 'asc' ? (
+            <SortUp fill={stylesInline(themeColor).sortFill} size={15} />
+          ) : sort === 'desc' ? (
+            <SortDown fill={stylesInline(themeColor).sortFill} size={15} />
+          ) : (
+            <SortIcon fill={stylesInline(themeColor).sortFill} size={15} />
+          )
         ) : (
           <SortIcon fill={stylesInline(themeColor).sortFill} size={15} />
-        )
-      ) : (
-        <SortIcon fill={stylesInline(themeColor).sortFill} size={15} />
-      )}
+        ))}
     </div>
   );
 }
