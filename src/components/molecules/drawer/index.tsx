@@ -20,6 +20,14 @@ export function Drawer({
 }: DrawerProps) {
   const { width } = useWindowSize();
 
+  useEffect(() => {
+    if (typeof window != 'undefined' && window.document) {
+      isOpen
+        ? (document.body.style.overflow = 'hidden')
+        : (document.body.style.overflow = 'unset');
+    }
+  }, [isOpen]);
+
   if (width && width > 768) {
     return (
       <>
