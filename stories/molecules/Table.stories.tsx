@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { data2 } from '../../src/utils/data';
 import { Table } from '../../src/components/molecules/table';
-import { Icon } from '../../src/components/atoms/icon';
 
 export default {
   title: 'Molecules/Table',
@@ -30,12 +29,6 @@ Default.args = {
     { label: 'Nombre', getValue: (item) => item.first_name },
     { label: 'Apellido', getValue: (item) => item.last_name },
     { label: 'Email', getValue: (item) => <a href="/#">{item.email}</a> },
-    {
-      label: 'Hoja de seguridad',
-      getValue: (item) => <Icon icon="GeneratePdf" />,
-      isCentered: true,
-      hiddenSort: true,
-    },
     { label: 'Genero', getValue: (item) => item.gender },
     { label: 'Ip address', getValue: (item) => item.ip_address },
   ],
