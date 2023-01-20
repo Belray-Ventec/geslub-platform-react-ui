@@ -39,7 +39,7 @@ export interface TableProps<T> {
   showShare?: boolean;
   showSee?: boolean;
   add?: () => void;
-  share?: () => void;
+  share?: (d: T[]) => void;
   onDelete?: (d: T[]) => void;
   onEdit?: (d: T) => void;
   onSee?: (d: T) => void;
@@ -58,7 +58,7 @@ export interface TableProps<T> {
 export interface HeaderButtonProps<T> {
   themeColor?: string;
   add?: () => void;
-  share?: () => void;
+  share?: (d: T[]) => void;
   onDelete?: (d: T[]) => void;
   selected: T[];
   showHeaderShareButton?: boolean;

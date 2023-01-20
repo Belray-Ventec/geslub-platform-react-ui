@@ -358,7 +358,7 @@ function HeaderButtons<T>({
           ariaLabel="share"
           primary
           backgroundColor={stylesInline(themeColor).headerButtons}
-          onClick={() => share && share()}
+          onClick={() => share && share(selected)}
         >
           <Tooltip position="up" text="Compartir">
             <ShareNodes size={20} fill={stylesInline(themeColor).penToSquare} />
