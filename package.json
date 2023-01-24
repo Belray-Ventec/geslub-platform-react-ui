@@ -37,7 +37,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "geslub-platform-react-ui",
+  "name": "@belray-ventec/geslub-platform-react-ui",
   "author": "h4rasho",
   "module": "dist/geslub-platform-react-ui.esm.js",
   "size-limit": [
@@ -96,5 +96,17 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
     }
-  }
+  },
+  "description": "### Instalar libreria",
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Belray-Ventec/geslub-platform-react-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Belray-Ventec/geslub-platform-react-ui/issues"
+  },
+  "homepage": "https://github.com/Belray-Ventec/geslub-platform-react-ui#readme"
 }
