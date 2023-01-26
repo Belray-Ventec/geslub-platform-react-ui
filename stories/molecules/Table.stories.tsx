@@ -69,4 +69,10 @@ Default.args = {
   onEnabled: (item) =>
     console.log(`Registro habilitado: ${JSON.stringify(item)}`),
   showHeaderButtons: true,
+  share: (data) => {
+    console.log(data);
+  },
+  add: () => {
+    console.log('add');
+  },
 };

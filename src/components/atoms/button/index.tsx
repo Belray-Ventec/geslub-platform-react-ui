@@ -60,6 +60,7 @@ export function Button({
       type="button"
       className={[
         styles.button,
+        disabled ? styles.disabledbtn : styles.enabledbtn,
         buttonSize,
         valuePrimary,
         fullWidth ? styles.fullWidth : undefined,

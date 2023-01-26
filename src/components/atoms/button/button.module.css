@@ -15,18 +15,26 @@
     gap: .5rem;
 }
 
-.button:active {
-    transform: scale(0.97);
+.disabledbtn:active {
+    transform: scale(1);
+}
+.disabledbtn {
+    pointer-events: none;
+    opacity: 0.4;
+}
+.enabledbtn:active {
+    transform: scale(0.95);
 }
 
 .button:disabled{
     background-color: #e0e0e0;
 }
 .button:disabled:hover{
-    filter: brightness(1);
+    filter: initial;
+    background: none !;
 }
 
-.button:hover{
+.disabledbtn:hover{
     filter: brightness(1.25);
 }
 
