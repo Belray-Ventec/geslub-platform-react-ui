@@ -78,6 +78,10 @@ describe('Testing Table', () => {
 
   test('Debe mostrar los botones de acciones superiores y deben ser clickeables', async () => {
     setup();
+
+    const firstCheckbox = screen.getAllByRole('checkbox', {});
+    fireEvent.click(firstCheckbox[0]);
+
     const add = screen.getByLabelText('add');
     expect(add).toBeInTheDocument();
 
