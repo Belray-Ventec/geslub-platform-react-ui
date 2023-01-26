@@ -2,6 +2,9 @@
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -21,7 +24,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "style:write": "prettier --write **/*.{json,svg,js,jsx,ts,tsx,md}",
-    "buildtokens": "node src/utils/scripts/buildTokens"
+    "buildtokens": "node src/utils/scripts/buildTokens",
+    "release": "release-it"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -37,7 +41,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "geslub-platform-react-ui",
+  "name": "@belray-ventec/geslub-platform-react-ui",
   "author": "h4rasho",
   "module": "dist/geslub-platform-react-ui.esm.js",
   "size-limit": [
@@ -77,6 +81,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-is": "18.2.0",
+    "release-it": "^15.6.0",
     "rollup-plugin-postcss": "4.0.2",
     "size-limit": "7.0.8",
     "storybook-css-modules": "1.0.8",
@@ -96,5 +101,17 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
     }
-  }
+  },
+  "description": "### Instalar libreria",
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Belray-Ventec/geslub-platform-react-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Belray-Ventec/geslub-platform-react-ui/issues"
+  },
+  "homepage": "https://github.com/Belray-Ventec/geslub-platform-react-ui#readme"
 }

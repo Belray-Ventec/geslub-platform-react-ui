@@ -28,7 +28,6 @@ export function Table<T>({
   actions = [],
   caption,
   showHeaderButtons = false,
-  showHeaderShareButton = false,
   showInfo,
   showDownload,
   showShare,
@@ -83,7 +82,6 @@ export function Table<T>({
           share={share}
           onDelete={onDelete}
           selected={selected}
-          showHeaderShareButton={showHeaderShareButton}
         />
       )}
       <div className={styles.table_container}>
@@ -336,28 +334,34 @@ function HeaderButtons<T>({
   add,
   share,
   onDelete,
-  selected,
-  showHeaderShareButton,
+  selected = [],
 }: HeaderButtonProps<T>) {
   return (
     <div className={styles.control}>
-      <Button
-        ariaLabel="add"
-        primary
-        backgroundColor={stylesInline(themeColor).headerButtons}
-        onClick={() => add && add()}
-      >
-        <Tooltip position="up" text="Nuevo">
-          <Add size={20} fill={stylesInline(themeColor).penToSquare} />
-          <span className={styles.visually_hidden}>add</span>
-        </Tooltip>
-      </Button>
-
-      {showHeaderShareButton && (
+      {add && (
         <Button
-          ariaLabel="share"
+          ariaLabel="add"
           primary
           backgroundColor={stylesInline(themeColor).headerButtons}
+          onClick={() => add && add()}
+        >
+          <Tooltip position="up" text="Nuevo">
+            <Add size={20} fill={stylesInline(themeColor).penToSquare} />
+            <span className={styles.visually_hidden}>add</span>
+          </Tooltip>
+        </Button>
+      )}
+
+      {share && (
+        <Button
+          disabled={selected.length === 0}
+          ariaLabel="share"
+          primary
+          backgroundColor={
+            selected.length > 0
+              ? stylesInline(themeColor).headerButtons
+              : '#f2f2f2'
+          }
           onClick={() => share && share(selected)}
         >
           <Tooltip position="up" text="Compartir">
@@ -367,17 +371,24 @@ function HeaderButtons<T>({
         </Button>
       )}
 
-      <Button
-        ariaLabel="delete"
-        onClick={(): void => onDelete && onDelete(selected)}
-        primary
-        backgroundColor={stylesInline(themeColor).headerButtons}
-      >
-        <Tooltip position="up" text="Eliminar">
-          <Xmark size={20} fill={stylesInline(themeColor).penToSquare} />
-          <span className={styles.visually_hidden}>delete</span>
-        </Tooltip>
-      </Button>
+      {onDelete && (
+        <Button
+          disabled={selected.length === 0}
+          ariaLabel="delete"
+          onClick={(): void => onDelete && onDelete(selected)}
+          primary
+          backgroundColor={
+            selected.length > 0
+              ? stylesInline(themeColor).headerButtons
+              : '#f2f2f2'
+          }
+        >
+          <Tooltip position="up" text="Eliminar">
+            <Xmark size={20} fill={stylesInline(themeColor).penToSquare} />
+            <span className={styles.visually_hidden}>delete</span>
+          </Tooltip>
+        </Button>
+      )}
     </div>
   );
 }

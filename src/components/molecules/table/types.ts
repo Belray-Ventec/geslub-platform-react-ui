@@ -52,7 +52,6 @@ export interface TableProps<T> {
   showDisabled?: boolean;
   onDisabled?: (d: T) => void;
   onEnabled?: (d: T) => void;
-  showHeaderShareButton?: boolean;
 }
 
 export interface HeaderButtonProps<T> {
@@ -61,7 +60,6 @@ export interface HeaderButtonProps<T> {
   share?: (d: T[]) => void;
   onDelete?: (d: T[]) => void;
   selected: T[];
-  showHeaderShareButton?: boolean;
 }
 
 export interface ThProps<T> {
