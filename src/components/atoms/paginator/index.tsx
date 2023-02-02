@@ -99,7 +99,13 @@ export default function Paginator<T>({
           <button
             aria-label="previous"
             onClick={(): void => previous()}
-            className={[styles.previous, styles.previous_text].join(' ')}
+            className={[
+              styles.previous,
+              styles.previous_text,
+              paginator.totalItems > paginator.itemsPerPage
+                ? styles.active
+                : undefined,
+            ].join(' ')}
           >
             <AngleLeft />
             <span className={styles.visually_hidden}>previous</span>
@@ -109,7 +115,13 @@ export default function Paginator<T>({
             onClick={(): void => {
               next();
             }}
-            className={[styles.next, styles.next_text].join(' ')}
+            className={[
+              styles.next,
+              styles.next_text,
+              paginator.totalItems > paginator.itemsPerPage
+                ? styles.active
+                : undefined,
+            ].join(' ')}
           >
             <AngleLeft />
             <span className={styles.visually_hidden}>next</span>
