@@ -3,22 +3,7 @@
 ### Instalar libreria
 
 ```terminal
-npm i git+https://github.com/Belray-Ventec/geslub-platform-react-ui.git
-```
-
-## Instalación
-
-Instalar dependencias
-
-```powershell
-cd geslub-platform-react-ui  // si no te encuentras dentro del repositorio
-npm install
-```
-
-## Iniciar Storybook
-
-```
-npm run storybook
+npm i @belray-ventec/geslub-platform-react-ui
 ```
 
 ## Modo de uso
@@ -44,35 +29,36 @@ export default function Component(): {
 }
 ```
 
-| Propiedad         | Tipo                                                          | Descripción                                                                                                 | Requerida |
-| ----------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | --------- |
-| data              | `T[]`                                                         |                                                                                                             | si        |
-| columns           | `{ label: string; getValue: (item: T) => React.ReactNode }[]` |                                                                                                             | si        |
-| getRowKey         | `(d: T) => string number`                                     |                                                                                                             | si        |
-| onDelete          | `(d: T[]) => void`                                            |                                                                                                             | no        |
-| itemsPerPage      | `number`                                                      |                                                                                                             | no        |
-| actions           | `label: string; callback: (d: T) => void }[]`                 |                                                                                                             | no        |
-| themeColor        | `string`                                                      |                                                                                                             | no        |
-| showPages         | `boolean`                                                     |                                                                                                             | no        |
-| showHeaderButtons | `boolean`                                                     |                                                                                                             | no        |
-| showAdminOptions  | `boolean`                                                     |                                                                                                             | no        |
-| showInfo          | `boolean`                                                     |                                                                                                             | no        |
-| showShare         | `boolean`                                                     |                                                                                                             | no        |
-| showDownload      | `boolean`                                                     |                                                                                                             | no        |
-| showDisabled      | `boolean`                                                     | Muestra el boton de deshabilitar/habilitar registro                                                         | no        |
-| showSee           | `boolean`                                                     |                                                                                                             | no        |
-| caption           | `string`                                                      |                                                                                                             | no        |
-| add               | `() => void`                                                  |                                                                                                             | no        |
-| share             | `() => void`                                                  |                                                                                                             | no        |
-| onEdit            | `(d: T) => void`                                              |                                                                                                             | no        |
-| onDeleteItem      | `(d: T) => void`                                              |                                                                                                             | no        |
-| onSee             | `(d: T) => void`                                              |                                                                                                             | no        |
-| onDownload        | `(d: T) => void`                                              |                                                                                                             | no        |
-| onInfo            | `(d: T) => void`                                              |                                                                                                             | no        |
-| onShare           | `(d: T) => void`                                              |                                                                                                             | no        |
-| onDisabled        | `(d: T) => void`                                              | Callback que regresa el item para ser deshabilitado                                                         | no        |
-| onEnabled         | `(d: T) => void`                                              | Callback que regresa el item para ser habilitado                                                            | no        |
-| getRowIsEnabled   | `(d: T) => boolean`                                           | Callback para especificar que propiedad es la que definira el estado de habilitado/deshabilitado de la fila | no        |
+| Propiedad         | Tipo                                                                                                      | Descripción                                                                                                 | Requerida |
+| ----------------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | --------- |
+| data              | `T[]`                                                                                                     |                                                                                                             | si        |
+| columns           | `{ label: string; getValue: (item: T) => React.ReactNode, isCentered?: boolean; hiddenSort?: boolean }[]` |                                                                                                             | si        |
+| getRowKey         | `(d: T) => string number`                                                                                 |                                                                                                             | si        |
+| onDelete          | `(d: T[]) => void`                                                                                        |                                                                                                             | no        |
+| itemsPerPage      | `number`                                                                                                  |                                                                                                             | no        |
+| actions           | `label: string; callback: (d: T) => void }[]`                                                             |                                                                                                             | no        |
+| themeColor        | `string`                                                                                                  |                                                                                                             | no        |
+| showPages         | `boolean`                                                                                                 |                                                                                                             | no        |
+| showHeaderButtons | `boolean`                                                                                                 |                                                                                                             | no        |
+| showAdminOptions  | `boolean`                                                                                                 |                                                                                                             | no        |
+| showInfo          | `boolean`                                                                                                 |                                                                                                             | no        |
+| showShare         | `boolean`                                                                                                 |                                                                                                             | no        |
+| showDownload      | `boolean`                                                                                                 |                                                                                                             | no        |
+| showDisabled      | `boolean`                                                                                                 | Muestra el boton de deshabilitar/habilitar registro                                                         | no        |
+| showSee           | `boolean`                                                                                                 |                                                                                                             | no        |
+| caption           | `string`                                                                                                  |                                                                                                             | no        |
+| add               | `() => void`                                                                                              |                                                                                                             | no        |
+| share             | `() => void`                                                                                              |                                                                                                             | no        |
+| onEdit            | `(d: T) => void`                                                                                          |                                                                                                             | no        |
+| onDeleteItem      | `(d: T) => void`                                                                                          |                                                                                                             | no        |
+| onSee             | `(d: T) => void`                                                                                          |                                                                                                             | no        |
+| onDownload        | `(d: T) => void`                                                                                          |                                                                                                             | no        |
+| onInfo            | `(d: T) => void`                                                                                          |                                                                                                             | no        |
+| onShare           | `(d: T) => void`                                                                                          |                                                                                                             | no        |
+| onDisabled        | `(d: T) => void`                                                                                          | Callback que regresa el item para ser deshabilitado                                                         | no        |
+| onEnabled         | `(d: T) => void`                                                                                          | Callback que regresa el item para ser habilitado                                                            | no        |
+| getRowIsEnabled   | `(d: T) => boolean`                                                                                       | Callback para especificar que propiedad es la que definira el estado de habilitado/deshabilitado de la fila | no        |
+| isLoading         | `boolean`                                                                                                 |                                                                                                             | no        |
 
 ### Search
 
@@ -248,185 +234,6 @@ export default function Component(): {
 | isActive  | `boolean`   | Establece de color el item activo              | no        |
 | children  | `string`    | Titulo                                         | no        |
 
-### Heading
-
-```Javascript
-import { Heading } from 'geslub-platform-react-ui';
-
-export default function Component(): {
-
-
-	return (
-      <Heading isNoWrap as="h2" size="4xs" color="#000">
-        AJUSTES PERSONALES
-      </Heading>
-	)
-
-}
-```
-
-| Propiedad | Tipo                                             | Requerida |
-| --------- | ------------------------------------------------ | --------- |
-| as        | `'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6' `  | no        |
-| size      | `'2xs' \| 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' ` | no        |
-| isBold    | `boolean `                                       | no        |
-| isItalic  | `boolean `                                       | no        |
-| color     | `string `                                        | no        |
-| children  | `ReactNode`                                      | si        |
-
-### Avatar
-
-```Javascript
-import { Avatar } from 'geslub-platform-react-ui';
-
-export default function Component(): {
-
-
-	return (
-        <Avatar
-          size="2xl"
-          src="https://i.imgur.com/TutKhdx.jpg"
-          title="Developer"
-        />
-	)
-
-}
-```
-
-| Propiedad | Tipo                                                      | Requerida |
-| --------- | --------------------------------------------------------- | --------- |
-| title     | `string`                                                  | no        |
-| size      | `'xs' \| 'sm' \| 'md' \| 'lg' \| '2xs' \| 'xl' \| '2xl' ` | no        |
-| src       | `string`                                                  | no        |
-
-### Paragraph
-
-```Javascript
-import { Paragraph } from 'geslub-platform-react-ui';
-
-export default function Component(): {
-
-
-	return (
-        <Paragraph as='p' size='sm' >
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-        </Paragraph>
-	)
-
-}
-```
-
-| Propiedad | Tipo                                         | Requerida |
-| --------- | -------------------------------------------- | --------- |
-| as        | `'p' \| 'span' \| 'div' `                    | no        |
-| size      | `'xs' \| 'sm' \| 'md' \| 'lg'`               | no        |
-| isBold    | `boolean `                                   | no        |
-| isItalic  | `boolean `                                   | no        |
-| isStriked | `boolean `                                   | no        |
-| align     | `'right' \| 'center' \| 'left' \| 'justify'` | no        |
-| color     | `string `                                    | no        |
-| children  | `ReactNode`                                  | si        |
-
-### AvatarDropDown
-
-```Javascript
-import { AvatarDropDown } from 'geslub-platform-react-ui';
-
-export default function Component(): {
-
-
-	return (
-            <AvatarDropDown
-              avatarTitle="Brian Cifuentes"
-              badgeColor="green"
-              color="#000"
-              right
-              size="md"
-              src="https://i.imgur.com/Tlk89Es.jpg"
-            >
-              <Heading
-                as="h2"
-                color="#000"
-                isNoWrap
-                size="4xs"
-              >
-                Ajustes Personales
-              </Heading>
-              <hr />
-              <Paragraph
-                as="span"
-                size="sm"
-              >
-                Brian Cifuentes
-              </Paragraph>
-              <Paragraph
-                as="span"
-                size="sm"
-              >
-                Administrador
-              </Paragraph>
-              <Button
-                fullWidth
-                primary
-              >
-                Salir
-              </Button>
-            </AvatarDropDown>
-	)
-
-}
-```
-
-| Propiedad   | Tipo                                                     | Requerida |
-| ----------- | -------------------------------------------------------- | --------- |
-| avatarTitle | `string`                                                 | no        |
-| badgeColor  | `string`                                                 | no        |
-| title       | `string`                                                 | no        |
-| color       | `string`                                                 | no        |
-| right       | `boolean`                                                | no        |
-| size        | `'xs' \| 'sm' \| 'md' \| 'lg' \| '2xs' \| 'xl' \| '2xl'` | no        |
-| children    | `ReactNode`                                              | si        |
-
-### Header
-
-```Javascript
-import { AvatarDropDown, Heading, Divider, Paragraph, Button, Header } from 'geslub-platform-react-ui';
-
-export default function Component(): {
-
-
-	return (
-  <Header title='Documentos Técnicos' titleSize='3xs'>
-    <AvatarDropDown
-      src="https://i.imgur.com/Tlk89Es.jpg"
-      avatarTitle="Brian Cifuentes"
-    >
-      <Heading isNoWrap as="h2" size="4xs" color="#000">
-        AJUSTES PERSONALES
-      </Heading>
-      <Divider />
-      <Paragraph as="span" size="sm">
-        Brian Cifuentes
-      </Paragraph>
-      <Paragraph as="span" size="xs">
-        Administrador
-      </Paragraph>
-      <Button fullWidth primary>
-        Salir
-      </Button>
-    </AvatarDropDown>
-  </Header>
-	)
-
-}
-```
-
-| Propiedad | Tipo                                                              | Requerida |
-| --------- | ----------------------------------------------------------------- | --------- |
-| title     | `string`                                                          | si        |
-| titleSize | `'xl' \| 'lg' \| 'md' \| 'sm' \| 'xs' \| '2xs' \| '3xs' \| '4xs'` | no        |
-| children  | `ReactNode`                                                       | no        |
-
 ### Modal
 
 ```Javascript
@@ -484,38 +291,3 @@ export default function Component(): {
 | onCancel       | `() => void`                                        | no        |
 | themeColor     | `string`                                            | no        |
 | children       | `ReactNode`                                         | no        |
-
-### Accordion
-
-```Javascript
-import React, { useState } from 'react';
-import { Accordion, AccordionItem } from 'geslub-platform-react-ui';
-
-export default function Component(): {
-
-
-	return (
-    <Accordion allowToggle>
-      <AccordionItem title="Niveles de sectores">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada odio eu enim congue, id ullamcorper ligula fringilla. Nulla feugiat risus sed semper volutpat. Sed in tempus ex. Mauris quis eleifend mi, nec auctor metus. Curabitur commodo metus non tellus porta, at euismod dolor ultrices. Nullam vitae sapien a lacus
-      </AccordionItem>
-      <AccordionItem title="Niveles de instancias de equipos">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada odio eu enim congue, id ullamcorper ligula fringilla. Nulla feugiat risus sed semper volutpat. Sed in tempus ex. Mauris quis eleifend mi, nec auctor metus. Curabitur commodo metus non tellus porta, at euismod dolor ultrices. Nullam vitae sapien a lacus
-      </AccordionItem>
-    </Accordion>
-  )
-
-```
-
-### Accordion
-
-| Propiedad   | Tipo      | Descripcion                                                     | Requerida |
-| ----------- | --------- | --------------------------------------------------------------- | --------- |
-| allowToggle | `boolean` | Si se activa permite abrir multiples acordeones al mismo tiempo | no        |
-
-### AccordionItem
-
-| Propiedad | Tipo      | Descripcion            | Requerida |
-| --------- | --------- | ---------------------- | --------- |
-| title     | `string`  | Titulo del acordeon    | si        |
-| children  | `boolean` | Contenido del acordeon | si        |
