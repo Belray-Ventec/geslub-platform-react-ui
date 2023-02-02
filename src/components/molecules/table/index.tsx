@@ -17,6 +17,7 @@ import { Icon } from '../../atoms/icon';
 import { ActionsProps, TableProps, HeaderButtonProps, ThProps } from './types';
 import { stylesInline } from './const';
 import Tooltip from '../../atoms/tooltip';
+import { Spinner } from '@chakra-ui/react';
 
 export function Table<T>({
   columns,
@@ -46,6 +47,7 @@ export function Table<T>({
   showDisabled,
   onDisabled,
   onEnabled,
+  isLoading = false,
 }: TableProps<T>): JSX.Element {
   const [stateData, setStateData] = useState<T[]>(data);
   const [selected, setSelected] = useState<T[]>([]);
@@ -115,7 +117,16 @@ export function Table<T>({
             </tr>
           </thead>
           <tbody>
-            {paginator.data.length > 0 ? (
+            {isLoading ? (
+              <tr>
+                <td
+                  className={styles.not_info_found}
+                  colSpan={actions ? columns.length + 2 : columns.length}
+                >
+                  <Spinner size="xl" />
+                </td>
+              </tr>
+            ) : paginator.data.length > 0 ? (
               paginator.data.map((item, index) => (
                 <tr
                   style={

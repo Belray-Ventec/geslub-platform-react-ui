@@ -52,6 +52,7 @@ export interface TableProps<T> {
   showDisabled?: boolean;
   onDisabled?: (d: T) => void;
   onEnabled?: (d: T) => void;
+  isLoading?: boolean;
 }
 
 export interface HeaderButtonProps<T> {

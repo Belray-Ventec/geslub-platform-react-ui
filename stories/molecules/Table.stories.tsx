@@ -75,4 +75,5 @@ Default.args = {
   add: () => {
     console.log('add');
   },
+  isLoading: true,
 };
