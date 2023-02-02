@@ -243,7 +243,11 @@ export function DrawerPage() {
 
   return (
     <>
-      <Drawer isOpen={isOpen} onStateChange={() => setIsOpen(!isOpen)}>
+      <Drawer
+        onLogoClick={() => console.log('CLICK ON LOGO')}
+        isOpen={isOpen}
+        onStateChange={() => setIsOpen(!isOpen)}
+      >
         {data.map((item) =>
           item.sub ? (
             <DrawerSubItem

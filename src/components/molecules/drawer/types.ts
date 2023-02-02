@@ -5,6 +5,7 @@ export interface DrawerProps {
   children: React.ReactNode;
   isOpen: boolean;
   onStateChange: () => void;
+  onLogoClick?: () => void;
 }
 
 export interface DrawerItemProps {

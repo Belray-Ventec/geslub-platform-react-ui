@@ -16,6 +16,7 @@ export function Drawer({
   themeColor,
   isOpen,
   onStateChange,
+  onLogoClick,
   children,
 }: DrawerProps) {
   const { width } = useWindowSize();
@@ -40,16 +41,45 @@ export function Drawer({
         >
           <div className={styles.drawer_header}>
             {logo ? (
-              <img src={logo} width={50} height={50} alt="logo" />
+              <img
+                onClick={() => onLogoClick && onLogoClick()}
+                className={onLogoClick ? styles.hand : undefined}
+                src={logo}
+                width={50}
+                height={50}
+                alt="logo"
+              />
             ) : (
-              <Gp />
+              <span
+                className={onLogoClick ? styles.hand : undefined}
+                onClick={() => onLogoClick && onLogoClick()}
+              >
+                <Gp />
+              </span>
             )}
             {isOpen && !title ? (
-              <span className={styles.logo}>
-                <span className={styles.bold}>Ges</span>lub Platform
+              <span
+                onClick={() => onLogoClick && onLogoClick()}
+                className={[
+                  styles.logo,
+                  onLogoClick ? styles.hand : undefined,
+                ].join(' ')}
+              >
+                <span className={styles.bold}>Ges</span>
+                lub Platform
               </span>
             ) : (
-              isOpen && <span className={styles.logo}>{title}</span>
+              isOpen && (
+                <span
+                  onClick={() => onLogoClick && onLogoClick()}
+                  className={[
+                    styles.logo,
+                    onLogoClick ? styles.hand : undefined,
+                  ].join(' ')}
+                >
+                  {title}
+                </span>
+              )
             )}
             <div className={styles.showDrawer}>
               <button
@@ -95,14 +125,42 @@ export function Drawer({
         </button>
         <span className={styles.logo_container}>
           {logo ? (
-            <img alt={String(title)} src={logo} width={30} height={30} />
+            <img
+              className={onLogoClick ? styles.hand : undefined}
+              onClick={() => onLogoClick && onLogoClick()}
+              alt={String(title)}
+              src={logo}
+              width={30}
+              height={30}
+            />
           ) : (
-            <Gp size={30} />
+            <span
+              className={onLogoClick ? styles.hand : undefined}
+              onClick={() => onLogoClick && onLogoClick()}
+            >
+              <Gp size={30} />
+            </span>
           )}
           {title ? (
-            <span className={styles.logo_responsive}>{title}</span>
+            <span
+              onClick={() => onLogoClick && onLogoClick()}
+              className={[
+                styles.logo_responsive,
+                onLogoClick ? styles.hand : undefined,
+              ].join(' ')}
+            >
+              {title}
+            </span>
           ) : (
-            <span className={styles.logo_responsive}>Geslub Platform</span>
+            <span
+              onClick={() => onLogoClick && onLogoClick()}
+              className={[
+                styles.logo_responsive,
+                onLogoClick ? styles.hand : undefined,
+              ].join(' ')}
+            >
+              Geslub Platform
+            </span>
           )}
         </span>
         <div className={styles.fix_nav_responsive}></div>

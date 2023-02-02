@@ -224,6 +224,7 @@ export default function Component(): {
 | logo          | `string`     |                                                                                    | no        |
 | themeColor    | `string`     |                                                                                    | no        |
 | children      | `ReactNode`  | Contenido del Drawer se suguiere utilizar el componente DrawerItem o DrawerSubItem | si        |
+| onLogoClick   | `() => void` |                                                                                    | no        |
 
 #### DrawerItem
 

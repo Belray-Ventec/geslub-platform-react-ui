@@ -2,39 +2,41 @@
 .container_paginator{
     display: flex;
     flex-direction: column;
-    padding-right: 20px;
+    padding: .5rem;
     align-items: flex-end;
     font-family: sans-serif;
     gap: .8rem;
+
 }
 .container_pages{
     display: flex;
     gap: .8rem;
 }
 .previous, .next{
-    cursor: pointer;
     border-radius: 100%;
-    background-color: #e4e4e4;
+    background-color: #e0e0e0;
     width: 40px;
     height: 40px;
 }
-.previous:hover{
-    background-color: #ecf0f1;
-    
+
+.active{
+    cursor: pointer !important;
+    background-color: #e4e4e4;
 }
 
-.next:hover{
+.active:hover {
     background-color: #ecf0f1;
 }
+
 .next_text, .previous_text{
     display: flex;
+    cursor: not-allowed;
     justify-content: center;
     align-items: center;
     gap: 5px;
     border-radius: 100%;
     width: 40px;
     height: 40px;
-    cursor: pointer;
     border: none
     
 }
