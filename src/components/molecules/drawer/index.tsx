@@ -125,14 +125,42 @@ export function Drawer({
         </button>
         <span className={styles.logo_container}>
           {logo ? (
-            <img alt={String(title)} src={logo} width={30} height={30} />
+            <img
+              className={onLogoClick ? styles.hand : undefined}
+              onClick={() => onLogoClick && onLogoClick()}
+              alt={String(title)}
+              src={logo}
+              width={30}
+              height={30}
+            />
           ) : (
-            <Gp size={30} />
+            <span
+              className={onLogoClick ? styles.hand : undefined}
+              onClick={() => onLogoClick && onLogoClick()}
+            >
+              <Gp size={30} />
+            </span>
           )}
           {title ? (
-            <span className={styles.logo_responsive}>{title}</span>
+            <span
+              onClick={() => onLogoClick && onLogoClick()}
+              className={[
+                styles.logo_responsive,
+                onLogoClick ? styles.hand : undefined,
+              ].join(' ')}
+            >
+              {title}
+            </span>
           ) : (
-            <span className={styles.logo_responsive}>Geslub Platform</span>
+            <span
+              onClick={() => onLogoClick && onLogoClick()}
+              className={[
+                styles.logo_responsive,
+                onLogoClick ? styles.hand : undefined,
+              ].join(' ')}
+            >
+              Geslub Platform
+            </span>
           )}
         </span>
         <div className={styles.fix_nav_responsive}></div>
