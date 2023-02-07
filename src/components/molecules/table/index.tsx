@@ -303,7 +303,6 @@ function Actions<T>({
       )}
       {showAdminOptions && (
         <DropDown
-          disabled={!isRowEnabled}
           title={
             <>
               <Ellipsis />
@@ -313,7 +312,6 @@ function Actions<T>({
         >
           <div className={styles.container_adminOptions}>
             <Button
-              disabled={!isRowEnabled}
               ariaLabel="editItem"
               onClick={(): void => onEdit && onEdit(item)}
               backgroundColor={themeColor}
@@ -325,7 +323,6 @@ function Actions<T>({
               <span className={styles.visually_hidden}>editItem</span>
             </Button>
             <Button
-              disabled={!isRowEnabled}
               ariaLabel="deleteItem"
               onClick={(): void => onDeleteItem && onDeleteItem(item)}
               backgroundColor={themeColor}
