@@ -1,6 +1,6 @@
-export const dotsLeft = '... ';
-export const dotsRight = ' ...';
-export const dotsInitial = '...';
+export const dotsLeft = '<< ';
+export const dotsRight = ' >>';
+export const dotsInitial = '>>';
 
 export const firstPage = (paginator: {
   totalItems: number;

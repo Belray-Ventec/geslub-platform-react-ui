@@ -26,11 +26,11 @@ export default function Paginator<T>({
   const [arrOfPages, setArrOfPages] = useState<(string | number)[]>([]);
 
   const handlePage = (item: number | string) => {
-    if (item === '... ') {
+    if (item === '<< ') {
       goPage(paginator.page - 3);
-    } else if (item === ' ...') {
+    } else if (item === ' >>') {
       goPage(paginator.page + 3);
-    } else if (item === '...') {
+    } else if (item === '>>') {
       goPage(paginator.page + 3);
     } else {
       goPage(Number(item) + 1);
@@ -98,13 +98,15 @@ export default function Paginator<T>({
         <div className={styles.arrows_container}>
           <button
             aria-label="previous"
-            onClick={(): void => previous()}
+            onClick={(): void => {
+              if (paginator.page > 1) {
+                previous();
+              }
+            }}
             className={[
               styles.previous,
               styles.previous_text,
-              paginator.totalItems > paginator.itemsPerPage
-                ? styles.active
-                : undefined,
+              paginator.page > 1 ? styles.active : undefined,
             ].join(' ')}
           >
             <AngleLeft />
@@ -113,14 +115,14 @@ export default function Paginator<T>({
           <button
             aria-label="next"
             onClick={(): void => {
-              next();
+              if (paginator.page < paginator.totalPages) {
+                next();
+              }
             }}
             className={[
               styles.next,
               styles.next_text,
-              paginator.totalItems > paginator.itemsPerPage
-                ? styles.active
-                : undefined,
+              paginator.page < paginator.totalPages ? styles.active : undefined,
             ].join(' ')}
           >
             <AngleLeft />
