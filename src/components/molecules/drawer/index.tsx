@@ -230,6 +230,7 @@ export function DrawerSubItem({
 
   useEffect(() => {
     !isOpen && setIsSubOpen(false);
+    isOpen && isActive && setIsSubOpen(true);
   }, [isOpen]);
 
   return (
