@@ -244,7 +244,6 @@ export function DrawerSubItem({
         className={[
           styles.drawer_item,
           isSubOpen ? styles.drawer_item_open : undefined,
-          isActive ? styles.isActive : undefined,
         ].join(' ')}
       >
         <span
