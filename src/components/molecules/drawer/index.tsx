@@ -66,7 +66,7 @@ export function Drawer({
                 ].join(' ')}
               >
                 <span className={styles.bold}>Ges</span>
-                lub Platform
+                lub Home
               </span>
             ) : (
               isOpen && (
