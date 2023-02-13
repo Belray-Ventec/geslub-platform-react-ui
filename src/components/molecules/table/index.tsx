@@ -134,18 +134,14 @@ export function Table<T>({
                       ? { opacity: 0.4 }
                       : { opacity: 1 }
                   }
-                  onClick={(): void =>
-                    getRowIsEnabled(item) !== false
-                      ? isChecked(item)
-                      : undefined
-                  }
                   key={getRowKey(item)}
                 >
                   {showHeaderButtons && (
                     <td>
                       <input
-                        readOnly
+                        className={styles.checkbox}
                         disabled={getRowIsEnabled(item) === false}
+                        onChange={() => isChecked(item)}
                         id={`belCheck${index}`}
                         checked={selected.includes(item)}
                         type="checkbox"
