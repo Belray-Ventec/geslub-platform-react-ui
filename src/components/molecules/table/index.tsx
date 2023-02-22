@@ -86,7 +86,7 @@ export function Table<T>({
           selected={selected}
         />
       )}
-      <div className={styles.table_container} style={{ height: '840px' }}>
+      <div className={styles.table_container} style={{ minHeight: '850px' }}>
         <table style={stylesInline(themeColor).table} className={styles.table}>
           {caption && <caption className={styles.caption}>{caption}</caption>}
           <thead>
