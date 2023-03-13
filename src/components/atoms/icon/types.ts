@@ -59,7 +59,17 @@ export type iconsType =
   | 'Calculator'
   | 'WorldFlag'
   | 'Germany'
-  | 'China';
+  | 'China'
+  | 'TeaditApplications'
+  | 'InstallationPockets'
+  | 'IndustrialMeetingsBook'
+  | 'FluidSealing'
+  | 'EngineeringConstruction'
+  | 'AutomaticLubrication'
+  | 'Filtration'
+  | 'Pumps'
+  | 'CompatibilityGuide'
+  | 'Guide';
 
 export interface IconProps {
   color?: string;
