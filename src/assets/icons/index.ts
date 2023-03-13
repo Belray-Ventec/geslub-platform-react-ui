@@ -61,3 +61,5 @@ export { default as SustitucionProducto } from './SustitucionProducto';
 export { default as TipoEquipos } from './TipoEquipos';
 export { default as Webinars } from './Webinars';
 export { default as Calculator } from './Calculator';
+export { default as WorldFlag } from './WorldFlag';
+export { Rusia } from './Russia';

@@ -25,7 +25,8 @@
     "build-storybook": "build-storybook",
     "style:write": "prettier --write **/*.{json,svg,js,jsx,ts,tsx,md}",
     "buildtokens": "node src/utils/scripts/buildTokens",
-    "release": "release-it"
+    "release": "release-it",
+    "phoenix": "npx rimraf node_modules & npm install"
   },
   "peerDependencies": {
     "react": ">=16"

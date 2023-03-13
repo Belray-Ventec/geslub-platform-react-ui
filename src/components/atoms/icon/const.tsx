@@ -62,6 +62,16 @@ import { AngleUp } from '../../../assets/icons/AngleUp';
 import WorldFlag from '../../../assets/icons/WorldFlag';
 import Aleman from '../../../assets/icons/Aleman';
 import { China } from '../../../assets/icons/China';
+import TeaditApplication from '../../../assets/icons/TeaditApplication';
+import InstallationPockets from '../../../assets/icons/InstallationPockets';
+import IndustrialMeetingsBook from '../../../assets/icons/IndustrialMeetingsBook';
+import FluidSealing from '../../../assets/icons/FluidSealing';
+import EngineeringAndConstruction from '../../../assets/icons/EngineeringAndConstruction';
+import AutomaticLubrication from '../../../assets/icons/AutomaticLubrication';
+import Filtration from '../../../assets/icons/Filtration';
+import Pumps from '../../../assets/icons/Pumps';
+import CompatibilityGuide from '../../../assets/icons/CompatibilityGuide';
+import Guide from '../../../assets/icons/Guide';
 export const icons: iconsType[] = [
   'Add',
   'AngleLeft',
@@ -122,6 +132,16 @@ export const icons: iconsType[] = [
   'WorldFlag',
   'Germany',
   'China',
+  'TeaditApplications',
+  'InstallationPockets',
+  'IndustrialMeetingsBook',
+  'FluidSealing',
+  'EngineeringConstruction',
+  'AutomaticLubrication',
+  'Filtration',
+  'Pumps',
+  'CompatibilityGuide',
+  'Guide',
 ];
 
 export const iconList = (size: number, color: string, src?: string) => {
@@ -180,6 +200,7 @@ export const iconList = (size: number, color: string, src?: string) => {
     ReferenciaAplicaciones: (
       <ReferenciaAplicaciones size={size} color={color} />
     ),
+    TeditApplications: <TeaditApplication size={size} color={color} />,
 
     RevistasTecnicas: <RevistasTecnicas size={size} color={color} />,
     Rss: <Rss size={size} color={color} />,
@@ -190,5 +211,19 @@ export const iconList = (size: number, color: string, src?: string) => {
     WorldFlag: <WorldFlag size={size} />,
     Germany: <Aleman size={size} />,
     China: <China size={size} />,
+    TeaditApplications: <TeaditApplication size={size} color={color} />,
+    InstallationPockets: <InstallationPockets size={size} color={color} />,
+    IndustrialMeetingsBook: (
+      <IndustrialMeetingsBook size={size} color={color} />
+    ),
+    FluidSealing: <FluidSealing size={size} color={color} />,
+    EngineeringConstruction: (
+      <EngineeringAndConstruction color={color} size={size} />
+    ),
+    AutomaticLubrication: <AutomaticLubrication size={size} color={color} />,
+    Filtration: <Filtration size={size} color={color} />,
+    Pumps: <Pumps size={size} color={color} />,
+    CompatibilityGuide: <CompatibilityGuide size={size} color={color} />,
+    Guide: <Guide size={size} color={color} />,
   };
 };
