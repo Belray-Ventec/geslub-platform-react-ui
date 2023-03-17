@@ -72,6 +72,7 @@ import Filtration from '../../../assets/icons/Filtration';
 import Pumps from '../../../assets/icons/Pumps';
 import CompatibilityGuide from '../../../assets/icons/CompatibilityGuide';
 import Guide from '../../../assets/icons/Guide';
+import Ventec from '../../../assets/icons/Ventec';
 export const icons: iconsType[] = [
   'Add',
   'AngleLeft',
@@ -142,6 +143,7 @@ export const icons: iconsType[] = [
   'Pumps',
   'CompatibilityGuide',
   'Guide',
+  'Ventec',
 ];
 
 export const iconList = (size: number, color: string, src?: string) => {
@@ -225,5 +227,6 @@ export const iconList = (size: number, color: string, src?: string) => {
     Pumps: <Pumps size={size} color={color} />,
     CompatibilityGuide: <CompatibilityGuide size={size} color={color} />,
     Guide: <Guide size={size} color={color} />,
+    Ventec: <Ventec size={size} color={color} />,
   };
 };
