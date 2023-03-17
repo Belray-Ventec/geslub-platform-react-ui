@@ -69,7 +69,8 @@ export type iconsType =
   | 'Filtration'
   | 'Pumps'
   | 'CompatibilityGuide'
-  | 'Guide';
+  | 'Guide'
+  | 'Ventec';
 
 export interface IconProps {
   color?: string;
