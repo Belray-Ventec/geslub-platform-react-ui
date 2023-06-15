@@ -11,6 +11,7 @@ export const stylesInline = (themeColor?: string) => {
         },
     penToSquare: themeColor ? '#fff' : '#9a9a9a',
     headerButtons: themeColor ? themeColor : '#fff',
+    shareButton: themeColor ? themeColor : '#34495e',
     actionsButton: themeColor ? themeColor : '#34495e',
     thaction: themeColor ? '#fff' : '#707070',
   };
