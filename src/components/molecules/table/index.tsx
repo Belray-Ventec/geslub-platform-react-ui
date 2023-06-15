@@ -355,10 +355,7 @@ function HeaderButtons<T>({
         >
           <Tooltip position="up" text="Compartir">
             <Flex justifyItems="center" alignItems="center" gap={2}>
-              <ShareNodes
-                size={20}
-                fill={stylesInline(themeColor).penToSquare}
-              />
+              <ShareNodes size={20} />
               <span>Compartir</span>
             </Flex>
           </Tooltip>

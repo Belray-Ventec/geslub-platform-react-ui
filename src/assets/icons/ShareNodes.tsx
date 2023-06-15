@@ -5,10 +5,7 @@ interface IconProps {
   size?: number;
 }
 
-export default function ShareNodes({
-  fill = '#9a9a9a',
-  size = 30,
-}: IconProps): JSX.Element {
+export default function ShareNodes({ size = 30 }: IconProps): JSX.Element {
   return (
     <svg
       width={size}
