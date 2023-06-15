@@ -17,7 +17,7 @@ import { Icon } from '../../atoms/icon';
 import { ActionsProps, TableProps, HeaderButtonProps, ThProps } from './types';
 import { stylesInline } from './const';
 import Tooltip from '../../atoms/tooltip';
-import { Spinner } from '@chakra-ui/react';
+import { Flex, Spinner } from '@chakra-ui/react';
 
 export function Table<T>({
   columns,
@@ -342,6 +342,25 @@ function HeaderButtons<T>({
 }: HeaderButtonProps<T>) {
   return (
     <div className={styles.control}>
+      {share && (
+        <Button
+          disabled={selected.length === 0}
+          ariaLabel="share"
+          primary
+          color={selected.length > 0 ? '#fff' : '#9a9a9a'}
+          backgroundColor={
+            selected.length > 0 ? stylesInline(themeColor).shareButton : '#fff'
+          }
+          onClick={() => share && share(selected)}
+        >
+          <Tooltip position="up" text="Compartir">
+            <Flex justifyItems="center" alignItems="center" gap={2}>
+              <ShareNodes size={20} />
+              <span>Compartir</span>
+            </Flex>
+          </Tooltip>
+        </Button>
+      )}
       {add && (
         <Button
           ariaLabel="add"
@@ -352,25 +371,6 @@ function HeaderButtons<T>({
           <Tooltip position="up" text="Nuevo">
             <Add size={20} fill={stylesInline(themeColor).penToSquare} />
             <span className={styles.visually_hidden}>add</span>
-          </Tooltip>
-        </Button>
-      )}
-
-      {share && (
-        <Button
-          disabled={selected.length === 0}
-          ariaLabel="share"
-          primary
-          backgroundColor={
-            selected.length > 0
-              ? stylesInline(themeColor).headerButtons
-              : '#f2f2f2'
-          }
-          onClick={() => share && share(selected)}
-        >
-          <Tooltip position="up" text="Compartir">
-            <ShareNodes size={20} fill={stylesInline(themeColor).penToSquare} />
-            <span className={styles.visually_hidden}>share</span>
           </Tooltip>
         </Button>
       )}
