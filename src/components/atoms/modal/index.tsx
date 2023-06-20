@@ -24,10 +24,11 @@ export function Modal({
   hiddenAction = false,
   backgroundHeader,
   minH,
+  size,
   ...props
 }: ModalProps) {
   return (
-    <ChakraModal isOpen={isOpen} onClose={onClose}>
+    <ChakraModal size={size} isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent minH={minH}>
         <ModalHeader
