@@ -16,6 +16,7 @@ export function ModalWithButton({ children, title }: ModalWithButtonProps) {
         Open Modal
       </Button>
       <Modal
+        minH="100%"
         onAction={() => console.log('Action')}
         title={title}
         isOpen={isOpen}

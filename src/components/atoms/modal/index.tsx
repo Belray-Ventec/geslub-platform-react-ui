@@ -23,12 +23,13 @@ export function Modal({
   onAction,
   hiddenAction = false,
   backgroundHeader,
+  minH,
   ...props
 }: ModalProps) {
   return (
-    <ChakraModal isOpen={isOpen} onClose={onClose} {...props}>
+    <ChakraModal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent>
+      <ModalContent minH={minH}>
         <ModalHeader
           color={'onPrimary'}
           bg={backgroundHeader ? backgroundHeader : 'primary'}
@@ -36,7 +37,7 @@ export function Modal({
           {title}
         </ModalHeader>
         <ModalCloseButton color={'onPrimary'} />
-        <ModalBody>{children}</ModalBody>
+        <ModalBody {...props}>{children}</ModalBody>
         {!hiddenFooter && (
           <ModalFooter>
             {!hiddenAction && (

@@ -1,5 +1,5 @@
-import { ModalProps as ChakraModalProps } from '@chakra-ui/react';
-export interface ModalProps extends ChakraModalProps {
+import { ModalBodyProps } from '@chakra-ui/react';
+export interface ModalProps extends ModalBodyProps {
   title: string;
   isOpen: boolean;
   onClose: () => void;
@@ -11,6 +11,7 @@ export interface ModalProps extends ChakraModalProps {
   onCancel?: () => void;
   hiddenAction?: boolean;
   backgroundHeader?: string;
+  minH?: string;
 
   children: React.ReactNode;
 }
