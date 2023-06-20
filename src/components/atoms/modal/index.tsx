@@ -25,10 +25,16 @@ export function Modal({
   backgroundHeader,
   minH,
   size,
+  closeOnOverlayClick = false,
   ...props
 }: ModalProps) {
   return (
-    <ChakraModal size={size} isOpen={isOpen} onClose={onClose}>
+    <ChakraModal
+      closeOnOverlayClick={closeOnOverlayClick}
+      size={size}
+      isOpen={isOpen}
+      onClose={onClose}
+    >
       <ModalOverlay />
       <ModalContent minH={minH}>
         <ModalHeader

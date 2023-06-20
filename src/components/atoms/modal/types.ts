@@ -12,6 +12,7 @@ export interface ModalProps extends ModalBodyProps {
   hiddenAction?: boolean;
   backgroundHeader?: string;
   minH?: string;
+  closeOnOverlayClick?: boolean;
   size?:
     | ResponsiveValue<
         | (string & Record<string, never>)
